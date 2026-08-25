@@ -577,6 +577,6 @@ body {
     object-position: top;
     display: block;
     overflow: hidden;
-    border-radius: 12px; /* bordes redondeados */
+    border-radius: 12px;
 }
 
