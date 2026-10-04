@@ -1,23 +1,4 @@
-
-
-
-
-
-
-
-
-
-
-/*async function loadComponent(container, file) {
-  const response = await fetch(file);
-  document.getElementById(container).innerHTML =
-  await response.text();
-  iniciarAnimaciones();
-}
-loadComponent('hero-container', 'components/hero.html');
-*/
-
-
+/*
 // Animación de números al hacer scroll
 const elementos = document.querySelectorAll('.animar');
 
@@ -32,8 +13,6 @@ const animarNumero = (el) => {
     if (actual >= final) {
       
       if (final==18) el.textContent = final + " años"; else el.textContent = final + "+";
-      
-      
       
       clearInterval(intervalo);
     } else {
@@ -59,6 +38,13 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
 
 elementos.forEach(el => observer.observe(el));
+*/
+
+
+
+
+
+
 
 /* para animar la primera sección del hero */
 document.addEventListener("DOMContentLoaded", () => {
