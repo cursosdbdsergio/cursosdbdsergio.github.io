@@ -48,7 +48,7 @@ elementos.forEach(el => observer.observe(el));
 
 
 /* para animar la primera sección del hero */
-document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
   const elements = document.querySelectorAll(".animate-left, .animate-right");
 
   const observer = new IntersectionObserver((entries) => {
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }, { threshold: 0.2 });
 
   elements.forEach(el => observer.observe(el));
-});
+});*/
 
 
 
