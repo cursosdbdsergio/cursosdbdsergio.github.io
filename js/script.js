@@ -1,3 +1,12 @@
+//.. cargar contenido de la sección hero desde un archivo externo
+fetch('sections/hero.html').then(response => response.text()).then(data => 
+      {document.getElementById('hero-container').innerHTML = data;});
+
+
+
+
+
+
 // Animación de números al hacer scroll
 const elementos = document.querySelectorAll('.animar');
 
