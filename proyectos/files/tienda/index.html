@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Moda en tallas grandes del XL al 6XL: ropa cómoda, con estilo y a tu medida. Compra online y recoge en el mercado o recíbela en casa.">
+  <title>Holgura | Moda en tallas grandes</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Barra de información general -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <a href="tel:+34600000000">📞 +34 600 000 000</a>
+      <a href="mailto:hola@holgura.es">✉ hola@holgura.es</a>
+      <span class="topbar__hours" data-i18n="top.hours">Mercado Central, puesto 24 · Lun-Sáb 8:00-14:30</span>
+      <select class="lang-select lang-select--top" aria-label="Idioma" data-lang-select>
+        <option value="es">Español</option>
+        <option value="en">English</option>
+        <option value="va">Valencià</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Cabecera fija -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#inicio" class="logo" data-scroll>
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 6a2 2 0 1 0-2-2M12 6v3l9 6a1.5 1.5 0 0 1-.8 2.7H3.8A1.5 1.5 0 0 1 3 15l9-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Holgura</span>
+      </a>
+
+      <nav class="nav" aria-label="Principal">
+        <a href="#inicio" data-scroll data-i18n="nav.home">Inicio</a>
+        <a href="#nosotros" data-scroll data-i18n="nav.about">Nosotros</a>
+        <a href="#tienda" data-scroll data-i18n="nav.shop">Tienda</a>
+        <a href="#tallas" data-scroll data-i18n="nav.sizes">Guía de tallas</a>
+        <a href="#envios" data-scroll data-i18n="nav.shipping">Envíos y pago</a>
+        <a href="#contacto" data-scroll data-i18n="nav.contact">Contacto</a>
+      </nav>
+
+      <div class="actions">
+        <button class="icon-btn" data-open-search aria-label="Buscar">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </button>
+        <button class="icon-btn" id="loginBtn" aria-label="Acceder">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+        </button>
+        <button class="icon-btn" id="themeBtn" aria-label="Cambiar tema">
+          <svg class="icon-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6 19 19M5 19l1.4-1.4M17.6 6.4 19 5"/></svg>
+        </button>
+        <button class="icon-btn cart-btn" id="cartBtn" aria-label="Carrito">
+          <svg viewBox="0 0 24 24"><path d="M3 4h2l2.4 11h10.2L20 7H6"/><circle cx="9" cy="19" r="1.2"/><circle cx="17" cy="19" r="1.2"/></svg>
+          <span class="cart-badge" id="cartCount">0</span>
+        </button>
+        <button class="icon-btn burger" id="burgerBtn" aria-label="Menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú móvil: baja desde arriba y queda centrado -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#inicio" data-scroll data-i18n="nav.home">Inicio</a>
+      <a href="#nosotros" data-scroll data-i18n="nav.about">Nosotros</a>
+      <a href="#tienda" data-scroll data-i18n="nav.shop">Tienda</a>
+      <a href="#tallas" data-scroll data-i18n="nav.sizes">Guía de tallas</a>
+      <a href="#envios" data-scroll data-i18n="nav.shipping">Envíos y pago</a>
+      <a href="#contacto" data-scroll data-i18n="nav.contact">Contacto</a>
+      <button class="btn btn--ghost" data-open-search data-i18n="search.open">Buscar en la página</button>
+      <select class="lang-select" aria-label="Idioma" data-lang-select>
+        <option value="es">Español</option>
+        <option value="en">English</option>
+        <option value="va">Valencià</option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="inicio">
+      <div class="container hero__content">
+        <h1 data-i18n="hero.title">Ropa que te queda bien. Sin excusas, sin tallas escondidas.</h1>
+        <p data-i18n="hero.text">Del XL al 6XL, con patrones pensados para tu cuerpo: tejidos suaves, costuras que no aprietan y estilo de verdad.</p>
+        <div class="hero__cta">
+          <a href="#tienda" class="btn" data-scroll data-i18n="hero.cta">Ver la tienda</a>
+          <a href="#tallas" class="btn btn--light" data-scroll data-i18n="hero.cta2">Encuentra tu talla</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección informativa -->
+    <section class="section" id="nosotros">
+      <div class="container">
+        <h2 data-i18n="about.title">Una tienda hecha para todos los cuerpos</h2>
+        <p class="lead">Somos un puesto familiar del mercado con más de 20 años vistiendo a quienes no encontraban su talla en ningún sitio. Probamos cada prenda en personas reales antes de venderla.</p>
+        <div class="grid grid--3">
+          <article class="card"><h3>Patrones propios</h3><p>Más holgura en cadera, brazo y cuello donde se necesita, sin que la prenda parezca una tienda de campaña.</p></article>
+          <article class="card"><h3>Tejidos amables</h3><p>Algodón, lino y viscosa elástica que respiran y no se deforman tras el lavado.</p></article>
+          <article class="card"><h3>Arreglos incluidos</h3><p>Dobladillos y ajustes gratis en nuestro taller del mercado.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tienda con carrito -->
+    <section class="section section--alt" id="tienda">
+      <div class="container">
+        <h2 data-i18n="shop.title">Novedades de temporada</h2>
+        <div class="grid grid--products" id="productGrid"></div>
+      </div>
+    </section>
+
+    <!-- Guía de tallas -->
+    <section class="section" id="tallas">
+      <div class="container">
+        <h2 data-i18n="sizes.title">Guía de tallas</h2>
+        <p class="lead">Mide el contorno de pecho y cintura sin apretar y elige la talla que incluya ambas medidas.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Talla</th><th>Pecho (cm)</th><th>Cintura (cm)</th><th>Cadera (cm)</th></tr></thead>
+            <tbody>
+              <tr><td>XL</td><td>112-118</td><td>96-102</td><td>118-124</td></tr>
+              <tr><td>2XL</td><td>118-126</td><td>102-110</td><td>124-132</td></tr>
+              <tr><td>3XL</td><td>126-134</td><td>110-118</td><td>132-140</td></tr>
+              <tr><td>4XL</td><td>134-142</td><td>118-126</td><td>140-148</td></tr>
+              <tr><td>5XL</td><td>142-150</td><td>126-134</td><td>148-156</td></tr>
+              <tr><td>6XL</td><td>150-158</td><td>134-142</td><td>156-164</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Envíos y pago -->
+    <section class="section section--alt" id="envios">
+      <div class="container">
+        <h2 data-i18n="ship.title">Recoge en el mercado o recíbelo en casa</h2>
+        <div class="grid grid--3">
+          <article class="card"><h3>Recogida gratis</h3><p>Reserva online y pasa a recogerlo por el puesto 24. Lo guardamos 5 días.</p></article>
+          <article class="card"><h3>Envío a domicilio</h3><p>4,95 € en 24-48 h. Gratis a partir de 60 €.</p></article>
+          <article class="card"><h3>Tres formas de pagar</h3><p>Al recoger, al recibir el pedido o con tarjeta en la pasarela segura del mercado.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="section" id="contacto">
+      <div class="container contact">
+        <div>
+          <h2 data-i18n="contact.title">Escríbenos</h2>
+          <p class="lead">Dudas de talla, cambios o pedidos especiales. Respondemos en menos de 24 horas.</p>
+          <p>📍 Mercado Central, puesto 24, Valencia<br>📞 +34 600 000 000<br>✉ hola@holgura.es</p>
+        </div>
+        <form class="form" id="contactForm">
+          <label>Nombre <input type="text" name="name" required autocomplete="name"></label>
+          <label>Email <input type="email" name="email" required autocomplete="email"></label>
+          <label>Mensaje <textarea name="message" rows="4" required></textarea></label>
+          <button class="btn" type="submit" data-i18n="contact.send">Enviar mensaje</button>
+          <p class="form__status" id="contactStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div><h4>Holgura</h4><p>Moda en tallas grandes, del XL al 6XL, con trato de mercado de barrio.</p></div>
+      <div><h4>Información</h4><a href="#">Política de cookies</a><a href="#">Aviso legal y privacidad</a><a href="#">Cambios y devoluciones</a></div>
+      <div><h4>Requisitos</h4><p>Devoluciones en 30 días con etiqueta. Pedidos online sujetos a disponibilidad de stock.</p></div>
+      <div><h4>Horario</h4><p>Lunes a sábado<br>8:00 - 14:30</p></div>
+    </div>
+    <p class="footer__copy">© 2026 Holgura. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Carrito lateral -->
+  <aside class="drawer" id="cartDrawer" aria-label="Carrito">
+    <div class="drawer__head"><h3 data-i18n="cart.title">Tu carrito</h3><button class="icon-btn" id="cartClose" aria-label="Cerrar">✕</button></div>
+    <ul class="cart-list" id="cartList"></ul>
+    <div class="drawer__foot">
+      <p class="total"><span data-i18n="cart.total">Subtotal</span><strong id="cartTotal">0,00 €</strong></p>
+      <button class="btn" id="checkoutBtn" data-i18n="cart.checkout">Finalizar pedido</button>
+    </div>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Modal de búsqueda -->
+  <dialog class="modal" id="searchModal">
+    <form method="dialog" class="modal__close-row"><button class="icon-btn" aria-label="Cerrar">✕</button></form>
+    <input type="search" id="searchInput" placeholder="Buscar en la página..." autocomplete="off">
+    <p class="search-info" id="searchInfo" role="status"></p>
+  </dialog>
+
+  <!-- Modal de finalizar pedido -->
+  <dialog class="modal modal--wide" id="checkoutModal">
+    <form id="checkoutForm" class="form">
+      <h3 data-i18n="checkout.title">Finalizar pedido</h3>
+      <label>Nombre <input name="name" required autocomplete="name"></label>
+      <label>Teléfono <input name="phone" type="tel" required autocomplete="tel"></label>
+      <label>Email <input name="email" type="email" required autocomplete="email"></label>
+
+      <fieldset><legend data-i18n="checkout.method">¿Cómo lo quieres?</legend>
+        <label class="choice"><input type="radio" name="method" value="pickup" checked> Reservar y recoger en el mercado (gratis)</label>
+        <label class="choice"><input type="radio" name="method" value="home"> Enviar a mi dirección</label>
+      </fieldset>
+      <label data-for="home" hidden>Dirección completa <textarea name="address" rows="2"></textarea></label>
+      <label data-for="pickup">Fecha de recogida <input type="date" name="pickupDate"></label>
+
+      <fieldset><legend data-i18n="checkout.payment">¿Cómo pagarás?</legend>
+        <label class="choice" data-for="pickup"><input type="radio" name="payment" value="onPickup" checked> Pagaré al recoger</label>
+        <label class="choice" data-for="home" hidden><input type="radio" name="payment" value="onDelivery"> Pagaré cuando me lo entreguen</label>
+        <label class="choice"><input type="radio" name="payment" value="online"> Pagar ahora con la pasarela del mercado</label>
+      </fieldset>
+
+      <p class="total"><span>Envío</span><strong id="shipCost">0,00 €</strong></p>
+      <p class="total"><span>Total</span><strong id="orderTotal">0,00 €</strong></p>
+      <div class="form__row">
+        <button class="btn btn--ghost" type="button" data-close-modal>Cancelar</button>
+        <button class="btn" type="submit" data-i18n="checkout.confirm">Confirmar pedido</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Resumen previo a la pasarela de pago (la pasarela se conecta en script.js) -->
+  <dialog class="modal modal--wide" id="paymentModal">
+    <h3>Pago online</h3>
+    <ul class="cart-list" id="paymentSummary"></ul>
+    <p class="total"><span>Importe a pagar</span><strong id="paymentTotal"></strong></p>
+    <div class="form__row">
+      <button class="btn btn--ghost" type="button" data-close-modal>Volver</button>
+      <button class="btn" id="payNowBtn">Ir a la pasarela de pago</button>
+    </div>
+  </dialog>
+
+  <!-- Confirmación de pedido -->
+  <dialog class="modal" id="doneModal">
+    <h3>¡Pedido recibido!</h3>
+    <p id="doneText"></p>
+    <button class="btn" type="button" data-close-modal>Entendido</button>
+  </dialog>
+</body>
+</html>

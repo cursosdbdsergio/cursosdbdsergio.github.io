@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ÀMPLIA · Moda de tallas grandes (44–66) con patronaje real. Compra online, recoge en el mercado o recíbelo en casa y paga como prefieras.">
+  <meta name="theme-color" content="#8E2B57">
+  <title>ÀMPLIA · Moda de tallas grandes | Tallas 44–66</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ══════════════ BARRA SUPERIOR DE INFORMACIÓN GENERAL ══════════════ -->
+  <div class="topbar" id="topbar">
+    <div class="container topbar-inner">
+      <ul class="topbar-list">
+        <li>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1Z"/></svg>
+          <a href="tel:+34963214589">+34 963 21 45 89</a>
+        </li>
+        <li>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm9 8.2L4.7 7H19.3L12 13.2Z"/></svg>
+          <a href="mailto:hola@ampia.es">hola@ampia.es</a>
+        </li>
+        <li class="topbar-hide-sm">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 1 7 7c0 5.25-7 13-7 13S5 14.25 5 9a7 7 0 0 1 7-7Zm0 4.5A2.5 2.5 0 1 0 12 11a2.5 2.5 0 0 0 0-4.5Z"/></svg>
+          <span data-i18n="topbar.market">Mercado de Colón · Valencia</span>
+        </li>
+      </ul>
+      <div class="topbar-extra">
+        <span data-i18n="topbar.free">Envío gratis desde 60 €</span>
+        <i class="topbar-dot" aria-hidden="true"></i>
+        <span data-i18n="topbar.returns">Cambios y devoluciones 30 días</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ HEADER FIJO ══════════════ -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+
+      <!-- Logo (esquina superior izquierda) -->
+      <a href="#inicio" class="logo" aria-label="ÀMPLIA — inicio">
+        <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M20 3 37 37H3Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+          <path d="M12 27h16" stroke="currentColor" stroke-width="2.4"/>
+          <circle cx="20" cy="17" r="3.4" fill="currentColor"/>
+        </svg>
+        <span class="logo-text">
+          ÀMPLIA
+          <small data-i18n="logo.tag">moda en tallas grandes</small>
+        </span>
+      </a>
+
+      <!-- Menú principal centrado -->
+      <nav class="main-nav" id="mainNav" aria-label="Menú principal">
+        <ul class="nav-list">
+          <li><a href="#inicio" class="nav-link is-active" data-i18n="nav.home">Inicio</a></li>
+          <li><a href="#coleccion" class="nav-link" data-i18n="nav.shop">Colección</a></li>
+          <li><a href="#nosotras" class="nav-link" data-i18n="nav.about">Nosotras</a></li>
+          <li><a href="#tallas" class="nav-link" data-i18n="nav.sizes">Tallas</a></li>
+          <li><a href="#lookbook" class="nav-link" data-i18n="nav.lookbook">Lookbook</a></li>
+          <li><a href="#opiniones" class="nav-link" data-i18n="nav.reviews">Opiniones</a></li>
+          <li><a href="#contacto" class="nav-link" data-i18n="nav.contact">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <!-- Acciones -->
+      <div class="header-actions">
+        <!-- Botón de búsqueda (lupa) -->
+        <button class="icon-btn" id="searchToggle" type="button" data-i18n-aria="action.search" aria-label="Buscar en la página" title="Buscar">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5 21 21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+
+        <!-- Selector de idioma: Español / Inglés / Valenciano -->
+        <div class="lang-switch" id="langSwitch">
+          <button class="lang-btn" id="langBtn" type="button" aria-haspopup="true" aria-expanded="false">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+            <span id="langCurrent">ES</span>
+            <svg class="ico chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <ul class="lang-menu" id="langMenu" role="menu">
+            <li role="none"><button type="button" role="menuitem" class="lang-opt is-active" data-lang="es">Español</button></li>
+            <li role="none"><button type="button" role="menuitem" class="lang-opt" data-lang="en">English</button></li>
+            <li role="none"><button type="button" role="menuitem" class="lang-opt" data-lang="va">Valencià</button></li>
+          </ul>
+        </div>
+
+        <!-- Botón de usuario (acceso al sistema de login) -->
+        <button class="icon-btn" id="accountToggle" type="button" data-i18n-aria="action.account" aria-label="Mi cuenta" title="Mi cuenta">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+
+        <!-- Botón modo claro / oscuro (sol / luna) -->
+        <button class="icon-btn theme-toggle" id="themeToggle" type="button" data-i18n-aria="action.theme" aria-label="Cambiar tema" title="Modo claro / oscuro">
+          <span class="theme-icons" id="themeIcons"></span>
+        </button>
+
+        <!-- Carrito -->
+        <button class="icon-btn cart-toggle" id="cartToggle" type="button" data-i18n-aria="action.cart" aria-label="Abrir carrito">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1.2 11.2a1.6 1.6 0 0 1-1.6 1.4H8.8a1.6 1.6 0 0 1-1.6-1.4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 8V6.4A3 3 0 0 1 12 3.4a3 3 0 0 1 3 3V8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+
+        <!-- Menú hamburguesa -->
+        <button class="hamburger" id="hamburgerToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="scroll-progress"><i id="scrollProgressBar"></i></div>
+  </header>
+
+  <!-- ══════════════ MENÚ MÓVIL (centrado, baja desde arriba) ══════════════ -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav class="mobile-nav" aria-label="Menú móvil">
+      <ul>
+        <li><a href="#inicio" data-i18n="nav.home">Inicio</a></li>
+        <li><a href="#coleccion" data-i18n="nav.shop">Colección</a></li>
+        <li><a href="#nosotras" data-i18n="nav.about">Nosotras</a></li>
+        <li><a href="#tallas" data-i18n="nav.sizes">Tallas</a></li>
+        <li><a href="#lookbook" data-i18n="nav.lookbook">Lookbook</a></li>
+        <li><a href="#opiniones" data-i18n="nav.reviews">Opiniones</a></li>
+        <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="mobile-utils">
+      <!-- Botón de búsqueda en la página -->
+      <button class="mobile-util-btn" id="mobileSearch" type="button">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5 21 21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span data-i18n="mobile.search">Buscar en la página</span>
+      </button>
+
+      <!-- Botón de idioma (3 idiomas) -->
+      <div class="mobile-lang">
+        <span class="mobile-lang-label" data-i18n="mobile.lang">Idioma</span>
+        <div class="mobile-lang-opts" role="group" aria-label="Idioma">
+          <button type="button" class="lang-pill is-active" data-lang="es">ES</button>
+          <button type="button" class="lang-pill" data-lang="en">EN</button>
+          <button type="button" class="lang-pill" data-lang="va">VA</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-contact">
+      <a href="tel:+34963214589">+34 963 21 45 89</a>
+      <a href="mailto:hola@ampia.es">hola@ampia.es</a>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ══════════════ HERO PRINCIPAL ══════════════ -->
+    <section class="hero" id="inicio" data-search-block>
+      <div class="hero-media" aria-hidden="true">
+        <video autoplay muted loop playsinline preload="metadata"
+               poster="https://images.pexels.com/photos/8433517/pexels-photo-8433517.jpeg?auto=compress&cs=tinysrgb&w=1600">
+          <source src="https://videos.pexels.com/video-files/8195083/8195083-uhd_3840_2160_25fps.mp4" type="video/mp4">
+        </video>
+        <div class="hero-scrim"></div>
+        <div class="hero-grain"></div>
+      </div>
+
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow eyebrow-light reveal" data-i18n="hero.eyebrow">Nueva colección · Tallas 44 a 66</p>
+          <h1 class="hero-title reveal">
+            <span data-i18n="hero.title1">Ropa que sienta bien</span>
+            <em data-i18n="hero.title2">en cada talla</em>
+          </h1>
+          <p class="hero-text reveal" data-i18n="hero.text">
+            Diseñamos y patronamos desde la talla 44 hasta la 66 sobre cuerpos reales.
+            Nada de escalados imposibles: cada prenda se vuelve a dibujar para que caiga
+            donde tiene que caer.
+          </p>
+          <div class="hero-actions reveal">
+            <a href="#coleccion" class="btn btn-primary" data-i18n="hero.ctaShop">Ver la colección</a>
+            <a href="#tallas" class="btn btn-ghost" data-i18n="hero.ctaSizes">Encuentra tu talla</a>
+          </div>
+          <ul class="hero-stats reveal">
+            <li><strong>44–66</strong><span data-i18n="hero.stat1">tallas europeas</span></li>
+            <li><strong>+18.000</strong><span data-i18n="hero.stat2">clientas vestidas</span></li>
+            <li><strong>4,9/5</strong><span data-i18n="hero.stat3">valoración media</span></li>
+          </ul>
+        </div>
+
+        <!-- Tarjeta flotante de producto destacado -->
+        <aside class="hero-card reveal" aria-label="Prenda destacada">
+          <img src="https://images.pexels.com/photos/39968710/pexels-photo-39968710.jpeg?auto=compress&cs=tinysrgb&w=700&h=900&fit=crop"
+               alt="Modelo con vestido dorado de la colección ÀMPLIA" loading="eager">
+          <div class="hero-card-body">
+            <span class="hero-card-tag" data-i18n="hero.cardTag">Destacado de la semana</span>
+            <h2>Vestido Gala</h2>
+            <div class="hero-card-row">
+              <span class="price">59,95&nbsp;€</span>
+              <button class="btn btn-sm btn-primary" type="button" data-quickview="p1" data-i18n="hero.cardCta">Ver prenda</button>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <span class="hero-side" aria-hidden="true">ÀMPLIA · VALENCIA · TALLAS 44/66</span>
+      <a href="#nosotras" class="hero-scroll" aria-label="Bajar a la siguiente sección">
+        <span data-i18n="hero.scroll">Descubre</span>
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m0 0 6-6m-6 6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </a>
+    </section>
+
+    <!-- ══════════════ MARQUESINA ══════════════ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marqueeTrack"></div>
+    </div>
+
+    <!-- ══════════════ SECCIÓN INFORMATIVA ══════════════ -->
+    <section class="section about" id="nosotras" data-search-block>
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow" data-i18n="about.eyebrow">Nuestra forma de trabajar</p>
+          <h2 class="section-title" data-i18n="about.title">Moda grande, bien hecha</h2>
+          <p class="section-lead" data-i18n="about.lead">
+            No hacemos «tallas especiales»: hacemos ropa. Solo que nuestra tabla de medidas
+            empieza donde la de casi todas termina.
+          </p>
+        </header>
+
+        <div class="about-grid">
+          <article class="about-media reveal">
+            <img src="https://images.pexels.com/photos/8433543/pexels-photo-8433543.jpeg?auto=compress&cs=tinysrgb&w=900&h=1100&fit=crop"
+                 alt="Dos clientas de ÀMPLIA posando en el estudio" loading="lazy">
+            <div class="about-media-badge">
+              <strong>12</strong>
+              <span data-i18n="about.badge">años vistiendo cuerpos reales</span>
+            </div>
+          </article>
+
+          <div class="about-points">
+            <article class="point reveal" data-point>
+              <span class="point-num">01</span>
+              <div>
+                <h3 data-i18n="about.p1t">Patronaje propio desde cero</h3>
+                <p data-i18n="about.p1d">Cada modelo se dibuja de nuevo en talla base 50 y se ajusta en probador con clientas reales antes de producirse.</p>
+              </div>
+            </article>
+            <article class="point reveal" data-point>
+              <span class="point-num">02</span>
+              <div>
+                <h3 data-i18n="about.p2t">Tejidos que acompañan</h3>
+                <p data-i18n="about.p2d">Algodón peinado, viscosa fluida y elastano recuperable: caen, no se clavan y aguantan lavados.</p>
+              </div>
+            </article>
+            <article class="point reveal" data-point>
+              <span class="point-num">03</span>
+              <div>
+                <h3 data-i18n="about.p3t">Recogida en el mercado</h3>
+                <p data-i18n="about.p3d">Reserva online y recoge en nuestro puesto del Mercado de Colón, con probador amplio y asesoría incluida.</p>
+              </div>
+            </article>
+            <article class="point reveal" data-point>
+              <span class="point-num">04</span>
+              <div>
+                <h3 data-i18n="about.p4t">Cambio de talla sin drama</h3>
+                <p data-i18n="about.p4d">Si no aciertas con la talla, cambiamos la prenda en 30 días y pagamos nosotros la recogida.</p>
+              </div>
+            </article>
+          </div>
+
+          <aside class="about-quote reveal">
+            <svg class="quote-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6C6 7.5 4.5 10 4.5 13.5V18h6v-6H7.8c0-2 .9-3.4 2.7-4.4Zm9 0c-3 1.5-4.5 4-4.5 7.5V18h6v-6h-2.7c0-2 .9-3.4 2.7-4.4Z"/></svg>
+            <p data-i18n="about.quote">
+              «Probarme un vestido aquí y que cierre bien por la espalda fue la primera vez en veinte años.»
+            </p>
+            <footer>
+              <strong>Rocío M.</strong>
+              <span data-i18n="about.quoteRole">clienta desde 2019 · talla 54</span>
+            </footer>
+          </aside>
+
+          <aside class="about-services reveal">
+            <h3 data-i18n="about.servicesTitle">Servicios en tienda y online</h3>
+            <ul class="check-list">
+              <li data-i18n="about.s1">Asesoría de talla presencial y por videollamada</li>
+              <li data-i18n="about.s2">Arreglos de bajo y pinzas gratuitos en prendas de fiesta</li>
+              <li data-i18n="about.s3">Reserva de prenda 48 h en el puesto del mercado</li>
+              <li data-i18n="about.s4">Pedido a medida para eventos (bodas, comuniones)</li>
+              <li data-i18n="about.s5">Envío a toda España en 24/72 h</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ TIENDA / COLECCIÓN ══════════════ -->
+    <section class="section shop" id="coleccion" data-search-block>
+      <div class="container">
+        <header class="section-head split reveal">
+          <div>
+            <p class="eyebrow" data-i18n="shop.eyebrow">Comprar online</p>
+            <h2 class="section-title" data-i18n="shop.title">La colección</h2>
+            <p class="section-lead" data-i18n="shop.lead">
+              Reserva para recoger en el mercado o recíbelo en tu dirección. Elige cuándo pagar.
+            </p>
+          </div>
+          <div class="shop-tools">
+            <label class="field-inline">
+              <span data-i18n="shop.sizeLabel">Talla</span>
+              <select id="sizeFilter" class="select"></select>
+            </label>
+            <label class="field-inline">
+              <span data-i18n="shop.sortLabel">Ordenar</span>
+              <select id="sortFilter" class="select">
+                <option value="featured" data-i18n="shop.sortFeatured">Destacados</option>
+                <option value="price-asc" data-i18n="shop.sortAsc">Precio: menor a mayor</option>
+                <option value="price-desc" data-i18n="shop.sortDesc">Precio: mayor a menor</option>
+                <option value="name" data-i18n="shop.sortName">Nombre A–Z</option>
+              </select>
+            </label>
+          </div>
+        </header>
+
+        <!-- Filtros por categoría -->
+        <div class="chip-row reveal" id="categoryFilters" role="group" aria-label="Filtrar por categoría"></div>
+
+        <p class="shop-count" id="productCount" aria-live="polite"></p>
+
+        <!-- Grid de productos (generado por JS) -->
+        <div class="product-grid" id="productGrid"></div>
+
+        <div class="shop-note reveal">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 1 7 7c0 5.25-7 13-7 13S5 14.25 5 9a7 7 0 0 1 7-7Zm0 4.5A2.5 2.5 0 1 0 12 11a2.5 2.5 0 0 0 0-4.5Z"/></svg>
+          <p data-i18n="shop.note">¿No encuentras tu talla o tu color? Escríbenos: fabricamos series cortas y podemos encargarla para ti.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ SECCIÓN SECUNDARIA: GUÍA DE TALLAS + ASESORÍA ══════════════ -->
+    <section class="section sizes" id="tallas" data-search-block>
+      <div class="container sizes-grid">
+        <div class="sizes-copy">
+          <p class="eyebrow reveal" data-i18n="sizes.eyebrow">Guía de tallas</p>
+          <h2 class="section-title reveal" data-i18n="sizes.title">Acertar a la primera</h2>
+          <p class="section-lead reveal" data-i18n="sizes.lead">
+            Nuestras tallas son europeas y reales. Mide contorno de pecho, cintura y cadera
+            con una cinta métrica sobre ropa interior y compara con la tabla.
+          </p>
+
+          <div class="table-wrap reveal">
+            <table class="size-table">
+              <caption class="visually-hidden" data-i18n="sizes.tableCaption">Tabla de medidas por talla</caption>
+              <thead>
+                <tr>
+                  <th data-i18n="sizes.colSize">Talla</th>
+                  <th data-i18n="sizes.colChest">Pecho (cm)</th>
+                  <th data-i18n="sizes.colWaist">Cintura (cm)</th>
+                  <th data-i18n="sizes.colHip">Cadera (cm)</th>
+                  <th data-i18n="sizes.colEq">Equiv.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>44</td><td>104–108</td><td>88–92</td><td>110–114</td><td>2XL</td></tr>
+                <tr><td>46</td><td>109–113</td><td>93–97</td><td>115–119</td><td>3XL</td></tr>
+                <tr><td>48</td><td>114–118</td><td>98–102</td><td>120–124</td><td>3XL</td></tr>
+                <tr><td>50</td><td>119–123</td><td>103–107</td><td>125–129</td><td>4XL</td></tr>
+                <tr><td>52</td><td>124–129</td><td>108–113</td><td>130–135</td><td>4XL</td></tr>
+                <tr><td>54</td><td>130–135</td><td>114–119</td><td>136–141</td><td>5XL</td></tr>
+                <tr><td>56</td><td>136–141</td><td>120–125</td><td>142–147</td><td>5XL</td></tr>
+                <tr><td>58–60</td><td>142–152</td><td>126–136</td><td>148–158</td><td>6XL</td></tr>
+                <tr><td>62–66</td><td>153–168</td><td>137–150</td><td>159–174</td><td>7XL</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <ol class="howto reveal">
+            <li><strong data-i18n="sizes.step1t">Pecho</strong><span data-i18n="sizes.step1d">Por la parte más plena, sin apretar.</span></li>
+            <li><strong data-i18n="sizes.step2t">Cintura</strong><span data-i18n="sizes.step2d">En el pliegue natural del torso.</span></li>
+            <li><strong data-i18n="sizes.step3t">Cadera</strong><span data-i18n="sizes.step3d">De pie, por la parte más ancha.</span></li>
+          </ol>
+        </div>
+
+        <aside class="sizes-aside">
+          <div class="advice-card reveal">
+            <img src="https://images.pexels.com/photos/5717935/pexels-photo-5717935.jpeg?auto=compress&cs=tinysrgb&w=900&h=700&fit=crop"
+                 alt="Asesora de ÀMPLIA ayudando a una clienta a elegir prenda" loading="lazy">
+            <div class="advice-body">
+              <h3 data-i18n="sizes.adviceTitle">Asesoría personal gratuita</h3>
+              <p data-i18n="sizes.adviceText">
+                30 minutos con una estilista especializada en tallas grandes, en tienda o por
+                videollamada. Te montamos tres looks completos con tu presupuesto.
+              </p>
+              <ul class="check-list small">
+                <li data-i18n="sizes.a1">Lunes a sábado, con cita previa</li>
+                <li data-i18n="sizes.a2">Probador amplio y accesible</li>
+                <li data-i18n="sizes.a3">Te guardamos las prendas 48 h</li>
+              </ul>
+              <a href="#contacto" class="btn btn-primary btn-block" data-i18n="sizes.adviceCta">Reservar cita</a>
+            </div>
+          </div>
+
+          <div class="mini-card reveal">
+            <span class="mini-card-num">92%</span>
+            <p data-i18n="sizes.mini">de los pedidos online aciertan con la talla a la primera gracias a la guía.</p>
+          </div>
+
+          <div class="mini-card dark reveal">
+            <h3 data-i18n="sizes.returnsTitle">Cambios fáciles</h3>
+            <p data-i18n="sizes.returnsText">30 días para cambiar talla o color. Recogemos en tu casa o lo traes al mercado.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ══════════════ LOOKBOOK ══════════════ -->
+    <section class="section lookbook" id="lookbook" data-search-block>
+      <div class="container">
+        <header class="section-head split reveal">
+          <div>
+            <p class="eyebrow" data-i18n="look.eyebrow">Lookbook otoño–invierno</p>
+            <h2 class="section-title" data-i18n="look.title">Vestidas de verdad</h2>
+          </div>
+          <p class="section-lead narrow" data-i18n="look.lead">
+            Fotos sin retoques de cuerpo, hechas en Valencia con clientas y amigas de la casa.
+          </p>
+        </header>
+
+        <div class="look-grid">
+          <figure class="look-item tall reveal">
+            <img src="https://images.pexels.com/photos/16587042/pexels-photo-16587042.jpeg?auto=compress&cs=tinysrgb&w=800&h=1100&fit=crop" alt="Look urbano con abrigo y vestido de punto" loading="lazy">
+            <figcaption><strong>Look 01</strong><span data-i18n="look.item1">Abrigo + vestido de punto</span></figcaption>
+          </figure>
+          <figure class="look-item reveal">
+            <img src="https://images.pexels.com/photos/34909506/pexels-photo-34909506.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Look de verano con gafas de sol" loading="lazy">
+            <figcaption><strong>Look 02</strong><span data-i18n="look.item2">Total look de lino</span></figcaption>
+          </figure>
+          <figure class="look-item reveal">
+            <img src="https://images.pexels.com/photos/8433517/pexels-photo-8433517.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Dos mujeres con traje de chaqueta" loading="lazy">
+            <figcaption><strong>Look 03</strong><span data-i18n="look.item3">Sastre fluido dos piezas</span></figcaption>
+          </figure>
+          <figure class="look-item wide reveal">
+            <img src="https://images.pexels.com/photos/31886651/pexels-photo-31886651.jpeg?auto=compress&cs=tinysrgb&w=1200&h=700&fit=crop" alt="Vestido blanco de invitada" loading="lazy">
+            <figcaption><strong>Look 04</strong><span data-i18n="look.item4">Invitada · vestido midi</span></figcaption>
+          </figure>
+          <figure class="look-item reveal">
+            <img src="https://images.pexels.com/photos/35588329/pexels-photo-35588329.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Look negro de diario" loading="lazy">
+            <figcaption><strong>Look 05</strong><span data-i18n="look.item5">Negro de diario</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ OPINIONES ══════════════ -->
+    <section class="section reviews" id="opiniones" data-search-block>
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow" data-i18n="rev.eyebrow">Opiniones verificadas</p>
+          <h2 class="section-title" data-i18n="rev.title">Lo que dicen en el probador</h2>
+        </header>
+
+        <div class="review-shell reveal">
+          <button class="round-btn" id="reviewPrev" type="button" aria-label="Opinión anterior">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div class="review-viewport">
+            <ul class="review-track" id="reviewTrack"></ul>
+          </div>
+          <button class="round-btn" id="reviewNext" type="button" aria-label="Siguiente opinión">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+        <div class="review-dots" id="reviewDots" role="tablist" aria-label="Opiniones"></div>
+      </div>
+    </section>
+
+    <!-- ══════════════ CONTACTO ══════════════ -->
+    <section class="section contact" id="contacto" data-search-block>
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <p class="eyebrow reveal" data-i18n="contact.eyebrow">Hablemos</p>
+          <h2 class="section-title reveal" data-i18n="contact.title">Escríbenos o pásate por el mercado</h2>
+          <p class="section-lead reveal" data-i18n="contact.lead">
+            Respondemos en menos de 24 h laborables. También puedes reservar tu asesoría
+            o pedir una prenda por encargo.
+          </p>
+
+          <ul class="contact-list reveal">
+            <li>
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 1 7 7c0 5.25-7 13-7 13S5 14.25 5 9a7 7 0 0 1 7-7Zm0 4.5A2.5 2.5 0 1 0 12 11a2.5 2.5 0 0 0 0-4.5Z"/></svg>
+              <div><strong data-i18n="contact.addrT">Tienda</strong><span data-i18n="contact.addrD">Mercado de Colón, puesto 27 · 46004 Valencia</span></div>
+            </li>
+            <li>
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3.2 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <div><strong data-i18n="contact.hoursT">Horario</strong><span data-i18n="contact.hoursD">L–S 10:00–20:30 · D 11:00–14:00</span></div>
+            </li>
+            <li>
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1Z"/></svg>
+              <div><strong data-i18n="contact.phoneT">Teléfono y WhatsApp</strong><span>+34 963 21 45 89</span></div>
+            </li>
+          </ul>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <h3 data-i18n="contact.formTitle">Formulario de contacto</h3>
+          <div class="form-row">
+            <label class="field">
+              <span data-i18n="contact.name">Nombre</span>
+              <input type="text" name="name" data-i18n-ph="contact.namePh" placeholder="Tu nombre" required>
+              <small class="field-error" data-error-for="name"></small>
+            </label>
+            <label class="field">
+              <span data-i18n="contact.email">Email</span>
+              <input type="email" name="email" placeholder="tucorreo@email.com" required>
+              <small class="field-error" data-error-for="email"></small>
+            </label>
+          </div>
+          <div class="form-row">
+            <label class="field">
+              <span data-i18n="contact.phone">Teléfono</span>
+              <input type="tel" name="phone" placeholder="+34 600 000 000">
+            </label>
+            <label class="field">
+              <span data-i18n="contact.subject">Motivo</span>
+              <select name="subject">
+                <option data-i18n="contact.subj1">Asesoría de talla</option>
+                <option data-i18n="contact.subj2">Pedido por encargo</option>
+                <option data-i18n="contact.subj3">Cambio o devolución</option>
+                <option data-i18n="contact.subj4">Otra consulta</option>
+              </select>
+            </label>
+          </div>
+          <label class="field">
+            <span data-i18n="contact.message">Mensaje</span>
+            <textarea name="message" rows="4" data-i18n-ph="contact.messagePh" placeholder="Cuéntanos qué necesitas…" required></textarea>
+            <small class="field-error" data-error-for="message"></small>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" name="privacy" required>
+            <span data-i18n="contact.privacy">He leído y acepto la política de privacidad.</span>
+          </label>
+          <small class="field-error" data-error-for="privacy"></small>
+          <button class="btn btn-primary btn-block" type="submit" data-i18n="contact.submit">Enviar mensaje</button>
+          <p class="form-ok" id="contactOk" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="site-footer" data-search-block>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#inicio" class="logo logo-footer">
+          <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true">
+            <path d="M20 3 37 37H3Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+            <path d="M12 27h16" stroke="currentColor" stroke-width="2.4"/><circle cx="20" cy="17" r="3.4" fill="currentColor"/>
+          </svg>
+          <span class="logo-text">ÀMPLIA<small data-i18n="logo.tag">moda en tallas grandes</small></span>
+        </a>
+        <p data-i18n="footer.about">
+          Tienda de moda femenina y masculina en tallas 44–66. Diseño propio, patronaje real
+          y venta online con recogida en el Mercado de Colón de Valencia.
+        </p>
+        <form class="newsletter" id="newsletterForm" novalidate>
+          <label class="visually-hidden" for="newsletterEmail" data-i18n="footer.newsLabel">Email para el boletín</label>
+          <input type="email" id="newsletterEmail" data-i18n-ph="footer.newsPh" placeholder="Tu email" required>
+          <button class="btn btn-primary btn-sm" type="submit" data-i18n="footer.newsBtn">Apúntame</button>
+        </form>
+        <p class="newsletter-msg" id="newsletterMsg" role="status"></p>
+      </div>
+
+      <nav class="footer-col" aria-label="Tienda">
+        <h4 data-i18n="footer.colShop">Tienda</h4>
+        <ul>
+          <li><a href="#coleccion" data-i18n="footer.l1">Vestidos</a></li>
+          <li><a href="#coleccion" data-i18n="footer.l2">Blusas y camisas</a></li>
+          <li><a href="#coleccion" data-i18n="footer.l3">Pantalones</a></li>
+          <li><a href="#coleccion" data-i18n="footer.l4">Abrigos</a></li>
+          <li><a href="#coleccion" data-i18n="footer.l5">Punto y camisetas</a></li>
+          <li><a href="#coleccion" data-i18n="footer.l6">Novedades</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Ayuda y requisitos">
+        <h4 data-i18n="footer.colHelp">Ayuda y requisitos</h4>
+        <ul>
+          <li><a href="#tallas" data-i18n="footer.h1">Guía de tallas y medidas</a></li>
+          <li><a href="#" data-modal-open="cookieModal" data-i18n="footer.h2">Política de cookies</a></li>
+          <li><a href="#" data-modal-open="legalModal" data-i18n="footer.h3">Requisitos de compra</a></li>
+          <li><a href="#" data-modal-open="legalModal" data-i18n="footer.h4">Envíos, cambios y devoluciones</a></li>
+          <li><a href="#" data-modal-open="legalModal" data-i18n="footer.h5">Privacidad y aviso legal</a></li>
+          <li><a href="#" data-modal-open="legalModal" data-i18n="footer.h6">Accesibilidad</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col">
+        <h4 data-i18n="footer.colContact">Contacto</h4>
+        <ul class="footer-contact">
+          <li>Mercado de Colón, puesto 27<br>46004 Valencia</li>
+          <li><a href="tel:+34963214589">+34 963 21 45 89</a></li>
+          <li><a href="mailto:hola@ampia.es">hola@ampia.es</a></li>
+          <li data-i18n="footer.hours">L–S 10:00–20:30 · D 11:00–14:00</li>
+        </ul>
+        <div class="social" aria-label="Redes sociales">
+          <a href="#" aria-label="Instagram"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.3" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6A22 22 0 0 0 14.3 3.5c-2.4 0-4 1.45-4 4.1v2.3H7.6V13h2.7v8Z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h2.2a5 5 0 0 0 4 4.3v2.4a7.3 7.3 0 0 1-4-1.3v6.4A5.8 5.8 0 1 1 10.4 9v2.5a3.3 3.3 0 1 0 1.4 2.8V3Z"/></svg></a>
+          <a href="#" aria-label="Pinterest"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-3.3 17.4 8.6 8.6 0 0 1 .1-2.3l1.1-4.6a3.4 3.4 0 0 1-.3-1.4c0-1.4.8-2.4 1.8-2.4a1.3 1.3 0 0 1 1.3 1.4 18 18 0 0 1-.8 3 1.4 1.4 0 0 0 1.4 1.7c1.7 0 3-1.8 3-4.4a3.8 3.8 0 0 0-4-4 4.2 4.2 0 0 0-4.4 4.2 4 4 0 0 1 .8 2.1.3.3 0 0 1-.2.3l-.7.1c-.3 0-.4-.2-.6-.6a4.7 4.7 0 0 1 .1-3.8A5.8 5.8 0 0 1 12.4 6c3 0 5.3 2.1 5.3 5 0 3-1.9 5.4-4.5 5.4a2.3 2.3 0 0 1-2-1l-.6 2.2a9.4 9.4 0 0 1-1.1 2.3A9 9 0 1 0 12 3Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© <span id="year">2026</span> ÀMPLIA S.L. · <span data-i18n="footer.rights">Todos los derechos reservados</span></p>
+        <ul class="footer-legal">
+          <li><a href="#" data-modal-open="cookieModal" data-i18n="footer.cookies">Política de cookies</a></li>
+          <li><a href="#" data-modal-open="legalModal" data-i18n="footer.legal">Aviso legal</a></li>
+          <li><a href="#" data-modal-open="legalModal" data-i18n="footer.privacy">Privacidad</a></li>
+        </ul>
+        <div class="pay-icons" aria-label="Métodos de pago">
+          <svg viewBox="0 0 48 30" aria-label="Tarjeta"><rect x="1" y="1" width="46" height="28" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M1 9h46" stroke="currentColor" stroke-width="3"/></svg>
+          <svg viewBox="0 0 48 30" aria-label="Bizum"><rect x="1" y="1" width="46" height="28" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="24" y="20" font-size="11" text-anchor="middle" fill="currentColor" font-family="inherit">BIZUM</text></svg>
+          <svg viewBox="0 0 48 30" aria-label="Efectivo"><rect x="1" y="1" width="46" height="28" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="24" cy="15" r="7" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M24 11v8m-2-6h4m-4 4h4" stroke="currentColor" stroke-width="1.3"/></svg>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════ SCRIM (fondo para el carrito) ══════════════ -->
+  <div class="scrim" id="scrim" hidden></div>
+
+  <!-- ══════════════ MODAL DE BÚSQUEDA ══════════════ -->
+  <div class="modal" id="searchModal" role="dialog" aria-modal="true" aria-labelledby="searchTitle" hidden>
+    <div class="modal-dialog modal-search">
+      <div class="search-head">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5 21 21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input type="search" id="searchInput" class="search-input" data-i18n-ph="search.ph"
+               placeholder="Buscar tallas, vestidos, envíos…" autocomplete="off" aria-label="Buscar">
+        <button class="icon-btn" id="searchClose" type="button" aria-label="Cerrar búsqueda">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <div class="search-chips" id="searchChips"></div>
+      <div class="search-meta">
+        <p id="searchCount" data-i18n="search.hint">Escribe al menos 2 letras. Buscaremos en toda la página y marcaremos las coincidencias.</p>
+        <button class="link-btn" id="searchClear" type="button" data-i18n="search.clear">Quitar resaltados</button>
+      </div>
+      <ul class="search-results" id="searchResults"></ul>
+    </div>
+  </div>
+
+  <!-- ══════════════ MODAL VISTA RÁPIDA DE PRODUCTO ══════════════ -->
+  <div class="modal" id="quickModal" role="dialog" aria-modal="true" aria-labelledby="quickTitle" hidden>
+    <div class="modal-dialog modal-quick">
+      <button class="modal-x" id="quickClose" type="button" aria-label="Cerrar">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div id="quickBody"></div>
+    </div>
+  </div>
+
+  <!-- ══════════════ MODAL DE USUARIO / LOGIN ══════════════ -->
+  <div class="modal" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle" hidden>
+    <div class="modal-dialog modal-auth">
+      <button class="modal-x" id="authClose" type="button" aria-label="Cerrar">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="auth-tabs" role="tablist">
+        <button class="auth-tab is-active" id="authTabLogin" role="tab" type="button" data-i18n="auth.login">Entrar</button>
+        <button class="auth-tab" id="authTabRegister" role="tab" type="button" data-i18n="auth.register">Crear cuenta</button>
+      </div>
+      <h3 id="authTitle" data-i18n="auth.title">Mi cuenta ÀMPLIA</h3>
+      <p class="auth-sub" data-i18n="auth.sub">Guarda tus tallas, sigue tus pedidos y reserva cita de asesoría.</p>
+      <form id="authForm" novalidate>
+        <label class="field auth-name" hidden>
+          <span data-i18n="auth.name">Nombre</span>
+          <input type="text" name="aname" data-i18n-ph="auth.namePh" placeholder="Nombre y apellidos">
+        </label>
+        <label class="field">
+          <span data-i18n="auth.email">Email</span>
+          <input type="email" name="aemail" placeholder="tucorreo@email.com" required>
+        </label>
+        <label class="field">
+          <span data-i18n="auth.pass">Contraseña</span>
+          <input type="password" name="apass" placeholder="••••••••" required minlength="6">
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" name="aremember" checked>
+          <span data-i18n="auth.remember">Mantener la sesión iniciada</span>
+        </label>
+        <button class="btn btn-primary btn-block" type="submit" id="authSubmit" data-i18n="auth.submit">Entrar</button>
+        <p class="form-ok" id="authMsg" role="status"></p>
+      </form>
+      <p class="auth-note" data-i18n="auth.note">Sistema de acceso preparado: conecta aquí tu backend de autenticación.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════ CARRITO DE COMPRA (drawer lateral) ══════════════ -->
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" hidden>
+    <header class="cart-head">
+      <div>
+        <h3 id="cartTitle" data-i18n="cart.title">Tu cesta</h3>
+        <p class="cart-step-label" id="cartStepLabel"></p>
+      </div>
+      <button class="icon-btn" id="cartClose" type="button" aria-label="Cerrar carrito">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </header>
+
+    <ol class="cart-steps" id="cartSteps">
+      <li class="is-active" data-step="1"><i>1</i><span data-i18n="cart.step1">Cesta</span></li>
+      <li data-step="2"><i>2</i><span data-i18n="cart.step2">Entrega</span></li>
+      <li data-step="3"><i>3</i><span data-i18n="cart.step3">Pago</span></li>
+      <li data-step="4"><i>4</i><span data-i18n="cart.step4">Listo</span></li>
+    </ol>
+
+    <div class="cart-scroll">
+      <!-- PASO 1: cesta -->
+      <section class="cart-panel is-active" id="panelCart">
+        <div id="cartItems"></div>
+        <div class="cart-empty" id="cartEmpty" hidden>
+          <svg class="ico big" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1.2 11.2a1.6 1.6 0 0 1-1.6 1.4H8.8a1.6 1.6 0 0 1-1.6-1.4Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 8V6.4A3 3 0 0 1 12 3.4a3 3 0 0 1 3 3V8" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          <p data-i18n="cart.empty">Tu cesta está vacía.</p>
+          <button class="btn btn-primary btn-sm" type="button" data-close-and-scroll="#coleccion" data-i18n="cart.emptyCta">Ver la colección</button>
+        </div>
+        <label class="field cart-coupon">
+          <span data-i18n="cart.coupon">Código de descuento</span>
+          <div class="coupon-row">
+            <input type="text" id="couponInput" placeholder="ÀMPLIA10" aria-label="Código de descuento">
+            <button class="btn btn-outline btn-sm" type="button" id="couponApply" data-i18n="cart.couponBtn">Aplicar</button>
+          </div>
+          <small class="coupon-msg" id="couponMsg"></small>
+        </label>
+      </section>
+
+      <!-- PASO 2: entrega -->
+      <section class="cart-panel" id="panelDelivery">
+        <div class="opt-group" id="deliveryOptions">
+          <label class="opt">
+            <input type="radio" name="delivery" value="pickup" checked>
+            <span class="opt-box">
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10 12 4l8 6v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9.5 20v-5h5v5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+              <strong data-i18n="cart.pickup">Recoger en el mercado</strong>
+              <small data-i18n="cart.pickupD">Gratis · listo en 2 h · Mercado de Colón, puesto 27</small>
+            </span>
+          </label>
+          <label class="opt">
+            <input type="radio" name="delivery" value="shipping">
+            <span class="opt-box">
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 7h11v9H2zM13 10h4.5l3.5 3.5V16h-8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="1.8" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="18" r="1.8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+              <strong data-i18n="cart.shipping">Envío a mi dirección</strong>
+              <small data-i18n="cart.shippingD">4,95 € · gratis desde 60 € · 24/72 h</small>
+            </span>
+          </label>
+        </div>
+
+        <!-- Datos recogida -->
+        <div class="delivery-block" id="pickupBlock">
+          <label class="field">
+            <span data-i18n="cart.store">Punto de recogida</span>
+            <select id="pickupStore" class="select">
+              <option value="colon">Mercado de Colón · puesto 27 (Valencia)</option>
+              <option value="ruza">Mercado de Ruzafa · puesto 4 (Valencia)</option>
+              <option value="algemesi">Tienda de Algemesí · C/ Major 12</option>
+            </select>
+          </label>
+          <div class="form-row">
+            <label class="field">
+              <span data-i18n="cart.pickupDate">Día de recogida</span>
+              <input type="date" id="pickupDate">
+            </label>
+            <label class="field">
+              <span data-i18n="cart.pickupSlot">Franja horaria</span>
+              <select id="pickupSlot" class="select">
+                <option value="10:00-13:00">10:00 – 13:00</option>
+                <option value="13:00-16:00">13:00 – 16:00</option>
+                <option value="16:00-20:30">16:00 – 20:30</option>
+              </select>
+            </label>
+          </div>
+          <label class="field">
+            <span data-i18n="cart.whoPickup">Quién recoge</span>
+            <input type="text" id="pickupName" data-i18n-ph="cart.whoPickupPh" placeholder="Nombre de la persona">
+          </label>
+        </div>
+
+        <!-- Datos envío -->
+        <div class="delivery-block" id="shippingBlock" hidden>
+          <div class="form-row">
+            <label class="field"><span data-i18n="cart.name">Nombre</span><input type="text" id="shipName" data-i18n-ph="cart.namePh" placeholder="Nombre"><small class="field-error" data-error-for="shipName"></small></label>
+            <label class="field"><span data-i18n="cart.surname">Apellidos</span><input type="text" id="shipSurname" data-i18n-ph="cart.surnamePh" placeholder="Apellidos"><small class="field-error" data-error-for="shipSurname"></small></label>
+          </div>
+          <label class="field"><span data-i18n="cart.address">Dirección</span><input type="text" id="shipAddress" data-i18n-ph="cart.addressPh" placeholder="Calle, número, piso"><small class="field-error" data-error-for="shipAddress"></small></label>
+          <div class="form-row">
+            <label class="field"><span data-i18n="cart.zip">Código postal</span><input type="text" id="shipZip" inputmode="numeric" placeholder="46004"><small class="field-error" data-error-for="shipZip"></small></label>
+            <label class="field"><span data-i18n="cart.city">Ciudad</span><input type="text" id="shipCity" data-i18n-ph="cart.cityPh" placeholder="Valencia"><small class="field-error" data-error-for="shipCity"></small></label>
+          </div>
+          <label class="field"><span data-i18n="cart.province">Provincia</span><input type="text" id="shipProvince" data-i18n-ph="cart.provincePh" placeholder="Valencia"></label>
+          <label class="field"><span data-i18n="cart.phone">Teléfono de contacto</span><input type="tel" id="shipPhone" placeholder="+34 600 000 000"><small class="field-error" data-error-for="shipPhone"></small></label>
+          <label class="field">
+            <span data-i18n="cart.shipMethod">Velocidad de envío</span>
+            <select id="shipMethod" class="select">
+              <option value="standard" data-i18n="cart.shipStd">Estándar 48/72 h — 4,95 € (gratis desde 60 €)</option>
+              <option value="express" data-i18n="cart.shipExp">Exprés 24 h — 9,95 €</option>
+            </select>
+          </label>
+          <label class="field"><span data-i18n="cart.notes">Notas para la entrega</span><textarea id="shipNotes" rows="2" data-i18n-ph="cart.notesPh" placeholder="Portero, horario preferido…"></textarea></label>
+        </div>
+      </section>
+
+      <!-- PASO 3: pago -->
+      <section class="cart-panel" id="panelPayment">
+        <p class="panel-hint" data-i18n="cart.payHint">Elige cómo y cuándo quieres pagar.</p>
+        <div class="opt-group" id="paymentOptions">
+          <label class="opt">
+            <input type="radio" name="payment" value="pickup" checked>
+            <span class="opt-box">
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10 12 4l8 6v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+              <strong data-i18n="cart.payPickup">Pagar al recoger en el mercado</strong>
+              <small data-i18n="cart.payPickupD">Efectivo o tarjeta en el puesto. Sin recargo.</small>
+            </span>
+          </label>
+          <label class="opt">
+            <input type="radio" name="payment" value="ondelivery">
+            <span class="opt-box">
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 10h18" stroke="currentColor" stroke-width="1.8"/></svg>
+              <strong data-i18n="cart.payDelivery">Pagar cuando me lo entreguen</strong>
+              <small data-i18n="cart.payDeliveryD">Contra reembolso: +2,50 € de gestión.</small>
+            </span>
+          </label>
+          <label class="opt">
+            <input type="radio" name="payment" value="gateway">
+            <span class="opt-box">
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 20 7v5c0 5-3.4 8.2-8 9-4.6-.8-8-4-8-9V7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m8.8 12 2.2 2.2 4-4.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <strong data-i18n="cart.payGateway">Pagar ahora con la pasarela del mercado</strong>
+              <small data-i18n="cart.payGatewayD">Se abrirá una ventana con el importe exacto antes de pagar.</small>
+            </span>
+          </label>
+        </div>
+
+        <label class="field">
+          <span data-i18n="cart.email">Email para el comprobante</span>
+          <input type="email" id="orderEmail" placeholder="tucorreo@email.com">
+          <small class="field-error" data-error-for="orderEmail"></small>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" id="termsCheck">
+          <span data-i18n="cart.terms">Acepto los requisitos de compra, la política de devoluciones y la de privacidad.</span>
+        </label>
+        <small class="field-error" data-error-for="terms"></small>
+
+        <div class="order-summary" id="summaryPayment"></div>
+      </section>
+
+      <!-- PASO 4: confirmación -->
+      <section class="cart-panel" id="panelDone">
+        <div class="done" id="doneContent"></div>
+      </section>
+    </div>
+
+    <footer class="cart-foot">
+      <div class="cart-totals" id="cartTotals"></div>
+      <div class="cart-actions">
+        <button class="btn btn-ghost btn-sm" type="button" id="cartBack" hidden data-i18n="cart.back">Atrás</button>
+        <button class="btn btn-primary" type="button" id="cartNext" data-i18n="cart.continue">Continuar</button>
+      </div>
+    </footer>
+  </aside>
+
+  <!-- ══════════════ VENTANA DE PASARELA DE PAGO ══════════════ -->
+  <div class="modal" id="paymentModal" role="dialog" aria-modal="true" aria-labelledby="payTitle" hidden>
+    <div class="modal-dialog modal-payment">
+      <button class="modal-x" id="paymentClose" type="button" aria-label="Cerrar">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="pay-head">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 20 7v5c0 5-3.4 8.2-8 9-4.6-.8-8-4-8-9V7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m8.8 12 2.2 2.2 4-4.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <div>
+          <h3 id="payTitle" data-i18n="pay.title">Pasarela de pago del mercado</h3>
+          <p data-i18n="pay.sub">Revisa el importe antes de continuar. Pago seguro cifrado.</p>
+        </div>
+      </div>
+      <div class="pay-amount">
+        <span class="pay-amount-label" data-i18n="pay.total">Importe a pagar ahora</span>
+        <strong id="payTotal">0,00 €</strong>
+      </div>
+      <div class="pay-breakdown" id="payBreakdown"></div>
+      <div class="pay-methods" role="group" aria-label="Método de pago">
+        <label class="pay-method"><input type="radio" name="paymethod" value="card" checked><span data-i18n="pay.card">Tarjeta</span></label>
+        <label class="pay-method"><input type="radio" name="paymethod" value="bizum"><span>Bizum</span></label>
+        <label class="pay-method"><input type="radio" name="paymethod" value="paypal"><span>PayPal</span></label>
+      </div>
+      <div class="pay-cardform">
+        <label class="field"><span data-i18n="pay.cardNumber">Número de tarjeta</span><input type="text" id="payCardNumber" inputmode="numeric" placeholder="0000 0000 0000 0000" maxlength="19"></label>
+        <div class="form-row">
+          <label class="field"><span data-i18n="pay.cardExp">Caducidad</span><input type="text" id="payCardExp" placeholder="MM/AA" maxlength="5"></label>
+          <label class="field"><span>CVC</span><input type="text" id="payCardCvc" inputmode="numeric" placeholder="123" maxlength="4"></label>
+        </div>
+      </div>
+      <p class="pay-note" data-i18n="pay.note">Aquí se integrará la pasarela de pago del mercado (TPV virtual). Esta pantalla muestra exactamente lo que se va a cobrar.</p>
+      <div class="pay-actions">
+        <button class="btn btn-ghost" type="button" id="payCancel" data-i18n="pay.cancel">Cancelar</button>
+        <button class="btn btn-primary" type="button" id="payConfirm" data-i18n="pay.confirm">Pagar ahora</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ MODAL POLÍTICA DE COOKIES ══════════════ -->
+  <div class="modal" id="cookieModal" role="dialog" aria-modal="true" aria-labelledby="cookieTitle" hidden>
+    <div class="modal-dialog">
+      <button class="modal-x" type="button" data-modal-close aria-label="Cerrar">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <h3 id="cookieTitle" data-i18n="cookies.title">Política de cookies</h3>
+      <p data-i18n="cookies.intro">Usamos cookies propias y de terceros para que la tienda funcione, para medir el uso y para mostrarte contenido útil. Puedes aceptarlas todas, rechazarlas o configurarlas.</p>
+      <ul class="cookie-list">
+        <li>
+          <div><strong data-i18n="cookies.nec">Necesarias</strong><p data-i18n="cookies.necD">Cesta de la compra, idioma, tema claro/oscuro y sesión. Siempre activas.</p></div>
+          <span class="switch is-on" aria-hidden="true"><i></i></span>
+        </li>
+        <li>
+          <div><strong data-i18n="cookies.pref">Preferencias</strong><p data-i18n="cookies.prefD">Recuerdan tus tallas habituales y productos favoritos.</p></div>
+          <label class="switch"><input type="checkbox" data-cookie="preferences" checked><i></i></label>
+        </li>
+        <li>
+          <div><strong data-i18n="cookies.anal">Analíticas</strong><p data-i18n="cookies.analD">Estadísticas anónimas de navegación para mejorar la tienda.</p></div>
+          <label class="switch"><input type="checkbox" data-cookie="analytics"><i></i></label>
+        </li>
+        <li>
+          <div><strong data-i18n="cookies.mkt">Publicitarias</strong><p data-i18n="cookies.mktD">Muestran campañas de productos que has visitado.</p></div>
+          <label class="switch"><input type="checkbox" data-cookie="marketing"><i></i></label>
+        </li>
+      </ul>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" type="button" id="cookieReject" data-i18n="cookies.reject">Rechazar opcionales</button>
+        <button class="btn btn-primary" type="button" id="cookieSave" data-i18n="cookies.save">Guardar configuración</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ MODAL REQUISITOS / LEGAL ══════════════ -->
+  <div class="modal" id="legalModal" role="dialog" aria-modal="true" aria-labelledby="legalTitle" hidden>
+    <div class="modal-dialog">
+      <button class="modal-x" type="button" data-modal-close aria-label="Cerrar">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <h3 id="legalTitle" data-i18n="legal.title">Requisitos de compra</h3>
+      <div class="legal-body">
+        <h4 data-i18n="legal.h1">1. Condiciones generales</h4>
+        <p data-i18n="legal.p1">Los precios incluyen IVA (21 %). El pedido se confirma al finalizar el proceso de pago o al reservarlo para recogida. Guardamos la reserva 48 horas laborables.</p>
+        <h4 data-i18n="legal.h2">2. Envíos y plazos</h4>
+        <p data-i18n="legal.p2">Envío estándar 48/72 h — 4,95 € (gratis desde 60 €). Envío exprés 24 h — 9,95 €. Recogida en mercado gratuita, lista en 2 horas dentro del horario comercial.</p>
+        <h4 data-i18n="legal.h3">3. Cambios y devoluciones</h4>
+        <p data-i18n="legal.p3">Dispones de 30 días naturales. El cambio de talla es gratuito: recogemos la prenda y enviamos la nueva. La devolución se abona al método de pago original en 5–7 días.</p>
+        <h4 data-i18n="legal.h4">4. Métodos de pago</h4>
+        <p data-i18n="legal.p4">Puedes pagar al recoger en el mercado, en el momento de la entrega (contra reembolso, +2,50 €) o por adelantado con la pasarela de pago del mercado. En los dos primeros casos la prenda queda reservada a tu nombre.</p>
+        <h4 data-i18n="legal.h5">5. Requisitos técnicos</h4>
+        <p data-i18n="legal.p5">La tienda funciona en cualquier navegador moderno, con o sin JavaScript para la lectura de contenidos. No se requieren cuentas de terceros para comprar como invitada.</p>
+        <h4 data-i18n="legal.h6">6. Datos y privacidad</h4>
+        <p data-i18n="legal.p6">Tratamos tus datos para gestionar el pedido y la atención al cliente. Puedes ejercer tus derechos de acceso, rectificación y supresión escribiendo a hola@ampia.es.</p>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-primary" type="button" data-modal-close data-i18n="legal.close">Entendido</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ BANNER DE COOKIES ══════════════ -->
+  <div class="cookie-banner" id="cookieBanner" hidden>
+    <div class="cookie-banner-inner">
+      <p>
+        <strong data-i18n="cookies.bannerT">Usamos cookies</strong>
+        <span data-i18n="cookies.bannerD">para que la cesta funcione y para mejorar la tienda. Puedes aceptarlas, rechazarlas o leer la política.</span>
+      </p>
+      <div class="cookie-banner-actions">
+        <button class="link-btn" type="button" data-modal-open="cookieModal" data-i18n="cookies.config">Configurar</button>
+        <button class="btn btn-ghost btn-sm" type="button" id="cookieDecline" data-i18n="cookies.reject">Rechazar</button>
+        <button class="btn btn-primary btn-sm" type="button" id="cookieAccept" data-i18n="cookies.accept">Aceptar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ AVISOS (toasts) ══════════════ -->
+  <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="false"></div>
+
+  <!-- ══════════════ BOTÓN VOLVER ARRIBA ══════════════ -->
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Volver arriba" tabindex="-1" aria-hidden="true">
+    <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V4m0 0-6 6m6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
