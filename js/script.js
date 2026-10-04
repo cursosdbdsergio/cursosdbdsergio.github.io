@@ -1,11 +1,27 @@
-document.addEventListener('DOMContentLoaded', () => {
+/*
 fetch('components/hero.html')
 .then(response => response.text())
 .then(data => {
 console.log(data);
 document.getElementById('hero-container').innerHTML = data;
+});*/
+
+
+document.addEventListener('DOMContentLoaded', () => {
+fetch('components/hero.html')
+.then(response => response.text())
+.then(html => {
+document.getElementById('hero-container').innerHTML = html;
+setTimeout(() => {
+document
+.querySelectorAll('.animate-left, .animate-right')
+.forEach(el => {
+el.classList.add('animate-visible');
+});
+}, 100);
 });
 });
+
 
 
 async function loadComponent(container, file) {
@@ -14,8 +30,6 @@ async function loadComponent(container, file) {
   await response.text();
   iniciarAnimaciones();
 }
-
-
 loadComponent('hero-container', 'components/hero.html');
 
 
