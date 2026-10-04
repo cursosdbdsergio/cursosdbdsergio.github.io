@@ -1,0 +1,248 @@
+/* VARIABLES DE COLOR */
+body.dark {
+    --bg: #0d1117;
+    --bg-card: #161b22;
+    --text: #e6edf3;
+    --text-soft: #8b949e;
+    --primary: #58a6ff;
+    --border: #30363d;
+}
+
+body.light {
+    --bg: #e9f1ff;
+    --bg-card: #ffffff;
+    --text: #1a1a1a;
+    --text-soft: #444;
+    --primary: #1a73e8;
+    --border: #c7d7f5;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+    padding: 20px;
+    font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+/* FOTO */
+.profile-photo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 1px solid var(--primary);
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* HEADER */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    color: var(--primary);
+}
+
+/* TOGGLE MODO OSCURO/CLARO */
+/*.theme-switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    width: 60px;
+    height: 28px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.slider::before {
+    content: "";
+    width: 24px;
+    height: 24px;
+    background: var(--primary);
+    border-radius: 50%;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    transition: 0.3s;
+}
+
+input:checked + .slider::before {
+    transform: translateX(32px);
+}
+
+.icon-sun,
+.icon-moon {
+    position: absolute;
+    top: 3px;
+    font-size: 18px;
+}
+
+.icon-sun { left: 6px; }
+.icon-moon { right: 6px; }
+*/
+
+/* CONTROLS */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.controls input,
+.controls select {
+    padding: 10px 15px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 8px;
+}
+
+/* TARJETAS */
+.courses-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.course-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--text);
+    transition: 0.25s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--primary);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+.card-img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+    position: relative;
+}
+
+.card-content h2 {
+    color: var(--primary);
+}
+
+.icon-svg {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    font-size: 1.6rem;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    color: var(--text-soft);
+}
+
+.social {
+    margin-top: 10px;
+}
+
+.social-icon {
+    margin: 0 8px;
+    font-size: 1.4rem;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+/* CONTENEDOR Boton claro/oscuro*/
+.theme-switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+/* PISTA DEL SWITCH */
+.switch-track {
+    width: 70px;
+    height: 34px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    transition: background 0.3s, border-color 0.3s;
+    position: relative;
+}
+
+/* CÍRCULO DESLIZANTE */
+.switch-thumb {
+    width: 28px;
+    height: 28px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bg);
+    transition: transform 0.35s ease, background 0.3s;
+    position: relative;
+}
+
+/* ICONOS */
+.icon-sun,
+.icon-moon {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Sol visible en modo oscuro */
+body.dark .icon-sun {
+    opacity: 1;
+}
+
+/* Luna visible en modo claro */
+body.light .icon-moon {
+    opacity: 1;
+}
+
+/* Movimiento del deslizador */
+input:checked + .switch-track .switch-thumb {
+    transform: translateX(36px);
+}
+
+/* EFECTOS ESPECIALES */
+body.dark .icon-sun {
+    filter: drop-shadow(0 0 4px #ffd35a);
+}
+
+body.light .icon-moon {
+    filter: drop-shadow(0 0 4px #7ab7ff);
+}

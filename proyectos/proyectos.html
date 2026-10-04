@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Cursos</title>
+    <link rel="icon" type="image/svg" href="img/favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark">
+
+<header class="header">
+    <img src="img/sergio.png" alt="Foto de Sergio" class="profile-photo">
+    <h1>Cursos y experiencia</h1>
+    <p>Quiero compartir una vida dedicada a la programación y a la enseñanza<br>
+     Accede a demos, documentación. ejemplos prácticos y mucho más</p>
+
+    <label class="theme-switch">
+    <input type="checkbox" id="themeToggle">
+    <span class="switch-track">
+        <span class="switch-thumb">
+            <!-- Icono sol -->
+            <svg class="icon-sun" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="5" fill="currentColor"/>
+                <g stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="1" x2="12" y2="4"/>
+                    <line x1="12" y1="20" x2="12" y2="23"/>
+                    <line x1="1" y1="12" x2="4" y2="12"/>
+                    <line x1="20" y1="12" x2="23" y2="12"/>
+                    <line x1="4.2" y1="4.2" x2="6.4" y2="6.4"/>
+                    <line x1="17.6" y1="17.6" x2="19.8" y2="19.8"/>
+                    <line x1="4.2" y1="19.8" x2="6.4" y2="17.6"/>
+                    <line x1="17.6" y1="6.4" x2="19.8" y2="4.2"/>
+                </g>
+            </svg>
+
+            <!-- Icono luna -->
+            <svg class="icon-moon" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="M21 12.79A9 9 0 0111.21 3 7 7 0 1019 14.79 9 9 0 0121 12.79z"/>
+            </svg>
+        </span>
+    </span>
+</label>
+
+</header>
+
+<!-- Buscador + Categorías -->
+<section class="controls">
+    <input type="text" id="searchInput" placeholder="Buscar cursos...">
+
+    <select id="categoryFilter">
+        <option value="all">Todas las categorías</option>
+        <option value="ia">Inteligencia Artificial</option>
+        <option value="cursos">Cursos</option>
+        <option value="frontend">Frontend</option>
+        <option value="backend">Backend</option>
+        <option value="tools">Herramientas</option>
+        <option value="general">General</option>
+    </select>
+</section>
+
+<main class="courses-container">
+
+    <!-- IA -->
+    <a href="files/ia.html" class="course-card" data-category="ia">
+        <img src="img/ia.jpg" class="card-img">
+        <div class="card-content">
+            <h2>Inteligencias artificiales</h2>
+            <p>Ya son parte de nuestra vida, avanzan muy rápido y hay que conocerlas.</p>
+            <!--<span class="icon-svg">🤖</span>-->
+        </div>
+    </a>
+
+    <!-- Mi experiencia -->
+    <a href="#" class="course-card" data-category="general">
+        <img src="img/miexperiencia.jpg" class="card-img">
+        <div class="card-content">
+            <h2>Mi método</h2>
+            <p>Orientaciones, consejos y comentarios de mi experiencia como programador.</p>
+            <!--<span class="icon-svg">🤖</span>-->
+        </div>
+    </a>
+
+    <!-- FRONTEND y CURSOS-->
+    <a href="#" class="course-card" data-category="frontend cursos">
+        <img src="img/html-css.jpg" class="card-img">
+        <div class="card-content">
+            <h2>HTML & CSS</h2>
+            <p>Conceptos básicos, layouts modernos y buenas prácticas.</p>
+            <!--<span class="icon-svg">🎨</span>-->
+        </div>
+    </a>
+
+    <a href="#" class="course-card" data-category="frontend cursos">
+        <img src="img/javascript.jpg" class="card-img">
+        <div class="card-content">
+            <h2>JavaScript</h2>
+            <p>DOM, eventos, funciones, asincronía y proyectos reales.</p>
+            <!--<span class="icon-svg">⚡</span>-->
+        </div>
+    </a>
+
+    <!-- BACKEND y CURSOS-->
+    <a href="#" class="course-card" data-category="backend cursos">
+        <img src="img/php.jpg" class="card-img">
+        <div class="card-content">
+            <h2>PHP & Backend</h2>
+            <p>APIs, sesiones, formularios, seguridad y bases de datos.</p>
+            <!--<span class="icon-svg">🖥️</span>-->
+        </div>
+    </a>
+
+    <!-- Tools y cursos -->
+    <a href="#" class="course-card" data-category="tools cursos">
+        <img src="img/git-github.jpg" class="card-img">
+        <div class="card-content">
+            <h2>Git & GitHub</h2>
+            <p>Control de versiones, ramas, repositorios y GitHub Pages.</p>
+            <!--<span class="icon-svg">🔧</span>-->
+        </div>
+    </a>
+
+    <!-- Tu movil, Tu mundo -->
+    <a href="files/tumoviltumundo.html" class="course-card" data-category="general cursos">
+        <img src="img/tumovil-tumundo.jpg" class="card-img">
+        <div class="card-content">
+            <h2>Tu móvil, tu mundo</h2>
+            <p>Quieres usar mejor tú movil, te explicamos.</p>
+            <!--<span class="icon-svg">📱</span>-->
+        </div>
+    </a>
+
+    <!-- Bases de datos -->
+    <a href="#" class="course-card" data-category="backend cursos">
+        <img src="img/basesdedatos.jpg" class="card-img">
+        <div class="card-content">
+            <h2>Bases de datos</h2>
+            <p>Nadie las ve pero organizan el mundo y cada día son más importantes.</p>
+            <!--<span class="icon-svg">🗄️</span>-->
+        </div>
+    </a>
+
+    <!-- Full Stack Developer -->
+    <a href="#" class="course-card" data-category="general">
+        <img src="img/fullstack.jpg" class="card-img">
+        <div class="card-content">
+            <h2>Full Stack Developer</h2>
+            <p>Encontrar un buen trabajo requiere sacrificio.</p>
+            <!--<span class="icon-svg">💼</span>-->
+        </div>
+    </a>
+
+    <!-- Webs para consultar -->
+    <a href="#" class="course-card" data-category="general">
+        <img src="img/webs.jpg" class="card-img">
+        <div class="card-content">
+            <h2>Webs para consultar</h2>
+            <p>Deberias verlas al menos una vez en tu vida</p>
+            <!--<span class="icon-svg">💼</span>-->
+        </div>
+    </a>
+
+    <!-- Diccionario -->
+    <a href="#" class="course-card" data-category="general">
+        <img src="img/diccionario.jpg" class="card-img">
+        <div class="card-content">
+            <h2>Diccionario de Informática</h2>
+            <p>No podia faltar la explicación sobre terminos y definiciones</p>
+            <!--<span class="icon-svg">💼</span>-->
+        </div>
+    </a>
+
+    <!-- Cuentos -->
+    <a href="#" class="course-card" data-category="general">
+        <img src="img/cuentos.jpg" class="card-img">
+        <div class="card-content">
+            <h2>Anecdotas con moraleja</h2>
+            <p>Grupo de historias cortas sobre mi experiencia profesional</p>
+            <!--<span class="icon-svg">💼</span>-->
+        </div>
+    </a>
+
+    <!-- Desarrollo de APIs -->
+    <a href="#" class="course-card" data-category="cursos">
+        <img src="img/apis.jpg" class="card-img">
+        <div class="card-content">
+            <h2>Desarrollo de APIs</h2>
+            <p>Vamos a introducirnos en el mundo de las APIs y aprender a utilizarlas.</p>
+            <!--<span class="icon-svg">💼</span>-->
+        </div>
+    </a>
+
+    <!-- Seguridad informatica -->
+    <a href="#" class="course-card" data-category="general">
+        <img src="img/seguridad.jpg" class="card-img">
+        <div class="card-content">
+            <h2>Seguridad informática</h2>
+            <p>Esencial conocerla, para entender cómo proteger tus datos y dispositivos.</p>
+        </div>
+    </a>
+
+    <!-- El mundo de Laravel -->
+    <a href="#" class="course-card" data-category="cursos">
+        <img src="img/laravel.jpg" class="card-img">
+        <div class="card-content">
+            <h2>El mundo de Laravel</h2>
+            <p>Un framework que vino a facilitra el trabajo con PHP.</p>
+            <!--<span class="icon-svg">💼</span>-->
+        </div>
+    </a>
+
+    <!-- Microsoft 365 -->
+    <a href="#" class="course-card" data-category="general cursos tools">
+        <img src="img/microsoft365.jpg" class="card-img">
+        <div class="card-content">
+            <h2>Microsoft 365</h2>
+            <p>Del ordenador a la nube, Herramientas basicas para el trabajo diario.</p>
+            <!--<span class="icon-svg">💼</span>-->
+        </div>
+    </a>
+
+</main>
+
+<footer class="footer">
+    <p>© 2026 Sergio Fernández Concepeción — Todos los derechos reservados</p>
+
+    <!--<div class="social">
+        <a href="#" class="social-icon">🐦</a>
+        <a href="#" class="social-icon">📘</a>
+        <a href="#" class="social-icon">📸</a>
+        <a href="#" class="social-icon">💼</a>
+    </div>-->
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
