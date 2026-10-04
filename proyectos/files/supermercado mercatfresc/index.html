@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MercatFresc - Supermercado moderno de alimentación general. Productos frescos de huerta local, panadería artesanal, pescadería de lonja y envío en 2 horas.">
+  <title>MercatFresc | Supermercado & Alimentación Fresca</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       BARRA HORIZONTAL SUPERIOR (INFORMACIÓN GENERAL Y ATENCIÓN)
+       ========================================================================== -->
+  <div class="topbar" id="topbar">
+    <div class="container topbar-content">
+      <div class="topbar-left">
+        <span class="topbar-badge" data-i18n="topbar_badge">Envío Exprés</span>
+        <span class="topbar-item" data-i18n="topbar_promo">
+          Envío gratis a partir de 45€ | Entregas refrigeradas en menos de 2 horas
+        </span>
+      </div>
+      <div class="topbar-right">
+        <a href="tel:+34960842110" class="topbar-item" title="Llamar al supermercado">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <span>960 842 110</span>
+        </a>
+        <a href="mailto:pedidos@mercatfresc.es" class="topbar-item" title="Correo electrónico">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <span>pedidos@mercatfresc.es</span>
+        </a>
+        <span class="topbar-item">
+          <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          <span data-i18n="topbar_schedule">L-S: 8:00 - 21:30</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HEADER FIJO CON NAVEGACIÓN Y BOTONES DE ACCIÓN
+       ========================================================================== -->
+  <header class="header-fixed" id="header">
+    <div class="container header-container">
+      
+      <!-- Logotipo -->
+      <a href="#inicio" class="logo" aria-label="Ir al inicio de MercatFresc">
+        <div class="logo-icon" aria-hidden="true">
+          <!-- Cesta de la compra con hoja fresca -->
+          <svg viewBox="0 0 24 24">
+            <path d="M19 7h-3V6a4 4 0 00-8 0v1H5a1 1 0 00-1 1v11a3 3 0 003 3h10a3 3 0 003-3V8a1 1 0 00-1-1zm-9-1a2 2 0 014 0v1h-4V6zm8 13a1 1 0 01-1 1H7a1 1 0 01-1-1V9h2v2a1 1 0 002 0V9h4v2a1 1 0 002 0V9h2v10z"/>
+          </svg>
+        </div>
+        <span>Mercat<span class="logo-highlight">Fresc</span></span>
+      </a>
+
+      <!-- Menú principal centrado -->
+      <nav class="nav-desktop" aria-label="Navegación principal">
+        <a href="#inicio" class="nav-link active" data-i18n="nav_home">Inicio</a>
+        <a href="#pasillos" class="nav-link" data-i18n="nav_aisles">Pasillos</a>
+        <a href="#ofertas" class="nav-link" data-i18n="nav_deals">Ofertas de la Semana</a>
+        <a href="#compromiso" class="nav-link" data-i18n="nav_commitment">Compromiso Km 0</a>
+        <a href="#servicios" class="nav-link" data-i18n="nav_services">Servicios</a>
+        <a href="#contacto" class="nav-link" data-i18n="nav_contact">Contacto</a>
+      </nav>
+
+      <!-- Botones de acción del Header -->
+      <div class="header-actions">
+        <!-- Botón de Búsqueda -->
+        <button type="button" class="action-btn" id="search-open-btn" aria-label="Abrir buscador" title="Buscar en la web">
+          <svg viewBox="0 0 24 24">
+            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+        </button>
+
+        <!-- Botón de Carrito de la Compra -->
+        <button type="button" class="action-btn" id="cart-open-btn" aria-label="Abrir carrito de compra" title="Ver mi cesta de la compra">
+          <svg viewBox="0 0 24 24">
+            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+          </svg>
+          <span class="cart-count" id="cart-counter">0</span>
+        </button>
+
+        <!-- Botón de Usuario (Login) -->
+        <button type="button" class="action-btn" id="user-login-btn" aria-label="Acceso de usuario" title="Mi Cuenta / Iniciar Sesión">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </button>
+
+        <!-- Botón de Modo Claro / Oscuro -->
+        <button type="button" class="action-btn" id="theme-toggle-btn" aria-label="Alternar modo claro y oscuro" title="Cambiar tema">
+          <!-- Icono Sol (Modo claro activo) -->
+          <svg id="theme-icon-sun" viewBox="0 0 24 24" style="display: none;">
+            <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0a.996.996 0 000-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
+          </svg>
+          <!-- Icono Luna (Modo oscuro activo por defecto para alternar) -->
+          <svg id="theme-icon-moon" viewBox="0 0 24 24">
+            <path d="M12.3 2a10 10 0 00-1.9 19.8 8 8 0 01.4-15.8c.5-.1 1-.1 1.5 0v-4z"/>
+          </svg>
+        </button>
+
+        <!-- Selector de Idioma Desktop -->
+        <div class="lang-select-wrapper">
+          <button type="button" class="lang-select-btn" id="lang-btn-desktop" aria-haspopup="true" aria-expanded="false" title="Seleccionar idioma">
+            <span id="current-lang-text">ES</span>
+            <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+          </button>
+          <div class="lang-dropdown" id="lang-dropdown-desktop">
+            <button type="button" class="lang-option active" data-lang="es">Español (ES)</button>
+            <button type="button" class="lang-option" data-lang="en">English (EN)</button>
+            <button type="button" class="lang-option" data-lang="va">Valencià (VA)</button>
+          </div>
+        </div>
+
+        <!-- Botón Hamburguesa Móvil -->
+        <button type="button" class="hamburger-btn" id="hamburger-toggle-btn" aria-label="Abrir menú" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MENÚ MÓVIL DESPLEGABLE DESDE ARRIBA (SLIDE DOWN CENTRADO)
+       ========================================================================== -->
+  <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+  <div class="mobile-nav-panel" id="mobile-panel" aria-label="Menú móvil">
+    
+    <!-- Buscador móvil -->
+    <div class="mobile-search-bar">
+      <button type="button" class="mobile-search-btn-trigger" id="mobile-search-trigger">
+        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        <span data-i18n="mobile_search_placeholder">Buscar productos o pasillos...</span>
+      </button>
+      <button type="button" class="mobile-search-btn-trigger" id="mobile-cart-trigger" style="margin-top: 0.65rem; justify-content: space-between;">
+        <span style="display: flex; align-items: center; gap: 0.6rem;">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+          <span data-i18n="nav_cart">Mi Cesta de la Compra</span>
+        </span>
+        <span class="mobile-cart-badge-chip" id="mobile-cart-counter">0 art.</span>
+      </button>
+    </div>
+
+    <!-- Enlaces móviles -->
+    <nav class="mobile-nav-links">
+      <a href="#inicio" class="mobile-nav-link active" data-i18n="nav_home">Inicio</a>
+      <a href="#pasillos" class="mobile-nav-link" data-i18n="nav_aisles">Pasillos</a>
+      <a href="#ofertas" class="mobile-nav-link" data-i18n="nav_deals">Ofertas de la Semana</a>
+      <a href="#compromiso" class="mobile-nav-link" data-i18n="nav_commitment">Compromiso Km 0</a>
+      <a href="#servicios" class="mobile-nav-link" data-i18n="nav_services">Servicios</a>
+      <a href="#contacto" class="mobile-nav-link" data-i18n="nav_contact">Contacto</a>
+    </nav>
+
+    <!-- Selector de 3 Idiomas Móvil -->
+    <div class="mobile-lang-selector">
+      <button type="button" class="mobile-lang-btn active" data-lang="es">Español</button>
+      <button type="button" class="mobile-lang-btn" data-lang="en">English</button>
+      <button type="button" class="mobile-lang-btn" data-lang="va">Valencià</button>
+    </div>
+
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         SECCIÓN HERO PRINCIPAL CON IMAGEN AMBIENTAL Y LLAMADA A LA ACCIÓN
+         ========================================================================== -->
+    <section class="hero-section" id="inicio">
+      <div class="hero-background">
+        <img 
+          src="https://images.pexels.com/photos/32449831/pexels-photo-32449831.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=1920" 
+          alt="Mercado de alimentos frescos y productos de calidad" 
+          class="hero-bg-img"
+          loading="eager"
+        >
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="container hero-content">
+        <div class="hero-pill">
+          <span class="hero-pill-dot"></span>
+          <span data-i18n="hero_pill">100% Fresco & Alimentación Saludable</span>
+        </div>
+
+        <h1 class="hero-title" data-i18n="hero_title">
+          Lo mejor de la huerta y el mar, <span>directo a tu mesa</span>
+        </h1>
+
+        <p class="hero-subtitle" data-i18n="hero_sub">
+          Frutas recolectadas a diario, panadería artesanal de masa madre, pescadería de lonja y carnicería de proximidad. Toda la compra del hogar con entrega exprés en 2 horas.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#pasillos" class="btn btn-primary" data-i18n="btn_explore">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+            <span>Explorar Pasillos</span>
+          </a>
+          <a href="#ofertas" class="btn btn-secondary" data-i18n="btn_deals">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/></svg>
+            <span>Ver Ofertas Semanales</span>
+          </a>
+        </div>
+
+        <!-- 4 Indicadores clave de confianza -->
+        <div class="hero-features">
+          <div class="hero-feature-item">
+            <div class="hero-feature-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm-1 14.5l-3.5-3.5 1.41-1.41L11 13.67l5.09-5.09 1.41 1.41L11 16.5z"/></svg>
+            </div>
+            <div>
+              <div class="hero-feature-title" data-i18n="feat_1_title">Fresco Garantizado</div>
+              <div class="hero-feature-desc" data-i18n="feat_1_desc">Si no te gusta, te lo cambiamos</div>
+            </div>
+          </div>
+
+          <div class="hero-feature-item">
+            <div class="hero-feature-icon">
+              <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-2 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+            </div>
+            <div>
+              <div class="hero-feature-title" data-i18n="feat_2_title">Entrega en 2 Horas</div>
+              <div class="hero-feature-desc" data-i18n="feat_2_desc">Furgones isotérmicos 100% fríos</div>
+            </div>
+          </div>
+
+          <div class="hero-feature-item">
+            <div class="hero-feature-icon">
+              <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A9.49 9.49 0 0017 8zm-5 6.5c-2.3 0-4.32-1.2-5.46-3 .92-2.16 3.01-4 5.46-4s4.54 1.84 5.46 4c-1.14 1.8-3.16 3-5.46 3z"/></svg>
+            </div>
+            <div>
+              <div class="hero-feature-title" data-i18n="feat_3_title">Huerta & Km 0</div>
+              <div class="hero-feature-desc" data-i18n="feat_3_desc">Trato directo sin intermediarios</div>
+            </div>
+          </div>
+
+          <div class="hero-feature-item">
+            <div class="hero-feature-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            </div>
+            <div>
+              <div class="hero-feature-title" data-i18n="feat_4_title">Sostenibilidad</div>
+              <div class="hero-feature-desc" data-i18n="feat_4_desc">Envases biodegradables y reciclaje</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN INFORMATIVA (VALORES, CALIDAD, CADENA DE FRÍO Y ESTADÍSTICAS)
+         ========================================================================== -->
+    <section class="section section-bg-muted" id="compromiso">
+      <div class="container">
+        
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag" data-i18n="info_tag">Calidad Certificada</span>
+          <h2 class="section-title" data-i18n="info_title">Por Qué Elegir MercatFresc Cada Día</h2>
+          <p class="section-desc" data-i18n="info_desc">
+            No somos solo un supermercado: somos el puente honesto entre la tierra fértil de nuestros agricultores y la mesa de tu familia. Cuidamos cada producto desde su recolección.
+          </p>
+        </div>
+
+        <div class="info-grid">
+          
+          <div class="info-card reveal-on-scroll">
+            <div class="info-icon-wrapper">
+              <svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 2.84L18 11v7h-2v-6H8v6H6v-7l6-5.16z"/></svg>
+            </div>
+            <h3 class="info-card-title" data-i18n="info_c1_title">Huerta de Proximidad (Km 0)</h3>
+            <p class="info-card-text" data-i18n="info_c1_text">
+              Tomates de huerta, cítricos valencianos y hortalizas recolectadas a primera hora. Cosecha matinal que llega a nuestras tiendas en menos de 4 horas tras salir de la mata.
+            </p>
+          </div>
+
+          <div class="info-card reveal-on-scroll">
+            <div class="info-icon-wrapper">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H8l4-7v4h3l-4 7z"/></svg>
+            </div>
+            <h3 class="info-card-title" data-i18n="info_c2_title">Cadena de Frío Rigurosa</h3>
+            <p class="info-card-text" data-i18n="info_c2_text">
+              Monitoreo térmico digital desde los obradores hasta tu puerta. Garantizamos que pescados, carnes y lácteos jamás pierdan la temperatura óptima recomendada.
+            </p>
+          </div>
+
+          <div class="info-card reveal-on-scroll">
+            <div class="info-icon-wrapper">
+              <svg viewBox="0 0 24 24"><path d="M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.48L23 5.05h-5V1h-1.97v4.05h-4.97V1H9.09v4.05H4.11V1H2.14v4.05H1c-.55 0-1 .45-1 1v1h24V6.05c0-.55-.45-1-1-1h-.94zM3.46 7.05h17.08l-1.42 13.94H4.88L3.46 7.05z"/></svg>
+            </div>
+            <h3 class="info-card-title" data-i18n="info_c3_title">Horno Tradicional Diario</h3>
+            <p class="info-card-text" data-i18n="info_c3_text">
+              Panes artesanos con fermentaciones lentas de más de 24 horas y masa madre viva. Horneamos 3 veces al día para que siempre disfrutes de pan caliente y crujiente.
+            </p>
+          </div>
+
+          <div class="info-card reveal-on-scroll">
+            <div class="info-icon-wrapper">
+              <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+            </div>
+            <h3 class="info-card-title" data-i18n="info_c4_title">Lonja & Pesca Sostenible</h3>
+            <p class="info-card-text" data-i18n="info_c4_text">
+              Pescado salvaje capturado con artes tradicionales respetuosas. Recibimos el desembarque diario de Cullera, Castellón y Santa Pola sin intermediarios.
+            </p>
+          </div>
+
+          <div class="info-card reveal-on-scroll">
+            <div class="info-icon-wrapper">
+              <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+            </div>
+            <h3 class="info-card-title" data-i18n="info_c5_title">Despensa Bio & Ecológica</h3>
+            <p class="info-card-text" data-i18n="info_c5_text">
+              Más de 2.000 referencias con sello de agricultura ecológica europea: legumbres a granel, aceites virgen extra prensados en frío y productos sin gluten certificados.
+            </p>
+          </div>
+
+          <div class="info-card reveal-on-scroll">
+            <div class="info-icon-wrapper">
+              <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+            </div>
+            <h3 class="info-card-title" data-i18n="info_c6_title">Precios Claros y Honestos</h3>
+            <p class="info-card-text" data-i18n="info_c6_text">
+              Pagamos el precio justo a los productores de nuestra tierra mientras cuidamos el bolsillo de tu hogar con ofertas semanales reales y cheques ahorro mensuales.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Banner de Estadísticas de Impacto -->
+        <div class="stats-banner reveal-on-scroll">
+          <div class="stat-item">
+            <div class="stat-number">+18.500</div>
+            <div class="stat-label" data-i18n="stat_1">Hogares que confían cada mes</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">64</div>
+            <div class="stat-label" data-i18n="stat_2">Productores locales asociados</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label" data-i18n="stat_3">Trazabilidad y frescura probada</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">&lt; 120 min</div>
+            <div class="stat-label" data-i18n="stat_4">Tiempo medio de entrega a domicilio</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN SECUNDARIA (PASILLOS & OFERTAS DE LA SEMANA)
+         ========================================================================== -->
+    <section class="section" id="pasillos">
+      <div class="container">
+
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag" data-i18n="aisles_tag">Nuestros Pasillos</span>
+          <h2 class="section-title" data-i18n="aisles_title">Alimentación Fresca, Despensa y Bodega</h2>
+          <p class="section-desc" data-i18n="aisles_desc">
+            Recorre nuestras secciones como si estuvieras en el mercado tradicional con la comodidad de tu pantalla.
+          </p>
+        </div>
+
+        <!-- Pestañas de filtrado dinámico -->
+        <div class="filter-tabs-wrapper reveal-on-scroll" id="product-tabs">
+          <button type="button" class="filter-tab-btn active" data-category="todos" data-i18n="cat_all">Todos los Pasillos</button>
+          <button type="button" class="filter-tab-btn" data-category="frutas" data-i18n="cat_fruits">Fruta & Huerta</button>
+          <button type="button" class="filter-tab-btn" data-category="panaderia" data-i18n="cat_bakery">Horno & Pan</button>
+          <button type="button" class="filter-tab-btn" data-category="mar" data-i18n="cat_fish">Pescadería</button>
+          <button type="button" class="filter-tab-btn" data-category="quesos" data-i18n="cat_deli">Quesos & Gourmet</button>
+          <button type="button" class="filter-tab-btn" data-category="despensa" data-i18n="cat_pantry">Despensa & Bio</button>
+        </div>
+
+        <!-- Cuadrícula de productos de muestra interactivos -->
+        <div class="products-grid" id="products-container">
+
+          <!-- Producto 1: Frutas -->
+          <article class="product-card" data-id="p1" data-name="Tomate Rosa de Huerta Tradicional" data-price="2.89" data-unit="kg" data-img="https://images.pexels.com/photos/868110/pexels-photo-868110.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" data-category="frutas" data-search-terms="tomate valenciano huerta ensalada verduras">
+            <div class="product-image-box">
+              <span class="product-badge" data-i18n="badge_km0">Km 0</span>
+              <img src="https://images.pexels.com/photos/868110/pexels-photo-868110.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Tomate de huerta fresca valenciana" class="product-image" loading="lazy">
+            </div>
+            <div class="product-info">
+              <span class="product-category" data-i18n="p1_cat">Huerta de Alboraya</span>
+              <h3 class="product-name" data-i18n="p1_name">Tomate Rosa de Huerta Tradicional</h3>
+              <div class="product-origin">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <span data-i18n="p1_origin">Cosecha de esta mañana</span>
+              </div>
+              <div class="product-footer">
+                <div class="product-price-box">
+                  <span class="product-old-price">3.80 €</span>
+                  <span class="product-price">2.89 € <span class="product-unit">/ kg</span></span>
+                </div>
+                <button type="button" class="add-cart-btn" aria-label="Añadir Tomate Rosa a la cesta" title="Añadir a la cesta">
+                  <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Producto 2: Panadería -->
+          <article class="product-card" data-id="p2" data-name="Hogaza Rústica 100% Masa Madre (800g)" data-price="2.45" data-unit="ud" data-img="https://images.pexels.com/photos/36445141/pexels-photo-36445141.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" data-category="panaderia" data-search-terms="hogaza pan masa madre cereales espelta">
+            <div class="product-image-box">
+              <span class="product-badge" data-i18n="badge_artisan">Artesanal</span>
+              <img src="https://images.pexels.com/photos/36445141/pexels-photo-36445141.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Hogaza rústica de masa madre horneada a leña" class="product-image" loading="lazy">
+            </div>
+            <div class="product-info">
+              <span class="product-category" data-i18n="p2_cat">Horno y Obrador</span>
+              <h3 class="product-name" data-i18n="p2_name">Hogaza Rústica 100% Masa Madre (800g)</h3>
+              <div class="product-origin">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <span data-i18n="p2_origin">Fermentación natural de 24h</span>
+              </div>
+              <div class="product-footer">
+                <div class="product-price-box">
+                  <span class="product-price">2.45 € <span class="product-unit">/ ud</span></span>
+                </div>
+                <button type="button" class="add-cart-btn" aria-label="Añadir Hogaza Rústica a la cesta" title="Añadir a la cesta">
+                  <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Producto 3: Pescadería -->
+          <article class="product-card" data-id="p3" data-name="Lubina de Bahía Seleccionada" data-price="11.95" data-unit="kg" data-img="https://images.pexels.com/photos/12955634/pexels-photo-12955634.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" data-category="mar" data-search-terms="lubina salvaje pescado lonja marisco fresco">
+            <div class="product-image-box">
+              <span class="product-badge offer" data-i18n="badge_offer">Super Oferta</span>
+              <img src="https://images.pexels.com/photos/12955634/pexels-photo-12955634.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Lubina fresca y pescado recién capturado en lonja" class="product-image" loading="lazy">
+            </div>
+            <div class="product-info">
+              <span class="product-category" data-i18n="p3_cat">Lonja Mediterránea</span>
+              <h3 class="product-name" data-i18n="p3_name">Lubina de Bahía Seleccionada</h3>
+              <div class="product-origin">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <span data-i18n="p3_origin">Subasta matinal de Cullera</span>
+              </div>
+              <div class="product-footer">
+                <div class="product-price-box">
+                  <span class="product-old-price">14.90 €</span>
+                  <span class="product-price">11.95 € <span class="product-unit">/ kg</span></span>
+                </div>
+                <button type="button" class="add-cart-btn" aria-label="Añadir Lubina a la cesta" title="Añadir a la cesta">
+                  <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Producto 4: Quesos & Charcutería -->
+          <article class="product-card" data-id="p4" data-name="Queso Curado al Romero de Maestrat" data-price="6.85" data-unit="250g" data-img="https://images.pexels.com/photos/5732751/pexels-photo-5732751.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" data-category="quesos" data-search-terms="queso curado oveja artesano charcuteria gourmet">
+            <div class="product-image-box">
+              <span class="product-badge" data-i18n="badge_top">Premio Sabor</span>
+              <img src="https://images.pexels.com/photos/5732751/pexels-photo-5732751.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Tabla de quesos artesanos curados y embutidos" class="product-image" loading="lazy">
+            </div>
+            <div class="product-info">
+              <span class="product-category" data-i18n="p4_cat">Charcutería & Corte</span>
+              <h3 class="product-name" data-i18n="p4_name">Queso Curado al Romero de Maestrat</h3>
+              <div class="product-origin">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <span data-i18n="p4_origin">Maduración mínima 9 meses</span>
+              </div>
+              <div class="product-footer">
+                <div class="product-price-box">
+                  <span class="product-price">6.85 € <span class="product-unit">/ 250g</span></span>
+                </div>
+                <button type="button" class="add-cart-btn" aria-label="Añadir Queso al Romero a la cesta" title="Añadir a la cesta">
+                  <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Producto 5: Frutas / Cítricos -->
+          <article class="product-card" data-id="p5" data-name="Naranjas Navelate de Mesa (Malla 3kg)" data-price="3.49" data-unit="malla" data-img="https://images.pexels.com/photos/6753523/pexels-photo-6753523.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" data-category="frutas" data-search-terms="naranja valencia mandarinas citricos fruta zumo">
+            <div class="product-image-box">
+              <span class="product-badge offer" data-i18n="badge_offer">Oferta Semana</span>
+              <img src="https://images.pexels.com/photos/6753523/pexels-photo-6753523.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Naranjas y frutas frescas en cajas de madera" class="product-image" loading="lazy">
+            </div>
+            <div class="product-info">
+              <span class="product-category" data-i18n="p5_cat">Huerta del Xúquer</span>
+              <h3 class="product-name" data-i18n="p5_name">Naranjas Navelate de Mesa (Malla 3kg)</h3>
+              <div class="product-origin">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <span data-i18n="p5_origin">Sin ceras ni tratamientos poscosecha</span>
+              </div>
+              <div class="product-footer">
+                <div class="product-price-box">
+                  <span class="product-old-price">4.95 €</span>
+                  <span class="product-price">3.49 € <span class="product-unit">/ malla</span></span>
+                </div>
+                <button type="button" class="add-cart-btn" aria-label="Añadir Naranjas a la cesta" title="Añadir a la cesta">
+                  <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Producto 6: Panadería / Croissants -->
+          <article class="product-card" data-id="p6" data-name="Croissant Francés Puro Hojaldrado (Pack 2)" data-price="2.20" data-unit="pack" data-img="https://images.pexels.com/photos/3850376/pexels-photo-3850376.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" data-category="panaderia" data-search-terms="croissant mantequilla bolleria horno desayuno">
+            <div class="product-image-box">
+              <span class="product-badge" data-i18n="badge_artisan">Mantequilla 100%</span>
+              <img src="https://images.pexels.com/photos/3850376/pexels-photo-3850376.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Croissants artesanos de mantequilla recién horneados" class="product-image" loading="lazy">
+            </div>
+            <div class="product-info">
+              <span class="product-category" data-i18n="p6_cat">Bollería Tradicional</span>
+              <h3 class="product-name" data-i18n="p6_name">Croissant Francés Puro Hojaldrado (Pack 2)</h3>
+              <div class="product-origin">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <span data-i18n="p6_origin">Horneado hoy a las 7:30</span>
+              </div>
+              <div class="product-footer">
+                <div class="product-price-box">
+                  <span class="product-price">2.20 € <span class="product-unit">/ pack</span></span>
+                </div>
+                <button type="button" class="add-cart-btn" aria-label="Añadir Croissants a la cesta" title="Añadir a la cesta">
+                  <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Producto 7: Despensa / Aceite de Oliva Bio -->
+          <article class="product-card" data-id="p7" data-name="Aceite Virgen Extra Ecológico Serrana (500ml)" data-price="8.95" data-unit="botella" data-img="https://images.pexels.com/photos/5732755/pexels-photo-5732755.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" data-category="despensa" data-search-terms="aceite oliva virgen extra aove ecologico bio despensa">
+            <div class="product-image-box">
+              <span class="product-badge" data-i18n="badge_bio">Certificado Bio</span>
+              <img src="https://images.pexels.com/photos/5732755/pexels-photo-5732755.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Botella de Aceite de Oliva Virgen Extra Ecológico y pan" class="product-image" loading="lazy">
+            </div>
+            <div class="product-info">
+              <span class="product-category" data-i18n="p7_cat">Almazara de Sierra Espadán</span>
+              <h3 class="product-name" data-i18n="p7_name">Aceite Virgen Extra Ecológico Serrana (500ml)</h3>
+              <div class="product-origin">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <span data-i18n="p7_origin">Prensado en frío de primera cosecha</span>
+              </div>
+              <div class="product-footer">
+                <div class="product-price-box">
+                  <span class="product-old-price">10.50 €</span>
+                  <span class="product-price">8.95 € <span class="product-unit">/ botella</span></span>
+                </div>
+                <button type="button" class="add-cart-btn" aria-label="Añadir Aceite a la cesta" title="Añadir a la cesta">
+                  <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Producto 8: Frescos / Fresas -->
+          <article class="product-card" data-id="p8" data-name="Fresón Dulce Seleccionado (Caja 500g)" data-price="2.49" data-unit="caja" data-img="https://images.pexels.com/photos/26151065/pexels-photo-26151065.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" data-category="frutas" data-search-terms="fresas freson frutos rojos fruta postre">
+            <div class="product-image-box">
+              <span class="product-badge offer" data-i18n="badge_offer">Bajada Precio</span>
+              <img src="https://images.pexels.com/photos/26151065/pexels-photo-26151065.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Fresas frescas seleccionadas en caja" class="product-image" loading="lazy">
+            </div>
+            <div class="product-info">
+              <span class="product-category" data-i18n="p8_cat">Frutos Rojos</span>
+              <h3 class="product-name" data-i18n="p8_name">Fresón Dulce Seleccionado (Caja 500g)</h3>
+              <div class="product-origin">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <span data-i18n="p8_origin">Madurado naturalmente al sol</span>
+              </div>
+              <div class="product-footer">
+                <div class="product-price-box">
+                  <span class="product-old-price">3.25 €</span>
+                  <span class="product-price">2.49 € <span class="product-unit">/ caja</span></span>
+                </div>
+                <button type="button" class="add-cart-btn" aria-label="Añadir Fresón a la cesta" title="Añadir a la cesta">
+                  <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN DE OFERTAS SEMANALES DESTACADAS (CALLOUT BANNER)
+         ========================================================================== -->
+    <section class="section section-bg-muted" id="ofertas">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag" data-i18n="deals_tag">Ofertas de la Semana</span>
+          <h2 class="section-title" data-i18n="deals_title">El Folleto Digital de Temporada</h2>
+          <p class="section-desc" data-i18n="deals_desc">
+            Cada jueves renovamos las promociones de productos frescos y básicos de despensa. Ahorra hasta un 30% sin renunciar a la máxima calidad.
+          </p>
+        </div>
+
+        <div class="hero-features" style="grid-template-columns: repeat(3, 1fr); max-width: 100%;">
+          
+          <div class="info-card reveal-on-scroll" style="background-color: var(--bg-card);">
+            <div style="color: var(--color-secondary); font-size: 2rem; font-weight: 900; margin-bottom: 0.5rem;">-25%</div>
+            <h3 class="info-card-title" data-i18n="deal1_title">Toda la Pescadería los Martes</h3>
+            <p class="info-card-text" data-i18n="deal1_desc">
+              Directo de la primera subasta de la semana. Pescados blancos, azules y mariscos al corte tradicional según tu preferencia.
+            </p>
+          </div>
+
+          <div class="info-card reveal-on-scroll" style="background-color: var(--bg-card);">
+            <div style="color: var(--color-primary); font-size: 2rem; font-weight: 900; margin-bottom: 0.5rem;">3 x 2</div>
+            <h3 class="info-card-title" data-i18n="deal2_title">Despensa Ecológica Certificada</h3>
+            <p class="info-card-text" data-i18n="deal2_desc">
+              Combina legumbres, arroces con Denominación de Origen Valencia, pastas integrales y conservas vegetales ecológicas.
+            </p>
+          </div>
+
+          <div class="info-card reveal-on-scroll" style="background-color: var(--bg-card);">
+            <div style="color: var(--color-secondary); font-size: 2rem; font-weight: 900; margin-bottom: 0.5rem;">Cheque 10€</div>
+            <h3 class="info-card-title" data-i18n="deal3_title">Bienvenida al Club Fresc</h3>
+            <p class="info-card-text" data-i18n="deal3_desc">
+              Regístrate en menos de un minuto y recibe un cupón directo de 10 € para tu primer pedido superior a 50 € en tienda u online.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN DE SERVICIOS (ONLINE, CLICK & COLLECT, CLUB FRESC)
+         ========================================================================== -->
+    <section class="section" id="servicios">
+      <div class="container">
+
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag" data-i18n="services_tag">Nuestros Servicios</span>
+          <h2 class="section-title" data-i18n="services_title">Compra Como Quieras, Cuando Quieras</h2>
+          <p class="section-desc" data-i18n="services_desc">
+            Diseñamos soluciones modernas para que ahorres tiempo en tu día a día sin sacrificar el placer de comer sano.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          
+          <div class="service-card reveal-on-scroll">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-2 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+            </div>
+            <h3 class="service-title" data-i18n="srv1_title">Entrega en Frío en 2 Horas</h3>
+            <p class="service-desc" data-i18n="srv1_desc">
+              Pide antes de las 19:30 y te lo llevamos hoy mismo en franjas de 1 hora elegidas por ti. Garantía total de temperatura en frescos y congelados.
+            </p>
+            <div class="service-perk">
+              <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              <span data-i18n="srv1_perk">Gratis en compras superiores a 45 €</span>
+            </div>
+          </div>
+
+          <div class="service-card reveal-on-scroll">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+            </div>
+            <h3 class="service-title" data-i18n="srv2_title">Click & Drive / Recogida Express</h3>
+            <p class="service-desc" data-i18n="srv2_desc">
+              Haz tu pedido desde la web o el móvil y pasa a recogerlo en nuestras plazas reservadas de aparcamiento. Lo cargamos en tu maletero en 5 minutos.
+            </p>
+            <div class="service-perk">
+              <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              <span data-i18n="srv2_perk">Listo en 90 minutos y sin esperas</span>
+            </div>
+          </div>
+
+          <div class="service-card reveal-on-scroll">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </div>
+            <h3 class="service-title" data-i18n="srv3_title">Club Fresc de Fidelidad</h3>
+            <p class="service-desc" data-i18n="srv3_desc">
+              Acumula el 3% de todas tus compras en tu saldo personal, recibe descuentos exclusivos en tus marcas favoritas y cupones de cumpleaños.
+            </p>
+            <div class="service-perk">
+              <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              <span data-i18n="srv3_perk">100% gratuito y sin comisiones</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN DE CONTACTO CON INFORMACIÓN Y FORMULARIO FUNCIONAL
+         ========================================================================== -->
+    <section class="section section-bg-muted" id="contacto">
+      <div class="container">
+
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag" data-i18n="contact_tag">Contacto & Soporte</span>
+          <h2 class="section-title" data-i18n="contact_title">Estamos a tu Disposición</h2>
+          <p class="section-desc" data-i18n="contact_desc">
+            ¿Tienes dudas con tu pedido, quieres solicitar un corte especial de carnicería o eres un productor local que desea vender con nosotros? Escríbenos.
+          </p>
+        </div>
+
+        <div class="contact-layout">
+
+          <!-- Panel de Información de Contacto -->
+          <div class="contact-info-panel reveal-on-scroll">
+            <h3 class="contact-info-title" data-i18n="info_box_title">Atención al Cliente Inmediata</h3>
+            <p class="contact-info-desc" data-i18n="info_box_desc">
+              Nuestro equipo responde con cercanía y rapidez. También puedes visitarnos en cualquiera de nuestros supermercados físicos en la Comunidad Valenciana.
+            </p>
+
+            <div class="contact-items-list">
+              
+              <div class="contact-row">
+                <div class="contact-row-icon">
+                  <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                </div>
+                <div>
+                  <div class="contact-row-label" data-i18n="lbl_phone">Teléfono de Pedidos</div>
+                  <div class="contact-row-value"><a href="tel:+34960842110">+34 960 842 110</a></div>
+                </div>
+              </div>
+
+              <div class="contact-row">
+                <div class="contact-row-icon">
+                  <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </div>
+                <div>
+                  <div class="contact-row-label" data-i18n="lbl_email">Correo Electrónico</div>
+                  <div class="contact-row-value"><a href="mailto:hola@mercatfresc.es">hola@mercatfresc.es</a></div>
+                </div>
+              </div>
+
+              <div class="contact-row">
+                <div class="contact-row-icon">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                </div>
+                <div>
+                  <div class="contact-row-label" data-i18n="lbl_hq">Sede Central & Mercado</div>
+                  <div class="contact-row-value">Gran Vía del Marqués del Turia 48, 46005 València</div>
+                </div>
+              </div>
+
+              <div class="contact-row">
+                <div class="contact-row-icon">
+                  <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                </div>
+                <div>
+                  <div class="contact-row-label" data-i18n="lbl_hours">Horario Comercial</div>
+                  <div class="contact-row-value" data-i18n="val_hours">Lunes a Sábado: 08:00 a 21:30 (Ininterrumpido)</div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="store-locations-box">
+              <div class="store-locations-title">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <span data-i18n="lbl_stores">Nuestras Tiendas Físicas:</span>
+              </div>
+              <div class="store-badge-list">
+                <span class="store-badge">València Centro</span>
+                <span class="store-badge">Ruzafa</span>
+                <span class="store-badge">Benimaclet</span>
+                <span class="store-badge">Castelló de la Plana</span>
+                <span class="store-badge">Alacant Mar</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Formulario de Contacto Funcional -->
+          <div class="contact-form-card reveal-on-scroll">
+            
+            <div id="contact-success-alert" class="form-feedback success">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              <span data-i18n="form_success_msg">¡Gracias por contactar con MercatFresc! Hemos recibido tu mensaje y te responderemos en breve.</span>
+            </div>
+
+            <form id="contact-form" novalidate>
+              
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="contact-name" class="form-label" data-i18n="f_name">Nombre completo *</label>
+                  <input type="text" id="contact-name" class="form-control" required placeholder="Ej. Maria Beltrán">
+                </div>
+                <div class="form-group">
+                  <label for="contact-phone" class="form-label" data-i18n="f_phone">Teléfono de contacto</label>
+                  <input type="tel" id="contact-phone" class="form-control" placeholder="600 000 000">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email" class="form-label" data-i18n="f_email">Correo electrónico *</label>
+                <input type="email" id="contact-email" class="form-control" required placeholder="maria@ejemplo.es">
+              </div>
+
+              <div class="form-group">
+                <label for="contact-subject" class="form-label" data-i18n="f_subject">Motivo de la consulta</label>
+                <select id="contact-subject" class="form-control">
+                  <option value="pedido" data-i18n="opt_order">Estado de mi pedido a domicilio</option>
+                  <option value="tienda" data-i18n="opt_store">Consulta sobre productos o disponibilidad</option>
+                  <option value="club" data-i18n="opt_club">Dudas con Club Fresc y puntos de ahorro</option>
+                  <option value="proveedor" data-i18n="opt_supplier">Soy productor / Proveedor local Km 0</option>
+                  <option value="otro" data-i18n="opt_other">Otra sugerencia o comentario</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-label" data-i18n="f_msg">Mensaje *</label>
+                <textarea id="contact-message" class="form-control" rows="4" required placeholder="Escribe aquí tu consulta detallada..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-checkbox-label">
+                  <input type="checkbox" id="contact-privacy" required>
+                  <span data-i18n="f_privacy">He leído y acepto la <a href="#" id="open-privacy-link">política de privacidad</a> y el tratamiento de mis datos de contacto para la gestión de esta consulta.</span>
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;" id="submit-contact-btn">
+                <span data-i18n="btn_send">Enviar Mensaje</span>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+              </button>
+
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER COMPLETO CON POLÍTICAS, REQUISITOS, CERTIFICACIONES Y COPYRIGHT
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      
+      <div class="footer-top">
+        
+        <!-- Columna 1: Marca y bio -->
+        <div>
+          <div class="footer-logo">
+            <div class="logo-icon" style="width: 32px; height: 32px;" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18">
+                <path d="M19 7h-3V6a4 4 0 00-8 0v1H5a1 1 0 00-1 1v11a3 3 0 003 3h10a3 3 0 003-3V8a1 1 0 00-1-1zm-9-1a2 2 0 014 0v1h-4V6zm8 13a1 1 0 01-1 1H7a1 1 0 01-1-1V9h2v2a1 1 0 002 0V9h4v2a1 1 0 002 0V9h2v10z"/>
+              </svg>
+            </div>
+            <span>Mercat<span class="logo-highlight">Fresc</span></span>
+          </div>
+          <p class="footer-bio" data-i18n="foot_bio">
+            Tu supermercado de cercanía con vocación mediterránea. Alimentación saludable, frutas de recolección matinal y entrega a domicilio sostenible.
+          </p>
+          <div class="footer-certifications">
+            <span class="cert-badge">Agricultura Ecológica UE</span>
+            <span class="cert-badge">Cadena Frío IFS</span>
+            <span class="cert-badge">Km 0 Comunitat</span>
+          </div>
+        </div>
+
+        <!-- Columna 2: Pasillos directos -->
+        <div>
+          <h4 class="footer-heading" data-i18n="foot_h_aisles">Nuestros Pasillos</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="#pasillos" data-i18n="cat_fruits">Fruta & Huerta Fresca</a></li>
+            <li class="footer-link-item"><a href="#pasillos" data-i18n="cat_bakery">Horno de Masa Madre</a></li>
+            <li class="footer-link-item"><a href="#pasillos" data-i18n="cat_fish">Pescados de Lonja Diaria</a></li>
+            <li class="footer-link-item"><a href="#pasillos" data-i18n="cat_deli">Quesos y Jamones al Corte</a></li>
+            <li class="footer-link-item"><a href="#pasillos" data-i18n="cat_pantry">Despensa Bio & Vegana</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: Información Legal & Requisitos -->
+        <div>
+          <h4 class="footer-heading" data-i18n="foot_h_legal">Legal y Requisitos</h4>
+          <ul class="footer-links-list">
+            <li><button type="button" class="footer-link-btn" id="open-cookies-btn" data-i18n="link_cookies">Política de Cookies</button></li>
+            <li><button type="button" class="footer-link-btn" id="open-terms-btn" data-i18n="link_terms">Términos y Requisitos Legales</button></li>
+            <li><button type="button" class="footer-link-btn" id="open-allergen-btn" data-i18n="link_allergens">Información de Alérgenos</button></li>
+            <li><button type="button" class="footer-link-btn" id="open-cold-btn" data-i18n="link_cold">Garantía de Cadena de Frío</button></li>
+            <li><a href="#contacto" data-i18n="link_claims">Hojas de Reclamaciones</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: Boletín de ofertas -->
+        <div>
+          <h4 class="footer-heading" data-i18n="foot_h_news">Boletín de Ofertas</h4>
+          <p class="footer-bio" style="font-size: 0.85rem;" data-i18n="foot_news_sub">
+            Recibe en tu correo cada jueves las ofertas y los productos de temporada antes que nadie.
+          </p>
+          <div class="footer-newsletter-box">
+            <form id="newsletter-form" class="footer-newsletter-input-wrap">
+              <input type="email" class="footer-newsletter-input" required placeholder="Tu correo electrónico" aria-label="Correo para boletín">
+              <button type="submit" class="btn btn-primary" style="padding: 0.65rem 1rem; border-radius: var(--radius-sm);" title="Suscribirse">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          <span data-i18n="foot_copy">© 2026 MercatFresc Supermercats S.L. Todos los derechos reservados.</span>
+        </div>
+        <div class="footer-payments-list">
+          <span class="payment-pill">Visa</span>
+          <span class="payment-pill">Mastercard</span>
+          <span class="payment-pill">Bizum</span>
+          <span class="payment-pill">Apple Pay</span>
+          <span class="payment-pill">Efectivo en Entrega</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODAL DE BÚSQUEDA INTERNA (CON FONDO DIFUMINADO)
+       ========================================================================== -->
+  <div class="modal-backdrop" id="search-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="search-modal-title">
+    <div class="search-modal-dialog">
+      
+      <div class="search-modal-header">
+        <svg class="search-modal-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        <input 
+          type="text" 
+          id="search-input" 
+          class="search-input-field" 
+          placeholder="Escribe para buscar productos, pasillos o servicios..." 
+          data-i18n-ph="search_placeholder"
+          autocomplete="off"
+        >
+        <button type="button" class="modal-close-btn" id="search-close-btn" aria-label="Cerrar buscador">
+          <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+
+      <div class="search-modal-body" id="search-modal-results">
+        <p class="search-helper-text" id="search-helper" data-i18n="search_hint">
+          Escribe por ejemplo: "tomate", "pan", "pescado", "aceite", "horario" o "envío".
+        </p>
+        <div class="search-results-list" id="search-results-list"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL DE USUARIO / ACCESO AL SISTEMA DE LOGIN
+       ========================================================================== -->
+  <div class="modal-backdrop" id="user-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="login-modal-dialog">
+      
+      <button type="button" class="modal-close-btn login-modal-close" id="user-modal-close" aria-label="Cerrar ventana">
+        <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+
+      <div class="login-modal-tabs">
+        <button type="button" class="login-tab-btn active" id="tab-login" data-i18n="tab_login">Iniciar Sesión</button>
+        <button type="button" class="login-tab-btn" id="tab-register" data-i18n="tab_register">Crear Cuenta</button>
+      </div>
+
+      <!-- Formulario Login -->
+      <form id="login-form">
+        <div class="form-group">
+          <label class="form-label" for="login-email" data-i18n="f_email">Correo electrónico</label>
+          <input type="email" id="login-email" class="form-control" placeholder="tu@correo.es" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="login-password" data-i18n="f_pass">Contraseña</label>
+          <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;" data-i18n="btn_login_submit">Entrar a mi Cuenta</button>
+      </form>
+
+      <!-- Formulario Registro (oculto por defecto) -->
+      <form id="register-form" style="display: none;">
+        <div class="form-group">
+          <label class="form-label" for="reg-name" data-i18n="f_name">Nombre completo</label>
+          <input type="text" id="reg-name" class="form-control" placeholder="Ej. Carlos Navarro" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="reg-email" data-i18n="f_email">Correo electrónico</label>
+          <input type="email" id="reg-email" class="form-control" placeholder="tu@correo.es" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="reg-password" data-i18n="f_new_pass">Crear contraseña</label>
+          <input type="password" id="reg-password" class="form-control" placeholder="Mínimo 8 caracteres" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;" data-i18n="btn_reg_submit">Darme de Alta Gratis</button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL DE POLÍTICA DE COOKIES
+       ========================================================================== -->
+  <div class="modal-backdrop" id="cookies-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="info-modal-dialog">
+      <button type="button" class="modal-close-btn" style="position: absolute; top: 1.25rem; right: 1.25rem;" id="cookies-modal-close" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+      <h3 class="info-modal-title" data-i18n="modal_cookies_title">Política de Cookies de MercatFresc</h3>
+      <div class="info-modal-content">
+        <p>En <strong>MercatFresc Supermercats S.L.</strong> utilizamos cookies técnicas esenciales y analíticas propias para garantizar el correcto funcionamiento de nuestra tienda online y memorizar tus preferencias (como el modo oscuro o el idioma elegido).</p>
+        <h4>1. Cookies Técnicas (Estrictamente Necesarias)</h4>
+        <p>Permiten la navegación web, la gestión de sesiones de usuario y el mantenimiento de los artículos dentro de la cesta durante tu visita.</p>
+        <h4>2. Cookies de Personalización</h4>
+        <p>Guardan tu selección de idioma (Español, Inglés o Valenciano) y la preferencia de visualización claro/oscuro en el navegador del usuario.</p>
+        <h4>3. Gestión y Revocación</h4>
+        <p>Puedes desactivar o configurar las cookies en cualquier momento a través de las opciones de privacidad de tu navegador web sin perjuicio para la navegación básica.</p>
+      </div>
+      <button type="button" class="btn btn-primary" style="width: 100%;" id="cookies-accept-btn" data-i18n="btn_accept_cookies">Entendido y Aceptar</button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL DE TÉRMINOS Y REQUISITOS LEGALES
+       ========================================================================== -->
+  <div class="modal-backdrop" id="terms-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="info-modal-dialog">
+      <button type="button" class="modal-close-btn" style="position: absolute; top: 1.25rem; right: 1.25rem;" id="terms-modal-close" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+      <h3 class="info-modal-title" data-i18n="modal_terms_title">Términos, Condiciones y Requisitos</h3>
+      <div class="info-modal-content">
+        <p>Las siguientes condiciones regulan la compra y reserva de productos de alimentación en MercatFresc:</p>
+        <h4>1. Condiciones de Entrega a Domicilio</h4>
+        <p>Las entregas en 2 horas están sujetas a la disponibilidad de franja horaria y radio de cobertura metropolitana. Los productos refrigerados y congelados se transportan con vehículos equipados con control activo de temperatura.</p>
+        <h4>2. Garantía de Devolución de Frescos</h4>
+        <p>Si cualquier fruta, verdura, pescado o carne no cumple con el 100% de tus expectativas organolépticas, dispones de 24 horas para solicitar su sustitución gratuita o la devolución de su importe.</p>
+        <h4>3. Precios y Pesajes</h4>
+        <p>En productos al corte y a granel, el precio final se calculará con precisión micrométrica sobre el peso exacto preparado en los mostradores del supermercado.</p>
+      </div>
+      <button type="button" class="btn btn-primary" style="width: 100%;" id="terms-accept-btn" data-i18n="btn_close">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       1. CARRITO DE COMPRA LATERAL (DRAWER SLIDE-OVER)
+       ========================================================================== -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay" aria-hidden="true"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Carrito de la compra" aria-hidden="true">
+    
+    <!-- Cabecera del Carrito -->
+    <div class="cart-header">
+      <div class="cart-title-wrap">
+        <div class="cart-header-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+          </svg>
+        </div>
+        <h3 class="cart-title" data-i18n="cart_title">Mi Cesta</h3>
+        <span class="cart-badge-chip" id="cart-items-chip">0</span>
+      </div>
+      <button type="button" class="modal-close-btn" id="cart-close-btn" aria-label="Cerrar cesta">
+        <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+    </div>
+
+    <!-- Barra de envío a domicilio gratis dinámico -->
+    <div class="cart-shipping-notice" id="cart-shipping-bar">
+      <div class="shipping-notice-text" id="shipping-notice-text">
+        <span data-i18n="shipping_free_target">Envío a domicilio gratis a partir de 45 €</span>
+      </div>
+      <div class="shipping-progress-track">
+        <div class="shipping-progress-fill" id="shipping-progress-fill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Cuerpo del Carrito con lista de productos -->
+    <div class="cart-body" id="cart-body">
+      <!-- Vista de carrito vacío -->
+      <div class="cart-empty-state" id="cart-empty-view">
+        <div class="cart-empty-icon">
+          <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
+            <path d="M19 7h-3V6a4 4 0 00-8 0v1H5a1 1 0 00-1 1v11a3 3 0 003 3h10a3 3 0 003-3V8a1 1 0 00-1-1zm-9-1a2 2 0 014 0v1h-4V6zm8 13a1 1 0 01-1 1H7a1 1 0 01-1-1V9h2v2a1 1 0 002 0V9h4v2a1 1 0 002 0V9h2v10z"/>
+          </svg>
+        </div>
+        <h4 data-i18n="cart_empty_title">Tu cesta está vacía</h4>
+        <p data-i18n="cart_empty_desc">Explora nuestros pasillos y añade los mejores alimentos frescos del mercado.</p>
+        <button type="button" class="btn btn-primary" id="cart-start-shopping" data-i18n="btn_explore">Explorar Pasillos</button>
+      </div>
+
+      <!-- Lista de artículos añadidos -->
+      <div class="cart-items-list" id="cart-items-list" style="display: none;"></div>
+    </div>
+
+    <!-- Pie del Carrito con Descuentos, Totales y Botón Tramitar -->
+    <div class="cart-footer" id="cart-footer" style="display: none;">
+      <!-- Cupón de descuento -->
+      <div class="cart-coupon-wrap">
+        <div class="coupon-input-group">
+          <input type="text" id="cart-coupon-input" class="coupon-field" placeholder="Código: FRESC10" aria-label="Código de descuento">
+          <button type="button" class="coupon-apply-btn" id="cart-coupon-btn" data-i18n="btn_apply_coupon">Aplicar</button>
+        </div>
+        <div class="coupon-feedback" id="coupon-feedback"></div>
+      </div>
+
+      <!-- Desglose de importes -->
+      <div class="cart-summary-breakdown">
+        <div class="summary-line">
+          <span data-i18n="lbl_subtotal">Subtotal productos</span>
+          <span id="cart-subtotal-val">0.00 €</span>
+        </div>
+        <div class="summary-line discount" id="cart-discount-line" style="display: none;">
+          <span data-i18n="lbl_discount">Descuento cupón</span>
+          <span id="cart-discount-val">-0.00 €</span>
+        </div>
+        <div class="summary-line">
+          <span data-i18n="lbl_shipping_option">Entrega / Recogida</span>
+          <span id="cart-delivery-calc" data-i18n="lbl_shipping_hint">Gratis en tienda / desde 0€</span>
+        </div>
+        <div class="summary-total-line">
+          <span data-i18n="lbl_total">Total a pagar</span>
+          <span class="total-price" id="cart-total-val">0.00 €</span>
+        </div>
+      </div>
+
+      <!-- Botón Tramitar Pedido y Reserva -->
+      <button type="button" class="btn btn-primary btn-checkout-trigger" id="proceed-checkout-btn">
+        <span data-i18n="btn_proceed_checkout">Tramitar Compra y Reserva</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+      </button>
+
+      <button type="button" class="cart-clear-btn" id="cart-clear-all" data-i18n="btn_clear_cart">Vaciar cesta</button>
+    </div>
+
+  </aside>
+
+  <!-- ==========================================================================
+       2. MODAL DE TRAMITACIÓN Y RESERVA DEL PEDIDO (CHECKOUT)
+       ========================================================================== -->
+  <div class="modal-backdrop" id="checkout-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="checkout-modal-dialog">
+      
+      <div class="checkout-header">
+        <div>
+          <h3 class="checkout-title" data-i18n="checkout_title">Tramitar Pedido y Reserva</h3>
+          <p class="checkout-subtitle" data-i18n="checkout_sub">Selecciona si recogerás tu compra en tienda o prefieres envío a domicilio, y elige cómo deseas pagar.</p>
+        </div>
+        <button type="button" class="modal-close-btn" id="checkout-close-btn" aria-label="Cerrar">
+          <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+
+      <form id="checkout-form">
+        
+        <!-- PASO 1: MODALIDAD DE ENTREGA / RECOGIDA -->
+        <div class="checkout-section-block">
+          <h4 class="checkout-step-heading">
+            <span class="step-number">1</span>
+            <span data-i18n="step1_title">¿Cómo deseas recibir tu compra?</span>
+          </h4>
+
+          <div class="delivery-type-selector">
+            
+            <!-- Opción Recogida en el Mercado -->
+            <label class="delivery-type-card active" id="card-type-pickup">
+              <input type="radio" name="delivery_type" value="pickup" checked class="delivery-radio-input">
+              <div class="type-card-body">
+                <div class="type-card-icon">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <path d="M19 7h-3V6a4 4 0 00-8 0v1H5a1 1 0 00-1 1v11a3 3 0 003 3h10a3 3 0 003-3V8a1 1 0 00-1-1zm-9-1a2 2 0 014 0v1h-4V6zm8 13a1 1 0 01-1 1H7a1 1 0 01-1-1V9h2v2a1 1 0 002 0V9h4v2a1 1 0 002 0V9h2v10z"/>
+                  </svg>
+                </div>
+                <div class="type-card-text">
+                  <strong data-i18n="opt_pickup_title">Recogida en el Mercado (Click & Collect)</strong>
+                  <span data-i18n="opt_pickup_desc">100% Gratis. Listo en 90 min o a la hora que elijas. Opción de entrega directa al maletero.</span>
+                </div>
+                <span class="type-card-badge" data-i18n="badge_free">¡Gratis!</span>
+              </div>
+            </label>
+
+            <!-- Opción Envío a Domicilio -->
+            <label class="delivery-type-card" id="card-type-delivery">
+              <input type="radio" name="delivery_type" value="delivery" class="delivery-radio-input">
+              <div class="type-card-body">
+                <div class="type-card-icon">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-2 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                  </svg>
+                </div>
+                <div class="type-card-text">
+                  <strong data-i18n="opt_delivery_title">Envío a tu Domicilio en 2h</strong>
+                  <span data-i18n="opt_delivery_desc">Furgón refrigerado con control térmico directo hasta tu puerta.</span>
+                </div>
+                <span class="type-card-badge" id="delivery-fee-badge">Gratis (+45€)</span>
+              </div>
+            </label>
+
+          </div>
+
+          <!-- Campos específicos para RECOGIDA EN TIENDA -->
+          <div class="delivery-subfields" id="fields-pickup">
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="pickup-store" data-i18n="lbl_select_store">Selecciona el Supermercado *</label>
+                <select id="pickup-store" class="form-control" required>
+                  <option value="València Centro (Gran Vía Marqués del Turia 48)">València Centro (Gran Vía Marqués del Turia 48)</option>
+                  <option value="València Ruzafa (Carrer de Cuba 24)">València Ruzafa (Carrer de Cuba 24)</option>
+                  <option value="València Benimaclet (Carrer d'Emili Baró 12)">València Benimaclet (Carrer d'Emili Baró 12)</option>
+                  <option value="Castelló de la Plana (Avinguda del Mar 15)">Castelló de la Plana (Avinguda del Mar 15)</option>
+                  <option value="Alacant Mar (Passeig d'Espanya 8)">Alacant Mar (Passeig d'Espanya 8)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="pickup-date" data-i18n="lbl_pickup_day">Día de recogida *</label>
+                <select id="pickup-date" class="form-control" required>
+                  <option value="Hoy">Hoy mismo</option>
+                  <option value="Mañana">Mañana</option>
+                  <option value="Pasado mañana">Pasado mañana</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="pickup-slot" data-i18n="lbl_pickup_slot">Franja horaria de recogida *</label>
+                <select id="pickup-slot" class="form-control" required>
+                  <option value="09:00 - 11:00">09:00 - 11:00 h</option>
+                  <option value="11:00 - 13:00">11:00 - 13:00 h</option>
+                  <option value="13:00 - 15:00">13:00 - 15:00 h</option>
+                  <option value="17:00 - 19:00">17:00 - 19:00 h</option>
+                  <option value="19:00 - 21:00">19:00 - 21:00 h</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="pickup-drive-plate">
+                  <span data-i18n="lbl_drive_plate">Click & Drive (Opcional: Matrícula para cargar en maletero)</span>
+                </label>
+                <input type="text" id="pickup-drive-plate" class="form-control" placeholder="Ej. 1234-XYZ">
+              </div>
+            </div>
+          </div>
+
+          <!-- Campos específicos para ENVÍO A DOMICILIO -->
+          <div class="delivery-subfields" id="fields-delivery" style="display: none;">
+            <div class="form-group">
+              <label class="form-label" for="delivery-address" data-i18n="lbl_address">Dirección completa (Calle, número) *</label>
+              <input type="text" id="delivery-address" class="form-control" placeholder="Ej. Gran Vía Fernando el Católico 14">
+            </div>
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="delivery-floor" data-i18n="lbl_floor">Piso, puerta, escalera *</label>
+                <input type="text" id="delivery-floor" class="form-control" placeholder="Ej. 4º Puerta 8">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="delivery-zip" data-i18n="lbl_zip">Código Postal *</label>
+                <input type="text" id="delivery-zip" class="form-control" placeholder="Ej. 46008">
+              </div>
+            </div>
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="delivery-city" data-i18n="lbl_city">Población / Ciudad *</label>
+                <input type="text" id="delivery-city" class="form-control" placeholder="Ej. València">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="delivery-slot" data-i18n="lbl_delivery_slot">Franja de entrega en frío *</label>
+                <select id="delivery-slot" class="form-control">
+                  <option value="Exprés en menos de 2 horas">Exprés en menos de 2 horas</option>
+                  <option value="Hoy tarde (17:00 - 19:00)">Hoy tarde (17:00 - 19:00)</option>
+                  <option value="Hoy última franja (19:30 - 21:30)">Hoy última franja (19:30 - 21:30)</option>
+                  <option value="Mañana mañana (09:00 - 11:00)">Mañana por la mañana (09:00 - 11:00)</option>
+                  <option value="Mañana mediodía (11:30 - 13:30)">Mañana mediodía (11:30 - 13:30)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="delivery-notes" data-i18n="lbl_notes">Instrucciones para el repartidor (Opcional)</label>
+              <input type="text" id="delivery-notes" class="form-control" placeholder="Ej. Dejar en conserjería si no respondo al telefonillo">
+            </div>
+          </div>
+
+        </div>
+
+        <!-- PASO 2: DATOS DEL COMPRADOR -->
+        <div class="checkout-section-block">
+          <h4 class="checkout-step-heading">
+            <span class="step-number">2</span>
+            <span data-i18n="step2_title">Datos de contacto para la reserva</span>
+          </h4>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label" for="buyer-name" data-i18n="f_name">Nombre completo *</label>
+              <input type="text" id="buyer-name" class="form-control" required placeholder="Ej. Vicente Martí">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="buyer-phone" data-i18n="lbl_phone_mobile">Teléfono móvil (avisos de preparación) *</label>
+              <input type="tel" id="buyer-phone" class="form-control" required placeholder="Ej. 612 345 678">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="buyer-email" data-i18n="f_email">Correo electrónico (para enviar ticket y seguimiento) *</label>
+            <input type="email" id="buyer-email" class="form-control" required placeholder="vicente@ejemplo.es">
+          </div>
+        </div>
+
+        <!-- PASO 3: FORMA DE PAGO (OPCIONES EXACTAS SOLICITADAS) -->
+        <div class="checkout-section-block">
+          <h4 class="checkout-step-heading">
+            <span class="step-number">3</span>
+            <span data-i18n="step3_title">¿Cómo deseas pagar?</span>
+          </h4>
+
+          <div class="payment-options-list">
+            
+            <!-- Opción 1: Pagar al ir a recogerlo (para recogida) -->
+            <label class="payment-option-card active" id="pay-card-pickup">
+              <input type="radio" name="payment_choice" value="pay_pickup" checked class="payment-radio-input">
+              <div class="payment-card-content">
+                <div class="payment-title-row">
+                  <div class="payment-title-main">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                    </svg>
+                    <strong data-i18n="pay_opt_pickup_title">Pagar al ir a recogerlo en el mercado</strong>
+                  </div>
+                  <span class="payment-method-chip" data-i18n="lbl_in_store">En Tienda</span>
+                </div>
+                <p class="payment-desc-text" data-i18n="pay_opt_pickup_desc">
+                  Pagarás cómodamente en la caja rápida de recogida del supermercado cuando retires tu compra, tanto en efectivo como con tarjeta de crédito/débito.
+                </p>
+              </div>
+            </label>
+
+            <!-- Opción 2: Pagar cuando se lo entreguen (para envío) -->
+            <label class="payment-option-card" id="pay-card-delivery" style="display: none;">
+              <input type="radio" name="payment_choice" value="pay_delivery" class="payment-radio-input">
+              <div class="payment-card-content">
+                <div class="payment-title-row">
+                  <div class="payment-title-main">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                      <path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                    </svg>
+                    <strong data-i18n="pay_opt_delivery_title">Pagar cuando te lo entreguen a domicilio</strong>
+                  </div>
+                  <span class="payment-method-chip" data-i18n="lbl_on_delivery">Al Repartidor</span>
+                </div>
+                <p class="payment-desc-text" data-i18n="pay_opt_delivery_desc">
+                  Paga al repartidor al recibir las bolsas en tu puerta. El repartidor lleva datáfono inalámbrico para tarjeta o puedes abonarlo en efectivo.
+                </p>
+              </div>
+            </label>
+
+            <!-- Opción 3: Pagar por la pasarela de pago del mercado -->
+            <label class="payment-option-card" id="pay-card-gateway">
+              <input type="radio" name="payment_choice" value="pay_gateway" class="payment-radio-input">
+              <div class="payment-card-content">
+                <div class="payment-title-row">
+                  <div class="payment-title-main">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                      <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+                    </svg>
+                    <strong data-i18n="pay_opt_gateway_title">Pagar por la pasarela de pago online del mercado</strong>
+                  </div>
+                  <span class="secure-chip">SSL 256 bits</span>
+                </div>
+                <p class="payment-desc-text" data-i18n="pay_opt_gateway_desc">
+                  Se abrirá una ventana segura donde se te indicará el importe exacto a pagar antes de procesar el pago con tu tarjeta o Bizum.
+                </p>
+              </div>
+            </label>
+
+          </div>
+        </div>
+
+        <!-- RESUMEN FINAL DEL CHECKOUT & BOTÓN DE ACCIÓN -->
+        <div class="checkout-footer-action">
+          <div class="checkout-final-amount">
+            <span class="label" data-i18n="lbl_total_order">Importe del Pedido:</span>
+            <span class="val" id="checkout-total-display">0.00 €</span>
+          </div>
+
+          <div class="checkout-buttons-row">
+            <button type="button" class="btn btn-outline" id="checkout-cancel-btn" data-i18n="btn_back_to_cart">Volver a la cesta</button>
+            <button type="submit" class="btn btn-primary" id="checkout-submit-btn">
+              <span id="checkout-submit-text" data-i18n="btn_confirm_reservation">Confirmar Reserva del Pedido</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+            </button>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       3. VENTANA DE LA PASARELA DE PAGO DEL MERCADO
+       "en este caso se enviara a una ventana donde se le indicara lo que va a pagar
+       y despues yo implementare la pasarela de pago."
+       ========================================================================== -->
+  <div class="modal-backdrop" id="payment-gateway-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="gateway-modal-dialog">
+      
+      <!-- Cabecera de Seguridad Bancaria -->
+      <div class="gateway-header">
+        <div class="gateway-bank-brand">
+          <div class="gateway-shield-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+          </div>
+          <div>
+            <h3 class="gateway-bank-title" data-i18n="gw_title">Pasarela de Pago Segura | MercatFresc</h3>
+            <span class="gateway-secure-tag">TPV Virtual Certificado SSL 256-bit</span>
+          </div>
+        </div>
+        <button type="button" class="modal-close-btn" id="gateway-close-btn" aria-label="Cancelar y volver">
+          <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+
+      <!-- CAJA DONDE SE INDICA CLARAMENTE LO QUE VA A PAGAR -->
+      <div class="gateway-amount-card">
+        <div class="amount-card-top">
+          <div>
+            <span class="order-ref-label" data-i18n="gw_order_ref">Referencia de Pago:</span>
+            <strong class="order-ref-number" id="gw-order-ref">#MF-2026-0000</strong>
+          </div>
+          <div class="merchant-badge">
+            <span>Comercio: MercatFresc S.L.</span>
+          </div>
+        </div>
+
+        <div class="amount-main-box">
+          <span class="amount-label" data-i18n="gw_amount_to_pay">IMPORTE TOTAL A PAGAR</span>
+          <div class="amount-display-value" id="gw-amount-display">0.00 €</div>
+          <div class="amount-details-row">
+            <span>IVA superreducido incluido (4% y 10%)</span>
+            <span id="gw-items-count-display">0 artículos</span>
+          </div>
+        </div>
+
+        <div class="order-buyer-brief">
+          <div class="buyer-brief-item">
+            <span class="lbl" data-i18n="lbl_customer">Cliente:</span>
+            <strong id="gw-customer-name">-</strong>
+          </div>
+          <div class="buyer-brief-item">
+            <span class="lbl" data-i18n="lbl_mode">Modalidad:</span>
+            <strong id="gw-delivery-mode">-</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- ÁREA DE IMPLEMENTACIÓN DE LA PASARELA DE PAGO -->
+      <div class="gateway-dev-wrapper">
+        <div class="dev-banner-note">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          <div>
+            <strong data-i18n="gw_dev_title">Entorno de Pasarela de Pago del Mercado</strong>
+            <p data-i18n="gw_dev_desc">Esta interfaz está preparada para que insertes el script o endpoint oficial de tu pasarela bancaria (Redsys, Stripe, Bizum o PayPal). Puedes realizar la prueba interactiva a continuación:</p>
+          </div>
+        </div>
+
+        <!-- Pestañas de método de pago (Tarjeta o Bizum) -->
+        <div class="gateway-method-tabs">
+          <button type="button" class="gw-tab-btn active" id="gw-tab-card" data-i18n="gw_tab_card">Tarjeta Bancaria</button>
+          <button type="button" class="gw-tab-btn" id="gw-tab-bizum" data-i18n="gw_tab_bizum">Bizum Exprés</button>
+        </div>
+
+        <!-- Formulario de Tarjeta -->
+        <form id="gateway-card-form" class="gateway-form-section">
+          <div class="form-group">
+            <label class="form-label" for="gw-card-number" data-i18n="gw_card_number">Número de tarjeta</label>
+            <div class="card-input-container">
+              <input type="text" id="gw-card-number" class="form-control" placeholder="4548 •••• •••• 1234" maxlength="19" required>
+              <div class="card-logos-mini">
+                <span class="card-pill">VISA</span>
+                <span class="card-pill">MC</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label" for="gw-card-exp" data-i18n="gw_card_exp">Caducidad</label>
+              <input type="text" id="gw-card-exp" class="form-control" placeholder="MM/AA" maxlength="5" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="gw-card-cvv" data-i18n="gw_card_cvv">CVV / CVC</label>
+              <input type="password" id="gw-card-cvv" class="form-control" placeholder="123" maxlength="4" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="gw-card-holder" data-i18n="gw_card_holder">Nombre del titular</label>
+            <input type="text" id="gw-card-holder" class="form-control" placeholder="Como figura en la tarjeta" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-gateway-pay" id="gw-submit-pay-btn">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+            <span id="gw-pay-button-label">Pagar ahora de forma segura</span>
+          </button>
+        </form>
+
+        <!-- Formulario Bizum -->
+        <form id="gateway-bizum-form" class="gateway-form-section" style="display: none;">
+          <div class="form-group">
+            <label class="form-label" for="gw-bizum-phone" data-i18n="gw_bizum_phone">Teléfono móvil registrado en Bizum</label>
+            <input type="tel" id="gw-bizum-phone" class="form-control" placeholder="600 000 000" required>
+          </div>
+          <p class="form-helper-text" data-i18n="gw_bizum_hint">Recibirás una solicitud de confirmación instantánea en la app de tu banco.</p>
+          <button type="submit" class="btn btn-primary btn-gateway-pay">
+            <span data-i18n="gw_bizum_btn">Pagar con Bizum</span>
+          </button>
+        </form>
+
+      </div>
+
+      <div class="gateway-cancel-wrap">
+        <button type="button" class="btn-text-link" id="gw-cancel-link" data-i18n="btn_cancel_payment">Cancelar y regresar al pedido</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       4. MODAL DE CONFIRMACIÓN Y COMPROBANTE DE COMPRA / RESERVA
+       ========================================================================== -->
+  <div class="modal-backdrop" id="order-success-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="info-modal-dialog success-receipt-dialog">
+      <div class="success-tick-circle">
+        <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+      </div>
+
+      <h3 class="success-receipt-title" data-i18n="succ_title">¡Pedido Confirmado con Éxito!</h3>
+      <p class="success-receipt-subtitle" data-i18n="succ_subtitle">Hemos registrado tu reserva en MercatFresc. Ya estamos preparando los productos con el máximo cuidado y frescura.</p>
+
+      <div class="order-receipt-card" id="printable-receipt">
+        <div class="receipt-header-row">
+          <div>
+            <span class="rc-label" data-i18n="succ_order_number">Número de Pedido:</span>
+            <strong class="rc-number" id="succ-order-id">#MF-2026-0000</strong>
+          </div>
+          <span class="rc-status-pill" id="succ-status-badge">Confirmado</span>
+        </div>
+
+        <div class="receipt-details-grid">
+          <div class="rc-detail-item">
+            <span class="lbl" data-i18n="succ_lbl_customer">Titular:</span>
+            <strong id="succ-name">-</strong>
+          </div>
+          <div class="rc-detail-item">
+            <span class="lbl" data-i18n="succ_lbl_phone">Teléfono:</span>
+            <strong id="succ-phone">-</strong>
+          </div>
+          <div class="rc-detail-item full">
+            <span class="lbl" data-i18n="succ_lbl_mode">Modalidad de Entrega:</span>
+            <strong id="succ-delivery-info">-</strong>
+          </div>
+          <div class="rc-detail-item full">
+            <span class="lbl" data-i18n="succ_lbl_payment">Forma de Pago:</span>
+            <strong id="succ-payment-info">-</strong>
+          </div>
+          <div class="rc-detail-item full total-row">
+            <span class="lbl" data-i18n="succ_lbl_total">Importe Total:</span>
+            <strong class="rc-price" id="succ-total">-</strong>
+          </div>
+        </div>
+
+        <div class="receipt-notice" id="succ-notice-text">
+          Se ha enviado un correo de confirmación y SMS con las instrucciones detalladas.
+        </div>
+      </div>
+
+      <div class="success-actions-row">
+        <button type="button" class="btn btn-outline" id="print-receipt-btn" data-i18n="btn_print_receipt">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+          <span>Imprimir Comprobante</span>
+        </button>
+        <button type="button" class="btn btn-primary" id="success-done-btn" data-i18n="btn_continue_shopping">Seguir Comprando</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Notificación Toast Dinámica -->
+  <div class="toast-notice" id="toast" role="status" aria-live="polite">
+    <div class="toast-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+    </div>
+    <span id="toast-message">Mensaje del sistema</span>
+  </div>
+
+  <!-- Botón Volver Arriba -->
+  <button type="button" class="scroll-top-btn" id="scroll-top-btn" aria-label="Volver al inicio de la página" title="Subir arriba">
+    <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+  </button>
+
+  <!-- Script Principal Puro (Vanilla JS) -->
+  <script src="script.js" defer></script>
+</body>
+</html>

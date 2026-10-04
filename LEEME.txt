@@ -1,0 +1,92 @@
+Genera una página web moderna, minimalista, responsive y funcional estilo landinpage o sea que el usuario tenga prácticamente toda la información en una sola pagina utilizando
+exclusivamente HTML, CSS y JavaScript puro. No utilices frameworks, librerías externas,
+paquetes de terceros, preprocesadores ni dependencias externas. Todo el código debe
+ser implementado desde cero.
+Estructura del proyecto
+El proyecto debe contener tres archivos principales:
+1. index.html
+2. styles.css
+3. script.js
+1. No se deben incluir otros tipos de archivos ni dependencias externas.
+Requisitos técnicos del HTML
+El archivo index.html debe incluir:
+▪ Estructura semántica completa (header, nav, main, section, footer).
+▪ Header fijo con:
+▪ Logo en la esquina superior izquierda.
+▪ Menú principal centrado. En dependencia del tema incluiras siempre entre Inicio y Contactos todos los elementos que sean necesarios.
+▪ Botón de búsqueda con icono de lupa (SVG incrustado).
+▪ Botón de usuario (icono de persona) para acceder al sistema de login que implementaré.
+▪ Botón de modo claro/oscuro (icono sol/luna en SVG).
+▪ Menú hamburguesa para móviles:
+▪ Debe aparecer centrado y mostrase bajando desde arriba.
+▪ Tiene que existir un botón para busquedas en la pagina y un boton para poder seleccionar entre tres idiomas: Español, Ingles y Valenciano.
+▪ Encima del menu superior debe existir una barra horizontal donde se muestre información general como: teléfono, email u otra información general.
+▪ Secciones internas:
+▪ Heroprincipal. Puedes poner una imagen del tema de fondo o si lo encuentras un video coorto que se repita y quede muy bonito.
+▪ Sección informativa.
+▪ Sección secundaria.
+▪ Sección de contacto con formulario básico.
+▪ Modal de búsqueda:
+▪ Debe estar oculto por defecto.
+▪ Debe activarse al pulsar la lupa.
+▪ Footer con:
+▪ Política de cookies.
+▪ Requisitos.
+▪ Información adicional relevante según el tema.
+▪ Copyright.
+Requisitos técnicos del CSS
+El archivo styles.css debe incluir:
+▪ Variables CSS para colores, tipografías y modo claro/oscuro.
+▪ Paleta de colores basada en el tema indicado al final del prompt.
+▪ Diseño minimalista, moderno y limpio.
+▪ Sistema responsive mediante @media queries:
+▪ Móviles
+▪ Tablets
+▪ Escritorio
+▪ Animaciones y transiciones suaves:
+▪ Hover delmenú.
+▪ Aparición de secciones.
+▪ Botónclaro/oscuro.
+▪ Menúhamburguesa.
+▪ Layout basado en:
+▪ Flexbox
+▪ Grid(si es necesario)
+▪ Modal centrado con fondo difuminado.
+Requisitos técnicos del JavaScript
+El archivo script.js debe implementar:
+▪ Scroll suave hacia las secciones internas.
+▪ Modo claro/oscuro:
+▪ Cambiar clases del body.
+▪ Guardar preferencia en localStorage.
+▪ Cambiar icono sol/luna dinámicamente.
+▪ Menú hamburguesa:
+▪ Abrir/cerrar con animación.
+▪ Cerrar al hacer clic en un enlace.
+▪ Cerrar al cambiar el tamaño de la pantalla.
+▪ Modal de búsqueda:
+▪ Abrir/cerrar con animación.
+▪ Buscar texto dentro de la página.
+▪ Resaltar coincidencias.
+▪ Sistema de idioma preparado:
+▪ Estructura para cambiar textos (sin traducciones automáticas).
+▪ Eventos de scroll y resize para mejorar la UX.
+Normas de calidad del código
+▪ Códigolimpio, ordenado y comentado.
+▪ Nombres de clases y funciones descriptivos.
+▪ Sin código muerto.
+▪ Sin dependencias externas.
+▪ SinCDN.
+▪ Sinframeworks.
+▪ Sin plantillas de terceros.
+▪ Todo debe ser implementado desde cero.
+Entrega final esperada
+El generador debe producir:
+▪ index.html con estructura completa y funcional.
+▪ styles.css con diseño moderno y responsive.
+▪ script.js con todas las funcionalidades solicitadas.
+▪ Paleta de colores aplicada según el tema indicado al final.
+▪ Utiliza imágenes asociadas al tema y tomalas con accesos directos a la web de lugares preferiblemente sin copyright de todas formas las imágenes seran sustituidas por imagenes reales del cliente.
+Investiga la competencia actual sobre el tema toma referencias y prepara un diseño nuevo con estilo moderno y minimalista.
+Debemos incluir si el tema lleva la oferta de productos para comprar online incluir el carrito de compra con todas las opciones que lleva su uso incluyendo la reserva de la compra para recoger en el mercado o enviarlo a la dirección del cliente. necesito incluir la posibilidad de que el cliente decida si pagara al ir a recogerlo, si pagara cuando se lo entreguen o pagara por la pasarela de pago del mercado  en este caso se enviara a una ventana donde se le indicara lo que va a pagar y después yo implementare la pasarela de pago.
+Después de toda esta explicación te indico cual sera el tema de la pagina web que vas a generar y si se le incluye el carrito de compra.
+Tema de la web a generar: Tienda de ropa por departamentos para todas las edades incluye carrito de compra

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VESTA Atelier · Moda atemporal para adultos. Tienda online con recogida en tienda y envío a domicilio.">
+  <title>VESTA Atelier · Moda atemporal para adultos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-light">
+
+  <!-- ================= CABECERA FIJA ================= -->
+  <header class="site-header" id="siteHeader">
+
+    <!-- Barra superior de información -->
+    <div class="topbar">
+      <div class="container topbar__inner">
+        <div class="topbar__group">
+          <a href="tel:+34963000000" class="topbar__item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+            +34 963 000 000
+          </a>
+          <a href="mailto:hola@vesta-atelier.es" class="topbar__item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+            hola@vesta-atelier.es
+          </a>
+        </div>
+        <p class="topbar__item topbar__promo" data-i18n="top.ship">Envío gratis a partir de 60 € · Recogida en tienda en 2 h</p>
+        <p class="topbar__item topbar__hours" data-i18n="top.hours">Lun–Sáb · 10:00–20:30</p>
+      </div>
+    </div>
+
+    <!-- Barra de navegación principal -->
+    <div class="navbar">
+      <div class="container navbar__inner">
+        <a href="#inicio" class="logo" aria-label="VESTA Atelier">
+          <span class="logo__mark">V</span>
+          <span class="logo__text">VESTA<small>ATELIER</small></span>
+        </a>
+
+        <nav class="main-nav" aria-label="Navegación principal">
+          <ul class="main-nav__list">
+            <li><a href="#inicio" class="nav-link is-active" data-i18n="nav.home">Inicio</a></li>
+            <li><a href="#colecciones" class="nav-link" data-i18n="nav.collections">Colecciones</a></li>
+            <li><a href="#tienda" class="nav-link" data-i18n="nav.shop">Tienda</a></li>
+            <li><a href="#lookbook" class="nav-link" data-i18n="nav.lookbook">Lookbook</a></li>
+            <li><a href="#nosotros" class="nav-link" data-i18n="nav.about">Nosotros</a></li>
+            <li><a href="#contacto" class="nav-link" data-i18n="nav.contact">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="icon-btn hide-mobile" id="searchToggle" aria-label="Buscar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          </button>
+
+          <!-- Selector de idioma (escritorio) -->
+          <div class="lang-dropdown hide-mobile" id="langDropdown">
+            <button class="icon-btn lang-dropdown__toggle" id="langToggle" aria-haspopup="true" aria-expanded="false" aria-label="Idioma">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <span class="lang-dropdown__current" id="langCurrent">ES</span>
+            </button>
+            <ul class="lang-dropdown__menu" role="menu">
+              <li><button class="lang-option" data-lang="es" role="menuitem">Español</button></li>
+              <li><button class="lang-option" data-lang="en" role="menuitem">English</button></li>
+              <li><button class="lang-option" data-lang="va" role="menuitem">Valencià</button></li>
+            </ul>
+          </div>
+
+          <button class="icon-btn" id="userToggle" aria-label="Mi cuenta">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+          </button>
+
+          <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Cambiar modo claro/oscuro"></button>
+
+          <button class="icon-btn cart-toggle" id="cartToggle" aria-label="Cesta">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
+            <span class="cart-toggle__badge" id="cartBadge">0</span>
+          </button>
+
+          <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menú móvil desplegable desde arriba -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <nav class="mobile-menu__nav" aria-label="Navegación móvil">
+        <a href="#inicio" class="mobile-link" data-i18n="nav.home">Inicio</a>
+        <a href="#colecciones" class="mobile-link" data-i18n="nav.collections">Colecciones</a>
+        <a href="#tienda" class="mobile-link" data-i18n="nav.shop">Tienda</a>
+        <a href="#lookbook" class="mobile-link" data-i18n="nav.lookbook">Lookbook</a>
+        <a href="#nosotros" class="mobile-link" data-i18n="nav.about">Nosotros</a>
+        <a href="#contacto" class="mobile-link" data-i18n="nav.contact">Contacto</a>
+      </nav>
+      <div class="mobile-menu__tools">
+        <button class="btn btn--outline btn--sm" id="mobileSearchBtn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <span data-i18n="search.button">Buscar</span>
+        </button>
+        <div class="lang-pills" role="group" aria-label="Idioma">
+          <button class="lang-pill lang-option" data-lang="es">ES</button>
+          <button class="lang-pill lang-option" data-lang="en">EN</button>
+          <button class="lang-pill lang-option" data-lang="va">VA</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="inicio">
+      <video class="hero__video" autoplay muted loop playsinline
+        poster="https://images.pexels.com/photos/8311890/pexels-photo-8311890.jpeg?auto=compress&cs=tinysrgb&w=1600">
+        <source src="https://videos.pexels.com/video-files/8798089/8798089-uhd_4096_2160_25fps.mp4" type="video/mp4">
+      </video>
+      <div class="hero__overlay"></div>
+      <div class="container hero__content">
+        <p class="eyebrow eyebrow--light" data-i18n="hero.tag">Nueva colección Otoño–Invierno 2026</p>
+        <h1 class="hero__title" data-i18n="hero.title">Viste con intención.</h1>
+        <p class="hero__text" data-i18n="hero.text">Prendas atemporales para adultos, confeccionadas con tejidos nobles y pensadas para durar más de una temporada.</p>
+        <div class="hero__actions">
+          <a href="#tienda" class="btn btn--primary" data-i18n="hero.cta1">Comprar ahora</a>
+          <a href="#colecciones" class="btn btn--ghost" data-i18n="hero.cta2">Ver colecciones</a>
+        </div>
+      </div>
+      <a href="#colecciones" class="hero__scroll" aria-label="Bajar">
+        <span data-i18n="hero.scroll">Desliza</span>
+        <i></i>
+      </a>
+    </section>
+
+    <!-- ================= VENTAJAS ================= -->
+    <section class="features" aria-label="Ventajas">
+      <div class="container features__grid">
+        <article class="feature reveal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <div><h3 data-i18n="feat.ship.t">Envío gratis</h3><p data-i18n="feat.ship.d">En pedidos superiores a 60 €</p></div>
+        </article>
+        <article class="feature reveal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9 12 2l9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+          <div><h3 data-i18n="feat.pickup.t">Recogida en tienda</h3><p data-i18n="feat.pickup.d">Reserva online y recoge en 2 h</p></div>
+        </article>
+        <article class="feature reveal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+          <div><h3 data-i18n="feat.returns.t">Devoluciones 30 días</h3><p data-i18n="feat.returns.d">Cambios sin coste en tienda</p></div>
+        </article>
+        <article class="feature reveal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+          <div><h3 data-i18n="feat.pay.t">Pago flexible</h3><p data-i18n="feat.pay.d">Online, en tienda o a la entrega</p></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= COLECCIONES (sección informativa) ================= -->
+    <section class="section" id="colecciones">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow" data-i18n="col.eyebrow">Colecciones</p>
+          <h2 class="section__title" data-i18n="col.title">Diseñadas para cada momento</h2>
+          <p class="section__text" data-i18n="col.text">Líneas depuradas, paleta neutra y patrones pensados para el cuerpo adulto. Piezas que combinan entre sí y construyen un armario sin esfuerzo.</p>
+        </header>
+
+        <div class="collections">
+          <a href="#tienda" class="collection-card reveal" data-filter-link="women">
+            <img src="https://images.pexels.com/photos/6070068/pexels-photo-6070068.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1000&w=750" alt="Colección mujer" loading="lazy">
+            <div class="collection-card__info">
+              <h3 data-i18n="col.women">Mujer</h3>
+              <span data-i18n="col.cta">Descubrir →</span>
+            </div>
+          </a>
+          <a href="#tienda" class="collection-card reveal" data-filter-link="men">
+            <img src="https://images.pexels.com/photos/34609625/pexels-photo-34609625.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1000&w=750" alt="Colección hombre" loading="lazy">
+            <div class="collection-card__info">
+              <h3 data-i18n="col.men">Hombre</h3>
+              <span data-i18n="col.cta">Descubrir →</span>
+            </div>
+          </a>
+          <a href="#tienda" class="collection-card reveal" data-filter-link="all">
+            <img src="https://images.pexels.com/photos/14582759/pexels-photo-14582759.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1000&w=750" alt="Novedades" loading="lazy">
+            <div class="collection-card__info">
+              <h3 data-i18n="col.new">Novedades</h3>
+              <span data-i18n="col.cta">Descubrir →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TIENDA ONLINE ================= -->
+    <section class="section section--alt" id="tienda">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow" data-i18n="shop.eyebrow">Tienda online</p>
+          <h2 class="section__title" data-i18n="shop.title">Esenciales de temporada</h2>
+          <p class="section__text" data-i18n="shop.text">Elige tu talla, añade a la cesta y decide si prefieres recogerlo en tienda o recibirlo en casa.</p>
+        </header>
+
+        <div class="shop-filters reveal" role="tablist" aria-label="Filtrar productos">
+          <button class="filter-btn is-active" data-filter="all" data-i18n="filter.all">Todo</button>
+          <button class="filter-btn" data-filter="women" data-i18n="filter.women">Mujer</button>
+          <button class="filter-btn" data-filter="men" data-i18n="filter.men">Hombre</button>
+          <button class="filter-btn" data-filter="sale" data-i18n="filter.sale">Rebajas</button>
+        </div>
+
+        <!-- Productos generados dinámicamente desde script.js -->
+        <div class="product-grid" id="productGrid"></div>
+      </div>
+    </section>
+
+    <!-- ================= LOOKBOOK (sección secundaria) ================= -->
+    <section class="section" id="lookbook">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow" data-i18n="look.eyebrow">Lookbook</p>
+          <h2 class="section__title" data-i18n="look.title">Inspiración Otoño 2026</h2>
+          <p class="section__text" data-i18n="look.text">Capas, texturas y tonos tierra. Una mirada a cómo combinar las piezas clave de la temporada.</p>
+        </header>
+        <div class="lookbook">
+          <figure class="lookbook__item lookbook__item--tall reveal"><img src="https://images.pexels.com/photos/20015247/pexels-photo-20015247.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800" alt="Escaparate de temporada" loading="lazy"></figure>
+          <figure class="lookbook__item reveal"><img src="https://images.pexels.com/photos/13532888/pexels-photo-13532888.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=800" alt="Prendas en percha" loading="lazy"></figure>
+          <figure class="lookbook__item reveal"><img src="https://images.pexels.com/photos/37549254/pexels-photo-37549254.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=800" alt="Interior de la tienda" loading="lazy"></figure>
+          <figure class="lookbook__item lookbook__item--wide reveal"><img src="https://images.pexels.com/photos/8311880/pexels-photo-8311880.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=700&w=1200" alt="Clientas comprando" loading="lazy"></figure>
+          <figure class="lookbook__item reveal"><img src="https://images.pexels.com/photos/5424922/pexels-photo-5424922.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=800" alt="Burros de ropa" loading="lazy"></figure>
+          <figure class="lookbook__item reveal"><img src="https://images.pexels.com/photos/10011434/pexels-photo-10011434.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=800" alt="Maniquíes" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= NOSOTROS ================= -->
+    <section class="section section--alt" id="nosotros">
+      <div class="container about">
+        <div class="about__media reveal">
+          <img src="https://images.pexels.com/photos/8386643/pexels-photo-8386643.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=1200" alt="Nuestra tienda" loading="lazy">
+        </div>
+        <div class="about__content reveal">
+          <p class="eyebrow" data-i18n="about.eyebrow">Nosotros</p>
+          <h2 class="section__title" data-i18n="about.title">Moda consciente desde 2012</h2>
+          <p data-i18n="about.p1">VESTA nació en el centro de València con una idea sencilla: vestir a personas adultas con prendas bien hechas, cómodas y elegantes, lejos de las tendencias de usar y tirar.</p>
+          <p data-i18n="about.p2">Trabajamos con talleres europeos, fibras naturales y producciones cortas. Cada pieza se prueba en tienda antes de llegar a ti.</p>
+          <ul class="stats">
+            <li><strong data-count="14">0</strong><span data-i18n="about.s1">Años vistiendo València</span></li>
+            <li><strong data-count="25000" data-suffix="+">0</strong><span data-i18n="about.s2">Clientes satisfechos</span></li>
+            <li><strong data-count="90" data-suffix="%">0</strong><span data-i18n="about.s3">Tejidos de origen europeo</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACTO ================= -->
+    <section class="section" id="contacto">
+      <div class="container contact">
+        <div class="contact__info reveal">
+          <p class="eyebrow" data-i18n="contact.eyebrow">Contacto</p>
+          <h2 class="section__title" data-i18n="contact.title">Hablemos</h2>
+          <p class="section__text" data-i18n="contact.text">¿Dudas con una talla, un pedido o una reserva? Escríbenos o visítanos, te asesoramos encantados.</p>
+          <ul class="contact__list">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><h3 data-i18n="contact.addressT">Visítanos</h3><p>C/ de Colón 24, 46004 València</p></div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <div><h3 data-i18n="contact.hoursT">Horario</h3><p data-i18n="top.hours">Lun–Sáb · 10:00–20:30</p></div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+              <div><h3 data-i18n="contact.phoneT">Teléfono</h3><p><a href="tel:+34963000000">+34 963 000 000</a></p></div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+              <div><h3>Email</h3><p><a href="mailto:hola@vesta-atelier.es">hola@vesta-atelier.es</a></p></div>
+            </li>
+          </ul>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <div class="form-row">
+            <label class="field">
+              <span data-i18n="form.name">Nombre *</span>
+              <input type="text" name="name" required autocomplete="name">
+            </label>
+            <label class="field">
+              <span>Email *</span>
+              <input type="email" name="email" required autocomplete="email">
+            </label>
+          </div>
+          <label class="field">
+            <span data-i18n="form.subject">Asunto</span>
+            <input type="text" name="subject">
+          </label>
+          <label class="field">
+            <span data-i18n="form.message">Mensaje *</span>
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" name="privacy" required>
+            <span data-i18n="form.privacy">Acepto la política de privacidad</span>
+          </label>
+          <button type="submit" class="btn btn--primary btn--block" data-i18n="form.send">Enviar mensaje</button>
+          <p class="form-feedback" id="contactFeedback" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="#inicio" class="logo logo--footer">
+          <span class="logo__mark">V</span>
+          <span class="logo__text">VESTA<small>ATELIER</small></span>
+        </a>
+        <p data-i18n="footer.about">Moda atemporal para adultos. Diseñada en València, confeccionada en Europa.</p>
+        <form class="newsletter" id="newsletterForm" novalidate>
+          <input type="email" placeholder="Tu email" data-i18n-placeholder="footer.emailPh" aria-label="Email" required>
+          <button type="submit" class="btn btn--primary btn--sm" data-i18n="footer.subscribe">Suscribirme</button>
+        </form>
+      </div>
+      <div>
+        <h4 data-i18n="footer.shop">Tienda</h4>
+        <ul>
+          <li><a href="#tienda" data-filter-link="women" data-i18n="filter.women">Mujer</a></li>
+          <li><a href="#tienda" data-filter-link="men" data-i18n="filter.men">Hombre</a></li>
+          <li><a href="#tienda" data-filter-link="sale" data-i18n="filter.sale">Rebajas</a></li>
+          <li><a href="#lookbook" data-i18n="nav.lookbook">Lookbook</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.help">Ayuda</h4>
+        <ul>
+          <li><button class="link-btn" data-info="shipping" data-i18n="footer.shipping">Envíos y entregas</button></li>
+          <li><button class="link-btn" data-info="returns" data-i18n="footer.returns">Cambios y devoluciones</button></li>
+          <li><button class="link-btn" data-info="sizes" data-i18n="footer.sizes">Guía de tallas</button></li>
+          <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.legal">Legal</h4>
+        <ul>
+          <li><button class="link-btn" data-info="cookies" data-i18n="footer.cookies">Política de cookies</button></li>
+          <li><button class="link-btn" data-info="requirements" data-i18n="footer.requirements">Requisitos</button></li>
+          <li><button class="link-btn" data-info="privacy" data-i18n="footer.privacy">Privacidad</button></li>
+          <li><button class="link-btn" data-info="legal" data-i18n="footer.legalNotice">Aviso legal</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>© <span id="currentYear">2026</span> VESTA Atelier S.L. · <span data-i18n="footer.copy">Todos los derechos reservados.</span></p>
+      <div class="footer__payments" aria-label="Métodos de pago">
+        <span>VISA</span><span>Mastercard</span><span>Bizum</span><span>PayPal</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botón volver arriba -->
+  <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <!-- ================= MODAL BÚSQUEDA ================= -->
+  <div class="modal" id="searchModal" aria-hidden="true" role="dialog" aria-labelledby="searchTitle">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog modal__dialog--search">
+      <button class="modal__close" data-close aria-label="Cerrar">×</button>
+      <h2 class="modal__title" id="searchTitle" data-i18n="search.title">Buscar en la página</h2>
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="search" id="searchInput" placeholder="Escribe para buscar…" data-i18n-placeholder="search.placeholder" autocomplete="off">
+      </div>
+      <p class="search-status" id="searchStatus" data-i18n="search.hint">Escribe al menos 2 caracteres</p>
+      <ul class="search-results" id="searchResults"></ul>
+    </div>
+  </div>
+
+  <!-- ================= MODAL LOGIN ================= -->
+  <div class="modal" id="loginModal" aria-hidden="true" role="dialog" aria-labelledby="loginTitle">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog modal__dialog--sm">
+      <button class="modal__close" data-close aria-label="Cerrar">×</button>
+      <h2 class="modal__title" id="loginTitle" data-i18n="login.title">Accede a tu cuenta</h2>
+      <!-- Formulario preparado para conectar con el sistema de login -->
+      <form class="login-form" id="loginForm" novalidate>
+        <label class="field"><span>Email</span><input type="email" name="email" required autocomplete="email"></label>
+        <label class="field"><span data-i18n="login.password">Contraseña</span><input type="password" name="password" required autocomplete="current-password"></label>
+        <button type="submit" class="btn btn--primary btn--block" data-i18n="login.submit">Entrar</button>
+        <p class="login-form__alt"><a href="#" id="registerLink" data-i18n="login.register">¿No tienes cuenta? Regístrate</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= CARRITO (panel lateral) ================= -->
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-labelledby="cartTitle">
+    <div class="cart-drawer__backdrop" data-close-cart></div>
+    <div class="cart-drawer__panel">
+      <div class="cart-drawer__head">
+        <h2 id="cartTitle" data-i18n="cart.title">Tu cesta</h2>
+        <button class="modal__close" data-close-cart aria-label="Cerrar">×</button>
+      </div>
+      <div class="cart-drawer__body" id="cartItems"></div>
+      <div class="cart-drawer__foot" id="cartFoot">
+        <div class="free-ship" id="freeShip"></div>
+        <div class="summary-line"><span data-i18n="cart.subtotal">Subtotal</span><strong id="cartSubtotal">0,00 €</strong></div>
+        <p class="cart-drawer__note" data-i18n="cart.shipNote">Gastos de envío y forma de pago en el siguiente paso.</p>
+        <button class="btn btn--primary btn--block" id="checkoutBtn" data-i18n="cart.checkout">Tramitar pedido</button>
+        <button class="link-btn link-btn--muted" id="clearCartBtn" data-i18n="cart.clear">Vaciar cesta</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ================= MODAL CHECKOUT ================= -->
+  <div class="modal" id="checkoutModal" aria-hidden="true" role="dialog" aria-labelledby="checkoutTitle">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog modal__dialog--lg">
+      <button class="modal__close" data-close aria-label="Cerrar">×</button>
+      <h2 class="modal__title" id="checkoutTitle" data-i18n="co.title">Finalizar pedido</h2>
+
+      <form class="checkout" id="checkoutForm" novalidate>
+        <div class="checkout__main">
+          <!-- Paso 1: datos del cliente -->
+          <fieldset class="checkout__block">
+            <legend><span class="step-num">1</span><span data-i18n="co.step1">Tus datos</span></legend>
+            <div class="form-row">
+              <label class="field"><span data-i18n="co.name">Nombre completo *</span><input type="text" name="fullName" required autocomplete="name"></label>
+              <label class="field"><span data-i18n="co.phone">Teléfono *</span><input type="tel" name="phone" required autocomplete="tel"></label>
+            </div>
+            <label class="field"><span>Email *</span><input type="email" name="email" required autocomplete="email"></label>
+          </fieldset>
+
+          <!-- Paso 2: método de entrega -->
+          <fieldset class="checkout__block">
+            <legend><span class="step-num">2</span><span data-i18n="co.step2">Entrega</span></legend>
+            <div class="option-cards">
+              <label class="option-card">
+                <input type="radio" name="delivery" value="pickup" checked>
+                <span class="option-card__body">
+                  <strong data-i18n="co.pickup">Recoger en tienda</strong>
+                  <small data-i18n="co.pickupDesc">Gratis · Listo en 2 h</small>
+                </span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="delivery" value="shipping">
+                <span class="option-card__body">
+                  <strong data-i18n="co.delivery">Envío a domicilio</strong>
+                  <small data-i18n="co.deliveryDesc">4,95 € · Gratis desde 60 € · 24–48 h</small>
+                </span>
+              </label>
+            </div>
+
+            <div class="delivery-panel" id="pickupFields">
+              <div class="form-row">
+                <label class="field"><span data-i18n="co.store">Tienda de recogida</span>
+                  <select name="store">
+                    <option value="colon">VESTA Colón · C/ de Colón 24</option>
+                    <option value="ruzafa">VESTA Ruzafa · C/ de Sueca 15</option>
+                  </select>
+                </label>
+                <label class="field"><span data-i18n="co.date">Fecha de recogida *</span><input type="date" name="pickupDate" id="pickupDate"></label>
+              </div>
+            </div>
+
+            <div class="delivery-panel is-hidden" id="shippingFields">
+              <label class="field"><span data-i18n="co.address">Dirección *</span><input type="text" name="address" autocomplete="street-address"></label>
+              <div class="form-row">
+                <label class="field"><span data-i18n="co.city">Ciudad *</span><input type="text" name="city" autocomplete="address-level2"></label>
+                <label class="field"><span data-i18n="co.zip">Código postal *</span><input type="text" name="zip" inputmode="numeric" maxlength="5" autocomplete="postal-code"></label>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Paso 3: método de pago -->
+          <fieldset class="checkout__block">
+            <legend><span class="step-num">3</span><span data-i18n="co.step3">Pago</span></legend>
+            <div class="option-cards option-cards--col">
+              <label class="option-card" data-pay-for="pickup">
+                <input type="radio" name="payment" value="store" checked>
+                <span class="option-card__body">
+                  <strong data-i18n="co.payStore">Pagar al recoger</strong>
+                  <small data-i18n="co.payStoreDesc">Efectivo o tarjeta en tienda</small>
+                </span>
+              </label>
+              <label class="option-card is-hidden" data-pay-for="shipping">
+                <input type="radio" name="payment" value="cod">
+                <span class="option-card__body">
+                  <strong data-i18n="co.payCod">Pagar a la entrega</strong>
+                  <small data-i18n="co.payCodDesc">Contra reembolso al repartidor</small>
+                </span>
+              </label>
+              <label class="option-card" data-pay-for="all">
+                <input type="radio" name="payment" value="online">
+                <span class="option-card__body">
+                  <strong data-i18n="co.payOnline">Pago online</strong>
+                  <small data-i18n="co.payOnlineDesc">Pasarela de pago segura de la tienda</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <p class="form-feedback" id="checkoutFeedback" role="alert"></p>
+        </div>
+
+        <!-- Resumen del pedido -->
+        <aside class="checkout__summary">
+          <h3 data-i18n="co.summary">Resumen</h3>
+          <ul class="summary-items" id="checkoutItems"></ul>
+          <div class="summary-line"><span data-i18n="cart.subtotal">Subtotal</span><span id="coSubtotal">0,00 €</span></div>
+          <div class="summary-line"><span data-i18n="cart.shipping">Envío</span><span id="coShipping">0,00 €</span></div>
+          <div class="summary-line summary-line--total"><span data-i18n="cart.total">Total</span><strong id="coTotal">0,00 €</strong></div>
+          <button type="submit" class="btn btn--primary btn--block" id="confirmOrderBtn" data-i18n="co.confirm">Confirmar pedido</button>
+        </aside>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= VENTANA DE PAGO (previa a la pasarela) ================= -->
+  <div class="modal" id="paymentModal" aria-hidden="true" role="dialog" aria-labelledby="paymentTitle">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog modal__dialog--sm">
+      <button class="modal__close" data-close aria-label="Cerrar">×</button>
+      <div class="payment">
+        <svg class="payment__icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <h2 class="modal__title" id="paymentTitle" data-i18n="pay.title">Resumen de pago</h2>
+        <p data-i18n="pay.text">Vas a pagar el siguiente importe a través de la pasarela segura de la tienda.</p>
+        <dl class="payment__details">
+          <div><dt data-i18n="pay.order">Pedido</dt><dd id="payOrderId">—</dd></div>
+          <div><dt data-i18n="pay.customer">Cliente</dt><dd id="payCustomer">—</dd></div>
+          <div><dt data-i18n="pay.delivery">Entrega</dt><dd id="payDelivery">—</dd></div>
+          <div><dt data-i18n="cart.subtotal">Subtotal</dt><dd id="paySubtotal">—</dd></div>
+          <div><dt data-i18n="cart.shipping">Envío</dt><dd id="payShipping">—</dd></div>
+        </dl>
+        <div class="payment__amount">
+          <span data-i18n="pay.amount">Importe a pagar</span>
+          <strong id="payTotal">0,00 €</strong>
+        </div>
+        <button class="btn btn--primary btn--block" id="goToGatewayBtn" data-i18n="pay.go">Ir a la pasarela de pago</button>
+        <p class="payment__note" data-i18n="pay.note">Pago cifrado. No almacenamos los datos de tu tarjeta.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= CONFIRMACIÓN DE RESERVA ================= -->
+  <div class="modal" id="confirmModal" aria-hidden="true" role="dialog" aria-labelledby="confirmTitle">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog modal__dialog--sm">
+      <button class="modal__close" data-close aria-label="Cerrar">×</button>
+      <div class="confirm">
+        <div class="confirm__check"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h2 class="modal__title" id="confirmTitle" data-i18n="ok.title">¡Pedido reservado!</h2>
+        <p id="confirmMessage"></p>
+        <p class="confirm__number"><span data-i18n="pay.order">Pedido</span>: <strong id="confirmOrderId"></strong></p>
+        <button class="btn btn--primary btn--block" data-close data-i18n="ok.close">Seguir comprando</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL INFORMATIVO (cookies, requisitos, etc.) ================= -->
+  <div class="modal" id="infoModal" aria-hidden="true" role="dialog" aria-labelledby="infoTitle">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog">
+      <button class="modal__close" data-close aria-label="Cerrar">×</button>
+      <h2 class="modal__title" id="infoTitle"></h2>
+      <div class="info-content" id="infoContent"></div>
+    </div>
+  </div>
+
+  <!-- Aviso de cookies -->
+  <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookies">
+    <p data-i18n="cookie.text">Usamos cookies técnicas propias para guardar tu cesta, idioma y preferencias de visualización.</p>
+    <div class="cookie-banner__actions">
+      <button class="link-btn" data-info="cookies" data-i18n="cookie.more">Más información</button>
+      <button class="btn btn--primary btn--sm" id="acceptCookies" data-i18n="cookie.accept">Aceptar</button>
+    </div>
+  </div>
+
+  <!-- Notificaciones -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

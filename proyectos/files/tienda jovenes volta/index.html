@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOLTA · Ropa para jóvenes — Colección SS26</title>
+  <meta name="description" content="VOLTA, tienda de ropa para jovencitos y jovencitas de 8 a 16 años. Moda joven, algodón orgánico y producción local en València. Compra online y recoge en tienda.">
+  <meta name="theme-color" content="#F3EFE7">
+  <!-- Preferencia de tema antes de pintar (evita parpadeo) -->
+  <script>
+    (function () {
+      var guardado = localStorage.getItem('volta-tema');
+      var oscuro = guardado ? guardado === 'oscuro' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', oscuro ? 'dark' : 'light');
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido" data-i18n="a11y.saltar">Saltar al contenido principal</a>
+
+  <!-- ============================ BARRA DE INFORMACIÓN ============================ -->
+  <div class="topbar">
+    <div class="topbar__inner">
+      <ul class="topbar__list">
+        <li>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5 9 8l-2 1.6a12 12 0 0 0 5.4 5.4L14 13l4.5 2.4-.7 3.4c-.2.9-1 1.5-1.9 1.4C9.3 19.4 4.6 14.7 3.8 8.1c-.1-.9.5-1.7 1.4-1.9l1.4-.3Z"/></svg>
+          <a href="tel:+34960451287">+34 960 45 12 87</a>
+        </li>
+        <li>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m3.5 6.6 8.5 6 8.5-6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          <a href="mailto:hola@voltawear.es">hola@voltawear.es</a>
+        </li>
+        <li class="topbar__wide" data-i18n="topbar.envio">Envío 24–48 h · Gratis desde 60 €</li>
+        <li class="topbar__wide" data-i18n="topbar.horario">Tienda en València · Lun–Sáb 10:00–20:30</li>
+      </ul>
+      <div class="topbar__lang" role="group" aria-label="Idioma">
+        <button type="button" class="lang-btn is-active" data-lang="es">ES</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="val">VAL</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ CABECERA FIJA ============================ -->
+  <header class="site-header" id="cabecera">
+    <div class="header-inner">
+      <a class="logo" href="#inicio" aria-label="VOLTA, inicio">
+        <svg class="logo__mark" viewBox="0 0 44 44" aria-hidden="true">
+          <rect x="0" y="0" width="44" height="44" rx="2" class="logo__plate"/>
+          <path d="M10 12h6.6l5.4 14.2L27.4 12H34l-8.8 21h-6.4L10 12Z" class="logo__letter"/>
+        </svg>
+        <span class="logo__text">
+          <strong>VOLTA</strong>
+          <small data-i18n="logo.tagline">Moda joven · SS26</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Menú principal">
+        <ul>
+          <li><a href="#inicio" class="nav-link is-current" data-i18n="nav.inicio">Inicio</a></li>
+          <li><a href="#novedades" class="nav-link" data-i18n="nav.novedades">Novedades</a></li>
+          <li><a href="#coleccion" class="nav-link" data-i18n="nav.coleccion">Colección</a></li>
+          <li><a href="#lookbook" class="nav-link" data-i18n="nav.lookbook">Lookbook</a></li>
+          <li><a href="#sostenibilidad" class="nav-link" data-i18n="nav.sostenibilidad">Sostenibilidad</a></li>
+          <li><a href="#contacto" class="nav-link" data-i18n="nav.contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="icon-btn" id="btnBuscar" aria-label="Buscar en la página" title="Buscar">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <button type="button" class="icon-btn" id="btnUsuario" aria-label="Acceso de cliente" title="Acceso">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.4" r="3.8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4.8 20c.7-4 3.6-6 7.2-6s6.5 2 7.2 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <button type="button" class="icon-btn" id="btnTema" aria-label="Cambiar modo claro/oscuro" title="Tema">
+          <svg class="ico ico-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.4v2.6M12 19v2.6M2.4 12H5M19 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <svg class="ico ico-luna" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4 8.4 8.4 0 1 0 20 14.2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </button>
+        <button type="button" class="icon-btn cart-btn" id="btnCarrito" aria-label="Abrir carrito de compra" title="Carrito">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16l-1.6 11.2a2 2 0 0 1-2 1.8H7.6a2 2 0 0 1-2-1.8L4 6Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.6 9V6.4a3.4 3.4 0 0 1 6.8 0V9" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
+          <span class="cart-count" id="contadorCarrito" aria-live="polite">0</span>
+        </button>
+        <button type="button" class="icon-btn burger" id="btnMenu" aria-label="Abrir menú" aria-expanded="false" aria-controls="menuMovil">
+          <span class="burger__bar"></span><span class="burger__bar"></span><span class="burger__bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú móvil: baja desde arriba, centrado -->
+    <div class="mobile-menu" id="menuMovil" aria-hidden="true">
+      <nav class="mobile-menu__nav" aria-label="Menú móvil">
+        <a href="#inicio" data-i18n="nav.inicio">Inicio</a>
+        <a href="#novedades" data-i18n="nav.novedades">Novedades</a>
+        <a href="#coleccion" data-i18n="nav.coleccion">Colección</a>
+        <a href="#lookbook" data-i18n="nav.lookbook">Lookbook</a>
+        <a href="#sostenibilidad" data-i18n="nav.sostenibilidad">Sostenibilidad</a>
+        <a href="#contacto" data-i18n="nav.contacto">Contacto</a>
+      </nav>
+      <div class="mobile-menu__tools">
+        <button type="button" class="btn btn--line" id="btnBuscarMovil">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span data-i18n="menu.buscar">Buscar</span>
+        </button>
+        <div class="mobile-menu__lang" role="group" aria-label="Idioma">
+          <button type="button" class="lang-btn is-active" data-lang="es">Español</button>
+          <button type="button" class="lang-btn" data-lang="en">English</button>
+          <button type="button" class="lang-btn" data-lang="val">Valencià</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <!-- ============================ HERO ============================ -->
+    <section class="hero" id="inicio">
+      <div class="hero__media">
+        <img src="https://images.pexels.com/photos/7243970/pexels-photo-7243970.jpeg?auto=compress&cs=tinysrgb&w=1600"
+             alt="Tres jóvenes con ropa urbana posando al aire libre" fetchpriority="high">
+        <div class="hero__scrim"></div>
+      </div>
+
+      <div class="hero__inner">
+        <p class="hero__eyebrow reveal"><span class="dot"></span><span data-i18n="hero.eyebrow">Colección cápsula · SS26 · 42 piezas</span></p>
+        <h1 class="hero__title">
+          <span class="reveal" data-i18n="hero.t1">Nueva</span>
+          <span class="reveal hero__title-accent" data-i18n="hero.t2">temporada</span>
+          <span class="reveal hero__title-italic" data-i18n="hero.t3">para su actitud</span>
+        </h1>
+        <p class="hero__lead reveal" data-i18n="hero.lead">
+          Ropa de 8 a 16 años que aguanta el recreo, el skate y el fin de semana.
+          Algodón orgánico, patrones pensados para crecer y producción local en València.
+        </p>
+        <div class="hero__actions reveal">
+          <a class="btn btn--accent" href="#coleccion"><span data-i18n="hero.cta1">Ver colección</span></a>
+          <a class="btn btn--ghost" href="#lookbook"><span data-i18n="hero.cta2">Descubrir lookbook</span></a>
+        </div>
+        <ul class="hero__meta reveal">
+          <li data-i18n="hero.m1">Envío gratis desde 60 €</li>
+          <li data-i18n="hero.m2">Recogida en tienda en 2 h</li>
+          <li data-i18n="hero.m3">Devoluciones 30 días</li>
+        </ul>
+      </div>
+
+      <div class="hero__side" aria-hidden="true">VOLTA · SS26 · VALÈNCIA</div>
+
+      <div class="hero__tag" aria-hidden="true">
+        <span class="hero__tag-label" data-i18n="hero.tag">Desde</span>
+        <strong>19,90 €</strong>
+      </div>
+    </section>
+
+    <!-- ============================ MARQUESINA ============================ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Envío gratis desde 60 €</span><span class="marquee__sep">✳</span>
+        <span>Devoluciones 30 días</span><span class="marquee__sep">✳</span>
+        <span>Recogida en tienda</span><span class="marquee__sep">✳</span>
+        <span>Algodón orgánico certificado</span><span class="marquee__sep">✳</span>
+        <span>Tallas 8 – 16</span><span class="marquee__sep">✳</span>
+        <span>Envío gratis desde 60 €</span><span class="marquee__sep">✳</span>
+        <span>Devoluciones 30 días</span><span class="marquee__sep">✳</span>
+        <span>Recogida en tienda</span><span class="marquee__sep">✳</span>
+        <span>Algodón orgánico certificado</span><span class="marquee__sep">✳</span>
+        <span>Tallas 8 – 16</span><span class="marquee__sep">✳</span>
+      </div>
+    </div>
+
+    <!-- ============================ SECCIÓN INFORMATIVA ============================ -->
+    <section class="section about" id="novedades">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-index">01 — <span data-i18n="about.kicker">Quiénes somos</span></p>
+          <h2 class="section-title reveal"><span data-i18n="about.titulo">Vestir su actitud,</span> <em data-i18n="about.titulo2">no disfrazarla</em></h2>
+        </header>
+
+        <div class="about__grid">
+          <div class="about__text reveal">
+            <p class="lead" data-i18n="about.p1">
+              Nacimos en 2014 en un taller de Russafa con una idea simple: la ropa juvenil no tenía
+              por qué ser una versión reducida de la de adulto. Diseñamos cada prenda con patrones
+              propios, tejidos que respiran y costuras que resisten cuatro cursos escolares.
+            </p>
+            <p data-i18n="about.p2">
+              Trabajamos con tres talleres de la provincia de València y con algodón orgánico
+              certificado. Producimos en series cortas para no acumular stock y poder dedicar el
+              margen a lo que importa: que la prenda se sienta bien y dure.
+            </p>
+            <a class="link-arrow" href="#coleccion"><span data-i18n="about.cta">Ver las 42 piezas de la temporada</span> →</a>
+          </div>
+
+          <figure class="about__figure reveal">
+            <img src="https://images.pexels.com/photos/8386656/pexels-photo-8386656.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                 alt="Interior de la tienda VOLTA con prendas colgadas" loading="lazy">
+            <figcaption data-i18n="about.pie">Nuestra tienda de C/ Sant Vicent Màrtir 112, València.</figcaption>
+          </figure>
+        </div>
+
+        <ul class="stats">
+          <li class="stat reveal"><strong>42</strong><span data-i18n="stat.1">piezas en la colección SS26</span></li>
+          <li class="stat reveal"><strong>100 %</strong><span data-i18n="stat.2">algodón orgánico certificado</span></li>
+          <li class="stat reveal"><strong>30</strong><span data-i18n="stat.3">días para cambios y devoluciones</span></li>
+          <li class="stat reveal"><strong>2014</strong><span data-i18n="stat.4">diseñando en València desde</span></li>
+        </ul>
+
+        <!-- Guía de tallas -->
+        <div class="sizes reveal">
+          <h3 class="sub-title" data-i18n="sizes.titulo">Guía de tallas</h3>
+          <div class="table-wrap">
+            <table class="size-table">
+              <caption class="sr-only" data-i18n="sizes.caption">Equivalencias de talla, edad y altura</caption>
+              <thead>
+                <tr>
+                  <th scope="col" data-i18n="sizes.th1">Talla</th>
+                  <th scope="col" data-i18n="sizes.th2">Edad</th>
+                  <th scope="col" data-i18n="sizes.th3">Altura</th>
+                  <th scope="col" data-i18n="sizes.th4">Pecho</th>
+                  <th scope="col" data-i18n="sizes.th5">Cintura</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">8</th><td>7–8</td><td>128 cm</td><td>64 cm</td><td>57 cm</td></tr>
+                <tr><th scope="row">10</th><td>9–10</td><td>140 cm</td><td>69 cm</td><td>61 cm</td></tr>
+                <tr><th scope="row">12</th><td>11–12</td><td>152 cm</td><td>75 cm</td><td>65 cm</td></tr>
+                <tr><th scope="row">14</th><td>13–14</td><td>160 cm</td><td>81 cm</td><td>69 cm</td></tr>
+                <tr><th scope="row">16</th><td>15–16</td><td>170 cm</td><td>87 cm</td><td>73 cm</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note" data-i18n="sizes.nota">Medidas del cuerpo, no de la prenda. Entre dos tallas, elige la mayor: todas nuestras prendas admiten un dobladillo de 3 cm.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ COLECCIÓN / TIENDA ============================ -->
+    <section class="section shop" id="coleccion">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="section-index">02 — <span data-i18n="shop.kicker">Tienda online</span></p>
+            <h2 class="section-title reveal"><span data-i18n="shop.titulo">La colección</span> <em data-i18n="shop.titulo2">SS26</em></h2>
+          </div>
+          <p class="section-note reveal" data-i18n="shop.nota">
+            Precios con IVA incluido. Añade al carrito y elige al finalizar: recogida en tienda
+            o envío a casa, y cómo prefieres pagar.
+          </p>
+        </header>
+
+        <div class="filters" role="group" aria-label="Filtrar productos">
+          <button type="button" class="filter-btn is-active" data-filter="todo" data-i18n="filter.todo">Todo</button>
+          <button type="button" class="filter-btn" data-filter="nino" data-i18n="filter.nino">Niño</button>
+          <button type="button" class="filter-btn" data-filter="nina" data-i18n="filter.nina">Niña</button>
+          <button type="button" class="filter-btn" data-filter="unisex" data-i18n="filter.unisex">Unisex</button>
+          <button type="button" class="filter-btn" data-filter="accesorios" data-i18n="filter.accesorios">Accesorios</button>
+        </div>
+
+        <div class="product-grid" id="rejillaProductos"></div>
+        <p class="empty-state" id="estadoVacio" hidden data-i18n="shop.vacio">No hay piezas en esta categoría todavía. Prueba con otro filtro.</p>
+      </div>
+    </section>
+
+    <!-- ============================ LOOKBOOK ============================ -->
+    <section class="section lookbook" id="lookbook">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-index">03 — <span data-i18n="look.kicker">Lookbook</span></p>
+          <h2 class="section-title reveal"><span data-i18n="look.titulo">Ocho looks,</span> <em data-i18n="look.titulo2">una misma actitud</em></h2>
+        </header>
+
+        <div class="lookbook__grid">
+          <figure class="look look--a reveal">
+            <img src="https://images.pexels.com/photos/11178913/pexels-photo-11178913.jpeg?auto=compress&cs=tinysrgb&w=900"
+                 alt="Joven con estilo urbano en un callejón con grafitis" loading="lazy">
+            <figcaption><span>Look 01</span><strong data-i18n="look.1">Ruta 96 + Cargo València</strong></figcaption>
+          </figure>
+          <figure class="look look--b reveal">
+            <img src="https://images.pexels.com/photos/14666378/pexels-photo-14666378.jpeg?auto=compress&cs=tinysrgb&w=900"
+                 alt="Chica con ropa urbana posando en un edificio" loading="lazy">
+            <figcaption><span>Look 02</span><strong data-i18n="look.2">Vestido Midi Chicle</strong></figcaption>
+          </figure>
+          <figure class="look look--c reveal">
+            <img src="https://images.pexels.com/photos/6971532/pexels-photo-6971532.jpeg?auto=compress&cs=tinysrgb&w=900"
+                 alt="Adolescente posando bajo un puente con ropa moderna" loading="lazy">
+            <figcaption><span>Look 03</span><strong data-i18n="look.3">Cortavientos Reflectante</strong></figcaption>
+          </figure>
+
+          <blockquote class="lookbook__quote reveal">
+            <p data-i18n="look.cita">«Diseñamos para la persona que van a ser en dos años, no solo para la que son hoy.»</p>
+            <footer><strong>Marta Solaz</strong> — <span data-i18n="look.cargo">Dirección de diseño, VOLTA</span></footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ SOSTENIBILIDAD ============================ -->
+    <section class="section eco" id="sostenibilidad">
+      <div class="container eco__inner">
+        <div class="eco__text">
+          <p class="section-index section-index--light">04 — <span data-i18n="eco.kicker">Compromiso</span></p>
+          <h2 class="section-title section-title--light reveal"><span data-i18n="eco.titulo">Menos piezas,</span> <em data-i18n="eco.titulo2">mejor hechas</em></h2>
+          <p class="reveal" data-i18n="eco.p1">
+            Producimos en series cortas y reponemos solo lo que se vende. Así evitamos destruir
+            stock y podemos pagar un precio justo a los talleres que cosen nuestras prendas.
+          </p>
+          <ul class="pillars">
+            <li class="reveal">
+              <span class="pillar__num">01</span>
+              <h3 data-i18n="eco.t1">Tejido responsable</h3>
+              <p data-i18n="eco.d1">Algodón orgánico GOTS y poliéster reciclado en cortavientos y forros.</p>
+            </li>
+            <li class="reveal">
+              <span class="pillar__num">02</span>
+              <h3 data-i18n="eco.t2">Kilómetro corto</h3>
+              <p data-i18n="eco.d2">Confección en tres talleres de la provincia de València, a menos de 40 km.</p>
+            </li>
+            <li class="reveal">
+              <span class="pillar__num">03</span>
+              <h3 data-i18n="eco.t3">Segunda vida</h3>
+              <p data-i18n="eco.d3">Trae la prenda usada y te descontamos 10 € en la siguiente compra.</p>
+            </li>
+          </ul>
+        </div>
+        <figure class="eco__figure reveal">
+          <img src="https://images.pexels.com/photos/8386643/pexels-photo-8386643.jpeg?auto=compress&cs=tinysrgb&w=1100"
+               alt="Percheros con ropa de colores en una tienda moderna" loading="lazy">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============================ CONTACTO ============================ -->
+    <section class="section contact" id="contacto">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-index">05 — <span data-i18n="contact.kicker">Contacto</span></p>
+          <h2 class="section-title reveal"><span data-i18n="contact.titulo">Hablamos de</span> <em data-i18n="contact.titulo2">tu pedido</em></h2>
+        </header>
+
+        <div class="contact__grid">
+          <form class="form reveal" id="formContacto" novalidate>
+            <div class="form__row">
+              <div class="field">
+                <label for="nombre" data-i18n="form.nombre">Nombre y apellidos</label>
+                <input type="text" id="nombre" name="nombre" autocomplete="name" required data-i18n-ph="form.nombrePh" placeholder="Ej. Lucía Ferrer">
+                <small class="field__error" data-error-for="nombre"></small>
+              </div>
+              <div class="field">
+                <label for="email" data-i18n="form.email">Correo electrónico</label>
+                <input type="email" id="email" name="email" autocomplete="email" required data-i18n-ph="form.emailPh" placeholder="lucia@ejemplo.com">
+                <small class="field__error" data-error-for="email"></small>
+              </div>
+            </div>
+            <div class="form__row">
+              <div class="field">
+                <label for="telefono" data-i18n="form.telefono">Teléfono (opcional)</label>
+                <input type="tel" id="telefono" name="telefono" autocomplete="tel" data-i18n-ph="form.telPh" placeholder="+34 600 00 00 00">
+                <small class="field__error" data-error-for="telefono"></small>
+              </div>
+              <div class="field">
+                <label for="asunto" data-i18n="form.asunto">Asunto</label>
+                <select id="asunto" name="asunto">
+                  <option value="pedido" data-i18n="form.op1">Duda sobre un pedido</option>
+                  <option value="talla" data-i18n="form.op2">Asesoramiento de talla</option>
+                  <option value="devolucion" data-i18n="form.op3">Cambio o devolución</option>
+                  <option value="mayorista" data-i18n="form.op4">Venta mayorista</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="mensaje" data-i18n="form.mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" rows="5" required data-i18n-ph="form.mensajePh" placeholder="Cuéntanos en qué podemos ayudarte"></textarea>
+              <small class="field__error" data-error-for="mensaje"></small>
+            </div>
+            <label class="check">
+              <input type="checkbox" id="privacidad" name="privacidad" required>
+              <span data-i18n="form.privacidad">He leído y acepto la política de privacidad y el tratamiento de mis datos.</span>
+            </label>
+            <small class="field__error" data-error-for="privacidad"></small>
+            <button type="submit" class="btn btn--dark"><span data-i18n="form.enviar">Enviar mensaje</span></button>
+            <p class="form__ok" id="formOk" hidden data-i18n="form.ok">¡Gracias! Te respondemos en menos de 24 h laborables.</p>
+          </form>
+
+          <aside class="contact__aside reveal">
+            <ul class="contact__list">
+              <li>
+                <span class="contact__label" data-i18n="contact.tienda">Tienda</span>
+                <strong>C/ Sant Vicent Màrtir 112<br>46007 València</strong>
+              </li>
+              <li>
+                <span class="contact__label" data-i18n="contact.horario">Horario</span>
+                <strong data-i18n="contact.horarioV">Lunes a sábado · 10:00 – 20:30<br>Domingo cerrado</strong>
+              </li>
+              <li>
+                <span class="contact__label" data-i18n="contact.directo">Atención directa</span>
+                <strong><a href="tel:+34960451287">+34 960 45 12 87</a><br><a href="mailto:hola@voltawear.es">hola@voltawear.es</a></strong>
+              </li>
+              <li>
+                <span class="contact__label" data-i18n="contact.respuesta">Tiempo de respuesta</span>
+                <strong data-i18n="contact.respuestaV">Menos de 24 h laborables</strong>
+              </li>
+            </ul>
+            <figure class="contact__figure">
+              <img src="https://images.pexels.com/photos/8386654/pexels-photo-8386654.jpeg?auto=compress&cs=tinysrgb&w=900"
+                   alt="Escaparate de la tienda VOLTA con ropa de colores" loading="lazy">
+            </figure>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================ PIE ============================ -->
+  <footer class="footer">
+    <div class="container footer__top">
+      <div class="footer__brand">
+        <a class="logo logo--light" href="#inicio" aria-label="VOLTA, inicio">
+          <svg class="logo__mark" viewBox="0 0 44 44" aria-hidden="true">
+            <rect x="0" y="0" width="44" height="44" rx="2" class="logo__plate"/>
+            <path d="M10 12h6.6l5.4 14.2L27.4 12H34l-8.8 21h-6.4L10 12Z" class="logo__letter"/>
+          </svg>
+          <span class="logo__text"><strong>VOLTA</strong><small data-i18n="logo.tagline">Moda joven · SS26</small></span>
+        </a>
+        <p data-i18n="footer.desc">Ropa para jovencitos y jovencitas de 8 a 16 años. Diseñada y confeccionada en València desde 2014.</p>
+        <form class="newsletter" id="formNewsletter">
+          <label class="sr-only" for="newsEmail" data-i18n="footer.news">Correo para el boletín</label>
+          <input type="email" id="newsEmail" placeholder="tu@correo.com" data-i18n-ph="footer.newsPh" required>
+          <button type="submit" class="btn btn--accent btn--small"><span data-i18n="footer.newsBtn">Suscribirme</span></button>
+        </form>
+        <p class="newsletter__ok" id="newsOk" hidden data-i18n="footer.newsOk">Revisa tu correo para confirmar la suscripción.</p>
+      </div>
+
+      <nav class="footer__col" aria-label="Tienda">
+        <h3 data-i18n="footer.tienda">Tienda</h3>
+        <ul>
+          <li><a href="#coleccion" data-i18n="nav.coleccion">Colección</a></li>
+          <li><a href="#coleccion" data-i18n="filter.nino">Niño</a></li>
+          <li><a href="#coleccion" data-i18n="filter.nina">Niña</a></li>
+          <li><a href="#coleccion" data-i18n="filter.accesorios">Accesorios</a></li>
+          <li><a href="#novedades" data-i18n="sizes.titulo">Guía de tallas</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__col" aria-label="Ayuda">
+        <h3 data-i18n="footer.ayuda">Ayuda</h3>
+        <ul>
+          <li><a href="#contacto" data-i18n="footer.envios">Envíos y entregas</a></li>
+          <li><a href="#contacto" data-i18n="footer.devoluciones">Cambios y devoluciones</a></li>
+          <li><a href="#" data-modal="cookies" data-i18n="footer.cookies">Política de cookies</a></li>
+          <li><a href="#" data-modal="requisitos" data-i18n="footer.requisitos">Requisitos técnicos</a></li>
+          <li><a href="#" data-modal="legal" data-i18n="footer.legal">Aviso legal y privacidad</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__col">
+        <h3 data-i18n="footer.contacto">Contacto</h3>
+        <ul>
+          <li><a href="tel:+34960451287">+34 960 45 12 87</a></li>
+          <li><a href="mailto:hola@voltawear.es">hola@voltawear.es</a></li>
+          <li><a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.tiktok.com" target="_blank" rel="noopener">TikTok</a></li>
+        </ul>
+        <div class="pay-methods" aria-label="Métodos de pago">
+          <span>VISA</span><span>Mastercard</span><span>Bizum</span><span>PayPal</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p>© <span id="anio">2026</span> VOLTA Wear S.L. — <span data-i18n="footer.copy">Todos los derechos reservados.</span></p>
+        <ul>
+          <li><a href="#" data-modal="cookies" data-i18n="footer.cookies">Política de cookies</a></li>
+          <li><a href="#" data-modal="requisitos" data-i18n="footer.requisitos">Requisitos técnicos</a></li>
+          <li><a href="#" data-modal="legal" data-i18n="footer.legal">Aviso legal y privacidad</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================ CARRITO (DRAWER) ============================ -->
+  <div class="overlay" id="overlayCarrito" hidden></div>
+  <aside class="cart" id="carrito" aria-label="Carrito de compra" aria-hidden="true">
+    <header class="cart__head">
+      <h2 data-i18n="cart.titulo">Tu carrito</h2>
+      <button type="button" class="icon-btn" id="cerrarCarrito" aria-label="Cerrar carrito">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+      </button>
+    </header>
+
+    <div class="cart__body" id="carritoCuerpo">
+      <ul class="cart__list" id="listaCarrito"></ul>
+      <p class="cart__empty" id="carritoVacio" data-i18n="cart.vacio">Tu carrito está vacío. Añade alguna pieza de la colección SS26.</p>
+
+      <!-- Entrega -->
+      <fieldset class="cart__group">
+        <legend data-i18n="cart.entrega">¿Cómo lo recibes?</legend>
+        <label class="radio">
+          <input type="radio" name="entrega" value="tienda" checked>
+          <span><strong data-i18n="cart.recoger">Recoger en tienda</strong><small data-i18n="cart.recogerD">C/ Sant Vicent Màrtir 112 · listo en 2 h · gratis</small></span>
+        </label>
+        <label class="radio">
+          <input type="radio" name="entrega" value="domicilio">
+          <span><strong data-i18n="cart.domicilio">Envío a domicilio</strong><small data-i18n="cart.domicilioD">24–48 h · gratis desde 60 €, si no 4,95 €</small></span>
+        </label>
+        <div class="cart__fields" id="camposDomicilio" hidden>
+          <input type="text" id="dirCalle" placeholder="Calle y número" data-i18n-ph="cart.calle">
+          <div class="form__row">
+            <input type="text" id="dirCP" placeholder="Código postal" data-i18n-ph="cart.cp" inputmode="numeric">
+            <input type="text" id="dirCiudad" placeholder="Ciudad" data-i18n-ph="cart.ciudad">
+          </div>
+        </div>
+        <div class="cart__fields" id="camposRecogida">
+          <label class="field-inline" for="fechaRecogida"><span data-i18n="cart.fecha">Fecha de recogida</span>
+            <input type="date" id="fechaRecogida">
+          </label>
+          <label class="field-inline" for="horaRecogida"><span data-i18n="cart.hora">Franja horaria</span>
+            <select id="horaRecogida">
+              <option>10:00 – 13:00</option>
+              <option>13:00 – 17:00</option>
+              <option>17:00 – 20:30</option>
+            </select>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Pago -->
+      <fieldset class="cart__group">
+        <legend data-i18n="cart.pago">¿Cuándo prefieres pagar?</legend>
+        <label class="radio">
+          <input type="radio" name="pago" value="recoger" checked>
+          <span><strong data-i18n="cart.pago1">Pagar al recoger</strong><small data-i18n="cart.pago1D">En caja, con tarjeta, efectivo o Bizum</small></span>
+        </label>
+        <label class="radio">
+          <input type="radio" name="pago" value="entrega">
+          <span><strong data-i18n="cart.pago2">Pagar al recibirlo</strong><small data-i18n="cart.pago2D">Contra reembolso, con recargo de 1,90 €</small></span>
+        </label>
+        <label class="radio">
+          <input type="radio" name="pago" value="pasarela">
+          <span><strong data-i18n="cart.pago3">Pagar ahora (pasarela)</strong><small data-i18n="cart.pago3D">Pasarela de pago del mercado · tarjeta o Bizum</small></span>
+        </label>
+      </fieldset>
+    </div>
+
+    <footer class="cart__foot">
+      <dl class="cart__totals">
+        <div><dt data-i18n="cart.subtotal">Subtotal</dt><dd id="subtotal">0,00 €</dd></div>
+        <div><dt data-i18n="cart.envio">Envío</dt><dd id="costeEnvio">0,00 €</dd></div>
+        <div><dt data-i18n="cart.recargo">Recargo</dt><dd id="recargo">0,00 €</dd></div>
+        <div class="cart__total"><dt data-i18n="cart.total">Total</dt><dd id="total">0,00 €</dd></div>
+      </dl>
+      <p class="cart__vat" data-i18n="cart.iva">IVA (21 %) incluido en todos los precios.</p>
+      <button type="button" class="btn btn--accent btn--block" id="btnTramitar"><span data-i18n="cart.tramitar">Tramitar pedido</span></button>
+    </footer>
+  </aside>
+
+  <!-- ============================ MODAL DE BÚSQUEDA ============================ -->
+  <div class="modal" id="modalBuscar" role="dialog" aria-modal="true" aria-labelledby="buscarTitulo" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__card modal__card--search">
+      <header class="modal__head">
+        <h2 id="buscarTitulo" data-i18n="search.titulo">Buscar en VOLTA</h2>
+        <button type="button" class="icon-btn" data-close aria-label="Cerrar búsqueda">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+        </button>
+      </header>
+      <form class="search-form" id="formBuscar">
+        <svg class="ico search-form__ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <input type="search" id="inputBuscar" data-i18n-ph="search.ph" placeholder="Sudadera, talla, envío…" autocomplete="off">
+        <button type="submit" class="btn btn--dark btn--small"><span data-i18n="search.btn">Buscar</span></button>
+      </form>
+      <div class="search-meta">
+        <p id="searchInfo" data-i18n="search.info">Escribe al menos 3 caracteres y pulsa Intro.</p>
+        <button type="button" class="link-arrow" id="btnLimpiarBusqueda" data-i18n="search.limpiar">Limpiar resaltado</button>
+      </div>
+      <ul class="search-suggestions">
+        <li><button type="button" class="chip" data-suggest="sudadera">sudadera</button></li>
+        <li><button type="button" class="chip" data-suggest="envío">envío</button></li>
+        <li><button type="button" class="chip" data-suggest="talla">talla</button></li>
+        <li><button type="button" class="chip" data-suggest="devolución">devolución</button></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============================ MODAL DE ACCESO ============================ -->
+  <div class="modal" id="modalLogin" role="dialog" aria-modal="true" aria-labelledby="loginTitulo" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__card modal__card--login">
+      <header class="modal__head">
+        <h2 id="loginTitulo" data-i18n="login.titulo">Acceso de cliente</h2>
+        <button type="button" class="icon-btn" data-close aria-label="Cerrar">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+        </button>
+      </header>
+      <!-- Punto de integración: sustituir por el sistema de login definitivo -->
+      <form class="form" id="formLogin">
+        <div class="field">
+          <label for="loginEmail" data-i18n="form.email">Correo electrónico</label>
+          <input type="email" id="loginEmail" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="loginPass" data-i18n="login.pass">Contraseña</label>
+          <input type="password" id="loginPass" required autocomplete="current-password">
+        </div>
+        <div class="form__row form__row--between">
+          <label class="check"><input type="checkbox" id="recordar"><span data-i18n="login.recordar">Recordarme</span></label>
+          <a class="link-arrow" href="#" data-i18n="login.olvide">¿Olvidaste la contraseña?</a>
+        </div>
+        <button type="submit" class="btn btn--dark btn--block"><span data-i18n="login.entrar">Entrar</span></button>
+        <p class="form__ok" id="loginOk" hidden data-i18n="login.ok">Acceso de demostración: aquí se conectará el sistema real de autenticación.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================ MODAL DE PAGO / RESUMEN ============================ -->
+  <div class="modal" id="modalPago" role="dialog" aria-modal="true" aria-labelledby="pagoTitulo" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__card modal__card--pay">
+      <header class="modal__head">
+        <h2 id="pagoTitulo" data-i18n="pay.titulo">Resumen del pedido</h2>
+        <button type="button" class="icon-btn" data-close aria-label="Cerrar">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+        </button>
+      </header>
+      <div class="pay__body">
+        <ul class="pay__list" id="listaPago"></ul>
+        <dl class="cart__totals">
+          <div><dt data-i18n="cart.envio">Envío</dt><dd id="pagoEnvio">0,00 €</dd></div>
+          <div class="cart__total"><dt data-i18n="pay.total">Total a pagar</dt><dd id="pagoTotal">0,00 €</dd></div>
+        </dl>
+        <div class="pay__method" id="payMethodBox">
+          <span class="contact__label" data-i18n="pay.metodo">Método elegido</span>
+          <strong id="payMethod">—</strong>
+        </div>
+        <div class="pay__gateway" id="payGateway">
+          <p data-i18n="pay.gw">Estás a un paso. A continuación se abrirá la pasarela de pago del mercado para completar el importe indicado.</p>
+          <div class="pay__slot" data-i18n="pay.slot">Espacio reservado para la pasarela de pago</div>
+        </div>
+        <button type="button" class="btn btn--accent btn--block" id="btnConfirmar"><span data-i18n="pay.confirmar">Confirmar pedido</span></button>
+        <p class="form__ok" id="payOk" hidden data-i18n="pay.ok">Pedido registrado. Recibirás la confirmación por correo en unos minutos.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ MODAL DE INFORMACIÓN (COOKIES / REQUISITOS / LEGAL) ============================ -->
+  <div class="modal" id="modalInfo" role="dialog" aria-modal="true" aria-labelledby="infoTitulo" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__card">
+      <header class="modal__head">
+        <h2 id="infoTitulo">Información</h2>
+        <button type="button" class="icon-btn" data-close aria-label="Cerrar">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+        </button>
+      </header>
+      <div class="modal__body" id="infoBody"></div>
+    </div>
+  </div>
+
+  <!-- ============================ AVISO DE COOKIES ============================ -->
+  <div class="cookies" id="avisoCookies" hidden>
+    <p data-i18n="cookies.texto">Usamos cookies propias para recordar tu tema, idioma y carrito. No compartimos datos con terceros.</p>
+    <div class="cookies__actions">
+      <button type="button" class="btn btn--line btn--small" id="cookiesRechazar" data-i18n="cookies.rechazar">Solo necesarias</button>
+      <button type="button" class="btn btn--accent btn--small" id="cookiesAceptar" data-i18n="cookies.aceptar">Aceptar</button>
+    </div>
+  </div>
+
+  <button type="button" class="to-top" id="btnArriba" aria-label="Volver arriba">
+    <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 14 6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Savia — selección de productos frescos, despensa, hogar y cuidado. Español, inglés y valenciano. Modo claro y oscuro." />
+    <title>savia. | Compra con sentido</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem("savia-theme");
+          if (!theme) theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          document.documentElement.dataset.theme = theme;
+          var lang = localStorage.getItem("savia-lang") || "es";
+          document.documentElement.lang = lang === "val" ? "ca" : lang;
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#catalogo" data-i18n="a11y.skip">Saltar al catálogo</a>
+
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="#inicio" aria-label="Savia">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 4C10 4 5 8.7 5 14.2A5.8 5.8 0 0 0 10.8 20C16.3 20 20 14 20 4Z" />
+              <path d="M4 20c3.4-4.5 7.2-7.4 11.5-9.5" />
+            </svg>
+          </span>
+          <span class="brand-word">savia<span>.</span></span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main">
+          <a href="#catalogo" data-i18n="nav.catalog">Catálogo</a>
+          <a href="#esencia" data-i18n="nav.essence">Nuestra esencia</a>
+          <a href="#como" data-i18n="nav.how">Cómo funciona</a>
+        </nav>
+
+        <div class="header-actions">
+          <label class="search-box">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.7" /><path d="m16 16 4.5 4.5" /></svg>
+            <input id="searchInput" type="search" data-i18n-placeholder="search.placeholder" placeholder="Buscar productos" aria-label="Buscar productos" />
+          </label>
+
+          <div class="lang-switch" role="group" aria-label="Idioma">
+            <button type="button" data-action="set-lang" data-lang="es" class="lang-btn">ES</button>
+            <button type="button" data-action="set-lang" data-lang="en" class="lang-btn">EN</button>
+            <button type="button" data-action="set-lang" data-lang="val" class="lang-btn">VAL</button>
+          </div>
+
+          <button type="button" class="icon-btn" data-action="toggle-theme" id="themeToggle" aria-label="Modo oscuro">
+            <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2" /><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4" /></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4 8.3 8.3 0 1 0 20 14.2Z" /></svg>
+          </button>
+
+          <button type="button" class="cart-btn" data-action="open-cart" id="cartButton">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z" /><path d="M9 9V6a3 3 0 0 1 6 0v3" /></svg>
+            <span data-i18n="cart.short">Mi cesta</span>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="inicio">
+      <section class="hero">
+        <img class="hero-img" src="https://images.pexels.com/photos/15537200/pexels-photo-15537200.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1800&h=1200" alt="Mercado colorido de frutas frescas" />
+        <div class="hero-scrim"></div>
+        <div class="shell hero-inner">
+          <div class="hero-copy">
+            <p class="hero-eyebrow"><span class="rule"></span><span data-i18n="hero.eyebrow">Compra con sentido</span></p>
+            <p class="hero-word">savia<span>.</span></p>
+            <h1 data-i18n="hero.title">Todo lo que tu casa necesita, en una sola cesta.</h1>
+            <p class="hero-text" data-i18n="hero.text">Productos honestos, ingredientes de temporada y pequeños rituales para vivir mejor cada día.</p>
+            <div class="hero-actions">
+              <a class="btn btn-gold" href="#catalogo"><span data-i18n="hero.cta1">Explorar la selección</span>
+                <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13" /><path d="m13 6 6 6-6 6" /></svg>
+              </a>
+              <button type="button" class="btn btn-ghost" data-action="set-category" data-cat="fresh" data-i18n="hero.cta2">Ver frescos</button>
+            </div>
+          </div>
+        </div>
+        <p class="hero-note"><span class="rule"></span><span data-i18n="hero.scroll">La compra cotidiana, mejor elegida</span></p>
+      </section>
+
+      <section class="category-band">
+        <div class="shell">
+          <div class="band-head">
+            <p class="eyebrow" data-i18n="cats.eyebrow">Compra por categoría</p>
+            <p class="band-count"><span id="totalProducts">50</span> <span data-i18n="cats.count">productos en la selección</span></p>
+          </div>
+          <div class="category-grid">
+            <button type="button" class="cat-tile" data-action="set-category" data-cat="fresh">
+              <img src="https://images.pexels.com/photos/39105767/pexels-photo-39105767.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=700&h=520" alt="" loading="lazy" />
+              <span class="cat-tile-body"><strong data-i18n="cat.fresh">Frescos</strong><em data-i18n="cat.fresh.d">Del mercado a tu mesa</em></span>
+            </button>
+            <button type="button" class="cat-tile" data-action="set-category" data-cat="pantry">
+              <img src="https://images.pexels.com/photos/16620746/pexels-photo-16620746.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=700&h=520" alt="" loading="lazy" />
+              <span class="cat-tile-body"><strong data-i18n="cat.pantry">Despensa</strong><em data-i18n="cat.pantry.d">Los básicos que sostienen</em></span>
+            </button>
+            <button type="button" class="cat-tile" data-action="set-category" data-cat="home">
+              <img src="https://images.pexels.com/photos/18761051/pexels-photo-18761051.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=700&h=520" alt="" loading="lazy" />
+              <span class="cat-tile-body"><strong data-i18n="cat.home">Hogar</strong><em data-i18n="cat.home.d">Orden que se nota</em></span>
+            </button>
+            <button type="button" class="cat-tile" data-action="set-category" data-cat="care">
+              <img src="https://images.pexels.com/photos/17307534/pexels-photo-17307534.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=700&h=520" alt="" loading="lazy" />
+              <span class="cat-tile-body"><strong data-i18n="cat.care">Cuidado</strong><em data-i18n="cat.care.d">Pequeños rituales diarios</em></span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="catalog" id="catalogo">
+        <div class="shell">
+          <div class="catalog-head">
+            <div>
+              <p class="eyebrow accent" data-i18n="catalog.eyebrow">La selección savia</p>
+              <h2 data-i18n="catalog.title">Elige con calma.</h2>
+              <p class="lede" data-i18n="catalog.text">50 productos escogidos para llenar tu despensa, cuidar tu casa y disfrutar lo sencillo.</p>
+            </div>
+            <label class="sort-box">
+              <span data-i18n="catalog.sort">Ordenar por</span>
+              <select id="sortSelect">
+                <option value="featured" data-i18n="sort.featured">Recomendados</option>
+                <option value="asc" data-i18n="sort.asc">Precio: menor a mayor</option>
+                <option value="desc" data-i18n="sort.desc">Precio: mayor a menor</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="filter-bar">
+            <div class="filter-tabs" id="filterTabs">
+              <button type="button" data-action="set-category" data-cat="all"><span data-i18n="cat.all">Todos</span><em data-count="all">50</em></button>
+              <button type="button" data-action="set-category" data-cat="fresh"><span data-i18n="cat.fresh">Frescos</span><em data-count="fresh">13</em></button>
+              <button type="button" data-action="set-category" data-cat="pantry"><span data-i18n="cat.pantry">Despensa</span><em data-count="pantry">13</em></button>
+              <button type="button" data-action="set-category" data-cat="home"><span data-i18n="cat.home">Hogar</span><em data-count="home">12</em></button>
+              <button type="button" data-action="set-category" data-cat="care"><span data-i18n="cat.care">Cuidado</span><em data-count="care">12</em></button>
+              <button type="button" data-action="set-category" data-cat="favs"><span data-i18n="cat.favs">Favoritos</span><em data-count="favs">0</em></button>
+            </div>
+            <label class="search-box search-inline">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.7" /><path d="m16 16 4.5 4.5" /></svg>
+              <input id="searchInputMobile" type="search" data-i18n-placeholder="search.placeholder" placeholder="Buscar productos" aria-label="Buscar productos" />
+            </label>
+            <p class="results-label"><span id="resultsCount">50</span> <span data-i18n="catalog.results">resultados</span></p>
+          </div>
+
+          <div class="product-grid" id="productGrid"></div>
+
+          <div class="empty-state" id="emptyState" hidden>
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.7" /><path d="m16 16 4.5 4.5" /></svg>
+            <h3 data-i18n="search.emptyTitle">No encontramos ese producto.</h3>
+            <p data-i18n="search.emptyText">Prueba con otra palabra o vuelve a ver toda la selección.</p>
+            <button type="button" class="link-btn" data-action="clear-search" data-i18n="search.emptyCta">Limpiar búsqueda</button>
+          </div>
+
+          <p class="catalog-foot"><span class="rule"></span><span data-i18n="catalog.foot">50 productos para empezar bien</span><span class="rule"></span></p>
+        </div>
+      </section>
+
+      <section class="essence" id="esencia">
+        <div class="shell essence-inner">
+          <div class="essence-copy">
+            <p class="eyebrow accent" data-i18n="essence.eyebrow">Nuestra esencia</p>
+            <h2 data-i18n="essence.title">Menos ruido. Más cosas buenas.</h2>
+            <p class="lede" data-i18n="essence.text">Savia reúne marcas cercanas, fórmulas simples y alimentos que saben a lo que son. Sin vueltas, sin compras imposibles.</p>
+          </div>
+          <div class="essence-list">
+            <article>
+              <span class="pill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 1.5 5.5L19 10l-5.5 1.5L12 17l-1.5-5.5L5 10l5.5-1.5L12 3Z" /><path d="m19 16 .6 2.4L22 19l-2.4.6L19 22l-.6-2.4L16 19l2.4-.6L19 16Z" /></svg>
+              </span>
+              <h3 data-i18n="essence.f1t">Buena selección</h3>
+              <p data-i18n="essence.f1d">Solo lo que volveríamos a comprar.</p>
+            </article>
+            <article>
+              <span class="pill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4C10 4 5 8.7 5 14.2A5.8 5.8 0 0 0 10.8 20C16.3 20 20 14 20 4Z" /><path d="M4 20c3.4-4.5 7.2-7.4 11.5-9.5" /></svg>
+              </span>
+              <h3 data-i18n="essence.f2t">Más natural</h3>
+              <p data-i18n="essence.f2d">Ingredientes claros y menos residuos.</p>
+            </article>
+            <article>
+              <span class="pill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7z" /><circle cx="7" cy="18" r="2" /><circle cx="18" cy="18" r="2" /></svg>
+              </span>
+              <h3 data-i18n="essence.f3t">A tu ritmo</h3>
+              <p data-i18n="essence.f3d">Entrega flexible, sin complicaciones.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="how" id="como">
+        <div class="shell">
+          <div class="how-head">
+            <p class="eyebrow accent" data-i18n="how.eyebrow">Cómo funciona</p>
+            <h2 data-i18n="how.title">Tres pasos y listo.</h2>
+          </div>
+          <ol class="how-steps">
+            <li>
+              <span class="step-num">01</span>
+              <h3 data-i18n="how.s1t">Elige</h3>
+              <p data-i18n="how.s1d">Recorre los 50 productos, filtra por categoría y guarda tus favoritos.</p>
+            </li>
+            <li>
+              <span class="step-num">02</span>
+              <h3 data-i18n="how.s2t">Recibe</h3>
+              <p data-i18n="how.s2d">Preparamos tu cesta y la llevamos en la franja horaria que prefieras.</p>
+            </li>
+            <li>
+              <span class="step-num">03</span>
+              <h3 data-i18n="how.s3t">Disfruta</h3>
+              <p data-i18n="how.s3d">Ingredientes claros, envases responsables y más tiempo para ti.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <div class="brand">
+          <span class="brand-mark small" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4C10 4 5 8.7 5 14.2A5.8 5.8 0 0 0 10.8 20C16.3 20 20 14 20 4Z" /><path d="M4 20c3.4-4.5 7.2-7.4 11.5-9.5" /></svg>
+          </span>
+          <span class="brand-word">savia<span>.</span></span>
+        </div>
+        <p data-i18n="footer.tagline">Una compra más consciente empieza por elegir mejor.</p>
+        <p class="footer-note" data-i18n="footer.images">Imágenes de producto: Pexels</p>
+      </div>
+    </footer>
+
+    <div class="drawer" id="cartDrawer" hidden>
+      <button type="button" class="drawer-overlay" data-action="close-cart" data-i18n-aria="cart.close" aria-label="Cerrar cesta"></button>
+      <aside class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+        <div class="drawer-head">
+          <div>
+            <p class="eyebrow accent" data-i18n="cart.eyebrow">Tu selección</p>
+            <h2 id="cartTitle"><span data-i18n="cart.title">Mi cesta</span> <small>(<span id="cartCountLabel">0</span>)</small></h2>
+          </div>
+          <button type="button" class="icon-btn" data-action="close-cart" data-i18n-aria="cart.close" aria-label="Cerrar cesta">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18" /></svg>
+          </button>
+        </div>
+
+        <div class="drawer-body" id="cartItems"></div>
+
+        <div class="drawer-foot" id="cartFoot">
+          <div class="totals">
+            <p><span data-i18n="cart.subtotal">Subtotal</span><span id="cartSubtotal">0,00 €</span></p>
+            <p class="grand"><span data-i18n="cart.total">Total estimado</span><span id="cartTotal">0,00 €</span></p>
+          </div>
+          <button type="button" class="btn btn-accent full" data-action="checkout">
+            <span data-i18n="cart.checkout">Continuar con la compra</span>
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13" /><path d="m13 6 6 6-6 6" /></svg>
+          </button>
+          <p class="shipping-note" data-i18n="cart.shipping">Envío gratis desde 45 €</p>
+        </div>
+      </aside>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>

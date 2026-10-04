@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- Meta básicos -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Threads — Ropa urbana, cómoda y sostenible para jóvenes. Nueva colección, envíos gratis y devoluciones en 30 días.">
+  <meta name="theme-color" content="#f6f3ee">
+  <title>Threads · Ropa urbana para jóvenes</title>
+
+  <!-- Hoja de estilos (sin CDN ni dependencias) -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Enlace para saltar al contenido (accesibilidad) -->
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- ======================================================
+       HEADER FIJO: barra de información + barra de navegación
+       ====================================================== -->
+  <header class="header" id="header">
+
+    <!-- Barra horizontal superior con información general -->
+    <div class="topbar" id="topbar">
+      <div class="container topbar__inner">
+        <a class="topbar__item" href="tel:+34900123456">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>+34 900 123 456</span>
+        </a>
+        <span class="topbar__item topbar__item--center">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <span data-i18n="topbar.shipping">Envío gratis desde 50 €</span>
+        </span>
+        <a class="topbar__item" href="mailto:hola@threads.shop">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          <span>hola@threads.shop</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Barra de navegación principal -->
+    <nav class="navbar container" aria-label="Navegación principal">
+      <!-- Logo -->
+      <a href="#inicio" class="logo" aria-label="Threads — Inicio">Threads<span class="logo__dot">.</span></a>
+
+      <!-- Menú centrado (escritorio) -->
+      <ul class="nav" id="mainNav">
+        <li><a class="nav__link is-active" href="#inicio" data-i18n="nav.inicio">Inicio</a></li>
+        <li><a class="nav__link" href="#tienda" data-i18n="nav.tienda">Tienda</a></li>
+        <li><a class="nav__link" href="#colecciones" data-i18n="nav.colecciones">Colecciones</a></li>
+        <li><a class="nav__link" href="#nosotros" data-i18n="nav.nosotros">Nosotros</a></li>
+        <li><a class="nav__link" href="#contacto" data-i18n="nav.contacto">Contacto</a></li>
+      </ul>
+
+      <!-- Acciones (lupa, usuario, tema, carrito, hamburguesa) -->
+      <div class="header__actions">
+        <button class="icon-btn" id="searchToggle" aria-label="Buscar en la página">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <button class="icon-btn" id="userToggle" aria-label="Mi cuenta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </button>
+        <button class="icon-btn" id="themeToggle" aria-label="Cambiar entre modo claro y oscuro" aria-pressed="false">
+          <!-- Icono sol (visible en modo oscuro) -->
+          <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <!-- Icono luna (visible en modo claro) -->
+          <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="icon-btn icon-btn--cart" id="cartToggle" aria-label="Abrir carrito de la compra">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-badge" id="cartBadge" aria-hidden="true">0</span>
+        </button>
+        <button class="icon-btn icon-btn--menu" id="menuToggle" aria-label="Abrir menú móvil" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ======================================================
+       MENÚ MÓVIL: aparece centrado y baja desde arriba
+       Incluye botón de búsqueda y selector de idiomas
+       ====================================================== -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <button class="mobile-menu__close" id="mobileMenuClose" aria-label="Cerrar menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+
+    <nav class="mobile-menu__nav" aria-label="Navegación móvil">
+      <a href="#inicio" data-i18n="nav.inicio">Inicio</a>
+      <a href="#tienda" data-i18n="nav.tienda">Tienda</a>
+      <a href="#colecciones" data-i18n="nav.colecciones">Colecciones</a>
+      <a href="#nosotros" data-i18n="nav.nosotros">Nosotros</a>
+      <a href="#contacto" data-i18n="nav.contacto">Contacto</a>
+    </nav>
+
+    <div class="mobile-menu__extras">
+      <!-- Botón de búsqueda dentro del menú móvil -->
+      <button class="mobile-menu__search" id="mobileSearchBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span data-i18n="search.menuButton">Buscar en la página</span>
+      </button>
+
+      <!-- Selector de idiomas: Español / English / Valenciano -->
+      <div class="lang-switch" role="group" aria-label="Idioma">
+        <button class="lang-btn is-active" data-lang="es" lang="es">ES</button>
+        <button class="lang-btn" data-lang="en" lang="en">EN</button>
+        <button class="lang-btn" data-lang="va" lang="va">VA</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================
+       CONTENIDO PRINCIPAL
+       ====================================================== -->
+  <main id="main">
+
+    <!-- ========== HERO PRINCIPAL ========== -->
+    <section class="hero section" id="inicio">
+      <div class="container hero__grid">
+        <div class="hero__content reveal">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Nueva colección · Otoño 2025</p>
+          <h1 class="hero__title">
+            <span data-i18n-html="hero.title">Viste tu<br><em>actitud</em></span>
+          </h1>
+          <p class="hero__text" data-i18n="hero.sub">Ropa urbana, cómoda y sostenible para jóvenes que quieren destacar sin pasar desapercibidos. Diseños limitados, básicos que elevan cualquier look.</p>
+          <div class="hero__actions">
+            <a href="#tienda" class="btn btn--primary" data-i18n="hero.ctaPrimary">Ver la tienda</a>
+            <a href="#nosotros" class="btn btn--ghost" data-i18n="hero.ctaSecondary">Nuestra historia</a>
+          </div>
+          <div class="hero__meta">
+            <div><strong>12k+</strong><span data-i18n="hero.meta1">clientes felices</span></div>
+            <div><strong>4,9★</strong><span data-i18n="hero.meta2">+2.300 reseñas</span></div>
+          </div>
+        </div>
+
+        <div class="hero__media reveal" style="--d: .15s">
+          <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1200&q=80"
+               alt="Ropa urbana colgada en nuestro mercado" width="1200" height="1400" fetchpriority="high">
+          <div class="hero__badge">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span data-i18n="hero.badge">4,9 — +2.300 reseñas verificadas</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Franja animada (marquee) -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__inner">
+        <span>Envío gratis desde 50 € ✦ Nueva colección ✦ Devoluciones en 30 días ✦ Pago 100% seguro ✦ Recoge en el mercado ✦ </span>
+        <span>Envío gratis desde 50 € ✦ Nueva colección ✦ Devoluciones en 30 días ✦ Pago 100% seguro ✦ Recoge en el mercado ✦ </span>
+      </div>
+    </div>
+
+    <!-- ========== SECCIÓN INFORMATIVA: beneficios ========== -->
+    <section class="section features" id="info">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow" data-i18n="features.eyebrow">Por qué Threads</p>
+          <h2 class="section__title" data-i18n="features.title">Todo lo que esperas de una tienda moderna</h2>
+        </div>
+
+        <div class="features__grid">
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </span>
+            <h3 data-i18n="features.f1t">Envío rápido</h3>
+            <p data-i18n="features.f1d">Recibe tu pedido en 24–48 h en toda España, o recógelo gratis en nuestro puesto del mercado.</p>
+          </article>
+
+          <article class="feature reveal" style="--d:.08s">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+            </span>
+            <h3 data-i18n="features.f2t">30 días para devolver</h3>
+            <p data-i18n="features.f2d">Si no es amor a primera vista, devuélvelo sin preguntas en un plazo de 30 días.</p>
+          </article>
+
+          <article class="feature reveal" style="--d:.16s">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </span>
+            <h3 data-i18n="features.f3t">Pago 100% seguro</h3>
+            <p data-i18n="features.f3d">Paga en efectivo, contra reembolso o online a través de nuestra pasarela cifrada.</p>
+          </article>
+
+          <article class="feature reveal" style="--d:.24s">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            </span>
+            <h3 data-i18n="features.f4t">Materiales sostenibles</h3>
+            <p data-i18n="features.f4d">Algodón orgánico y prendas de segunda mano seleccionadas a mano en el mercado.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECCIÓN SECUNDARIA: productos destacados ========== -->
+    <section class="section products" id="tienda">
+      <div class="container">
+        <div class="section__head section__head--split reveal">
+          <div>
+            <p class="eyebrow" data-i18n="products.eyebrow">Los favoritos</p>
+            <h2 class="section__title" data-i18n="products.title">Nuestros básicos, elevados</h2>
+          </div>
+          <p class="section__sub" data-i18n="products.sub">Las piezas que no pueden faltar en tu armario urbano.</p>
+        </div>
+
+        <!-- Grid de productos (generado por JavaScript) -->
+        <div class="products__grid" id="productsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ========== SECCIÓN SECUNDARIA: promoción / colección ========== -->
+    <section class="section promo" id="colecciones">
+      <div class="container promo__grid">
+        <div class="promo__media reveal">
+          <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80"
+               alt="Compra urbana con bolsas de la tienda" width="1200" height="1400" loading="lazy">
+        </div>
+        <div class="promo__content reveal" style="--d:.15s">
+          <p class="eyebrow" data-i18n="promo.eyebrow">Colección Otoño / Invierno</p>
+          <h2 class="promo__title" data-i18n="promo.title">Capas urbanas para<br>entrar con fuerza</h2>
+          <p class="promo__text" data-i18n="promo.text">Hoodies oversize, chaquetas denim y tonos tierra. Piezas pensadas para combinarse entre sí y durar más de una temporada.</p>
+          <ul class="promo__list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="promo.l1">Edición limitada de 500 unidades</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="promo.l2">Tallas XS a XXL probadas en el mercado</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="promo.l3">Etiquetas 100% reciclables</span></li>
+          </ul>
+          <a href="#contacto" class="btn btn--primary" data-i18n="promo.cta">Reserva la tuya en el mercado</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECCIÓN SECUNDARIA: nosotros / estadísticas ========== -->
+    <section class="section about" id="nosotros">
+      <div class="container about__grid">
+        <div class="about__content reveal">
+          <p class="eyebrow" data-i18n="about.eyebrow">Nosotros</p>
+          <h2 class="section__title" data-i18n="about.title">Hecho en el mercado, para tu calle</h2>
+          <p class="about__text" data-i18n="about.text">Threads nació en un puesto del mercado central con una idea simple: la ropa urbana de calidad no debería ser un lujo. Seleccionamos cada prenda a mano, probamos cada tela y escuchamos a nuestra comunidad para crear piezas con verdadero carácter.</p>
+          <div class="about__stats">
+            <div class="reveal"><strong>12k+</strong><span data-i18n="about.s1">clientes</span></div>
+            <div class="reveal" style="--d:.1s"><strong>120+</strong><span data-i18n="about.s2">marcas seleccionadas</span></div>
+            <div class="reveal" style="--d:.2s"><strong>98%</strong><span data-i18n="about.s3">de satisfacción</span></div>
+          </div>
+          <a href="#contacto" class="btn btn--ghost" data-i18n="about.cta">Ven a conocernos al puesto 12</a>
+        </div>
+        <div class="about__media reveal" style="--d:.15s">
+          <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1200&q=80"
+               alt="Joven con estilo urbano portando prendas de la tienda" width="1200" height="1400" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECCIÓN DE CONTACTO CON FORMULARIO ========== -->
+    <section class="section contact" id="contacto">
+      <div class="container contact__grid">
+
+        <!-- Información de contacto -->
+        <div class="contact__info reveal">
+          <p class="eyebrow" data-i18n="contact.eyebrow">Contacto</p>
+          <h2 class="section__title" data-i18n="contact.title">¿Hablamos?</h2>
+          <p class="contact__text" data-i18n="contact.text">Estamos en el mercado todos los días. Escríbenos y te respondemos en menos de 24 horas laborables.</p>
+
+          <ul class="contact__list">
+            <li>
+              <span class="contact__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+              <div><strong data-i18n="contact.addressT">Visítanos</strong><span data-i18n="contact.address">Mercado Central, puesto 12 · Calle Mayor 5</span></div>
+            </li>
+            <li>
+              <span class="contact__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+              <div><strong data-i18n="contact.phoneT">Llámanos</strong><a href="tel:+34900123456">+34 900 123 456</a></div>
+            </li>
+            <li>
+              <span class="contact__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+              <div><strong data-i18n="contact.emailT">Escríbenos</strong><a href="mailto:hola@threads.shop">hola@threads.shop</a></div>
+            </li>
+            <li>
+              <span class="contact__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+              <div><strong data-i18n="contact.hoursT">Horario</strong><span data-i18n="contact.hours">Lun–Sáb 9:00–21:00 · Dom 10:00–14:00</span></div>
+            </li>
+          </ul>
+
+          <!-- Redes sociales -->
+          <div class="contact__social">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12a4 4 0 1 0 4 4V4c.6 2.5 2.4 4.4 5 5"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Formulario -->
+        <form class="contact__form reveal" id="contactForm" style="--d:.15s" novalidate>
+          <h3 data-i18n="contact.formTitle">Envíanos un mensaje</h3>
+
+          <div class="field">
+            <label for="contactName" data-i18n="contact.name">Nombre</label>
+            <input type="text" id="contactName" name="name" required data-i18n-placeholder="contact.namePh" placeholder="Tu nombre">
+          </div>
+          <div class="field">
+            <label for="contactEmail" data-i18n="contact.email">Email</label>
+            <input type="email" id="contactEmail" name="email" required data-i18n-placeholder="contact.emailPh" placeholder="tu@email.com">
+          </div>
+          <div class="field">
+            <label for="contactSubject" data-i18n="contact.subject">Asunto</label>
+            <input type="text" id="contactSubject" name="subject" required data-i18n-placeholder="contact.subjectPh" placeholder="¿En qué podemos ayudarte?">
+          </div>
+          <div class="field">
+            <label for="contactMessage" data-i18n="contact.message">Mensaje</label>
+            <textarea id="contactMessage" name="message" rows="5" required data-i18n-placeholder="contact.messagePh" placeholder="Cuéntanos más…"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--block" data-i18n="contact.send">Enviar mensaje</button>
+          <p class="form-status" id="contactStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================
+       FOOTER
+       ====================================================== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="#inicio" class="logo" aria-label="Threads — Inicio">Threads<span class="logo__dot">.</span></a>
+        <p data-i18n="footer.tagline">Ropa urbana con carácter. Hecho en el mercado, para tu calle.</p>
+        <!-- Selector de idiomas también disponible en el pie -->
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <button class="lang-btn is-active" data-lang="es" lang="es">ES</button>
+          <button class="lang-btn" data-lang="en" lang="en">EN</button>
+          <button class="lang-btn" data-lang="va" lang="va">VA</button>
+        </div>
+      </div>
+
+      <nav class="footer__col" aria-label="Tienda">
+        <h4 data-i18n="footer.shop">Tienda</h4>
+        <a href="#tienda" data-i18n="footer.new">Novedades</a>
+        <a href="#tienda" data-i18n="footer.hoodies">Hoodies</a>
+        <a href="#tienda" data-i18n="footer.tshirts">Camisetas</a>
+        <a href="#tienda" data-i18n="footer.jackets">Chaquetas</a>
+        <a href="#tienda" data-i18n="footer.sale">Ofertas</a>
+      </nav>
+
+      <nav class="footer__col" aria-label="Ayuda">
+        <h4 data-i18n="footer.help">Ayuda</h4>
+        <a href="#contacto" data-i18n="footer.shipping">Envíos</a>
+        <a href="#contacto" data-i18n="footer.returns">Devoluciones</a>
+        <a href="#contacto" data-i18n="footer.sizes">Guía de tallas</a>
+        <a href="#contacto" data-i18n="footer.payment">Pago seguro</a>
+        <a href="#contacto" data-i18n="footer.contactLink">Contacto</a>
+      </nav>
+
+      <nav class="footer__col" aria-label="Legal">
+        <h4 data-i18n="footer.legal">Legal</h4>
+        <a href="#" data-i18n="footer.cookies">Política de cookies</a>
+        <a href="#" data-i18n="footer.legalNotice">Aviso legal</a>
+        <a href="#" data-i18n="footer.privacy">Política de privacidad</a>
+      </nav>
+    </div>
+
+    <div class="footer__bottom container">
+      <p>© <span id="year">2025</span> Threads Shop · <span data-i18n="footer.rights">Todos los derechos reservados</span>.</p>
+      <p data-i18n="footer.made">HTML + CSS + JavaScript puro, sin dependencias.</p>
+    </div>
+  </footer>
+
+  <!-- ======================================================
+       MODAL DE BÚSQUEDA (oculto por defecto)
+       ====================================================== -->
+  <div class="modal" id="searchModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close-search></div>
+    <div class="modal__dialog modal__dialog--search" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
+      <button class="modal__close" data-close-search aria-label="Cerrar búsqueda">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <h2 class="modal__title" id="searchTitle" data-i18n="search.title">Buscar en la página</h2>
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="search" id="searchInput" autocomplete="off" data-i18n-placeholder="search.placeholder" placeholder="Escribe para buscar…">
+      </div>
+      <p class="search-status" id="searchStatus" data-i18n="search.initial">Escribe al menos 2 caracteres para resaltar coincidencias.</p>
+    </div>
+  </div>
+
+  <!-- ======================================================
+       MODAL DE LOGIN (placeholder para el sistema que
+       implementarás más adelante)
+       ====================================================== -->
+  <div class="modal" id="loginModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close-login></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+      <button class="modal__close" data-close-login aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <h2 class="modal__title" id="loginTitle" data-i18n="login.title">Mi cuenta</h2>
+      <form id="loginForm" novalidate>
+        <div class="field">
+          <label for="loginEmail" data-i18n="login.email">Email</label>
+          <input type="email" id="loginEmail" required data-i18n-placeholder="login.emailPh" placeholder="tu@email.com">
+        </div>
+        <div class="field">
+          <label for="loginPassword" data-i18n="login.password">Contraseña</label>
+          <input type="password" id="loginPassword" required data-i18n-placeholder="login.passwordPh" placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn btn--primary btn--block" data-i18n="login.submit">Entrar</button>
+        <p class="form-status" id="loginStatus" role="status"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================
+       MODAL DE PAGO ONLINE
+       Muestra el importe a pagar antes de redirigir
+       a la pasarela (que se integrará después)
+       ====================================================== -->
+  <div class="modal" id="paymentModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close-payment></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="paymentTitle">
+      <button class="modal__close" data-close-payment aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <h2 class="modal__title" id="paymentTitle" data-i18n="payment.title">Pago online</h2>
+
+      <ul class="payment-recap" id="paymentRecap"></ul>
+
+      <p class="payment-amount">
+        <span data-i18n="payment.due">Importe a pagar</span>
+        <strong id="paymentTotal">0,00 €</strong>
+      </p>
+      <p class="payment-note" data-i18n="payment.note">Serás redirigido a la pasarela de pago segura del mercado para completar la compra.</p>
+
+      <div class="payment-actions">
+        <button class="btn btn--primary" id="payNowBtn" data-i18n="payment.now">Ir a pagar</button>
+        <button class="btn btn--ghost" data-close-payment data-i18n="payment.cancel">Cancelar</button>
+      </div>
+      <p class="payment-status" id="paymentStatus" role="status"></p>
+    </div>
+  </div>
+
+  <!-- ======================================================
+       CARRITO DE COMPRAS (panel lateral con opciones de
+       recogida en el mercado / envío y forma de pago)
+       ====================================================== -->
+  <div class="cart-overlay" id="cartOverlay" aria-hidden="true">
+    <aside class="cart" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+      <div class="cart__head">
+        <h2 id="cartTitle"><span data-i18n="cart.title">Tu carrito</span> (<span id="cartCount">0</span>)</h2>
+        <button class="modal__close" id="cartClose" aria-label="Cerrar carrito">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <!-- Estado: carrito con productos -->
+      <div class="cart__scroll" id="cartScroll" hidden>
+        <ul class="cart__items" id="cartItems"></ul>
+
+        <!-- Opción de entrega -->
+        <fieldset class="cart__fieldset">
+          <legend data-i18n="cart.delivery">Entrega</legend>
+          <label class="radio-card">
+            <input type="radio" name="delivery" value="pickup" checked>
+            <span class="radio-card__text">
+              <span class="radio-card__title" data-i18n="cart.pickup">Recoger en el mercado</span>
+              <span class="radio-card__desc" data-i18n="cart.pickupDesc">Gratis · Puesto 12, Mercado Central</span>
+            </span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="delivery" value="delivery">
+            <span class="radio-card__text">
+              <span class="radio-card__title" data-i18n="cart.homeDelivery">Envío a domicilio</span>
+              <span class="radio-card__desc"><span id="deliveryCostLabel">3,90 €</span> · <span data-i18n="cart.freeFrom">gratis desde 50 €</span></span>
+            </span>
+          </label>
+        </fieldset>
+
+        <!-- Campos de dirección (solo si se elige envío) -->
+        <div class="address-fields" id="addressFields" hidden>
+          <input type="text" id="addrStreet" data-i18n-placeholder="cart.addrStreet" placeholder="Dirección completa">
+          <input type="text" id="addrCity" data-i18n-placeholder="cart.addrCity" placeholder="Ciudad">
+          <input type="text" id="addrZip" data-i18n-placeholder="cart.addrZip" placeholder="Código postal">
+        </div>
+
+        <!-- Forma de pago -->
+        <fieldset class="cart__fieldset">
+          <legend data-i18n="cart.payment">Método de pago</legend>
+          <label class="radio-card">
+            <input type="radio" name="payment" value="pickup">
+            <span class="radio-card__text">
+              <span class="radio-card__title" data-i18n="cart.payPickup">Pagar al recoger</span>
+              <span class="radio-card__desc" data-i18n="cart.payPickupDesc">Efectivo o tarjeta en el puesto</span>
+            </span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="payment" value="delivery">
+            <span class="radio-card__text">
+              <span class="radio-card__title" data-i18n="cart.payDelivery">Pagar a la entrega</span>
+              <span class="radio-card__desc" data-i18n="cart.payDeliveryDesc">Contra reembolso</span>
+            </span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="payment" value="online">
+            <span class="radio-card__text">
+              <span class="radio-card__title" data-i18n="cart.payOnline">Pagar online</span>
+              <span class="radio-card__desc" data-i18n="cart.payOnlineDesc">Redirección a la pasarela segura</span>
+            </span>
+          </label>
+        </fieldset>
+
+        <!-- Resumen de totales -->
+        <div class="cart__summary">
+          <div><span data-i18n="cart.subtotal">Subtotal</span><strong id="summarySubtotal">0,00 €</strong></div>
+          <div><span data-i18n="cart.shipping">Envío</span><strong id="summaryShipping">0,00 €</strong></div>
+          <div class="cart__total"><span data-i18n="cart.total">Total</span><strong id="summaryTotal">0,00 €</strong></div>
+        </div>
+
+        <button class="btn btn--primary btn--block" id="checkoutBtn" data-i18n="cart.checkout">Confirmar pedido</button>
+        <p class="cart__notice" id="cartNotice" role="alert"></p>
+      </div>
+
+      <!-- Estado: carrito vacío -->
+      <div class="cart__empty" id="cartEmpty">
+        <span class="cart__empty-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </span>
+        <h3 data-i18n="cart.emptyTitle">Tu carrito está vacío</h3>
+        <p data-i18n="cart.emptyText">Añade tus prendas favoritas y descubre tu próximo look.</p>
+        <a href="#tienda" class="btn btn--primary" id="discoverBtn" data-i18n="cart.discover">Descubrir la tienda</a>
+      </div>
+
+      <!-- Estado: pedido confirmado -->
+      <div class="cart-success" id="cartSuccess">
+        <span class="cart-success__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        </span>
+        <h3 data-i18n="cart.successTitle">¡Pedido confirmado!</h3>
+        <p><span data-i18n="cart.successText">Tu pedido</span> <strong id="orderNumber">THR-0000</strong>. <span data-i18n="cart.successText2">Te avisaremos cuando esté listo para recoger o en camino.</span></p>
+        <button class="btn btn--primary" id="continueShopping" data-i18n="cart.continue">Seguir explorando</button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Script de la aplicación (sin dependencias) -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -43,6 +43,18 @@ body {
 
 .header h1 {
     color: var(--primary);
+    margin: 0;    
+}
+
+.header h2 {
+    color: var(--primary);
+    margin: 5px 0;
+}
+
+
+.header p {
+    color: var(--text-soft);
+    margin: 5px 0;
 }
 
 /* TOGGLE MODO OSCURO/CLARO */
@@ -114,7 +126,7 @@ input:checked + .slider::before {
 .courses-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
+    gap: 15px;
 }
 
 .course-card {
@@ -146,6 +158,12 @@ input:checked + .slider::before {
 
 .card-content h2 {
     color: var(--primary);
+    margin: 3px 0;
+}
+
+.card-content h3 {
+    color: var(--text-soft);
+    margin: 0px 0;
 }
 
 .icon-svg {

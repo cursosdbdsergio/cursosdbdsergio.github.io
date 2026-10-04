@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Frescó — Supermercado de alimentación general. Fruta, verdura, panadería, carnicería y despensa fresca cada día en Valencia.">
+  <meta name="theme-color" content="#1F6F4A">
+  <title>Frescó — Alimentación fresca cada día</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Acceso rápido para teclado -->
+  <a class="skip-link" href="#contenido" data-i18n="a11y.skip">Saltar al contenido</a>
+
+  <!-- Barra superior + cabecera fija -->
+  <div class="site-chrome" id="siteChrome">
+    <div class="topbar" id="topbar">
+      <div class="topbar__inner">
+        <div class="topbar__info">
+          <a class="topbar__item" href="tel:+34963457890">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
+            <span>+34 963 45 78 90</span>
+          </a>
+          <a class="topbar__item" href="mailto:hola@fresco.market">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <span>hola@fresco.market</span>
+          </a>
+          <span class="topbar__item topbar__item--muted">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"/></svg>
+            <span data-i18n="topbar.address">Av. de l'Horta, 128 · València</span>
+          </span>
+        </div>
+        <div class="topbar__aside">
+          <span class="topbar__hours" data-i18n="topbar.hours">L–S 8:00–21:30 · D 9:00–14:00</span>
+          <div class="lang-switch" role="group" aria-label="Idioma">
+            <button type="button" class="lang-btn is-active" data-lang="es" aria-pressed="true">ES</button>
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+            <button type="button" class="lang-btn" data-lang="va" aria-pressed="false">VA</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header class="header" id="header">
+      <div class="header__inner">
+        <a class="logo" href="#inicio" aria-label="Frescó, inicio">
+          <span class="logo__mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40">
+              <circle cx="20" cy="20" r="18" fill="currentColor" opacity=".12"/>
+              <path d="M12 26c6-1 10-6 11-13 4 2 7 7 6 13-5 1-11 2-17 0z" fill="currentColor"/>
+              <path d="M23 13c-1 5-4 9-9 11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M14 27h14c.4-3 .2-6-1-8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="logo__text">Frescó</span>
+        </a>
+
+        <nav class="nav" id="mainNav" aria-label="Principal">
+          <ul class="nav__list">
+            <li><a class="nav__link is-active" href="#inicio" data-i18n="nav.home">Inicio</a></li>
+            <li><a class="nav__link" href="#productos" data-i18n="nav.products">Productos</a></li>
+            <li><a class="nav__link" href="#compra" data-i18n="nav.shop">Compra</a></li>
+            <li><a class="nav__link" href="#ofertas" data-i18n="nav.offers">Ofertas</a></li>
+            <li><a class="nav__link" href="#servicios" data-i18n="nav.services">Servicios</a></li>
+            <li><a class="nav__link" href="#nosotros" data-i18n="nav.about">Nosotros</a></li>
+            <li><a class="nav__link" href="#tiendas" data-i18n="nav.stores">Tiendas</a></li>
+            <li><a class="nav__link" href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <div class="header__actions">
+          <button type="button" class="icon-btn" id="searchOpen" aria-haspopup="dialog" data-i18n-aria="search.open">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-3.5-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <button type="button" class="icon-btn" id="loginOpen" aria-haspopup="dialog" data-i18n-aria="login.open">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 19.2c.8-3.4 3.5-5.2 7-5.2s6.2 1.8 7 5.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <button type="button" class="icon-btn cart-btn" id="cartOpen" aria-haspopup="dialog" data-i18n-aria="cart.open">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M6 6 5 3H2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="20" r="1.4" fill="currentColor"/><circle cx="18" cy="20" r="1.4" fill="currentColor"/></svg>
+            <span class="cart-badge" id="cartBadge" hidden>0</span>
+          </button>
+          <button type="button" class="icon-btn" id="themeToggle" data-i18n-aria="theme.toggle">
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3v2M12 19v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M3 12h2M19 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 14.5A7.5 7.5 0 0 1 9.5 7 6.5 6.5 0 1 0 17 14.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          </button>
+          <button type="button" class="hamburger" id="hamburger" aria-expanded="false" aria-controls="mobileMenu" data-i18n-aria="menu.open">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- Menú móvil: baja desde arriba, contenido centrado -->
+  <div class="mobile-menu" id="mobileMenu" hidden>
+    <div class="mobile-menu__panel">
+      <p class="mobile-menu__brand">Frescó</p>
+      <nav aria-label="Móvil">
+        <ul class="mobile-menu__list">
+          <li><a href="#inicio" data-i18n="nav.home">Inicio</a></li>
+          <li><a href="#productos" data-i18n="nav.products">Productos</a></li>
+          <li><a href="#compra" data-i18n="nav.shop">Compra</a></li>
+          <li><a href="#ofertas" data-i18n="nav.offers">Ofertas</a></li>
+          <li><a href="#servicios" data-i18n="nav.services">Servicios</a></li>
+          <li><a href="#nosotros" data-i18n="nav.about">Nosotros</a></li>
+          <li><a href="#tiendas" data-i18n="nav.stores">Tiendas</a></li>
+          <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="mobile-menu__tools">
+        <button type="button" class="btn btn--ghost" id="mobileCartBtn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M6 6 5 3H2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="20" r="1.4" fill="currentColor"/><circle cx="18" cy="20" r="1.4" fill="currentColor"/></svg>
+          <span data-i18n="cart.openShort">Ver cesta</span>
+        </button>
+        <button type="button" class="btn btn--ghost" id="mobileSearchBtn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-3.5-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span data-i18n="search.button">Buscar en la página</span>
+        </button>
+        <div class="lang-switch lang-switch--mobile" role="group" aria-label="Idioma">
+          <button type="button" class="lang-btn is-active" data-lang="es">ES</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+          <button type="button" class="lang-btn" data-lang="va">VA</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="contenido">
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <img class="hero__bg" src="https://images.pexels.com/photos/9705821/pexels-photo-9705821.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Puesto de verduras frescas en el supermercado: pimientos, calabacines y pepinos">
+      <div class="hero__overlay"></div>
+      <div class="hero__content">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Supermercado de alimentación</p>
+        <h1 data-i18n="hero.title">Frescura de verdad, cada día en tu mesa</h1>
+        <p class="hero__lead" data-i18n="hero.lead">Fruta, verdura de l'Horta, pan del día, carnicería propia y despensa seleccionada. Un supermercado de barrio con alma de mercado.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#productos" data-i18n="hero.cta">Ver productos</a>
+          <a class="btn btn--light" href="#ofertas" data-i18n="hero.cta2">Ofertas de la semana</a>
+        </div>
+        <ul class="hero__pills" aria-label="Destacados">
+          <li data-i18n="hero.pill1">Km 0</li>
+          <li data-i18n="hero.pill2">Horneado diario</li>
+          <li data-i18n="hero.pill3">Entrega a domicilio</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- INFORMACIÓN / CATEGORÍAS -->
+    <section class="section" id="productos">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow" data-i18n="products.eyebrow">Nuestros lineales</p>
+          <h2 data-i18n="products.title">Todo lo que tu cocina necesita</h2>
+          <p class="section__lead" data-i18n="products.lead">Seis secciones cuidadas, con producto de temporada y proveedores de proximidad. Elige, compara y llévate lo mejor del día.</p>
+        </header>
+
+        <div class="cat-grid">
+          <article class="cat-card reveal">
+            <img src="https://images.pexels.com/photos/9705830/pexels-photo-9705830.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Surtido de verduras de colores en el lineal" loading="lazy">
+            <div class="cat-card__body">
+              <h3 data-i18n="cat.produce">Frutas y verduras</h3>
+              <p data-i18n="cat.produceText">Temporada valenciana, ecológico y de la huerta. Recibido cada madrugada.</p>
+            </div>
+          </article>
+          <article class="cat-card reveal">
+            <img src="https://images.pexels.com/photos/12963520/pexels-photo-12963520.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Fruta fresca en estantes del supermercado" loading="lazy">
+            <div class="cat-card__body">
+              <h3 data-i18n="cat.fruit">Fruta del día</h3>
+              <p data-i18n="cat.fruitText">Naranja, cítricos, bayas y tropical. Dulzor real, sin cámara de más.</p>
+            </div>
+          </article>
+          <article class="cat-card reveal">
+            <img src="https://images.pexels.com/photos/30826794/pexels-photo-30826794.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Panadería artesana con panes en cestas de madera" loading="lazy">
+            <div class="cat-card__body">
+              <h3 data-i18n="cat.bakery">Panadería</h3>
+              <p data-i18n="cat.bakeryText">Masa madre, barra crujiente y bollería de horno propio desde las 7:00.</p>
+            </div>
+          </article>
+          <article class="cat-card reveal">
+            <img src="https://images.pexels.com/photos/12884549/pexels-photo-12884549.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Mostrador de carnicería con cortes frescos" loading="lazy">
+            <div class="cat-card__body">
+              <h3 data-i18n="cat.meat">Carnicería</h3>
+              <p data-i18n="cat.meatText">Cortes al momento, pollo campero y elaborados de la casa.</p>
+            </div>
+          </article>
+          <article class="cat-card reveal">
+            <img src="https://images.pexels.com/photos/37338215/pexels-photo-37338215.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Tabla de quesos en el mostrador de lácteos" loading="lazy">
+            <div class="cat-card__body">
+              <h3 data-i18n="cat.dairy">Lácteos y quesos</h3>
+              <p data-i18n="cat.dairyText">Leche de granja, yogures naturales y quesos de autor.</p>
+            </div>
+          </article>
+          <article class="cat-card reveal">
+            <img src="https://images.pexels.com/photos/1414693/pexels-photo-1414693.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Tarros de conservas, aceitunas y especias" loading="lazy">
+            <div class="cat-card__body">
+              <h3 data-i18n="cat.pantry">Despensa</h3>
+              <p data-i18n="cat.pantryText">Aceite, legumbres, conservas y esenciales para cocinar sin prisa.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPRA ONLINE -->
+    <section class="section section--tint" id="compra">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow" data-i18n="shop.eyebrow">Compra online</p>
+          <h2 data-i18n="shop.title">Llena la cesta a tu ritmo</h2>
+          <p class="section__lead" data-i18n="shop.lead">Añade producto, reserva la recogida en tu mercado o recíbelo en casa. Pagas al recoger, al entregar o ahora, tú eliges.</p>
+        </header>
+        <div class="product-grid" id="productGrid">
+          <article class="product-card reveal" data-id="tomate" data-price="1.89" data-unit="kg" data-name-key="p.tomate" data-img="https://images.pexels.com/photos/319798/pexels-photo-319798.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <img src="https://images.pexels.com/photos/319798/pexels-photo-319798.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Tomate de la huerta" loading="lazy">
+            <div class="product-card__body">
+              <h3 data-i18n="p.tomate">Tomate de la huerta</h3>
+              <p class="product-card__meta"><span data-i18n="unit.kg">€/kg</span></p>
+              <p class="product-card__price"><strong>1,89 €</strong></p>
+              <button type="button" class="btn btn--primary btn--small js-add" data-i18n="cart.add">Añadir</button>
+            </div>
+          </article>
+          <article class="product-card reveal" data-id="naranja" data-price="1.15" data-unit="kg" data-name-key="p.naranja" data-img="https://images.pexels.com/photos/17975562/pexels-photo-17975562.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <img src="https://images.pexels.com/photos/17975562/pexels-photo-17975562.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Naranja de Valencia" loading="lazy">
+            <div class="product-card__body">
+              <h3 data-i18n="p.naranja">Naranja de Valencia</h3>
+              <p class="product-card__meta"><span data-i18n="unit.kg">€/kg</span></p>
+              <p class="product-card__price"><strong>1,15 €</strong></p>
+              <button type="button" class="btn btn--primary btn--small js-add" data-i18n="cart.add">Añadir</button>
+            </div>
+          </article>
+          <article class="product-card reveal" data-id="lechuga" data-price="0.99" data-unit="ud" data-name-key="p.lechuga" data-img="https://images.pexels.com/photos/12955498/pexels-photo-12955498.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <img src="https://images.pexels.com/photos/12955498/pexels-photo-12955498.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Lechuga romana" loading="lazy">
+            <div class="product-card__body">
+              <h3 data-i18n="p.lechuga">Lechuga romana</h3>
+              <p class="product-card__meta"><span data-i18n="unit.ud">€/ud</span></p>
+              <p class="product-card__price"><strong>0,99 €</strong></p>
+              <button type="button" class="btn btn--primary btn--small js-add" data-i18n="cart.add">Añadir</button>
+            </div>
+          </article>
+          <article class="product-card reveal" data-id="pimiento" data-price="2.20" data-unit="kg" data-name-key="p.pimiento" data-img="https://images.pexels.com/photos/9705830/pexels-photo-9705830.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <img src="https://images.pexels.com/photos/9705830/pexels-photo-9705830.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Pimiento rojo" loading="lazy">
+            <div class="product-card__body">
+              <h3 data-i18n="p.pimiento">Pimiento rojo</h3>
+              <p class="product-card__meta"><span data-i18n="unit.kg">€/kg</span></p>
+              <p class="product-card__price"><strong>2,20 €</strong></p>
+              <button type="button" class="btn btn--primary btn--small js-add" data-i18n="cart.add">Añadir</button>
+            </div>
+          </article>
+          <article class="product-card reveal" data-id="pan" data-price="1.20" data-unit="ud" data-name-key="p.pan" data-img="https://images.pexels.com/photos/36445141/pexels-photo-36445141.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <img src="https://images.pexels.com/photos/36445141/pexels-photo-36445141.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Pan de masa madre" loading="lazy">
+            <div class="product-card__body">
+              <h3 data-i18n="p.pan">Pan de masa madre</h3>
+              <p class="product-card__meta"><span data-i18n="unit.ud">€/ud</span></p>
+              <p class="product-card__price"><strong>1,20 €</strong></p>
+              <button type="button" class="btn btn--primary btn--small js-add" data-i18n="cart.add">Añadir</button>
+            </div>
+          </article>
+          <article class="product-card reveal" data-id="yogur" data-price="1.49" data-unit="pack" data-name-key="p.yogur" data-img="https://images.pexels.com/photos/14407470/pexels-photo-14407470.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <img src="https://images.pexels.com/photos/14407470/pexels-photo-14407470.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Yogur natural" loading="lazy">
+            <div class="product-card__body">
+              <h3 data-i18n="p.yogur">Yogur natural pack 4</h3>
+              <p class="product-card__meta"><span data-i18n="unit.pack">€/pack</span></p>
+              <p class="product-card__price"><strong>1,49 €</strong></p>
+              <button type="button" class="btn btn--primary btn--small js-add" data-i18n="cart.add">Añadir</button>
+            </div>
+          </article>
+          <article class="product-card reveal" data-id="leche" data-price="1.15" data-unit="l" data-name-key="p.leche" data-img="https://images.pexels.com/photos/7451957/pexels-photo-7451957.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <img src="https://images.pexels.com/photos/7451957/pexels-photo-7451957.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Leche fresca" loading="lazy">
+            <div class="product-card__body">
+              <h3 data-i18n="p.leche">Leche fresca 1 L</h3>
+              <p class="product-card__meta"><span data-i18n="unit.l">€/L</span></p>
+              <p class="product-card__price"><strong>1,15 €</strong></p>
+              <button type="button" class="btn btn--primary btn--small js-add" data-i18n="cart.add">Añadir</button>
+            </div>
+          </article>
+          <article class="product-card reveal" data-id="queso" data-price="3.80" data-unit="ud" data-name-key="p.queso" data-img="https://images.pexels.com/photos/37338215/pexels-photo-37338215.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <img src="https://images.pexels.com/photos/37338215/pexels-photo-37338215.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cuña de queso" loading="lazy">
+            <div class="product-card__body">
+              <h3 data-i18n="p.queso">Queso de oveja (cuña)</h3>
+              <p class="product-card__meta"><span data-i18n="unit.ud">€/ud</span></p>
+              <p class="product-card__price"><strong>3,80 €</strong></p>
+              <button type="button" class="btn btn--primary btn--small js-add" data-i18n="cart.add">Añadir</button>
+            </div>
+          </article>
+          <article class="product-card reveal" data-id="pollo" data-price="4.95" data-unit="kg" data-name-key="p.pollo" data-img="https://images.pexels.com/photos/12884549/pexels-photo-12884549.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <img src="https://images.pexels.com/photos/12884549/pexels-photo-12884549.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Pollo campero" loading="lazy">
+            <div class="product-card__body">
+              <h3 data-i18n="p.pollo">Pollo campero</h3>
+              <p class="product-card__meta"><span data-i18n="unit.kg">€/kg</span></p>
+              <p class="product-card__price"><strong>4,95 €</strong></p>
+              <button type="button" class="btn btn--primary btn--small js-add" data-i18n="cart.add">Añadir</button>
+            </div>
+          </article>
+          <article class="product-card reveal" data-id="aceite" data-price="6.95" data-unit="ud" data-name-key="p.aceite" data-img="https://images.pexels.com/photos/1414693/pexels-photo-1414693.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <img src="https://images.pexels.com/photos/1414693/pexels-photo-1414693.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Aceite de oliva" loading="lazy">
+            <div class="product-card__body">
+              <h3 data-i18n="p.aceite">AOVE 1 L</h3>
+              <p class="product-card__meta"><span data-i18n="unit.ud">€/ud</span></p>
+              <p class="product-card__price"><strong>6,95 €</strong></p>
+              <button type="button" class="btn btn--primary btn--small js-add" data-i18n="cart.add">Añadir</button>
+            </div>
+          </article>
+          <article class="product-card reveal" data-id="platano" data-price="1.69" data-unit="kg" data-name-key="p.platano" data-img="https://images.pexels.com/photos/12963520/pexels-photo-12963520.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <img src="https://images.pexels.com/photos/12963520/pexels-photo-12963520.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Plátano" loading="lazy">
+            <div class="product-card__body">
+              <h3 data-i18n="p.platano">Plátano</h3>
+              <p class="product-card__meta"><span data-i18n="unit.kg">€/kg</span></p>
+              <p class="product-card__price"><strong>1,69 €</strong></p>
+              <button type="button" class="btn btn--primary btn--small js-add" data-i18n="cart.add">Añadir</button>
+            </div>
+          </article>
+          <article class="product-card reveal" data-id="huevos" data-price="3.20" data-unit="pack" data-name-key="p.huevos" data-img="https://images.pexels.com/photos/30826794/pexels-photo-30826794.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <img src="https://images.pexels.com/photos/30826794/pexels-photo-30826794.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Huevos camperos" loading="lazy">
+            <div class="product-card__body">
+              <h3 data-i18n="p.huevos">Huevos camperos x12</h3>
+              <p class="product-card__meta"><span data-i18n="unit.pack">€/pack</span></p>
+              <p class="product-card__price"><strong>3,20 €</strong></p>
+              <button type="button" class="btn btn--primary btn--small js-add" data-i18n="cart.add">Añadir</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFERTAS -->
+    <section class="section" id="ofertas">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow" data-i18n="offers.eyebrow">Esta semana</p>
+          <h2 data-i18n="offers.title">Ofertas que saben a ahorro</h2>
+          <p class="section__lead" data-i18n="offers.lead">Precios vigentes hasta el domingo. Stock limitado en producto fresco.</p>
+        </header>
+
+        <div class="offer-grid">
+          <article class="offer-card reveal js-product" data-id="tomate" data-price="1.89" data-unit="kg" data-name-key="p.tomate" data-img="https://images.pexels.com/photos/319798/pexels-photo-319798.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <div class="offer-card__badge" data-i18n="offers.save">-24%</div>
+            <img src="https://images.pexels.com/photos/319798/pexels-photo-319798.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Verduras orgánicas frescas" loading="lazy">
+            <div class="offer-card__body">
+              <h3 data-i18n="offers.item1">Tomate de la huerta</h3>
+              <p class="offer-card__price"><s>2,49 €</s> <strong>1,89 €/kg</strong></p>
+              <button type="button" class="btn btn--primary btn--small js-add" data-i18n="cart.add">Añadir</button>
+            </div>
+          </article>
+          <article class="offer-card reveal js-product" data-id="naranja" data-price="1.15" data-unit="kg" data-name-key="p.naranja" data-img="https://images.pexels.com/photos/17975562/pexels-photo-17975562.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <div class="offer-card__badge" data-i18n="offers.save2">-18%</div>
+            <img src="https://images.pexels.com/photos/17975562/pexels-photo-17975562.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Naranjas apiladas" loading="lazy">
+            <div class="offer-card__body">
+              <h3 data-i18n="offers.item2">Naranja de Valencia</h3>
+              <p class="offer-card__price"><s>1,40 €</s> <strong>1,15 €/kg</strong></p>
+              <button type="button" class="btn btn--primary btn--small js-add" data-i18n="cart.add">Añadir</button>
+            </div>
+          </article>
+          <article class="offer-card reveal js-product" data-id="pan" data-price="1.20" data-unit="ud" data-name-key="p.pan" data-img="https://images.pexels.com/photos/36445141/pexels-photo-36445141.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <div class="offer-card__badge" data-i18n="offers.save3">-15%</div>
+            <img src="https://images.pexels.com/photos/36445141/pexels-photo-36445141.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Pan recién horneado" loading="lazy">
+            <div class="offer-card__body">
+              <h3 data-i18n="offers.item3">Pan de masa madre</h3>
+              <p class="offer-card__price"><s>1,45 €</s> <strong>1,20 €</strong></p>
+              <button type="button" class="btn btn--primary btn--small js-add" data-i18n="cart.add">Añadir</button>
+            </div>
+          </article>
+          <article class="offer-card reveal js-product" data-id="yogur" data-price="1.49" data-unit="pack" data-name-key="p.yogur" data-img="https://images.pexels.com/photos/14407470/pexels-photo-14407470.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <div class="offer-card__badge" data-i18n="offers.save4">-12%</div>
+            <img src="https://images.pexels.com/photos/14407470/pexels-photo-14407470.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Yogur y desayuno" loading="lazy">
+            <div class="offer-card__body">
+              <h3 data-i18n="offers.item4">Yogur natural pack 4</h3>
+              <p class="offer-card__price"><s>1,69 €</s> <strong>1,49 €</strong></p>
+              <button type="button" class="btn btn--primary btn--small js-add" data-i18n="cart.add">Añadir</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="section" id="servicios">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow" data-i18n="services.eyebrow">Te lo ponemos fácil</p>
+          <h2 data-i18n="services.title">Servicios para tu día a día</h2>
+          <p class="section__lead" data-i18n="services.lead">Compra como quieras: en tienda, desde casa o recógelo cuando te venga bien.</p>
+        </header>
+
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <span class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 7h13l3 8H6L3 7zm4 12a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm10 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </span>
+            <h3 data-i18n="services.s1">Entrega a domicilio</h3>
+            <p data-i18n="services.s1t">Pedidos antes de las 12:00, en tu cocina esa misma tarde en Valencia y área metropolitana.</p>
+          </article>
+          <article class="service-card reveal">
+            <span class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 7h16v12H4zM8 7V5h8v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </span>
+            <h3 data-i18n="services.s2">Click &amp; Collect</h3>
+            <p data-i18n="services.s2t">Reserva online y recoge en 2 horas en el mostrador de tu tienda Frescó.</p>
+          </article>
+          <article class="service-card reveal">
+            <span class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M7 12h4M3 10h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+            <h3 data-i18n="services.s3">Club Frescó</h3>
+            <p data-i18n="services.s3t">Acumula puntos, cupones de fresco y 5% extra en productos de la huerta.</p>
+          </article>
+          <article class="service-card reveal">
+            <span class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3c4 4 7 7.2 7 11a7 7 0 1 1-14 0c0-3.8 3-7 7-11z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+            </span>
+            <h3 data-i18n="services.s4">Ecológico y km 0</h3>
+            <p data-i18n="services.s4t">Más de 50 productores locales. Trazabilidad clara y temporada de verdad.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section class="section section--split" id="nosotros">
+      <div class="split">
+        <div class="split__media reveal">
+          <img src="https://images.pexels.com/photos/4971911/pexels-photo-4971911.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Cliente eligiendo producto fresco en Frescó" loading="lazy">
+        </div>
+        <div class="split__copy reveal">
+          <p class="eyebrow" data-i18n="about.eyebrow">Desde 1987</p>
+          <h2 data-i18n="about.title">Un supermercado con raíces de mercado</h2>
+          <p data-i18n="about.p1">Nacimos como frutería de barrio en Benimaclet. Hoy somos Frescó: doce tiendas, el mismo criterio. Si no lo pondríamos en nuestra mesa, no está en el lineal.</p>
+          <p data-i18n="about.p2">Trabajamos con l'Horta de València, obradores próximos y ganadería responsable. Menos plástico, más sabor, precios honestos.</p>
+          <ul class="stats">
+            <li><strong>12</strong><span data-i18n="about.stat1">tiendas</span></li>
+            <li><strong>8.000</strong><span data-i18n="about.stat2">referencias</span></li>
+            <li><strong>50</strong><span data-i18n="about.stat3">productores</span></li>
+            <li><strong>38</strong><span data-i18n="about.stat4">años</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIENDAS -->
+    <section class="section section--tint" id="tiendas">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow" data-i18n="stores.eyebrow">Cerca de ti</p>
+          <h2 data-i18n="stores.title">Tiendas y horarios</h2>
+          <p class="section__lead" data-i18n="stores.lead">Abre la más cercana. El fresco no espera: mejor pasar por la mañana.</p>
+        </header>
+        <div class="store-grid">
+          <article class="store-card reveal">
+            <h3>Benimaclet</h3>
+            <p>Av. de l'Horta, 128</p>
+            <p data-i18n="stores.h1">L–S 8:00–21:30 · D 9:00–14:00</p>
+          </article>
+          <article class="store-card reveal">
+            <h3>Ruzafa</h3>
+            <p>Carrer de Cadis, 42</p>
+            <p data-i18n="stores.h2">L–S 8:30–21:30 · D 9:00–14:00</p>
+          </article>
+          <article class="store-card reveal">
+            <h3>El Cabanyal</h3>
+            <p>Carrer de la Reina, 76</p>
+            <p data-i18n="stores.h3">L–S 8:00–21:00 · D 9:00–14:00</p>
+          </article>
+          <article class="store-card reveal">
+            <h3>Torrent</h3>
+            <p>Av. Al Vedat, 90</p>
+            <p data-i18n="stores.h4">L–S 9:00–21:30 · D cerrado</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="section" id="contacto">
+      <div class="container contact">
+        <div class="contact__info reveal">
+          <p class="eyebrow" data-i18n="contact.eyebrow">Hablemos</p>
+          <h2 data-i18n="contact.title">¿Dudas, pedidos o sugerencias?</h2>
+          <p data-i18n="contact.lead">Atención al cliente de lunes a sábado. Si es sobre un pedido online, indica el número de albarán.</p>
+          <ul class="contact__list">
+            <li>
+              <strong data-i18n="contact.phone">Teléfono</strong>
+              <a href="tel:+34963457890">+34 963 45 78 90</a>
+            </li>
+            <li>
+              <strong data-i18n="contact.email">Correo</strong>
+              <a href="mailto:hola@fresco.market">hola@fresco.market</a>
+            </li>
+            <li>
+              <strong data-i18n="contact.hoursLabel">Horario de atención</strong>
+              <span data-i18n="contact.hours">L–S 8:30–20:30</span>
+            </li>
+          </ul>
+        </div>
+
+        <form class="form reveal" id="contactForm" novalidate>
+          <div class="form__row">
+            <label for="nombre" data-i18n="form.name">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required autocomplete="name" maxlength="80">
+          </div>
+          <div class="form__row">
+            <label for="email" data-i18n="form.email">Correo electrónico</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="form__row">
+            <label for="telefono" data-i18n="form.phone">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" autocomplete="tel">
+          </div>
+          <div class="form__row">
+            <label for="asunto" data-i18n="form.subject">Asunto</label>
+            <select id="asunto" name="asunto" required>
+              <option value="" data-i18n="form.subjectEmpty">Elige una opción</option>
+              <option value="pedido" data-i18n="form.opt1">Pedido / entrega</option>
+              <option value="tienda" data-i18n="form.opt2">Consulta de tienda</option>
+              <option value="calidad" data-i18n="form.opt3">Calidad de producto</option>
+              <option value="otro" data-i18n="form.opt4">Otro</option>
+            </select>
+          </div>
+          <div class="form__row">
+            <label for="mensaje" data-i18n="form.message">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required maxlength="1000"></textarea>
+          </div>
+          <label class="form__check">
+            <input type="checkbox" id="privacidad" name="privacidad" required>
+            <span data-i18n="form.privacy">Acepto el tratamiento de mis datos para responder a esta consulta.</span>
+          </label>
+          <p class="form__error" id="formError" hidden></p>
+          <p class="form__ok" id="formOk" hidden data-i18n="form.ok">Mensaje enviado. Te responderemos en menos de 24 horas laborables.</p>
+          <button type="submit" class="btn btn--primary" data-i18n="form.send">Enviar mensaje</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="pie">
+    <div class="container footer__grid">
+      <div>
+        <p class="logo logo--footer"><span class="logo__text">Frescó</span></p>
+        <p data-i18n="footer.tag">Alimentación general con criterio de mercado. Valencia, desde 1987.</p>
+      </div>
+      <div>
+        <h2 data-i18n="footer.legal">Información</h2>
+        <ul>
+          <li><button type="button" class="linkish" id="openCookies" data-i18n="footer.cookies">Política de cookies</button></li>
+          <li><button type="button" class="linkish" id="openRequisitos" data-i18n="footer.reqs">Requisitos</button></li>
+          <li><a href="#nosotros" data-i18n="footer.quality">Compromiso de calidad</a></li>
+          <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 data-i18n="footer.extra">También te interesa</h2>
+        <ul>
+          <li data-i18n="footer.e1">Alergenos: consulta el cartel en tienda o escribe a calidad@fresco.market</li>
+          <li data-i18n="footer.e2">Factura simplificada en caja. Ticket digital con Club Frescó.</li>
+          <li data-i18n="footer.e3">Punto de reciclaje de aceite y pilas en todas las tiendas.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__copy">
+      <p>© <span id="year"></span> Frescó Market, S.L. <span data-i18n="footer.copy">Todos los derechos reservados.</span></p>
+    </div>
+  </footer>
+
+  <!-- Modal de búsqueda -->
+  <div class="modal" id="searchModal" hidden>
+    <div class="modal__backdrop" data-close="search"></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
+      <button type="button" class="modal__close" data-close="search" aria-label="Cerrar">×</button>
+      <h2 id="searchTitle" data-i18n="search.title">Buscar en la página</h2>
+      <form class="search-form" id="searchForm">
+        <input type="search" id="searchInput" autocomplete="off" data-i18n-placeholder="search.placeholder" placeholder="Escribe una palabra…">
+        <button type="submit" class="btn btn--primary" data-i18n="search.action">Buscar</button>
+      </form>
+      <p class="search-meta" id="searchMeta"></p>
+      <ul class="search-hits" id="searchHits"></ul>
+    </div>
+  </div>
+
+  <!-- Modal de login (preparado para el sistema futuro) -->
+  <div class="modal" id="loginModal" hidden>
+    <div class="modal__backdrop" data-close="login"></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+      <button type="button" class="modal__close" data-close="login" aria-label="Cerrar">×</button>
+      <h2 id="loginTitle" data-i18n="login.title">Accede a tu cuenta</h2>
+      <p class="modal__lead" data-i18n="login.lead">Club Frescó, pedidos y tickets digitales.</p>
+      <form class="form" id="loginForm" novalidate>
+        <div class="form__row">
+          <label for="loginEmail" data-i18n="form.email">Correo electrónico</label>
+          <input type="email" id="loginEmail" required autocomplete="username">
+        </div>
+        <div class="form__row">
+          <label for="loginPass" data-i18n="login.pass">Contraseña</label>
+          <input type="password" id="loginPass" required autocomplete="current-password" minlength="6">
+        </div>
+        <label class="form__check">
+          <input type="checkbox" id="rememberMe">
+          <span data-i18n="login.remember">Recordarme en este dispositivo</span>
+        </label>
+        <p class="form__error" id="loginError" hidden></p>
+        <p class="form__ok" id="loginOk" hidden data-i18n="login.soon">El acceso completo se activará con el sistema de cuentas. Tus datos no se envían.</p>
+        <button type="submit" class="btn btn--primary" data-i18n="login.submit">Entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Política de cookies -->
+  <div class="modal" id="cookiesModal" hidden>
+    <div class="modal__backdrop" data-close="cookies"></div>
+    <div class="modal__dialog modal__dialog--text" role="dialog" aria-modal="true" aria-labelledby="cookiesTitle">
+      <button type="button" class="modal__close" data-close="cookies" aria-label="Cerrar">×</button>
+      <h2 id="cookiesTitle" data-i18n="cookies.title">Política de cookies</h2>
+      <div class="modal__prose" data-i18n-html="cookies.body">
+        <p>Esta web utiliza cookies técnicas imprescindibles para recordar tu idioma, el tema claro/oscuro y tu decisión sobre este aviso. No usamos cookies de publicidad ni de redes sociales.</p>
+        <p>Puedes borrar los datos locales desde la configuración de tu navegador. Al aceptar, guardamos tu preferencia en localStorage.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Requisitos -->
+  <div class="modal" id="requisitosModal" hidden>
+    <div class="modal__backdrop" data-close="requisitos"></div>
+    <div class="modal__dialog modal__dialog--text" role="dialog" aria-modal="true" aria-labelledby="reqTitle">
+      <button type="button" class="modal__close" data-close="requisitos" aria-label="Cerrar">×</button>
+      <h2 id="reqTitle" data-i18n="req.title">Requisitos de calidad</h2>
+      <div class="modal__prose" data-i18n-html="req.body">
+        <p>Todo producto fresco se recepciona con control de temperatura y fecha. La fruta y verdura de km 0 llega antes de las 7:00.</p>
+        <p>Carnicería y pescadería cumplen la normativa sanitaria vigente. Informamos de alérgenos en mostrador y etiquetado.</p>
+        <p>Proveedores locales auditados. Cadena de frío documentada. Aceite de oliva virgen extra con origen declarado.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Aviso de cookies -->
+  <div class="cookie-banner" id="cookieBanner" style="display: none;">
+    <p data-i18n="cookies.banner">Usamos cookies técnicas para idioma, tema y tu preferencia de aviso. Sin publicidad.</p>
+    <div class="cookie-banner__actions">
+      <button type="button" class="btn btn--ghost" id="cookiesMore" data-i18n="cookies.more">Más info</button>
+      <button type="button" class="btn btn--primary" id="cookiesAccept" data-i18n="cookies.accept">Aceptar</button>
+    </div>
+  </div>
+
+  <!-- Cajón del carrito -->
+  <aside class="cart-drawer" id="cartDrawer" hidden>
+    <div class="cart-drawer__backdrop" id="cartBackdrop"></div>
+    <div class="cart-drawer__panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+      <header class="cart-drawer__head">
+        <h2 id="cartTitle" data-i18n="cart.title">Tu cesta</h2>
+        <button type="button" class="modal__close" id="cartClose" aria-label="Cerrar">×</button>
+      </header>
+      <div class="cart-drawer__body" id="cartList"></div>
+      <footer class="cart-drawer__foot">
+        <p class="cart-line"><span data-i18n="cart.subtotal">Subtotal</span><strong id="cartSubtotal">0,00 €</strong></p>
+        <p class="cart-hint" id="cartHint"></p>
+        <div class="cart-drawer__actions">
+          <button type="button" class="btn btn--ghost" id="cartClear" data-i18n="cart.clear">Vaciar cesta</button>
+          <button type="button" class="btn btn--primary" id="cartCheckout" data-i18n="cart.checkout">Tramitar pedido</button>
+        </div>
+      </footer>
+    </div>
+  </aside>
+
+  <!-- Checkout: recogida / envío / pago -->
+  <div class="modal" id="checkoutModal" hidden>
+    <div class="modal__backdrop" data-close="checkout"></div>
+    <div class="modal__dialog modal__dialog--wide" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+      <button type="button" class="modal__close" data-close="checkout" aria-label="Cerrar">×</button>
+      <h2 id="checkoutTitle" data-i18n="check.title">Reserva tu compra</h2>
+      <ol class="steps" id="checkoutSteps" aria-hidden="true">
+        <li class="is-active" data-step-label="1" data-i18n="check.step1">Entrega</li>
+        <li data-step-label="2" data-i18n="check.step2">Tus datos</li>
+        <li data-step-label="3" data-i18n="check.step3">Pago</li>
+      </ol>
+
+      <form id="checkoutForm" class="check-form" novalidate>
+        <section class="check-pane is-active" data-pane="1">
+          <p class="check-lead" data-i18n="check.fulfill">¿Cómo quieres recibir tu compra?</p>
+          <div class="choice-grid">
+            <label class="choice-card">
+              <input type="radio" name="fulfill" value="pickup" checked>
+              <span>
+                <strong data-i18n="check.pickup">Recoger en el mercado</strong>
+                <em data-i18n="check.pickupHelp">Reservamos el pedido. Lo pagas al recogerlo o ahora.</em>
+              </span>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="fulfill" value="delivery">
+              <span>
+                <strong data-i18n="check.delivery">Enviar a mi dirección</strong>
+                <em data-i18n="check.deliveryHelp">Pedidos antes de las 12:00, entrega esa misma tarde.</em>
+              </span>
+            </label>
+          </div>
+          <div class="form__row" id="pickupFields">
+            <label for="pickupStore" data-i18n="check.store">Tienda de recogida</label>
+            <select id="pickupStore" name="pickupStore">
+              <option value="benimaclet">Benimaclet — Av. de l'Horta, 128</option>
+              <option value="ruzafa">Ruzafa — Carrer de Cadis, 42</option>
+              <option value="cabanyal">El Cabanyal — Carrer de la Reina, 76</option>
+              <option value="torrent">Torrent — Av. Al Vedat, 90</option>
+            </select>
+          </div>
+          <div class="form__split">
+            <div class="form__row">
+              <label for="orderDate" data-i18n="check.date">Fecha</label>
+              <input type="date" id="orderDate" name="orderDate" required>
+            </div>
+            <div class="form__row">
+              <label for="orderSlot" data-i18n="check.slot">Franja horaria</label>
+              <select id="orderSlot" name="orderSlot" required>
+                <option value="10-12">10:00 – 12:00</option>
+                <option value="12-14">12:00 – 14:00</option>
+                <option value="16-18">16:00 – 18:00</option>
+                <option value="18-20">18:00 – 20:00</option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <section class="check-pane" data-pane="2" hidden>
+          <div class="form__split">
+            <div class="form__row">
+              <label for="custName" data-i18n="form.name">Nombre</label>
+              <input type="text" id="custName" name="custName" required autocomplete="name">
+            </div>
+            <div class="form__row">
+              <label for="custPhone" data-i18n="form.phone">Teléfono</label>
+              <input type="tel" id="custPhone" name="custPhone" required autocomplete="tel">
+            </div>
+          </div>
+          <div class="form__row">
+            <label for="custEmail" data-i18n="form.email">Correo electrónico</label>
+            <input type="email" id="custEmail" name="custEmail" required autocomplete="email">
+          </div>
+          <div id="deliveryFields" hidden>
+            <div class="form__row">
+              <label for="custStreet" data-i18n="check.street">Calle y número</label>
+              <input type="text" id="custStreet" name="custStreet" autocomplete="street-address">
+            </div>
+            <div class="form__split">
+              <div class="form__row">
+                <label for="custFloor" data-i18n="check.floor">Piso / puerta</label>
+                <input type="text" id="custFloor" name="custFloor">
+              </div>
+              <div class="form__row">
+                <label for="custZip" data-i18n="check.zip">Código postal</label>
+                <input type="text" id="custZip" name="custZip" inputmode="numeric" maxlength="5" autocomplete="postal-code">
+              </div>
+            </div>
+            <div class="form__row">
+              <label for="custCity" data-i18n="check.city">Ciudad</label>
+              <input type="text" id="custCity" name="custCity" value="València" autocomplete="address-level2">
+            </div>
+          </div>
+          <div class="form__row">
+            <label for="custNotes" data-i18n="check.notes">Notas para el pedido</label>
+            <textarea id="custNotes" name="custNotes" rows="3" maxlength="400"></textarea>
+          </div>
+        </section>
+
+        <section class="check-pane" data-pane="3" hidden>
+          <p class="check-lead" data-i18n="check.payWhen">¿Cuándo y cómo pagar?</p>
+          <div class="choice-grid choice-grid--col">
+            <label class="choice-card" id="payPickupOption">
+              <input type="radio" name="payMethod" value="pickup" checked>
+              <span>
+                <strong data-i18n="check.payPickup">Pagar al recogerlo en tienda</strong>
+                <em data-i18n="check.payPickupHelp">Reservamos la compra. Abonas en caja cuando pases.</em>
+              </span>
+            </label>
+            <label class="choice-card" id="payDeliveryOption" hidden>
+              <input type="radio" name="payMethod" value="ondelivery">
+              <span>
+                <strong data-i18n="check.payDelivery">Pagar cuando me lo entreguen</strong>
+                <em data-i18n="check.payDeliveryHelp">Efectivo o tarjeta al recadero, en tu puerta.</em>
+              </span>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="payMethod" value="gateway">
+              <span>
+                <strong data-i18n="check.payNow">Pagar ahora con la pasarela del mercado</strong>
+                <em data-i18n="check.payNowHelp">Verás el importe exacto y, a continuación, el pago online.</em>
+              </span>
+            </label>
+          </div>
+          <div class="order-summary" id="orderSummary"></div>
+        </section>
+
+        <p class="form__error" id="checkError" hidden></p>
+        <div class="check-nav">
+          <button type="button" class="btn btn--ghost" id="checkBack" hidden data-i18n="check.back">Volver</button>
+          <button type="button" class="btn btn--primary" id="checkNext" data-i18n="check.next">Continuar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Ventana de pasarela (listo para integrar el pago) -->
+  <div class="modal" id="payModal" hidden>
+    <div class="modal__backdrop" data-close="pay"></div>
+    <div class="modal__dialog modal__dialog--wide" role="dialog" aria-modal="true" aria-labelledby="payTitle">
+      <button type="button" class="modal__close" data-close="pay" aria-label="Cerrar">×</button>
+      <h2 id="payTitle" data-i18n="pay.title">Pago online Frescó</h2>
+      <p class="modal__lead" data-i18n="pay.lead">Revisa lo que vas a pagar. En el siguiente paso se conectará la pasarela del mercado.</p>
+      <p class="pay-order" id="payOrderId"></p>
+      <div class="order-summary" id="payBreakdown"></div>
+      <p class="pay-amount"><span data-i18n="pay.amount">Importe a pagar</span> <strong id="payTotal">0,00 €</strong></p>
+      <div class="gateway-box" id="paymentGatewayMount">
+        <p id="payPlaceholder" data-i18n="pay.placeholder">Aquí se integrará la pasarela de pago del mercado. El cliente ya ha confirmado el importe.</p>
+        <button type="button" class="btn btn--primary" id="payGatewayStart" data-i18n="pay.gateway">Continuar a la pasarela</button>
+      </div>
+      <button type="button" class="btn btn--ghost" id="payBack" data-i18n="pay.back">Volver al pedido</button>
+    </div>
+  </div>
+
+  <!-- Confirmación de reserva -->
+  <div class="modal" id="doneModal" hidden>
+    <div class="modal__backdrop" data-close="done"></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="doneTitle">
+      <button type="button" class="modal__close" data-close="done" aria-label="Cerrar">×</button>
+      <h2 id="doneTitle" data-i18n="done.title">Reserva confirmada</h2>
+      <p id="doneText"></p>
+      <p class="pay-order" id="doneCode"></p>
+      <button type="button" class="btn btn--primary" data-close="done" data-i18n="done.close">Cerrar</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

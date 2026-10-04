@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AUREA · Tienda de Ropa para Adultos en València</title>
+<meta name="description" content="AUREA — Moda adulta minimalista, atemporal y sostenible. Mujer, Hombre y Accesorios. Recoge en tienda o recibe en casa.">
+<!-- ============================================================
+  AUREA · Tienda de ropa para adultos
+  100% HTML + CSS + JS puro. Sin frameworks, sin CDN, sin dependencias.
+  Estructura pensada para separarse en:
+   1) index.html  2) styles.css  3) script.js
+  Paleta: Mediterráneo minimalista — arena, piedra, terracota, carbón.
+============================================================= -->
+<style>
+/* ==========================================================
+   1. VARIABLES CSS — Colores, tipografías, tema claro/oscuro
+========================================================== */
+:root{
+  --bg:#FAF7F1;
+  --bg-2:#FFFFFF;
+  --bg-3:#F1EAE0;
+  --bg-4:#E9DFD2;
+  --text:#1C1917;
+  --text-2:#44403C;
+  --muted:#7C746B;
+  --border:#E4DACA;
+  --border-2:#D6CAB6;
+  --accent:#9A3B26;
+  --accent-hover:#7E2F1E;
+  --accent-soft:#F6DDD2;
+  --accent-ink:#FFFFFF;
+  --gold:#B98A2F;
+  --ink:#1C1917;
+  --success:#166534;
+  --success-bg:#DCFCE7;
+  --error:#B91C1C;
+  --error-bg:#FEE2E2;
+  --shadow-sm:0 2px 10px rgba(28,25,23,.07);
+  --shadow-md:0 12px 34px rgba(28,25,23,.12);
+  --shadow-lg:0 24px 70px rgba(28,25,23,.18);
+  --radius:18px;
+  --radius-sm:12px;
+  --radius-full:999px;
+  --topbar-h:38px;
+  --header-h:74px;
+  --max:1240px;
+  --font-display:"Didot","Bodoni MT","Playfair Display",Georgia,"Times New Roman",serif;
+  --font-body:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(.22,.9,.28,1);
+  --overlay:rgba(28,25,23,.55);
+  --hero-overlay:linear-gradient(100deg,rgba(20,14,10,.78) 0%,rgba(20,14,10,.55) 42%,rgba(20,14,10,.18) 75%,rgba(20,14,10,.05) 100%);
+  --card-img:#E9DFD2;
+}
+html[data-theme="dark"]{
+  --bg:#0F0E0C;
+  --bg-2:#1A1815;
+  --bg-3:#24211D;
+  --bg-4:#2E2A25;
+  --text:#F5EFE6;
+  --text-2:#D6CFC4;
+  --muted:#A8A094;
+  --border:#322D27;
+  --border-2:#443D35;
+  --accent:#E07856;
+  --accent-hover:#F09170;
+  --accent-soft:#3A231B;
+  --accent-ink:#1A0E0A;
+  --gold:#D9A94A;
+  --ink:#F5EFE6;
+  --success:#4ADE80;
+  --success-bg:#12341F;
+  --error:#F87171;
+  --error-bg:#3B1414;
+  --shadow-sm:0 2px 10px rgba(0,0,0,.4);
+  --shadow-md:0 12px 34px rgba(0,0,0,.5);
+  --shadow-lg:0 24px 70px rgba(0,0,0,.6);
+  --overlay:rgba(0,0,0,.65);
+  --hero-overlay:linear-gradient(100deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.58) 45%,rgba(0,0,0,.25) 80%,rgba(0,0,0,.1) 100%);
+  --card-img:#24211D;
+}
+/* ==========================================================
+   2. BASE — Reset dirigido (sin * global), tipografía
+========================================================== */
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + var(--topbar-h) + 18px);}
+body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;transition:background .45s var(--ease),color .45s var(--ease);}
+h1,h2,h3,h4,p,ul,ol,figure,blockquote,fieldset{margin:0;padding:0;}
+ul,ol{list-style:none;}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;height:auto;}
+button,input,select,textarea{font-family:inherit;font-size:inherit;color:inherit;}
+button{cursor:pointer;}
+::selection{background:var(--accent);color:#fff;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px;}
+.container{width:min(var(--max),calc(100% - 40px));margin-left:auto;margin-right:auto;}
+section{scroll-margin-top:calc(var(--header-h) + var(--topbar-h) + 20px);}
+/* Barra de progreso de scroll */
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--accent),var(--gold));z-index:1200;}
+/* ==========================================================
+   3. TOPBAR — Información general sobre el menú
+========================================================== */
+.header-fixed{position:fixed;top:0;left:0;right:0;z-index:1000;transition:transform .4s var(--ease);}
+.topbar{background:var(--ink);color:var(--bg);font-size:.82rem;min-height:var(--topbar-h);display:flex;align-items:center;transition:margin .4s var(--ease),background .45s var(--ease),color .45s var(--ease);}
+html[data-theme="dark"] .topbar{background:#000;color:#F5EFE6;}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;width:min(var(--max),calc(100% - 40px));margin:0 auto;}
+.topbar-left,.topbar-right{display:flex;align-items:center;gap:18px;}
+.topbar a,.topbar span.item{display:inline-flex;align-items:center;gap:7px;opacity:.92;}
+.topbar a:hover{opacity:1;color:var(--gold);}
+.topbar svg{width:14px;height:14px;flex:none;}
+.topbar .dot{width:3px;height:3px;border-radius:50%;background:currentColor;opacity:.5;}
+.lang-switch{display:flex;align-items:center;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:var(--radius-full);padding:3px;gap:2px;}
+html[data-theme="dark"] .lang-switch{background:rgba(255,255,255,.08);}
+.lang-switch button{border:0;background:transparent;color:inherit;font-size:.72rem;font-weight:700;letter-spacing:.06em;padding:4px 10px;border-radius:var(--radius-full);transition:all .25s var(--ease);opacity:.7;}
+.lang-switch button:hover{opacity:1;}
+.lang-switch button.active{background:var(--gold);color:#1A1408;opacity:1;}
+body.scrolled .topbar{margin-top:calc(var(--topbar-h) * -1);}
+/* ==========================================================
+   4. HEADER — Logo, nav centrada, acciones
+========================================================== */
+.site-header{background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);height:var(--header-h);display:flex;align-items:center;transition:background .45s var(--ease),border-color .45s var(--ease),box-shadow .3s;}
+body.scrolled .site-header{box-shadow:var(--shadow-sm);}
+.header-inner{width:min(var(--max),calc(100% - 40px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+/* Logo izquierda */
+.brand{display:flex;align-items:center;gap:11px;flex:none;}
+.brand-mark{width:42px;height:42px;border-radius:12px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-family:var(--font-display);font-size:1.45rem;letter-spacing:-.02em;transition:transform .3s var(--ease),background .45s;}
+.brand:hover .brand-mark{transform:rotate(-8deg) scale(1.04);}
+.brand-text{display:flex;flex-direction:column;line-height:1;}
+.brand-text strong{font-family:var(--font-display);font-size:1.35rem;letter-spacing:.14em;font-weight:400;}
+.brand-text small{font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);margin-top:4px;}
+/* Nav centrada */
+.main-nav{flex:1;display:flex;justify-content:center;}
+.main-nav ul{display:flex;align-items:center;gap:6px;}
+.main-nav a{position:relative;display:inline-block;padding:10px 14px;font-size:.92rem;font-weight:500;letter-spacing:.01em;color:var(--text-2);border-radius:10px;transition:color .25s,background .25s;}
+.main-nav a::after{content:"";position:absolute;left:14px;right:14px;bottom:6px;height:2px;background:var(--accent);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease);}
+.main-nav a:hover{color:var(--text);background:var(--bg-3);}
+.main-nav a:hover::after,.main-nav a.active::after{transform:scaleX(1);}
+.main-nav a.active{color:var(--text);font-weight:700;}
+/* Acciones derecha */
+.header-actions{display:flex;align-items:center;gap:8px;flex:none;}
+.icon-btn{position:relative;width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--bg-2);display:grid;place-items:center;transition:all .3s var(--ease);}
+.icon-btn svg{width:19px;height:19px;}
+.icon-btn:hover{background:var(--ink);color:var(--bg);border-color:var(--ink);transform:translateY(-2px);box-shadow:var(--shadow-md);}
+.icon-btn .count{position:absolute;top:-4px;right:-4px;min-width:21px;height:21px;padding:0 5px;border-radius:999px;background:var(--accent);color:#fff;font-size:.7rem;font-weight:800;display:grid;place-items:center;border:2px solid var(--bg);}
+.icon-btn.logged{border-color:var(--success);}
+/* Botón tema: animación sol/luna */
+.theme-btn svg{transition:transform .5s var(--ease),opacity .3s;}
+.theme-btn .moon{display:none;}
+html[data-theme="dark"] .theme-btn .sun{display:none;}
+html[data-theme="dark"] .theme-btn .moon{display:block;}
+.theme-btn:hover svg{transform:rotate(40deg) scale(1.1);}
+/* Hamburguesa (oculta en escritorio) */
+.burger{display:none;width:46px;height:46px;border-radius:12px;border:1px solid var(--border);background:var(--bg-2);flex-direction:column;align-items:center;justify-content:center;gap:5px;transition:all .3s;}
+.burger span{display:block;width:20px;height:2px;background:currentColor;border-radius:2px;transition:transform .35s var(--ease),opacity .3s;}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.burger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+/* ==========================================================
+   5. MENÚ MÓVIL — Centrado, desciende desde arriba
+========================================================== */
+.mobile-menu{position:fixed;top:calc(var(--header-h) + var(--topbar-h));left:12px;right:12px;z-index:999;background:var(--bg-2);border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow-lg);padding:28px 24px 24px;text-align:center;transform:translateY(-130%);opacity:0;transition:transform .5s var(--ease),opacity .4s;max-height:calc(100vh - 120px);overflow:auto;}
+body.scrolled .mobile-menu{top:calc(var(--header-h) + 12px);}
+.mobile-menu.open{transform:translateY(0);opacity:1;}
+.mobile-menu nav ul{display:flex;flex-direction:column;gap:4px;}
+.mobile-menu nav a{display:block;padding:13px;font-family:var(--font-display);font-size:1.4rem;letter-spacing:.02em;border-radius:12px;transition:all .25s;}
+.mobile-menu nav a:hover{background:var(--bg-3);color:var(--accent);letter-spacing:.06em;}
+.mobile-tools{margin-top:18px;padding-top:18px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:14px;align-items:center;}
+.mobile-tools .row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:var(--radius-full);padding:13px 26px;font-weight:600;font-size:.95rem;border:1px solid transparent;transition:all .3s var(--ease);line-height:1;}
+.btn svg{width:17px;height:17px;}
+.btn-primary{background:var(--ink);color:var(--bg);border-color:var(--ink);}
+.btn-primary:hover{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateY(-2px);box-shadow:var(--shadow-md);}
+.btn-accent{background:var(--accent);color:#fff;border-color:var(--accent);}
+.btn-accent:hover{background:var(--accent-hover);transform:translateY(-2px);box-shadow:var(--shadow-md);}
+.btn-ghost{background:transparent;border-color:var(--border-2);color:var(--text);}
+.btn-ghost:hover{border-color:var(--ink);background:var(--bg-3);}
+.btn-light{background:#fff;color:#1C1917;border-color:#fff;}
+.btn-light:hover{background:var(--gold);border-color:var(--gold);transform:translateY(-2px);}
+.btn-outline-light{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.5);color:#fff;backdrop-filter:blur(8px);}
+.btn-outline-light:hover{background:#fff;color:#1C1917;}
+.btn-sm{padding:9px 18px;font-size:.85rem;}
+.btn-block{width:100%;}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important;}
+.mobile-lang{display:flex;align-items:center;gap:8px;justify-content:center;}
+.mobile-lang span{font-size:.8rem;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);}
+.seg{display:flex;background:var(--bg-3);border:1px solid var(--border);border-radius:var(--radius-full);padding:4px;gap:4px;}
+.seg button{border:0;background:transparent;padding:8px 16px;border-radius:var(--radius-full);font-weight:700;font-size:.82rem;transition:all .25s;color:var(--muted);}
+.seg button.active{background:var(--ink);color:var(--bg);}
+/* ==========================================================
+   6. HERO PRINCIPAL
+========================================================== */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;padding-top:calc(var(--header-h) + var(--topbar-h));}
+.hero-bg{position:absolute;inset:0;z-index:0;}
+.hero-bg img{width:100%;height:100%;object-fit:cover;animation:kenburns 26s ease-in-out infinite alternate;}
+@keyframes kenburns{from{transform:scale(1);}to{transform:scale(1.12);}}
+.hero-bg::after{content:"";position:absolute;inset:0;background:var(--hero-overlay);}
+.hero-content{position:relative;z-index:2;width:min(var(--max),calc(100% - 40px));margin:0 auto;padding:70px 0 46px;color:#fff;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(10px);border-radius:var(--radius-full);padding:8px 18px 8px 10px;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;}
+.hero-eyebrow i{width:28px;height:28px;border-radius:50%;background:var(--gold);color:#1A1408;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:.75rem;}
+.hero h1{font-family:var(--font-display);font-weight:400;font-size:clamp(2.7rem,7.2vw,5.4rem);line-height:1.02;letter-spacing:-.015em;margin:22px 0 16px;max-width:14ch;}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero p.lead{max-width:56ch;font-size:clamp(1rem,1.6vw,1.2rem);opacity:.92;}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;}
+.hero-meta{display:flex;gap:26px;flex-wrap:wrap;margin-top:36px;padding-top:26px;border-top:1px solid rgba(255,255,255,.22);}
+.hero-meta div strong{display:block;font-family:var(--font-display);font-size:1.7rem;font-weight:400;}
+.hero-meta div span{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;opacity:.75;}
+.hero-cards{position:relative;z-index:2;width:min(var(--max),calc(100% - 40px));margin:0 auto 34px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.hero-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:var(--radius);padding:18px 20px;color:#fff;display:flex;gap:14px;align-items:center;transition:transform .3s var(--ease),background .3s;}
+.hero-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.16);}
+.hero-card .ic{width:46px;height:46px;flex:none;border-radius:14px;background:rgba(255,255,255,.18);display:grid;place-items:center;}
+.hero-card .ic svg{width:22px;height:22px;}
+.hero-card strong{display:block;font-size:.95rem;}
+.hero-card small{opacity:.8;font-size:.82rem;}
+.scroll-hint{position:absolute;right:34px;bottom:34px;z-index:3;color:#fff;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;opacity:.85;}
+.scroll-hint .line{width:1px;height:56px;background:rgba(255,255,255,.4);position:relative;overflow:hidden;}
+.scroll-hint .line::after{content:"";position:absolute;top:-40%;left:0;width:100%;height:40%;background:#fff;animation:scrollline 1.8s ease-in-out infinite;}
+@keyframes scrollline{to{top:110%;}}
+/* Cinta marquee */
+.marquee{background:var(--ink);color:var(--bg);overflow:hidden;padding:13px 0;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);}
+.marquee-track{display:flex;gap:48px;width:max-content;animation:marquee 26s linear infinite;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;}
+.marquee-track span{display:flex;align-items:center;gap:48px;}
+.marquee-track b{color:var(--gold);font-weight:400;}
+@keyframes marquee{to{transform:translateX(-50%);}}
+/* ==========================================================
+   7. SECCIONES GENERALES + Animación aparición
+========================================================== */
+.section{padding:96px 0;}
+.section-head{max-width:720px;margin-bottom:44px;}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+.kicker::before{content:"";width:26px;height:2px;background:var(--accent);border-radius:2px;}
+.section-head.center .kicker::after{content:"";width:26px;height:2px;background:var(--accent);border-radius:2px;}
+.section-head h2{font-family:var(--font-display);font-weight:400;font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.08;letter-spacing:-.01em;}
+.section-head h2 em{font-style:italic;color:var(--accent);}
+.section-head p{margin-top:14px;color:var(--muted);font-size:1.05rem;}
+/* Reveal on scroll */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
+.reveal.visible{opacity:1;transform:none;}
+.reveal-d1{transition-delay:.1s;}.reveal-d2{transition-delay:.2s;}.reveal-d3{transition-delay:.3s;}
+/* ==========================================================
+   8. TIENDA — Filtros + Grid productos
+========================================================== */
+.shop-toolbar{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-bottom:28px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow-sm);}
+.filters{display:flex;gap:8px;flex-wrap:wrap;}
+.filter-btn{border:1px solid var(--border-2);background:transparent;padding:9px 18px;border-radius:var(--radius-full);font-size:.86rem;font-weight:600;transition:all .25s;}
+.filter-btn:hover{border-color:var(--ink);}
+.filter-btn.active{background:var(--ink);color:var(--bg);border-color:var(--ink);}
+.shop-side{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+.shop-side select{background:var(--bg-3);border:1px solid var(--border);border-radius:10px;padding:9px 12px;font-size:.87rem;}
+.results-count{font-size:.85rem;color:var(--muted);}
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.product-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s,border-color .35s;display:flex;flex-direction:column;}
+.product-card:hover{transform:translateY(-7px);box-shadow:var(--shadow-md);border-color:var(--border-2);}
+.product-media{position:relative;aspect-ratio:3/3.6;background:var(--card-img);overflow:hidden;}
+.product-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease);}
+.product-card:hover .product-media img{transform:scale(1.07);}
+.badge{position:absolute;top:12px;left:12px;display:flex;gap:6px;}
+.badge span{font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:6px 11px;border-radius:999px;}
+.badge .new{background:#1C1917;color:#fff;}
+.badge .sale{background:var(--accent);color:#fff;}
+.badge .eco{background:#166534;color:#fff;}
+.wishlist{position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.92);display:grid;place-items:center;transition:all .25s;}
+.wishlist svg{width:17px;height:17px;}
+.wishlist:hover,.wishlist.active{background:var(--accent);color:#fff;transform:scale(1.08);}
+.quick-actions{position:absolute;left:12px;right:12px;bottom:12px;display:flex;gap:8px;opacity:0;transform:translateY(12px);transition:all .35s var(--ease);}
+.product-card:hover .quick-actions{opacity:1;transform:none;}
+.quick-actions button{flex:1;border:0;border-radius:10px;padding:11px;font-size:.83rem;font-weight:700;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);transition:all .25s;}
+.quick-actions button:hover{background:var(--ink);color:#fff;}
+.quick-actions button.add{background:var(--ink);color:#fff;}
+.quick-actions button.add:hover{background:var(--accent);}
+.product-info{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1;}
+.product-cat{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
+.product-info h3{font-size:1.03rem;font-weight:650;line-height:1.3;}
+.product-rating{display:flex;align-items:center;gap:8px;font-size:.83rem;color:var(--muted);}
+.stars{color:var(--gold);letter-spacing:2px;font-size:.85rem;}
+.product-price{display:flex;align-items:baseline;gap:10px;margin-top:auto;padding-top:6px;}
+.product-price strong{font-size:1.25rem;}
+.product-price s{color:var(--muted);font-size:.92rem;}
+.product-price .off{font-size:.75rem;font-weight:800;color:var(--accent);background:var(--accent-soft);padding:3px 9px;border-radius:999px;}
+.sizes{display:flex;gap:6px;flex-wrap:wrap;}
+.sizes button{min-width:36px;height:32px;padding:0 8px;border-radius:8px;border:1px solid var(--border-2);background:transparent;font-size:.78rem;font-weight:700;transition:all .2s;}
+.sizes button:hover{border-color:var(--ink);}
+.sizes button.selected{background:var(--ink);color:var(--bg);border-color:var(--ink);}
+/* ==========================================================
+   9. SECCIÓN INFORMATIVA — Nosotros
+========================================================== */
+.about{background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;}
+.about-collage{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.about-collage img{border-radius:var(--radius);object-fit:cover;width:100%;}
+.about-collage img:first-child{grid-row:span 2;height:100%;min-height:420px;}
+.about-collage img:nth-child(2),.about-collage img:nth-child(3){height:203px;}
+.about-float{position:absolute;left:50%;bottom:-26px;transform:translateX(-50%);background:var(--ink);color:var(--bg);border-radius:var(--radius);padding:18px 26px;display:flex;gap:22px;box-shadow:var(--shadow-lg);white-space:nowrap;}
+.about-float strong{font-family:var(--font-display);font-size:1.6rem;display:block;line-height:1;}
+.about-float small{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.75;}
+.about-copy p{color:var(--text-2);margin-top:16px;}
+.about-list{margin-top:24px;display:grid;gap:14px;}
+.about-list li{display:flex;gap:14px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px 18px;transition:transform .3s,box-shadow .3s;}
+.about-list li:hover{transform:translateX(6px);box-shadow:var(--shadow-sm);}
+.about-list .n{width:40px;height:40px;flex:none;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:800;}
+html[data-theme="dark"] .about-list .n{color:var(--accent);}
+.about-list strong{display:block;font-size:.97rem;}
+.about-list small{color:var(--muted);font-size:.88rem;}
+/* Valores */
+.values{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px;}
+.value-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:26px 22px;text-align:center;transition:all .3s var(--ease);}
+.value-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:var(--accent);}
+.value-card .ic{width:54px;height:54px;margin:0 auto 14px;border-radius:16px;background:var(--ink);color:var(--bg);display:grid;place-items:center;}
+.value-card .ic svg{width:24px;height:24px;}
+.value-card h3{font-size:1rem;margin-bottom:6px;}
+.value-card p{font-size:.87rem;color:var(--muted);}
+/* ==========================================================
+   10. SECCIÓN SECUNDARIA — Colecciones + Servicios
+========================================================== */
+.collections-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:18px;}
+.collection-card{position:relative;border-radius:var(--radius);overflow:hidden;min-height:440px;display:flex;align-items:flex-end;isolation:isolate;}
+.collection-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .8s var(--ease);}
+.collection-card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(10,8,6,.78),rgba(10,8,6,.15) 55%,transparent);}
+.collection-card:hover img{transform:scale(1.06);}
+.collection-info{padding:26px;color:#fff;width:100%;}
+.collection-info small{letter-spacing:.22em;text-transform:uppercase;font-size:.72rem;opacity:.85;}
+.collection-info h3{font-family:var(--font-display);font-size:1.9rem;font-weight:400;margin:6px 0 10px;}
+.collection-info a{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.9rem;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:3px;transition:gap .3s,color .3s;}
+.collection-info a:hover{gap:14px;color:var(--gold);}
+/* Servicios entrega */
+.services{background:var(--ink);color:var(--bg);border-radius:26px;padding:56px 48px;margin-top:56px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;position:relative;overflow:hidden;}
+html[data-theme="dark"] .services{background:#000;border:1px solid var(--border);}
+.services::before{content:"AUREA";position:absolute;right:-10px;bottom:-34px;font-family:var(--font-display);font-size:9rem;opacity:.06;letter-spacing:.1em;pointer-events:none;}
+.service{padding:6px 34px;border-left:1px solid rgba(255,255,255,.16);}
+.service:first-child{border-left:0;padding-left:0;}
+.service .step{font-size:.75rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);}
+.service h3{font-family:var(--font-display);font-weight:400;font-size:1.45rem;margin:10px 0 8px;}
+.service p{font-size:.92rem;opacity:.8;}
+.service ul{margin-top:12px;display:grid;gap:7px;font-size:.88rem;opacity:.9;}
+.service ul li::before{content:"✓ ";color:var(--gold);font-weight:800;}
+/* Opiniones */
+.testimonials{background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.slider{position:relative;max-width:860px;margin:0 auto;}
+.slides{overflow:hidden;border-radius:var(--radius);}
+.slide-track{display:flex;transition:transform .6s var(--ease);}
+.slide{min-width:100%;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:46px 44px;text-align:center;}
+.slide blockquote{font-family:var(--font-display);font-size:clamp(1.15rem,2.4vw,1.55rem);line-height:1.5;font-style:italic;}
+.slide .who{margin-top:22px;display:flex;align-items:center;justify-content:center;gap:12px;}
+.slide .avatar{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);}
+.slide .who strong{display:block;font-size:.95rem;}
+.slide .who small{color:var(--muted);font-size:.82rem;}
+.slider-btns{display:flex;justify-content:center;gap:10px;margin-top:22px;align-items:center;}
+.slider-btns button.arrow{width:48px;height:48px;border-radius:50%;border:1px solid var(--border-2);background:var(--bg);transition:all .25s;font-size:1.1rem;}
+.slider-btns button.arrow:hover{background:var(--ink);color:var(--bg);}
+.dots{display:flex;gap:8px;margin:0 10px;}
+.dots button{width:9px;height:9px;border-radius:50%;border:0;background:var(--border-2);transition:all .3s;padding:0;}
+.dots button.active{background:var(--accent);width:28px;border-radius:999px;}
+/* ==========================================================
+   11. CONTACTO + NEWSLETTER
+========================================================== */
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:stretch;}
+.contact-info{background:var(--ink);color:var(--bg);border-radius:var(--radius);padding:40px 36px;display:flex;flex-direction:column;gap:22px;position:relative;overflow:hidden;}
+html[data-theme="dark"] .contact-info{background:#000;border:1px solid var(--border);}
+.contact-info::after{content:"";position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(217,169,74,.25),transparent 70%);top:-120px;right:-120px;pointer-events:none;}
+.contact-info h3{font-family:var(--font-display);font-weight:400;font-size:1.8rem;}
+.contact-row{display:flex;gap:14px;align-items:flex-start;}
+.contact-row .ic{width:44px;height:44px;flex:none;border-radius:13px;background:rgba(255,255,255,.12);display:grid;place-items:center;}
+.contact-row .ic svg{width:20px;height:20px;}
+.contact-row strong{display:block;font-size:.92rem;}
+.contact-row small,.contact-row a.small{opacity:.8;font-size:.88rem;}
+.hours{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:16px 18px;font-size:.87rem;}
+.hours div{display:flex;justify-content:space-between;padding:4px 0;}
+.socials{display:flex;gap:10px;margin-top:auto;}
+.socials a{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.25);display:grid;place-items:center;transition:all .25s;}
+.socials a:hover{background:var(--gold);border-color:var(--gold);color:#1A1408;transform:translateY(-3px);}
+.socials svg{width:18px;height:18px;}
+.contact-form-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:40px 36px;box-shadow:var(--shadow-sm);}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.field{display:flex;flex-direction:column;gap:7px;}
+.field.full{grid-column:1/-1;}
+.field label{font-size:.84rem;font-weight:650;}
+.field label i{color:var(--accent);font-style:normal;}
+.field input,.field select,.field textarea{background:var(--bg);border:1.5px solid var(--border);border-radius:12px;padding:13px 15px;transition:border .25s,box-shadow .25s;width:100%;box-sizing:border-box;}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 14%,transparent);}
+.field textarea{min-height:130px;resize:vertical;}
+.field .hint{font-size:.78rem;color:var(--muted);}
+.field .error-msg{font-size:.78rem;color:var(--error);display:none;}
+.field.invalid input,.field.invalid textarea{border-color:var(--error);}
+.field.invalid .error-msg{display:block;}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:.86rem;color:var(--text-2);}
+.check input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent);flex:none;}
+.newsletter{margin-top:26px;background:linear-gradient(120deg,var(--accent-soft),var(--bg-3));border:1px solid var(--border);border-radius:var(--radius);padding:34px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+html[data-theme="dark"] .newsletter{background:linear-gradient(120deg,#2A1B14,#1E1A16);}
+.newsletter h3{font-family:var(--font-display);font-weight:400;font-size:1.6rem;}
+.newsletter p{color:var(--text-2);font-size:.93rem;}
+.news-form{display:flex;gap:10px;flex:1;min-width:280px;max-width:480px;}
+.news-form input{flex:1;background:var(--bg-2);border:1.5px solid var(--border-2);border-radius:var(--radius-full);padding:13px 20px;min-width:0;}
+.news-form input:focus{outline:none;border-color:var(--accent);}
+/* ==========================================================
+   12. FOOTER
+========================================================== */
+.site-footer{background:var(--ink);color:#EDE6DA;margin-top:0;padding:70px 0 0;}
+html[data-theme="dark"] .site-footer{background:#000;border-top:1px solid var(--border);}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:36px;padding-bottom:48px;}
+.footer-brand p{font-size:.9rem;opacity:.75;margin:14px 0 18px;max-width:32ch;}
+.footer-brand .brand-mark{background:#EDE6DA;color:#1C1917;}
+.footer-brand .brand-text strong{color:#fff;}
+.footer-brand .brand-text small{color:#B9AE9E;}
+.site-footer h4{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+.site-footer ul{display:grid;gap:10px;font-size:.92rem;}
+.site-footer ul a,.site-footer ul button.linklike{opacity:.78;transition:all .25s;background:none;border:0;padding:0;text-align:left;font-size:.92rem;color:inherit;}
+.site-footer ul a:hover,.site-footer ul button.linklike:hover{opacity:1;color:var(--gold);padding-left:5px;}
+.pay-icons{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;}
+.pay-icons span{font-size:.7rem;font-weight:800;letter-spacing:.06em;border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:6px 10px;opacity:.85;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.14);padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.83rem;opacity:.85;}
+.footer-bottom nav{display:flex;gap:20px;flex-wrap:wrap;}
+.footer-bottom button,.footer-bottom a{background:none;border:0;color:inherit;font-size:.83rem;opacity:.85;transition:color .25s;padding:0;}
+.footer-bottom button:hover,.footer-bottom a:hover{color:var(--gold);opacity:1;}
+/* ==========================================================
+   13. MODALES — Centrados + fondo difuminado
+========================================================== */
+.overlay{position:fixed;inset:0;background:var(--overlay);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:1500;opacity:0;pointer-events:none;transition:opacity .35s;}
+.overlay.show{opacity:1;pointer-events:auto;}
+.modal{position:fixed;inset:0;z-index:1600;display:grid;place-items:center;padding:18px;pointer-events:none;}
+.modal-box{pointer-events:auto;background:var(--bg-2);border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow-lg);width:100%;max-width:560px;max-height:92vh;overflow:auto;padding:34px 32px;position:relative;transform:translateY(26px) scale(.97);opacity:0;transition:transform .4s var(--ease),opacity .35s;}
+.modal.open .modal-box{transform:none;opacity:1;}
+.modal:not(.open){visibility:hidden;}
+.modal-close{position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:50%;border:1px solid var(--border);background:var(--bg);display:grid;place-items:center;font-size:1.05rem;transition:all .25s;}
+.modal-close:hover{background:var(--ink);color:var(--bg);transform:rotate(90deg);}
+.modal h3{font-family:var(--font-display);font-weight:400;font-size:1.7rem;margin-bottom:6px;}
+.modal .sub{color:var(--muted);font-size:.92rem;margin-bottom:22px;}
+/* Búsqueda */
+.search-box{max-width:640px;}
+.search-input-wrap{position:relative;}
+.search-input-wrap svg{position:absolute;left:17px;top:50%;transform:translateY(-50%);width:19px;height:19px;color:var(--muted);}
+.search-input-wrap input{width:100%;box-sizing:border-box;background:var(--bg);border:2px solid var(--border-2);border-radius:14px;padding:15px 110px 15px 48px;font-size:1rem;transition:border .25s;}
+.search-input-wrap input:focus{outline:none;border-color:var(--accent);}
+.search-kbd{position:absolute;right:12px;top:50%;transform:translateY(-50%);display:flex;gap:6px;}
+.search-kbd kbd{font-size:.7rem;background:var(--bg-3);border:1px solid var(--border);border-radius:6px;padding:4px 8px;color:var(--muted);font-family:inherit;}
+.search-results{margin-top:16px;display:grid;gap:8px;max-height:320px;overflow:auto;}
+.search-result{border:1px solid var(--border);border-radius:12px;padding:13px 15px;background:var(--bg);cursor:pointer;transition:all .2s;text-align:left;width:100%;}
+.search-result:hover{border-color:var(--accent);transform:translateX(4px);}
+.search-result strong{display:block;font-size:.92rem;}
+.search-result small{color:var(--muted);font-size:.82rem;display:block;margin-top:3px;}
+.search-result mark{background:var(--gold);color:#1A1408;border-radius:3px;padding:0 3px;}
+mark.search-highlight{background:var(--gold);color:#1A1408;border-radius:3px;padding:0 2px;}
+mark.search-current{background:var(--accent);color:#fff;border-radius:3px;padding:0 2px;outline:2px solid var(--accent);}
+.search-footer{display:flex;justify-content:space-between;align-items:center;margin-top:16px;font-size:.84rem;color:var(--muted);flex-wrap:wrap;gap:10px;}
+.search-nav{display:flex;gap:8px;}
+.search-nav button{border:1px solid var(--border-2);background:var(--bg);border-radius:9px;padding:7px 13px;font-size:.82rem;font-weight:600;}
+.search-nav button:hover{background:var(--ink);color:var(--bg);}
+/* Login */
+.tabs{display:flex;background:var(--bg-3);border-radius:12px;padding:4px;margin-bottom:22px;}
+.tabs button{flex:1;border:0;background:transparent;padding:11px;border-radius:9px;font-weight:700;font-size:.9rem;color:var(--muted);transition:all .25s;}
+.tabs button.active{background:var(--bg-2);color:var(--text);box-shadow:var(--shadow-sm);}
+.user-badge{display:flex;align-items:center;gap:12px;background:var(--success-bg);border:1px solid color-mix(in srgb,var(--success) 30%,transparent);border-radius:14px;padding:14px 16px;margin-bottom:18px;font-size:.9rem;}
+.user-badge .av{width:44px;height:44px;border-radius:50%;background:var(--success);color:#fff;display:grid;place-items:center;font-weight:800;font-size:1.1rem;flex:none;}
+/* ==========================================================
+   14. CARRITO — Drawer lateral + Checkout
+========================================================== */
+.cart-drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100vw);background:var(--bg-2);z-index:1700;display:flex;flex-direction:column;transform:translateX(105%);transition:transform .5s var(--ease);box-shadow:var(--shadow-lg);border-left:1px solid var(--border);}
+.cart-drawer.open{transform:none;}
+.cart-head{display:flex;align-items:center;justify-content:space-between;padding:22px 24px;border-bottom:1px solid var(--border);}
+.cart-head h3{font-family:var(--font-display);font-weight:400;font-size:1.4rem;}
+.cart-head h3 span{color:var(--muted);font-size:1rem;}
+.cart-items{flex:1;overflow:auto;padding:18px 24px;display:flex;flex-direction:column;gap:14px;}
+.cart-empty{text-align:center;padding:50px 10px;color:var(--muted);}
+.cart-empty .big{font-size:3rem;margin-bottom:12px;}
+.cart-item{display:grid;grid-template-columns:78px 1fr auto;gap:13px;background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:11px;animation:slideIn .35s var(--ease);}
+@keyframes slideIn{from{opacity:0;transform:translateX(24px);}to{opacity:1;transform:none;}}
+.cart-item img{width:78px;height:92px;object-fit:cover;border-radius:10px;}
+.cart-item h4{font-size:.88rem;line-height:1.35;}
+.cart-item .meta{font-size:.78rem;color:var(--muted);}
+.qty{display:inline-flex;align-items:center;gap:0;border:1px solid var(--border-2);border-radius:9px;overflow:hidden;margin-top:8px;}
+.qty button{width:28px;height:28px;border:0;background:transparent;font-weight:800;transition:background .2s;}
+.qty button:hover{background:var(--bg-3);}
+.qty b{min-width:30px;text-align:center;font-size:.85rem;}
+.cart-item-right{display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;}
+.cart-item-right strong{font-size:.95rem;}
+.remove-btn{border:0;background:transparent;color:var(--muted);font-size:1.05rem;transition:all .2s;}
+.remove-btn:hover{color:var(--error);transform:scale(1.2);}
+.promo{display:flex;gap:8px;padding:0 24px 6px;}
+.promo input{flex:1;background:var(--bg);border:1.5px dashed var(--border-2);border-radius:10px;padding:10px 14px;font-size:.85rem;min-width:0;text-transform:uppercase;}
+.promo button{border-radius:10px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);padding:10px 16px;font-size:.83rem;font-weight:700;}
+.cart-foot{border-top:1px solid var(--border);padding:18px 24px 22px;background:var(--bg);display:grid;gap:9px;}
+.totals{display:grid;gap:6px;font-size:.9rem;}
+.totals div{display:flex;justify-content:space-between;}
+.totals .grand{font-size:1.1rem;font-weight:800;border-top:1px dashed var(--border-2);padding-top:9px;margin-top:4px;}
+.free-ship{background:var(--bg-3);border-radius:10px;padding:10px 14px;font-size:.8rem;color:var(--text-2);}
+.free-ship .bar{height:6px;background:var(--border-2);border-radius:999px;margin-top:8px;overflow:hidden;}
+.free-ship .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--gold));border-radius:999px;transition:width .5s var(--ease);}
+/* Checkout */
+.checkout-box{max-width:680px;}
+.steps{display:flex;gap:8px;margin-bottom:24px;}
+.step-pill{flex:1;text-align:center;font-size:.78rem;font-weight:700;padding:10px 6px;border-radius:10px;background:var(--bg-3);color:var(--muted);transition:all .3s;}
+.step-pill.active{background:var(--ink);color:var(--bg);}
+.step-pill.done{background:var(--success-bg);color:var(--success);}
+.checkout-step{display:none;animation:fadeUp .45s var(--ease);}
+.checkout-step.active{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0;}
+.choice{border:2px solid var(--border);border-radius:14px;padding:18px 16px;cursor:pointer;transition:all .25s;background:var(--bg);text-align:left;}
+.choice:hover{border-color:var(--border-2);}
+.choice.selected{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 7%,var(--bg));box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 12%,transparent);}
+.choice .t{display:flex;align-items:center;gap:10px;font-weight:750;font-size:.95rem;}
+.choice .t svg{width:22px;height:22px;color:var(--accent);}
+.choice small{display:block;margin-top:7px;color:var(--muted);font-size:.83rem;}
+.choice .price-tag{margin-top:8px;display:inline-block;font-size:.78rem;font-weight:800;background:var(--success-bg);color:var(--success);padding:4px 10px;border-radius:999px;}
+.pay-option{display:flex;gap:14px;align-items:flex-start;border:2px solid var(--border);border-radius:14px;padding:16px;cursor:pointer;transition:all .25s;background:var(--bg);margin-bottom:10px;}
+.pay-option:hover{border-color:var(--border-2);}
+.pay-option.selected{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 7%,var(--bg));}
+.pay-option input{width:19px;height:19px;margin-top:3px;accent-color:var(--accent);flex:none;}
+.pay-option strong{display:block;font-size:.95rem;}
+.pay-option small{color:var(--muted);font-size:.84rem;}
+.order-summary{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:18px;margin-top:14px;font-size:.89rem;}
+.order-summary div{display:flex;justify-content:space-between;padding:3px 0;}
+.order-summary .grand{font-weight:800;font-size:1.05rem;border-top:1px dashed var(--border-2);margin-top:8px;padding-top:10px;}
+.checkout-nav{display:flex;gap:10px;margin-top:22px;}
+.checkout-nav .btn{flex:1;}
+.success-hero{text-align:center;padding:14px 0;}
+.success-hero .ok{width:78px;height:78px;border-radius:50%;background:var(--success-bg);color:var(--success);font-size:2.2rem;display:grid;place-items:center;margin:0 auto 16px;animation:pop .5s var(--ease);}
+@keyframes pop{0%{transform:scale(.4);opacity:0;}60%{transform:scale(1.12);}100%{transform:scale(1);}}
+.order-code{display:inline-block;background:var(--bg-3);border:1px dashed var(--border-2);border-radius:10px;padding:10px 20px;font-weight:800;letter-spacing:.08em;margin:12px 0;}
+/* Pasarela */
+.gateway-box{max-width:480px;text-align:center;}
+.gateway-amount{font-family:var(--font-display);font-size:3rem;margin:8px 0 4px;}
+.gateway-note{background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);border-radius:12px;padding:14px;font-size:.86rem;margin:18px 0;text-align:left;}
+.mock-card{background:linear-gradient(135deg,#1C1917,#4A3728);color:#fff;border-radius:16px;padding:22px;text-align:left;margin-bottom:16px;}
+html[data-theme="dark"] .mock-card{background:linear-gradient(135deg,#000,#3A241A);}
+.mock-card .row{display:flex;justify-content:space-between;font-size:.8rem;opacity:.8;margin-bottom:14px;}
+.mock-card .num{font-size:1.25rem;letter-spacing:.12em;margin-bottom:14px;}
+/* Quick view */
+.quickview-box{max-width:820px;padding:0;overflow:hidden;}
+.quickview-grid{display:grid;grid-template-columns:1fr 1fr;}
+.quickview-grid img{width:100%;height:100%;min-height:480px;object-fit:cover;}
+.quickview-info{padding:36px 32px;display:flex;flex-direction:column;gap:12px;}
+.quickview-info h3{font-size:1.9rem;}
+/* Cookies banner */
+.cookie-banner{position:fixed;bottom:18px;left:18px;right:18px;max-width:460px;background:var(--bg-2);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow-lg);padding:24px;z-index:1400;transform:translateY(130%);opacity:0;transition:all .5s var(--ease);}
+.cookie-banner.show{transform:none;opacity:1;}
+.cookie-banner h4{font-size:1rem;margin-bottom:8px;}
+.cookie-banner p{font-size:.85rem;color:var(--muted);margin-bottom:16px;}
+.cookie-banner .row{display:flex;gap:10px;flex-wrap:wrap;}
+/* Toasts */
+.toasts{position:fixed;bottom:22px;right:22px;z-index:2000;display:flex;flex-direction:column;gap:10px;max-width:min(380px,calc(100vw - 36px));}
+.toast{background:var(--ink);color:var(--bg);border-radius:14px;padding:15px 18px;display:flex;gap:12px;align-items:flex-start;font-size:.9rem;box-shadow:var(--shadow-lg);animation:toastIn .45s var(--ease);}
+html[data-theme="dark"] .toast{background:#fff;color:#1C1917;}
+@keyframes toastIn{from{opacity:0;transform:translateX(40px);}to{opacity:1;transform:none;}}
+.toast.out{opacity:0;transform:translateX(40px);transition:all .35s;}
+.toast .tico{width:32px;height:32px;flex:none;border-radius:10px;display:grid;place-items:center;font-weight:800;}
+.toast.success .tico{background:#166534;color:#fff;}
+.toast.error .tico{background:#B91C1C;color:#fff;}
+.toast.info .tico{background:var(--gold);color:#1A1408;}
+/* Back to top */
+.to-top{position:fixed;bottom:22px;left:22px;width:50px;height:50px;border-radius:50%;background:var(--ink);color:var(--bg);border:1px solid var(--border);z-index:1300;display:grid;place-items:center;font-size:1.2rem;opacity:0;pointer-events:none;transform:translateY(14px);transition:all .35s;box-shadow:var(--shadow-md);}
+.to-top.show{opacity:1;pointer-events:auto;transform:none;}
+.to-top:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
+.legal-text{font-size:.89rem;color:var(--text-2);display:grid;gap:12px;max-height:52vh;overflow:auto;padding-right:6px;}
+.legal-text h4{color:var(--text);margin-top:8px;}
+/* ==========================================================
+   15. RESPONSIVE — Tablets y móviles
+========================================================== */
+@media (max-width:1080px){
+  .product-grid{grid-template-columns:repeat(3,1fr);}
+  .collections-grid{grid-template-columns:1fr 1fr;}
+  .collection-card:first-child{grid-column:1/-1;min-height:320px;}
+  .values{grid-template-columns:repeat(2,1fr);}
+  .services{grid-template-columns:1fr;gap:28px;padding:40px 34px;}
+  .service{border-left:0;border-top:1px solid rgba(255,255,255,.16);padding:24px 0 0;}
+  .service:first-child{border-top:0;padding-top:0;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:920px){
+  .main-nav{display:none;}
+  .burger{display:flex;}
+  .topbar-left .hide-m{display:none;}
+  .hero-cards{grid-template-columns:1fr;}
+  .scroll-hint{display:none;}
+  .about-grid{grid-template-columns:1fr;gap:44px;}
+  .contact-grid{grid-template-columns:1fr;}
+  .form-grid{grid-template-columns:1fr;}
+  .quickview-grid{grid-template-columns:1fr;}
+  .quickview-grid img{min-height:280px;max-height:320px;}
+}
+@media (max-width:640px){
+  :root{--header-h:66px;}
+  .section{padding:68px 0;}
+  .product-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+  .product-info{padding:13px 12px 14px;}
+  .product-info h3{font-size:.88rem;}
+  .quick-actions{opacity:1;transform:none;}
+  .quick-actions button.view{display:none;}
+  .brand-text small{display:none;}
+  .brand-text strong{font-size:1.1rem;}
+  .icon-btn{width:40px;height:40px;}
+  .topbar{font-size:.75rem;}
+  .topbar-right .item span.txt{display:none;}
+  .hero-content{padding:46px 0 30px;}
+  .collections-grid{grid-template-columns:1fr;}
+  .values{grid-template-columns:1fr;}
+  .about-collage img:first-child{min-height:300px;}
+  .about-float{padding:14px 18px;gap:14px;bottom:-20px;}
+  .slide{padding:34px 24px;}
+  .contact-form-card,.contact-info{padding:28px 22px;}
+  .newsletter{padding:26px 22px;}
+  .news-form{flex-direction:column;}
+  .footer-grid{grid-template-columns:1fr;gap:28px;}
+  .modal-box{padding:28px 22px;}
+  .choice-grid{grid-template-columns:1fr;}
+  .checkout-nav{flex-direction:column;}
+  .cookie-banner{left:12px;right:12px;bottom:12px;}
+  .cart-drawer{width:100vw;}
+}
+@media (max-width:400px){
+  .product-grid{grid-template-columns:1fr;}
+  .hero-ctas .btn{flex:1;justify-content:center;}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .hero-bg img,.marquee-track,.scroll-hint .line::after{animation:none;}
+  .reveal{opacity:1;transform:none;transition:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ================= HEADER FIJO: Topbar + Header ================= -->
+<div class="header-fixed">
+  <!-- Barra horizontal de información general -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <a href="tel:+34963045871" aria-label="Teléfono">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
+          <span class="txt">+34 963 045 871</span>
+        </a>
+        <span class="dot hide-m"></span>
+        <a href="mailto:hola@aurea-valencia.es" class="hide-m" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          <span>hola@aurea-valencia.es</span>
+        </a>
+        <span class="dot hide-m"></span>
+        <span class="item hide-m">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span data-i18n="topbar.address">C/ Colón 48 · València</span>
+        </span>
+      </div>
+      <div class="topbar-right">
+        <span class="item hide-m">🚚 <span data-i18n="topbar.ship">Envío gratis desde 75 €</span></span>
+        <!-- Selector de idioma escritorio -->
+        <div class="lang-switch" role="group" aria-label="Idioma / Language">
+          <button type="button" data-lang-btn="es" class="active">ES</button>
+          <button type="button" data-lang-btn="en">EN</button>
+          <button type="button" data-lang-btn="va">VA</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header principal -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#inicio" class="brand" data-scroll aria-label="AUREA inicio">
+        <span class="brand-mark">A</span>
+        <span class="brand-text"><strong>AUREA</strong><small data-i18n="brand.sub">Atelier · València</small></span>
+      </a>
+      <!-- Menú principal centrado -->
+      <nav class="main-nav" aria-label="Menú principal">
+        <ul>
+          <li><a href="#inicio" data-scroll class="active" data-i18n="nav.home">Inicio</a></li>
+          <li><a href="#tienda" data-scroll data-i18n="nav.shop">Tienda</a></li>
+          <li><a href="#nosotros" data-scroll data-i18n="nav.about">Nosotros</a></li>
+          <li><a href="#colecciones" data-scroll data-i18n="nav.collections">Colecciones</a></li>
+          <li><a href="#opiniones" data-scroll data-i18n="nav.reviews">Opiniones</a></li>
+          <li><a href="#contacto" data-scroll data-i18n="nav.contact">Contacto</a></li>
+        </ul>
+      </nav>
+      <!-- Acciones: búsqueda, usuario, tema, carrito, hamburguesa -->
+      <div class="header-actions">
+        <button class="icon-btn" id="openSearch" aria-label="Buscar en la página">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <button class="icon-btn" id="openLogin" aria-label="Acceder a mi cuenta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </button>
+        <button class="icon-btn theme-btn" id="themeToggle" aria-label="Cambiar modo claro oscuro">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <button class="icon-btn" id="openCart" aria-label="Abrir carrito de compra">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+          <span class="count" id="cartCount">0</span>
+        </button>
+        <button class="burger" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<!-- ============ MENÚ HAMBURGUESA MÓVIL (desciende desde arriba) ============ -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <nav aria-label="Menú móvil">
+    <ul>
+      <li><a href="#inicio" data-scroll data-i18n="nav.home">Inicio</a></li>
+      <li><a href="#tienda" data-scroll data-i18n="nav.shop">Tienda</a></li>
+      <li><a href="#nosotros" data-scroll data-i18n="nav.about">Nosotros</a></li>
+      <li><a href="#colecciones" data-scroll data-i18n="nav.collections">Colecciones</a></li>
+      <li><a href="#opiniones" data-scroll data-i18n="nav.reviews">Opiniones</a></li>
+      <li><a href="#contacto" data-scroll data-i18n="nav.contact">Contacto</a></li>
+    </ul>
+  </nav>
+  <div class="mobile-tools">
+    <div class="row">
+      <button class="btn btn-primary btn-sm" id="openSearchMobile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <span data-i18n="mobile.search">Buscar en la página</span>
+      </button>
+      <button class="btn btn-ghost btn-sm" id="openLoginMobile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span data-i18n="mobile.account">Mi cuenta</span>
+      </button>
+    </div>
+    <div class="mobile-lang">
+      <span data-i18n="mobile.language">Idioma</span>
+      <div class="seg" role="group" aria-label="Selector de idioma">
+        <button type="button" data-lang-btn="es" class="active">Español</button>
+        <button type="button" data-lang-btn="en">English</button>
+        <button type="button" data-lang-btn="va">Valencià</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+<!-- ================= HERO PRINCIPAL ================= -->
+<section class="hero" id="inicio">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&q=80&auto=format&fit=crop" alt="Interior minimalista de la tienda AUREA" fetchpriority="high">
+  </div>
+  <div style="position:relative;z-index:2;width:100%;">
+    <div class="hero-content">
+      <span class="hero-eyebrow reveal"><i>N°1</i><span data-i18n="hero.eyebrow">Nueva colección Otoño — Invierno 2026</span></span>
+      <h1 class="reveal reveal-d1" data-i18n-html="hero.title">Vestir bien <em>no tiene edad.</em> Tiene actitud.</h1>
+      <p class="lead reveal reveal-d2" data-i18n="hero.lead">Moda adulta, atemporal y honesta. Prendas de calidad pensadas para durar años, no temporadas. Diseñado en València, hecho para ti.</p>
+      <div class="hero-ctas reveal reveal-d3">
+        <a href="#tienda" data-scroll class="btn btn-light"><span data-i18n="hero.cta1">Ver la colección</span> →</a>
+        <a href="#nosotros" data-scroll class="btn btn-outline-light" data-i18n="hero.cta2">Nuestra filosofía</a>
+      </div>
+      <div class="hero-meta reveal reveal-d3">
+        <div><strong>+12.400</strong><span data-i18n="hero.s1">clientes felices</span></div>
+        <div><strong>4.9 ★</strong><span data-i18n="hero.s2">valoración media</span></div>
+        <div><strong>100%</strong><span data-i18n="hero.s3">tejidos certificados</span></div>
+      </div>
+    </div>
+    <div class="hero-cards">
+      <div class="hero-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5 10 17.5 20 7"/></svg></span><div><strong data-i18n="hero.c1t">Recoge gratis en tienda</strong><small data-i18n="hero.c1s">Listo en 2 horas · C/ Colón 48</small></div></div>
+      <div class="hero-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="14" height="12" rx="2"/><path d="M15 8h4l4 4v4h-8z"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg></span><div><strong data-i18n="hero.c2t">Envío 24/48h</strong><small data-i18n="hero.c2s">Gratis desde 75 € en península</small></div></div>
+      <div class="hero-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></span><div><strong data-i18n="hero.c3t">Devolución 30 días</strong><small data-i18n="hero.c3s">Sin preguntas, sin coste</small></div></div>
+    </div>
+  </div>
+  <div class="scroll-hint"><span data-i18n="hero.scroll">Desliza</span><span class="line"></span></div>
+</section>
+
+<!-- Cinta informativa -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span><b>◆</b> <span data-i18n="marquee.a">Envío gratis +75€</span> <b>◆</b> <span data-i18n="marquee.b">Recogida en tienda en 2h</span> <b>◆</b> <span data-i18n="marquee.c">Devoluciones 30 días</span> <b>◆</b> <span data-i18n="marquee.d">Pago seguro / contrareembolso</span> <b>◆</b>&nbsp;</span>
+    <span><b>◆</b> <span data-i18n="marquee.a">Envío gratis +75€</span> <b>◆</b> <span data-i18n="marquee.b">Recogida en tienda en 2h</span> <b>◆</b> <span data-i18n="marquee.c">Devoluciones 30 días</span> <b>◆</b> <span data-i18n="marquee.d">Pago seguro / contrareembolso</span> <b>◆</b>&nbsp;</span>
+  </div>
+</div>
+
+<!-- ================= TIENDA / CATÁLOGO ================= -->
+<section class="section" id="tienda">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="kicker" data-i18n="shop.kicker">Catálogo · Otoño 2026</span>
+      <h2 data-i18n-html="shop.title">Piezas esenciales para <em>todos los días</em></h2>
+      <p data-i18n="shop.sub">Elige talla, añade al carrito y decide: recoger gratis en tienda o recibirlo en casa. Paga ahora, al recoger o contrareembolso.</p>
+    </div>
+    <div class="shop-toolbar reveal">
+      <div class="filters" role="group" aria-label="Filtrar por categoría">
+        <button class="filter-btn active" data-filter="all" data-i18n="shop.f_all">Todo</button>
+        <button class="filter-btn" data-filter="mujer" data-i18n="shop.f_w">Mujer</button>
+        <button class="filter-btn" data-filter="hombre" data-i18n="shop.f_m">Hombre</button>
+        <button class="filter-btn" data-filter="accesorios" data-i18n="shop.f_a">Accesorios</button>
+      </div>
+      <div class="shop-side">
+        <span class="results-count" id="resultsCount">8 productos</span>
+        <select id="sortSelect" aria-label="Ordenar productos">
+          <option value="featured" data-i18n="shop.sort1">Destacados</option>
+          <option value="price-asc" data-i18n="shop.sort2">Precio: menor a mayor</option>
+          <option value="price-desc" data-i18n="shop.sort3">Precio: mayor a menor</option>
+          <option value="name" data-i18n="shop.sort4">Nombre A–Z</option>
+        </select>
+      </div>
+    </div>
+    <div class="product-grid" id="productGrid"><!-- Productos generados por JS --></div>
+  </div>
+</section>
+
+<!-- ================= SECCIÓN INFORMATIVA: NOSOTROS ================= -->
+<section class="section about" id="nosotros">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-collage reveal">
+        <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&q=80&auto=format&fit=crop" alt="Modelo con abrigo de la colección AUREA" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80&auto=format&fit=crop" alt="Camiseta básica premium" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600&q=80&auto=format&fit=crop" alt="Prendas dobladas en tienda" loading="lazy">
+        <div class="about-float">
+          <div><strong>18</strong><small data-i18n="about.y">años</small></div>
+          <div><strong>46</strong><small data-i18n="about.s">tallas 34–56</small></div>
+          <div><strong>0</strong><small data-i18n="about.z">plástico</small></div>
+        </div>
+      </div>
+      <div class="about-copy">
+        <div class="section-head reveal" style="margin-bottom:0;">
+          <span class="kicker" data-i18n="about.kicker">Quiénes somos</span>
+          <h2 data-i18n-html="about.title">Moda adulta sin ruido: <em>corte, tejido y verdad</em></h2>
+        </div>
+        <p class="reveal" data-i18n="about.p1">Nacimos en 2008 en el centro de València con una idea sencilla: ropa para personas adultas que buscan calidad real, tallaje honesto y estilo que no caduca. Sin logos gigantes, sin fast-fashion.</p>
+        <p class="reveal" data-i18n="about.p2">Trabajamos con talleres de proximidad en España y Portugal, tejidos certificados OEKO-TEX® y algodón orgánico. Cada prenda pasa por 3 controles de calidad antes de llegar a tus manos.</p>
+        <ul class="about-list">
+          <li class="reveal"><span class="n">01</span><div><strong data-i18n="about.l1t">Tallaje real 34–56, probado en cuerpos reales</strong><small data-i18n="about.l1s">Guía de tallas clara y cambios gratuitos en tienda.</small></div></li>
+          <li class="reveal reveal-d1"><span class="n">02</span><div><strong data-i18n="about.l2t">Tejidos nobles que duran años</strong><small data-i18n="about.l2s">Lana merina, lino europeo, algodón peinado y piel vegana.</small></div></li>
+          <li class="reveal reveal-d2"><span class="n">03</span><div><strong data-i18n="about.l3t">Reparación gratuita el primer año</strong><small data-i18n="about.l3s">Si se suelta un botón o una costura, lo arreglamos gratis.</small></div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="values">
+      <div class="value-card reveal"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5-3 8-7 8-12V5l-8-3-8 3v5c0 5 3 9 8 12z"/></svg></span><h3 data-i18n="val.1t">Calidad garantizada</h3><p data-i18n="val.1s">2 años de garantía en costuras y cremalleras.</p></div>
+      <div class="value-card reveal reveal-d1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 4 13c0-4 3-8 8-10 5 2 8 6 8 10a7 7 0 0 1-7 7"/><path d="M12 22v-8"/></svg></span><h3 data-i18n="val.2t">Sostenible</h3><p data-i18n="val.2s">78% de la colección con materiales reciclados u orgánicos.</p></div>
+      <div class="value-card reveal reveal-d2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="14" height="12" rx="2"/><path d="M15 8h4l4 4v4h-8z"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg></span><h3 data-i18n="val.3t">Entrega flexible</h3><p data-i18n="val.3s">Recoge en 2h en tienda o recibe en 24/48h.</p></div>
+      <div class="value-card reveal reveal-d3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></span><h3 data-i18n="val.4t">Pago a tu manera</h3><p data-i18n="val.4s">Online, al recoger o contrareembolso. Tú eliges.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SECCIÓN SECUNDARIA: COLECCIONES ================= -->
+<section class="section" id="colecciones">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker" data-i18n="col.kicker">Explora por universo</span>
+      <h2 data-i18n-html="col.title">Tres colecciones, <em>un mismo espíritu</em></h2>
+      <p data-i18n="col.sub">Siluetas limpias, paleta tierra y prendas que combinan entre sí. Cápsulas pensadas para un armario inteligente.</p>
+    </div>
+    <div class="collections-grid">
+      <article class="collection-card reveal">
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&q=80&auto=format&fit=crop" alt="Colección Mujer" loading="lazy">
+        <div class="collection-info"><small data-i18n="col.1k">24 piezas · Mujer</small><h3 data-i18n="col.1t">Ella Mediterránea</h3><a href="#tienda" data-scroll data-goto-filter="mujer"><span data-i18n="col.cta">Descubrir colección</span> →</a></div>
+      </article>
+      <article class="collection-card reveal reveal-d1">
+        <img src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=700&q=80&auto=format&fit=crop" alt="Colección Hombre" loading="lazy">
+        <div class="collection-info"><small data-i18n="col.2k">22 piezas · Hombre</small><h3 data-i18n="col.2t">Él Esencial</h3><a href="#tienda" data-scroll data-goto-filter="hombre"><span data-i18n="col.cta">Descubrir colección</span> →</a></div>
+      </article>
+      <article class="collection-card reveal reveal-d2">
+        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=700&q=80&auto=format&fit=crop" alt="Accesorios" loading="lazy">
+        <div class="collection-info"><small data-i18n="col.3k">16 piezas · Unisex</small><h3 data-i18n="col.3t">Detalles & Piel</h3><a href="#tienda" data-scroll data-goto-filter="accesorios"><span data-i18n="col.cta">Descubrir colección</span> →</a></div>
+      </article>
+    </div>
+    <!-- Cómo recibir tu compra -->
+    <div class="services reveal">
+      <div class="service"><span class="step" data-i18n="srv.1s">Opción 01</span><h3 data-i18n="srv.1t">Reserva y recoge en tienda</h3><p data-i18n="srv.1p">Compra online y recógelo en C/ Colón 48 en 2 horas. Te avisamos por SMS.</p><ul><li data-i18n="srv.1a">Sin gastos de envío</li><li data-i18n="srv.1b">Pruébalo allí y cambia talla al momento</li><li data-i18n="srv.1c">Paga al recoger o por adelantado</li></ul></div>
+      <div class="service"><span class="step" data-i18n="srv.2s">Opción 02</span><h3 data-i18n="srv.2t">Envío a domicilio 24/48h</h3><p data-i18n="srv.2p">Entrega en península en 24/48h laborables. Embalaje sin plástico.</p><ul><li data-i18n="srv.2a">4,95 € · Gratis desde 75 €</li><li data-i18n="srv.2b">Seguimiento en tiempo real</li><li data-i18n="srv.2c">Devolución gratuita 30 días</li></ul></div>
+      <div class="service"><span class="step" data-i18n="srv.3s">Opción 03</span><h3 data-i18n="srv.3t">Paga como prefieras</h3><p data-i18n="srv.3p">Máxima flexibilidad en el pago, sin letra pequeña.</p><ul><li data-i18n="srv.3a">Al recoger en tienda</li><li data-i18n="srv.3b">Contrareembolso al recibirlo</li><li data-i18n="srv.3c">Pasarela online segura</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OPINIONES ================= -->
+<section class="section testimonials" id="opiniones">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="kicker" data-i18n="rev.kicker">Opiniones verificadas</span>
+      <h2 data-i18n-html="rev.title">Lo que dicen <em>nuestros clientes</em></h2>
+    </div>
+    <div class="slider reveal">
+      <div class="slides"><div class="slide-track" id="slideTrack">
+        <div class="slide"><div class="stars">★★★★★</div><blockquote>“El abrigo de lana es la mejor compra que he hecho en años. La talla perfecta, el tejido impecable y lo recogí en tienda el mismo día.”</blockquote><div class="who"><img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80&auto=format&fit=crop" alt="Carmen R."><div style="text-align:left;"><strong>Carmen R. · 52 años</strong><small>València · Compra verificada</small></div></div></div>
+        <div class="slide"><div class="stars">★★★★★</div><blockquote>“Por fin una tienda que entiende al hombre adulto. La americana me queda perfecta sin arreglos. Pagué contrareembolso, todo facilísimo.”</blockquote><div class="who"><img class="avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80&auto=format&fit=crop" alt="Javier M."><div style="text-align:left;"><strong>Javier M. · 47 años</strong><small>Burjassot · Compra verificada</small></div></div></div>
+        <div class="slide"><div class="stars">★★★★★</div><blockquote>“Pedí el vestido midi y me asesoraron por teléfono con la talla. Acertaron de pleno. La devolución de otro artículo fue gratuita y rápida.”</blockquote><div class="who"><img class="avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80&auto=format&fit=crop" alt="Amparo L."><div style="text-align:left;"><strong>Amparo L. · 61 años</strong><small>Alboraya · Compra verificada</small></div></div></div>
+      </div></div>
+      <div class="slider-btns">
+        <button class="arrow" id="prevSlide" aria-label="Anterior opinión">←</button>
+        <div class="dots" id="sliderDots"></div>
+        <button class="arrow" id="nextSlide" aria-label="Siguiente opinión">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACTO ================= -->
+<section class="section" id="contacto">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker" data-i18n="ct.kicker">Contacto</span>
+      <h2 data-i18n-html="ct.title">¿Dudas con tallas o pedidos? <em>Hablamos.</em></h2>
+      <p data-i18n="ct.sub">Respondemos en menos de 24h laborables. También puedes visitarnos en tienda.</p>
+    </div>
+    <div class="contact-grid">
+      <aside class="contact-info reveal">
+        <h3 data-i18n="ct.card_t">Tienda AUREA València</h3>
+        <div class="contact-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span><div><strong data-i18n="ct.addr_t">Dirección</strong><small>C/ Colón 48, bajo · 46004 València</small></div></div>
+        <div class="contact-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg></span><div><strong>Teléfono / WhatsApp</strong><a class="small" href="tel:+34963045871">+34 963 045 871</a></div></div>
+        <div class="contact-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span><div><strong>Email</strong><a class="small" href="mailto:hola@aurea-valencia.es">hola@aurea-valencia.es</a></div></div>
+        <div class="hours"><div><span data-i18n="ct.h1">Lunes – Viernes</span><b>10:00 – 20:00</b></div><div><span data-i18n="ct.h2">Sábados</span><b>10:00 – 14:00</b></div><div><span data-i18n="ct.h3">Domingos</span><b data-i18n="ct.closed">Cerrado</b></div></div>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4c.6 2.5 2.4 4.3 5 4.5"/></svg></a>
+          <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 19c1-3 1.5-6 2-8"/><path d="M11 11a3 3 0 1 1 5 2c-1 2-3 2-4 1"/></svg></a>
+        </div>
+      </aside>
+      <div class="contact-form-card reveal reveal-d1">
+        <form id="contactForm" novalidate>
+          <div class="form-grid">
+            <div class="field"><label for="cName"><span data-i18n="form.name">Nombre completo</span> <i>*</i></label><input id="cName" name="name" type="text" data-i18n-ph="form.name_ph" placeholder="Ej. María García" required><span class="error-msg" data-i18n="form.req">Este campo es obligatorio.</span></div>
+            <div class="field"><label for="cEmail">Email <i>*</i></label><input id="cEmail" name="email" type="email" placeholder="tucorreo@email.com" required><span class="error-msg" data-i18n="form.req_mail">Introduce un email válido.</span></div>
+            <div class="field"><label for="cPhone" data-i18n="form.phone">Teléfono</label><input id="cPhone" name="phone" type="tel" placeholder="+34 600 000 000"></div>
+            <div class="field"><label for="cSubject" data-i18n="form.subject">Asunto</label><select id="cSubject" name="subject"><option data-i18n="form.s1">Duda sobre tallas</option><option data-i18n="form.s2">Estado de mi pedido</option><option data-i18n="form.s3">Cambios y devoluciones</option><option data-i18n="form.s4">Otro tema</option></select></div>
+            <div class="field full"><label for="cMsg"><span data-i18n="form.msg">Mensaje</span> <i>*</i></label><textarea id="cMsg" name="message" data-i18n-ph="form.msg_ph" placeholder="Cuéntanos en qué podemos ayudarte…" required></textarea><span class="error-msg" data-i18n="form.req">Este campo es obligatorio.</span></div>
+            <div class="field full"><label class="check"><input type="checkbox" id="cPrivacy" required><span data-i18n="form.privacy">He leído y acepto la política de privacidad y el tratamiento de mis datos. *</span></label></div>
+          </div>
+          <button type="submit" class="btn btn-accent btn-block" style="margin-top:18px;"><span data-i18n="form.send">Enviar mensaje</span> →</button>
+          <p class="hint" style="font-size:.8rem;color:var(--muted);margin-top:12px;text-align:center;" data-i18n="form.note">Al enviar aceptas ser contactado por email o teléfono.</p>
+        </form>
+      </div>
+    </div>
+    <div class="newsletter reveal">
+      <div><h3 data-i18n="nl.title">10% en tu primera compra</h3><p data-i18n="nl.sub">Suscríbete y recibe novedades, pre-ventas privadas y el código BIENVENIDA10.</p></div>
+      <form class="news-form" id="newsForm"><input type="email" id="newsEmail" data-i18n-ph="nl.ph" placeholder="Tu email" required aria-label="Email newsletter"><button class="btn btn-primary" type="submit" data-i18n="nl.btn">Quiero mi 10%</button></form>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#inicio" data-scroll class="brand"><span class="brand-mark">A</span><span class="brand-text"><strong>AUREA</strong><small>Atelier · València</small></span></a>
+        <p data-i18n="ft.desc">Moda adulta minimalista desde 2008. Tienda física en València y envío a toda España.</p>
+        <div class="pay-icons"><span>VISA</span><span>MASTERCARD</span><span>AMEX</span><span>BIZUM</span><span>CONTRAREEMBOLSO</span></div>
+      </div>
+      <div><h4 data-i18n="ft.shop">Tienda</h4><ul><li><a href="#tienda" data-scroll data-i18n="shop.f_w">Mujer</a></li><li><a href="#tienda" data-scroll data-i18n="shop.f_m">Hombre</a></li><li><a href="#tienda" data-scroll data-i18n="shop.f_a">Accesorios</a></li><li><a href="#colecciones" data-scroll data-i18n="nav.collections">Colecciones</a></li><li><a href="#opiniones" data-scroll data-i18n="nav.reviews">Opiniones</a></li></ul></div>
+      <div><h4 data-i18n="ft.help">Ayuda</h4><ul><li><button class="linklike" data-legal="envios" data-i18n="ft.ship">Envíos y recogida</button></li><li><button class="linklike" data-legal="devoluciones" data-i18n="ft.ret">Cambios y devoluciones</button></li><li><button class="linklike" data-legal="tallas" data-i18n="ft.size">Guía de tallas</button></li><li><button class="linklike" data-legal="requisitos" data-i18n="ft.req">Requisitos de compra</button></li><li><button class="linklike" data-legal="faq" data-i18n="ft.faq">Preguntas frecuentes</button></li></ul></div>
+      <div><h4 data-i18n="ft.legal">Legal</h4><ul><li><button class="linklike" data-legal="privacidad" data-i18n="ft.priv">Política de privacidad</button></li><li><button class="linklike" data-legal="cookies" data-i18n="ft.cook">Política de cookies</button></li><li><button class="linklike" data-legal="aviso" data-i18n="ft.notice">Aviso legal</button></li><li><button class="linklike" data-legal="condiciones" data-i18n="ft.terms">Condiciones de venta</button></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 AUREA Atelier S.L. · C/ Colón 48, València · CIF B-00000000</span>
+      <nav><button data-legal="cookies" data-i18n="ft.cook">Política de cookies</button><button data-legal="requisitos" data-i18n="ft.req">Requisitos de compra</button><a href="#contacto" data-scroll data-i18n="nav.contact">Contacto</a></nav>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= OVERLAY + MODALES ================= -->
+<div class="overlay" id="overlay"></div>
+
+<!-- Modal búsqueda -->
+<div class="modal" id="searchModal" role="dialog" aria-modal="true" aria-label="Búsqueda">
+  <div class="modal-box search-box">
+    <button class="modal-close" data-close aria-label="Cerrar">✕</button>
+    <h3 data-i18n="search.title">Buscar en la página</h3>
+    <p class="sub" data-i18n="search.sub">Escribe y resaltaremos las coincidencias. Pulsa Enter para ir a la primera.</p>
+    <div class="search-input-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="search" id="searchInput" data-i18n-ph="search.ph" placeholder="Ej. abrigo, devolución, tallas…" autocomplete="off">
+      <span class="search-kbd"><kbd>ESC</kbd><kbd>↵</kbd></span>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+    <div class="search-footer"><span id="searchCount" data-i18n="search.none">Sin resultados todavía.</span><span class="search-nav"><button id="searchPrev">← <span data-i18n="search.prev">Anterior</span></button><button id="searchNext"><span data-i18n="search.next">Siguiente</span> →</button></span></div>
+  </div>
+</div>
+
+<!-- Modal login / registro -->
+<div class="modal" id="loginModal" role="dialog" aria-modal="true" aria-label="Mi cuenta">
+  <div class="modal-box">
+    <button class="modal-close" data-close aria-label="Cerrar">✕</button>
+    <div id="loginLogged" style="display:none;">
+      <h3 data-i18n="login.welcome">¡Hola de nuevo!</h3>
+      <p class="sub" data-i18n="login.welcome_sub">Has iniciado sesión correctamente.</p>
+      <div class="user-badge"><span class="av" id="userAvatar">M</span><div><strong id="userName">Usuario</strong><br><small id="userEmail" style="color:var(--muted);">email</small></div></div>
+      <button class="btn btn-ghost btn-block" id="logoutBtn" data-i18n="login.logout">Cerrar sesión</button>
+    </div>
+    <div id="loginForms">
+      <h3 data-i18n="login.title">Mi cuenta</h3>
+      <p class="sub" data-i18n="login.sub">Accede para comprar más rápido y ver tus pedidos.</p>
+      <div class="tabs"><button class="active" id="tabLogin" data-i18n="login.tab1">Iniciar sesión</button><button id="tabRegister" data-i18n="login.tab2">Crear cuenta</button></div>
+      <form id="formLogin">
+        <div class="form-grid" style="grid-template-columns:1fr;">
+          <div class="field"><label>Email</label><input type="email" id="loginEmail" placeholder="tucorreo@email.com" required></div>
+          <div class="field"><label data-i18n="login.pass">Contraseña</label><input type="password" id="loginPass" placeholder="••••••••" required minlength="4"></div>
+        </div>
+        <button class="btn btn-primary btn-block" style="margin-top:16px;" type="submit" data-i18n="login.enter">Entrar</button>
+      </form>
+      <form id="formRegister" style="display:none;">
+        <div class="form-grid" style="grid-template-columns:1fr;">
+          <div class="field"><label data-i18n="form.name">Nombre completo</label><input type="text" id="regName" placeholder="María García" required></div>
+          <div class="field"><label>Email</label><input type="email" id="regEmail" placeholder="tucorreo@email.com" required></div>
+          <div class="field"><label data-i18n="login.pass">Contraseña</label><input type="password" id="regPass" placeholder="Mínimo 4 caracteres" required minlength="4"></div>
+          <div class="field"><label class="check"><input type="checkbox" required><span data-i18n="form.privacy">He leído y acepto la política de privacidad. *</span></label></div>
+        </div>
+        <button class="btn btn-accent btn-block" style="margin-top:16px;" type="submit" data-i18n="login.create">Crear mi cuenta</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Drawer carrito -->
+<aside class="cart-drawer" id="cartDrawer" aria-label="Carrito de la compra">
+  <div class="cart-head"><h3><span data-i18n="cart.title">Tu cesta</span> <span id="cartHeadCount">(0)</span></h3><button class="modal-close" style="position:static;" id="closeCart" aria-label="Cerrar carrito">✕</button></div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="promo"><input id="promoInput" placeholder="CÓDIGO DTO. (BIENVENIDA10)"><button id="promoBtn">OK</button></div>
+  <div class="cart-foot">
+    <div class="free-ship" id="freeShipBox"><span id="freeShipText"></span><div class="bar"><i id="freeShipBar" style="width:0%;"></i></div></div>
+    <div class="totals"><div><span data-i18n="cart.subtotal">Subtotal</span><b id="cartSubtotal">0,00 €</b></div><div id="discountRow" style="display:none;"><span data-i18n="cart.discount">Descuento</span><b id="cartDiscount" style="color:var(--success);">−0,00 €</b></div><div><span data-i18n="cart.shipping">Envío</span><b id="cartShipping">—</b></div><div class="grand"><span>Total</span><span id="cartTotal">0,00 €</span></div></div>
+    <button class="btn btn-accent btn-block" id="goCheckout"><span data-i18n="cart.checkout">Tramitar pedido</span> →</button>
+    <button class="btn btn-ghost btn-block btn-sm" id="keepBuying" data-i18n="cart.keep">Seguir comprando</button>
+  </div>
+</aside>
+
+<!-- Modal checkout -->
+<div class="modal" id="checkoutModal" role="dialog" aria-modal="true" aria-label="Tramitar pedido">
+  <div class="modal-box checkout-box">
+    <button class="modal-close" data-close aria-label="Cerrar">✕</button>
+    <h3 data-i18n="co.title">Tramitar pedido</h3>
+    <p class="sub" data-i18n="co.sub">Reserva para recoger en tienda o envíalo a tu dirección. Tú eliges cómo pagar.</p>
+    <div class="steps"><div class="step-pill active" data-step-pill="1">1 · <span data-i18n="co.s1">Entrega</span></div><div class="step-pill" data-step-pill="2">2 · <span data-i18n="co.s2">Pago</span></div><div class="step-pill" data-step-pill="3">3 · <span data-i18n="co.s3">Confirmación</span></div></div>
+    <!-- Paso 1 -->
+    <div class="checkout-step active" data-step="1">
+      <strong data-i18n="co.how">¿Cómo quieres recibir tu compra?</strong>
+      <div class="choice-grid">
+        <button type="button" class="choice selected" id="choicePickup"><span class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg><span data-i18n="co.pickup">Recoger en tienda</span></span><small>C/ Colón 48, València · <span data-i18n="co.pickup_s">Listo en 2h laborables</span></small><span class="price-tag" data-i18n="co.free">GRATIS</span></button>
+        <button type="button" class="choice" id="choiceShip"><span class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="14" height="12" rx="2"/><path d="M15 8h4l4 4v4h-8z"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg><span data-i18n="co.ship">Enviar a domicilio</span></span><small>24/48h · <span data-i18n="co.ship_s">Gratis desde 75 €</span></small><span class="price-tag">4,95 €</span></button>
+      </div>
+      <div id="pickupFields"><div class="form-grid"><div class="field"><label><span data-i18n="form.name">Nombre completo</span> *</label><input id="puName" placeholder="María García"></div><div class="field"><label><span data-i18n="form.phone">Teléfono</span> *</label><input id="puPhone" placeholder="+34 600 000 000"></div></div><p class="hint" style="font-size:.83rem;color:var(--muted);margin-top:10px;" data-i18n="co.pickup_note">Te avisaremos por SMS cuando tu pedido esté listo para recoger.</p></div>
+      <div id="shipFields" style="display:none;"><div class="form-grid"><div class="field"><label><span data-i18n="form.name">Nombre completo</span> *</label><input id="shName" placeholder="María García"></div><div class="field"><label><span data-i18n="form.phone">Teléfono</span> *</label><input id="shPhone" placeholder="+34 600 000 000"></div><div class="field full"><label><span data-i18n="co.addr">Dirección</span> *</label><input id="shAddr" placeholder="Calle, número, piso, puerta"></div><div class="field"><label>CP *</label><input id="shZip" placeholder="46004"></div><div class="field"><label><span data-i18n="co.city">Ciudad</span> *</label><input id="shCity" placeholder="València"></div></div></div>
+      <div class="checkout-nav"><button class="btn btn-primary" id="toStep2"><span data-i18n="co.next">Continuar al pago</span> →</button></div>
+    </div>
+    <!-- Paso 2 -->
+    <div class="checkout-step" data-step="2">
+      <strong data-i18n="co.pay_q">¿Cómo quieres pagar?</strong>
+      <div style="margin-top:14px;" id="payOptions">
+        <label class="pay-option selected"><input type="radio" name="pay" value="pickup" checked><span><strong data-i18n="co.pay1">Pagar al recoger en tienda</strong><small data-i18n="co.pay1s">Efectivo o tarjeta en C/ Colón 48. Sin adelantos.</small></span></label>
+        <label class="pay-option"><input type="radio" name="pay" value="cod"><span><strong data-i18n="co.pay2">Pagar al recibirlo (contrareembolso)</strong><small data-i18n="co.pay2s">Pagás al mensajero en efectivo o tarjeta. +2 € gestión.</small></span></label>
+        <label class="pay-option"><input type="radio" name="pay" value="gateway"><span><strong data-i18n="co.pay3">Pagar ahora con pasarela segura</strong><small data-i18n="co.pay3s">Tarjeta, Bizum o PayPal. Irás a la ventana de pago.</small></span></label>
+      </div>
+      <div class="order-summary" id="checkoutSummary"></div>
+      <div class="checkout-nav"><button class="btn btn-ghost" id="backTo1">← <span data-i18n="co.back">Atrás</span></button><button class="btn btn-accent" id="confirmOrder"><span data-i18n="co.confirm">Confirmar pedido</span></button></div>
+    </div>
+    <!-- Paso 3 -->
+    <div class="checkout-step" data-step="3">
+      <div class="success-hero"><div class="ok">✓</div><h4 style="font-family:var(--font-display);font-size:1.6rem;font-weight:400;" id="successTitle">¡Pedido confirmado!</h4><p style="color:var(--muted);font-size:.92rem;" id="successText"></p><div class="order-code" id="orderCode">AUREA-0000</div><div class="order-summary" id="finalSummary" style="text-align:left;"></div><div class="checkout-nav"><button class="btn btn-primary" id="finishOrder" data-i18n="co.finish">Volver a la tienda</button></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal pasarela de pago -->
+<div class="modal" id="gatewayModal" role="dialog" aria-modal="true" aria-label="Pasarela de pago">
+  <div class="modal-box gateway-box">
+    <button class="modal-close" data-close aria-label="Cerrar">✕</button>
+    <span class="kicker" style="justify-content:center;">🔒 <span data-i18n="gw.kicker">Pasarela segura del mercado</span></span>
+    <h3 data-i18n="gw.title">Vas a pagar</h3>
+    <div class="gateway-amount" id="gatewayAmount">0,00 €</div>
+    <small style="color:var(--muted);" id="gatewayOrder">Pedido AUREA-0000 · AUREA Atelier</small>
+    <div class="mock-card"><div class="row"><span>AUREA PAY</span><span>VISA ••••</span></div><div class="num">•••• •••• •••• 2026</div><div class="row"><span>TITULAR: TU NOMBRE</span><span>CAD: 12/28</span></div></div>
+    <div class="gateway-note" data-i18n="gw.note">Ventana informativa previa al pago. Aquí el cliente implementará su pasarela de pago real (Redsys / Stripe / Bizum). Al pulsar “Pagar” se simulará la confirmación.</div>
+    <button class="btn btn-accent btn-block" id="payGatewayBtn">💳 <span data-i18n="gw.pay">Pagar ahora</span></button>
+    <button class="btn btn-ghost btn-block btn-sm" style="margin-top:10px;" data-close data-i18n="gw.cancel">Cancelar y volver</button>
+  </div>
+</div>
+
+<!-- Modal vista rápida producto -->
+<div class="modal" id="quickModal" role="dialog" aria-modal="true" aria-label="Vista rápida">
+  <div class="modal-box quickview-box">
+    <button class="modal-close" data-close aria-label="Cerrar">✕</button>
+    <div class="quickview-grid"><img id="qvImg" src="" alt="Producto"><div class="quickview-info"><span class="product-cat" id="qvCat"></span><h3 id="qvName"></h3><div class="product-rating"><span class="stars" id="qvStars">★★★★★</span><span id="qvReviews"></span></div><p style="color:var(--muted);font-size:.92rem;" id="qvDesc"></p><div class="product-price"><strong id="qvPrice"></strong><s id="qvOld"></s></div><div><label style="font-size:.84rem;font-weight:700;" data-i18n="qv.size">Talla:</label><div class="sizes" id="qvSizes" style="margin-top:8px;"></div></div><div style="display:flex;gap:10px;align-items:center;margin-top:6px;"><span class="qty"><button id="qvMinus">−</button><b id="qvQty">1</b><button id="qvPlus">+</button></span><button class="btn btn-primary" id="qvAdd" style="flex:1;">🛍 <span data-i18n="qv.add">Añadir a la cesta</span></button></div><small style="color:var(--muted);" data-i18n="qv.note">✓ Recogida gratis en 2h · ✓ Devolución 30 días · ✓ Cambio de talla gratis</small></div></div>
+  </div>
+</div>
+
+<!-- Modal legal genérico -->
+<div class="modal" id="legalModal" role="dialog" aria-modal="true" aria-label="Información legal">
+  <div class="modal-box"><button class="modal-close" data-close aria-label="Cerrar">✕</button><h3 id="legalTitle">Información</h3><p class="sub" id="legalSub">AUREA Atelier S.L.</p><div class="legal-text" id="legalBody"></div></div>
+</div>
+
+<!-- Banner cookies -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookies">
+  <h4>🍪 <span data-i18n="ck.title">Usamos cookies</span></h4>
+  <p data-i18n="ck.text">Utilizamos cookies propias y de terceros para mejorar tu experiencia y analizar el tráfico. Puedes aceptarlas o configurarlas.</p>
+  <div class="row"><button class="btn btn-primary btn-sm" id="acceptCookies" data-i18n="ck.ok">Aceptar todas</button><button class="btn btn-ghost btn-sm" id="rejectCookies" data-i18n="ck.no">Solo necesarias</button><button class="btn btn-ghost btn-sm" data-legal="cookies" data-i18n="ck.more">Ver política</button></div>
+</div>
+
+<div class="toasts" id="toasts"></div>
+<button class="to-top" id="toTop" aria-label="Volver arriba">↑</button>
+
+<script>
+/* =====================================================================
+   AUREA · script.js — Todo el JS en vanilla, comentado y por módulos
+   1. Datos (productos, i18n, legales) · 2. Tema · 3. Menú · 4. Scroll
+   5. Tienda + carrito + checkout + pasarela · 6. Búsqueda · 7. Idiomas
+   8. Login · 9. Formularios · 10. Slider · 11. Modales · 12. Init
+===================================================================== */
+(function(){
+"use strict";
+/* ---------- Utilidades ---------- */
+const $ = (s, c=document) => c.querySelector(s);
+const $$ = (s, c=document) => Array.from(c.querySelectorAll(s));
+const money = n => n.toLocaleString(document.documentElement.dataset.lang === 'en' ? 'en-GB' : 'es-ES', {style:'currency', currency:'EUR'});
+const store = {
+  get(k, d){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
+  set(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+};
+function toast(msg, type='success'){
+  const box = $('#toasts');
+  const el = document.createElement('div');
+  el.className = 'toast ' + type;
+  el.innerHTML = '<span class="tico">' + (type==='success'?'✓':type==='error'?'!':'i') + '</span><span>'+msg+'</span>';
+  box.appendChild(el);
+  setTimeout(()=>{ el.classList.add('out'); setTimeout(()=>el.remove(), 380); }, 3400);
+}
+
+/* ================================================================
+   1. DATOS — Catálogo de productos (imágenes Unsplash sin copyright)
+================================================================ */
+const PRODUCTS = [
+  {id:'abrigo-lana', name:'Abrigo Largo de Lana', cat:'mujer', price:189, old:229, rating:4.9, reviews:214, badge:'sale', sizes:['XS','S','M','L','XL'], img:'https://images.unsplash.com/photo-1445205170230-053b83016050?w=700&q=80&auto=format&fit=crop', desc:'Abrigo largo 70% lana virgen con forro de viscosa. Corte recto, bolsillos ocultos y botón de asta. La pieza que abriga con elegancia.'},
+  {id:'camisa-oxford', name:'Camisa Oxford Premium', cat:'hombre', price:59, old:null, rating:4.8, reviews:186, badge:'eco', sizes:['S','M','L','XL','XXL'], img:'https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?w=700&q=80&auto=format&fit=crop', desc:'Camisa oxford 100% algodón peinado. Cuello abotonado, puño sencillo y corte regular que sienta bien a todos los cuerpos.'},
+  {id:'vestido-midi', name:'Vestido Midi Terracota', cat:'mujer', price:89, old:109, rating:4.9, reviews:321, badge:'new', sizes:['XS','S','M','L','XL'], img:'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=700&q=80&auto=format&fit=crop', desc:'Vestido midi fluido en color terracota con manga 3/4 y cintura elástica. Favorece, no marca y combina con todo.'},
+  {id:'americana', name:'Americana de Sastrería', cat:'hombre', price:149, old:null, rating:4.7, reviews:98, badge:null, sizes:['46','48','50','52','54','56'], img:'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=700&q=80&auto=format&fit=crop', desc:'Americana semi-forrada de corte italiano. Hombro natural, dos botones y tejido antiarrugas. De la oficina a la cena sin cambiarte.'},
+  {id:'vaquero', name:'Vaquero Recto Orgánico', cat:'hombre', price:79, old:95, rating:4.8, reviews:402, badge:'eco', sizes:['38','40','42','44','46','48'], img:'https://images.unsplash.com/photo-1542272604-787c3835535d?w=700&q=80&auto=format&fit=crop', desc:'Vaquero recto de algodón orgánico con elastano. Tiro medio, lavado piedra y resistencia para años de uso diario.'},
+  {id:'jersey-merino', name:'Jersey Cuello Vuelto Merino', cat:'mujer', price:69, old:null, rating:4.9, reviews:167, badge:'new', sizes:['XS','S','M','L','XL'], img:'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=700&q=80&auto=format&fit=crop', desc:'Jersey de lana merina extrafina, suave y sin picores. Cuello vuelto cómodo y punto fino que estiliza.'},
+  {id:'cazadora', name:'Cazadora Piel Vegana', cat:'hombre', price:129, old:159, rating:4.6, reviews:74, badge:'sale', sizes:['S','M','L','XL','XXL'], img:'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=700&q=80&auto=format&fit=crop', desc:'Cazadora efecto piel de alta calidad, forro acolchado ligero y cremalleras metálicas. Actitud atemporal sin cuero animal.'},
+  {id:'tote', name:'Bolso Tote de Piel', cat:'accesorios', price:95, old:null, rating:4.9, reviews:143, badge:'eco', sizes:['Única'], img:'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=700&q=80&auto=format&fit=crop', desc:'Tote amplio de piel vegana premium con forro interior, bolsillo con cremallera y asas reforzadas. Cabe tu día entero.'}
+];
+const CAT_LABEL = {mujer:'Mujer', hombre:'Hombre', accesorios:'Accesorios'};
+
+/* ================================================================
+   2. DICCIONARIO DE IDIOMAS — ES / EN / VA (sin traductor auto)
+================================================================ */
+const I18N = {
+es:{'topbar.address':'C/ Colón 48 · València','topbar.ship':'Envío gratis desde 75 €','brand.sub':'Atelier · València','nav.home':'Inicio','nav.shop':'Tienda','nav.about':'Nosotros','nav.collections':'Colecciones','nav.reviews':'Opiniones','nav.contact':'Contacto','mobile.search':'Buscar en la página','mobile.account':'Mi cuenta','mobile.language':'Idioma','hero.eyebrow':'Nueva colección Otoño — Invierno 2026','hero.title':'Vestir bien <em>no tiene edad.</em> Tiene actitud.','hero.lead':'Moda adulta, atemporal y honesta. Prendas de calidad pensadas para durar años, no temporadas. Diseñado en València, hecho para ti.','hero.cta1':'Ver la colección','hero.cta2':'Nuestra filosofía','hero.s1':'clientes felices','hero.s2':'valoración media','hero.s3':'tejidos certificados','hero.c1t':'Recoge gratis en tienda','hero.c1s':'Listo en 2 horas · C/ Colón 48','hero.c2t':'Envío 24/48h','hero.c2s':'Gratis desde 75 € en península','hero.c3t':'Devolución 30 días','hero.c3s':'Sin preguntas, sin coste','hero.scroll':'Desliza','marquee.a':'Envío gratis +75€','marquee.b':'Recogida en tienda en 2h','marquee.c':'Devoluciones 30 días','marquee.d':'Pago seguro / contrareembolso','shop.kicker':'Catálogo · Otoño 2026','shop.title':'Piezas esenciales para <em>todos los días</em>','shop.sub':'Elige talla, añade al carrito y decide: recoger gratis en tienda o recibirlo en casa. Paga ahora, al recoger o contrareembolso.','shop.f_all':'Todo','shop.f_w':'Mujer','shop.f_m':'Hombre','shop.f_a':'Accesorios','shop.sort1':'Destacados','shop.sort2':'Precio: menor a mayor','shop.sort3':'Precio: mayor a menor','shop.sort4':'Nombre A–Z','about.kicker':'Quiénes somos','about.title':'Moda adulta sin ruido: <em>corte, tejido y verdad</em>','about.p1':'Nacimos en 2008 en el centro de València con una idea sencilla: ropa para personas adultas que buscan calidad real, tallaje honesto y estilo que no caduca. Sin logos gigantes, sin fast-fashion.','about.p2':'Trabajamos con talleres de proximidad en España y Portugal, tejidos certificados OEKO-TEX® y algodón orgánico. Cada prenda pasa por 3 controles de calidad antes de llegar a tus manos.','about.y':'años','about.s':'tallas 34–56','about.z':'plástico','about.l1t':'Tallaje real 34–56, probado en cuerpos reales','about.l1s':'Guía de tallas clara y cambios gratuitos en tienda.','about.l2t':'Tejidos nobles que duran años','about.l2s':'Lana merina, lino europeo, algodón peinado y piel vegana.','about.l3t':'Reparación gratuita el primer año','about.l3s':'Si se suelta un botón o una costura, lo arreglamos gratis.','val.1t':'Calidad garantizada','val.1s':'2 años de garantía en costuras y cremalleras.','val.2t':'Sostenible','val.2s':'78% de la colección con materiales reciclados u orgánicos.','val.3t':'Entrega flexible','val.3s':'Recoge en 2h en tienda o recibe en 24/48h.','val.4t':'Pago a tu manera','val.4s':'Online, al recoger o contrareembolso. Tú eliges.','col.kicker':'Explora por universo','col.title':'Tres colecciones, <em>un mismo espíritu</em>','col.sub':'Siluetas limpias, paleta tierra y prendas que combinan entre sí. Cápsulas pensadas para un armario inteligente.','col.1k':'24 piezas · Mujer','col.1t':'Ella Mediterránea','col.2k':'22 piezas · Hombre','col.2t':'Él Esencial','col.3k':'16 piezas · Unisex','col.3t':'Detalles & Piel','col.cta':'Descubrir colección','srv.1s':'Opción 01','srv.1t':'Reserva y recoge en tienda','srv.1p':'Compra online y recógelo en C/ Colón 48 en 2 horas. Te avisamos por SMS.','srv.1a':'Sin gastos de envío','srv.1b':'Pruébalo allí y cambia talla al momento','srv.1c':'Paga al recoger o por adelantado','srv.2s':'Opción 02','srv.2t':'Envío a domicilio 24/48h','srv.2p':'Entrega en península en 24/48h laborables. Embalaje sin plástico.','srv.2a':'4,95 € · Gratis desde 75 €','srv.2b':'Seguimiento en tiempo real','srv.2c':'Devolución gratuita 30 días','srv.3s':'Opción 03','srv.3t':'Paga como prefieras','srv.3p':'Máxima flexibilidad en el pago, sin letra pequeña.','srv.3a':'Al recoger en tienda','srv.3b':'Contrareembolso al recibirlo','srv.3c':'Pasarela online segura','rev.kicker':'Opiniones verificadas','rev.title':'Lo que dicen <em>nuestros clientes</em>','ct.kicker':'Contacto','ct.title':'¿Dudas con tallas o pedidos? <em>Hablamos.</em>','ct.sub':'Respondemos en menos de 24h laborables. También puedes visitarnos en tienda.','ct.card_t':'Tienda AUREA València','ct.addr_t':'Dirección','ct.h1':'Lunes – Viernes','ct.h2':'Sábados','ct.h3':'Domingos','ct.closed':'Cerrado','form.name':'Nombre completo','form.name_ph':'Ej. María García','form.req':'Este campo es obligatorio.','form.req_mail':'Introduce un email válido.','form.phone':'Teléfono','form.subject':'Asunto','form.s1':'Duda sobre tallas','form.s2':'Estado de mi pedido','form.s3':'Cambios y devoluciones','form.s4':'Otro tema','form.msg':'Mensaje','form.msg_ph':'Cuéntanos en qué podemos ayudarte…','form.privacy':'He leído y acepto la política de privacidad y el tratamiento de mis datos. *','form.send':'Enviar mensaje','form.note':'Al enviar aceptas ser contactado por email o teléfono.','nl.title':'10% en tu primera compra','nl.sub':'Suscríbete y recibe novedades, pre-ventas privadas y el código BIENVENIDA10.','nl.ph':'Tu email','nl.btn':'Quiero mi 10%','ft.desc':'Moda adulta minimalista desde 2008. Tienda física en València y envío a toda España.','ft.shop':'Tienda','ft.help':'Ayuda','ft.ship':'Envíos y recogida','ft.ret':'Cambios y devoluciones','ft.size':'Guía de tallas','ft.req':'Requisitos de compra','ft.faq':'Preguntas frecuentes','ft.legal':'Legal','ft.priv':'Política de privacidad','ft.cook':'Política de cookies','ft.notice':'Aviso legal','ft.terms':'Condiciones de venta','search.title':'Buscar en la página','search.sub':'Escribe y resaltaremos las coincidencias. Pulsa Enter para ir a la primera.','search.ph':'Ej. abrigo, devolución, tallas…','search.none':'Sin resultados todavía.','search.prev':'Anterior','search.next':'Siguiente','login.welcome':'¡Hola de nuevo!','login.welcome_sub':'Has iniciado sesión correctamente.','login.logout':'Cerrar sesión','login.title':'Mi cuenta','login.sub':'Accede para comprar más rápido y ver tus pedidos.','login.tab1':'Iniciar sesión','login.tab2':'Crear cuenta','login.pass':'Contraseña','login.enter':'Entrar','login.create':'Crear mi cuenta','cart.title':'Tu cesta','cart.subtotal':'Subtotal','cart.discount':'Descuento','cart.shipping':'Envío','cart.checkout':'Tramitar pedido','cart.keep':'Seguir comprando','co.title':'Tramitar pedido','co.sub':'Reserva para recoger en tienda o envíalo a tu dirección. Tú eliges cómo pagar.','co.s1':'Entrega','co.s2':'Pago','co.s3':'Confirmación','co.how':'¿Cómo quieres recibir tu compra?','co.pickup':'Recoger en tienda','co.pickup_s':'Listo en 2h laborables','co.free':'GRATIS','co.ship':'Enviar a domicilio','co.ship_s':'Gratis desde 75 €','co.pickup_note':'Te avisaremos por SMS cuando tu pedido esté listo para recoger.','co.addr':'Dirección','co.city':'Ciudad','co.next':'Continuar al pago','co.pay_q':'¿Cómo quieres pagar?','co.pay1':'Pagar al recoger en tienda','co.pay1s':'Efectivo o tarjeta en C/ Colón 48. Sin adelantos.','co.pay2':'Pagar al recibirlo (contrareembolso)','co.pay2s':'Pagás al mensajero en efectivo o tarjeta. +2 € gestión.','co.pay3':'Pagar ahora con pasarela segura','co.pay3s':'Tarjeta, Bizum o PayPal. Irás a la ventana de pago.','co.back':'Atrás','co.confirm':'Confirmar pedido','co.finish':'Volver a la tienda','gw.kicker':'Pasarela segura del mercado','gw.title':'Vas a pagar','gw.note':'Ventana informativa previa al pago. Aquí el cliente implementará su pasarela de pago real (Redsys / Stripe / Bizum). Al pulsar “Pagar” se simulará la confirmación.','gw.pay':'Pagar ahora','gw.cancel':'Cancelar y volver','qv.size':'Talla:','qv.add':'Añadir a la cesta','qv.note':'✓ Recogida gratis en 2h · ✓ Devolución 30 días · ✓ Cambio de talla gratis','ck.title':'Usamos cookies','ck.text':'Utilizamos cookies propias y de terceros para mejorar tu experiencia y analizar el tráfico. Puedes aceptarlas o configurarlas.','ck.ok':'Aceptar todas','ck.no':'Solo necesarias','ck.more':'Ver política'},
+en:{'topbar.address':'48 Colón St · Valencia','topbar.ship':'Free shipping over €75','brand.sub':'Atelier · Valencia','nav.home':'Home','nav.shop':'Shop','nav.about':'About','nav.collections':'Collections','nav.reviews':'Reviews','nav.contact':'Contact','mobile.search':'Search this page','mobile.account':'My account','mobile.language':'Language','hero.eyebrow':'New Autumn — Winter 2026 Collection','hero.title':'Dressing well <em>has no age.</em> It has attitude.','hero.lead':'Adult, timeless and honest fashion. Quality garments made to last years, not seasons. Designed in Valencia, made for you.','hero.cta1':'Shop the collection','hero.cta2':'Our philosophy','hero.s1':'happy customers','hero.s2':'average rating','hero.s3':'certified fabrics','hero.c1t':'Free in-store pickup','hero.c1s':'Ready in 2 hours · 48 Colón St','hero.c2t':'24/48h shipping','hero.c2s':'Free over €75 in mainland','hero.c3t':'30-day returns','hero.c3s':'No questions, no cost','hero.scroll':'Scroll','marquee.a':'Free shipping +€75','marquee.b':'In-store pickup in 2h','marquee.c':'30-day returns','marquee.d':'Secure / cash on delivery','shop.kicker':'Catalogue · Autumn 2026','shop.title':'Essential pieces for <em>every day</em>','shop.sub':'Pick a size, add to cart and choose: free in-store pickup or home delivery. Pay now, on pickup or on delivery.','shop.f_all':'All','shop.f_w':'Women','shop.f_m':'Men','shop.f_a':'Accessories','shop.sort1':'Featured','shop.sort2':'Price: low to high','shop.sort3':'Price: high to low','shop.sort4':'Name A–Z','about.kicker':'Who we are','about.title':'Adult fashion with no noise: <em>cut, fabric and truth</em>','about.p1':'We were born in 2008 in downtown Valencia with a simple idea: clothing for adults seeking real quality, honest sizing and style that never expires. No giant logos, no fast-fashion.','about.p2':'We work with local workshops in Spain and Portugal, OEKO-TEX® certified fabrics and organic cotton. Every garment passes 3 quality checks before reaching you.','about.y':'years','about.s':'sizes 34–56','about.z':'plastic','about.l1t':'True sizing 34–56, tested on real bodies','about.l1s':'Clear size guide and free exchanges in store.','about.l2t':'Noble fabrics that last for years','about.l2s':'Merino wool, European linen, combed cotton and vegan leather.','about.l3t':'Free repairs in the first year','about.l3s':'Loose button or seam? We fix it for free.','val.1t':'Quality guaranteed','val.1s':'2-year warranty on seams and zips.','val.2t':'Sustainable','val.2s':'78% of the collection uses recycled or organic materials.','val.3t':'Flexible delivery','val.3s':'Pickup in 2h or receive in 24/48h.','val.4t':'Pay your way','val.4s':'Online, on pickup or on delivery. You choose.','col.kicker':'Explore by universe','col.title':'Three collections, <em>one spirit</em>','col.sub':'Clean silhouettes, earthy palette and pieces that mix together. Capsules for a smart wardrobe.','col.1k':'24 pieces · Women','col.1t':'Mediterranean Her','col.2k':'22 pieces · Men','col.2t':'Essential Him','col.3k':'16 pieces · Unisex','col.3t':'Details & Leather','col.cta':'Discover collection','srv.1s':'Option 01','srv.1t':'Reserve & collect in store','srv.1p':'Shop online and collect at 48 Colón St in 2 hours. We text you.','srv.1a':'No shipping fees','srv.1b':'Try it there and swap sizes instantly','srv.1c':'Pay on pickup or in advance','srv.2s':'Option 02','srv.2t':'Home delivery 24/48h','srv.2p':'Mainland delivery in 24/48h working days. Plastic-free packaging.','srv.2a':'€4.95 · Free over €75','srv.2b':'Real-time tracking','srv.2c':'Free 30-day returns','srv.3s':'Option 03','srv.3t':'Pay as you prefer','srv.3p':'Maximum payment flexibility, no small print.','srv.3a':'On in-store pickup','srv.3b':'Cash on delivery','srv.3c':'Secure online gateway','rev.kicker':'Verified reviews','rev.title':'What <em>our customers</em> say','ct.kicker':'Contact','ct.title':'Questions about sizes or orders? <em>Let’s talk.</em>','ct.sub':'We reply within 24h on working days. You can also visit us in store.','ct.card_t':'AUREA Store Valencia','ct.addr_t':'Address','ct.h1':'Monday – Friday','ct.h2':'Saturdays','ct.h3':'Sundays','ct.closed':'Closed','form.name':'Full name','form.name_ph':'E.g. Mary Smith','form.req':'This field is required.','form.req_mail':'Please enter a valid email.','form.phone':'Phone','form.subject':'Subject','form.s1':'Size questions','form.s2':'Order status','form.s3':'Exchanges & returns','form.s4':'Other','form.msg':'Message','form.msg_ph':'Tell us how we can help…','form.privacy':'I have read and accept the privacy policy and data processing. *','form.send':'Send message','form.note':'By sending you agree to be contacted by email or phone.','nl.title':'10% off your first order','nl.sub':'Subscribe for news, private pre-sales and the code BIENVENIDA10.','nl.ph':'Your email','nl.btn':'Get my 10%','ft.desc':'Minimalist adult fashion since 2008. Physical store in Valencia, shipping across Spain.','ft.shop':'Shop','ft.help':'Help','ft.ship':'Shipping & pickup','ft.ret':'Exchanges & returns','ft.size':'Size guide','ft.req':'Purchase requirements','ft.faq':'FAQs','ft.legal':'Legal','ft.priv':'Privacy policy','ft.cook':'Cookie policy','ft.notice':'Legal notice','ft.terms':'Terms of sale','search.title':'Search this page','search.sub':'Type and we will highlight matches. Press Enter to jump to the first.','search.ph':'E.g. coat, returns, sizes…','search.none':'No results yet.','search.prev':'Previous','search.next':'Next','login.welcome':'Welcome back!','login.welcome_sub':'You have signed in successfully.','login.logout':'Sign out','login.title':'My account','login.sub':'Sign in to check out faster and view your orders.','login.tab1':'Sign in','login.tab2':'Create account','login.pass':'Password','login.enter':'Sign in','login.create':'Create my account','cart.title':'Your bag','cart.subtotal':'Subtotal','cart.discount':'Discount','cart.shipping':'Shipping','cart.checkout':'Checkout','cart.keep':'Keep shopping','co.title':'Checkout','co.sub':'Reserve for in-store pickup or ship to your address. You choose how to pay.','co.s1':'Delivery','co.s2':'Payment','co.s3':'Done','co.how':'How do you want to receive your order?','co.pickup':'Pick up in store','co.pickup_s':'Ready in 2 working hours','co.free':'FREE','co.ship':'Home delivery','co.ship_s':'Free over €75','co.pickup_note':'We will text you when your order is ready for pickup.','co.addr':'Address','co.city':'City','co.next':'Continue to payment','co.pay_q':'How do you want to pay?','co.pay1':'Pay on pickup in store','co.pay1s':'Cash or card at 48 Colón St. No prepayment.','co.pay2':'Pay on delivery (COD)','co.pay2s':'Pay the courier in cash or card. +€2 fee.','co.pay3':'Pay now with secure gateway','co.pay3s':'Card, Bizum or PayPal. You will go to the payment window.','co.back':'Back','co.confirm':'Confirm order','co.finish':'Back to shop','gw.kicker':'Market secure gateway','gw.title':'You are paying','gw.note':'Information window before payment. The client will plug their real payment gateway here (Redsys / Stripe / Bizum). Pressing “Pay” simulates confirmation.','gw.pay':'Pay now','gw.cancel':'Cancel and go back','qv.size':'Size:','qv.add':'Add to bag','qv.note':'✓ Free 2h pickup · ✓ 30-day returns · ✓ Free size exchange','ck.title':'We use cookies','ck.text':'We use first and third-party cookies to improve your experience and analyse traffic. You can accept or configure them.','ck.ok':'Accept all','ck.no':'Necessary only','ck.more':'View policy'},
+va:{'topbar.address':'C/ Colom 48 · València','topbar.ship':'Enviament gratis des de 75 €','brand.sub':'Atelier · València','nav.home':'Inici','nav.shop':'Botiga','nav.about':'Nosaltres','nav.collections':'Col·leccions','nav.reviews':'Opinions','nav.contact':'Contacte','mobile.search':'Cercar en la pàgina','mobile.account':'El meu compte','mobile.language':'Idioma','hero.eyebrow':'Nova col·lecció Tardor — Hivern 2026','hero.title':'Vestir bé <em>no té edat.</em> Té actitud.','hero.lead':'Moda adulta, atemporal i honesta. Peces de qualitat pensades per a durar anys, no temporades. Dissenyat a València, fet per a tu.','hero.cta1':'Vore la col·lecció','hero.cta2':'La nostra filosofia','hero.s1':'clients contents','hero.s2':'valoració mitjana','hero.s3':'teixits certificats','hero.c1t':'Recull gratis en botiga','hero.c1s':'Llesta en 2 hores · C/ Colom 48','hero.c2t':'Enviament 24/48h','hero.c2s':'Gratis des de 75 € en península','hero.c3t':'Devolució 30 dies','hero.c3s':'Sense preguntes, sense cost','hero.scroll':'Llisca','marquee.a':'Enviament gratis +75€','marquee.b':'Recollida en botiga en 2h','marquee.c':'Devolucions 30 dies','marquee.d':'Pagament segur / contrareembossament','shop.kicker':'Catàleg · Tardor 2026','shop.title':'Peces essencials per a <em>cada dia</em>','shop.sub':'Tria talla, afig a la cistella i decidix: recollir gratis en botiga o rebre-ho a casa. Paga ara, en recollir o contrareembossament.','shop.f_all':'Tot','shop.f_w':'Dona','shop.f_m':'Home','shop.f_a':'Accessoris','shop.sort1':'Destacats','shop.sort2':'Preu: de menor a major','shop.sort3':'Preu: de major a menor','shop.sort4':'Nom A–Z','about.kicker':'Qui som','about.title':'Moda adulta sense soroll: <em>tall, teixit i veritat</em>','about.p1':'Vam nàixer en 2008 al centre de València amb una idea senzilla: roba per a persones adultes que busquen qualitat real, tallatge honest i estil que no caduca. Sense logos gegants, sense fast-fashion.','about.p2':'Treballem amb tallers de proximitat a Espanya i Portugal, teixits certificats OEKO-TEX® i cotó orgànic. Cada peça passa 3 controls de qualitat abans d’arribar a les teues mans.','about.y':'anys','about.s':'talles 34–56','about.z':'plàstic','about.l1t':'Tallatge real 34–56, provat en cossos reals','about.l1s':'Guia de talles clara i canvis gratuïts en botiga.','about.l2t':'Teixits nobles que duren anys','about.l2s':'Llana merina, lli europeu, cotó pentinat i pell vegana.','about.l3t':'Reparació gratuïta el primer any','about.l3s':'Si es solta un botó o una costura, ho arreglem gratis.','val.1t':'Qualitat garantida','val.1s':'2 anys de garantia en costures i cremalleres.','val.2t':'Sostenible','val.2s':'El 78% de la col·lecció amb materials reciclats o orgànics.','val.3t':'Entrega flexible','val.3s':'Recull en 2h en botiga o rep en 24/48h.','val.4t':'Paga a la teua manera','val.4s':'En línia, en recollir o contrareembossament. Tu tries.','col.kicker':'Explora per univers','col.title':'Tres col·leccions, <em>un mateix esperit</em>','col.sub':'Siluetes netes, paleta terra i peces que combinen entre si. Càpsules per a un armari intel·ligent.','col.1k':'24 peces · Dona','col.1t':'Ella Mediterrània','col.2k':'22 peces · Home','col.2t':'Ell Essencial','col.3k':'16 peces · Unisex','col.3t':'Detalls & Pell','col.cta':'Descobrir col·lecció','srv.1s':'Opció 01','srv.1t':'Reserva i recull en botiga','srv.1p':'Compra en línia i recull-ho en C/ Colom 48 en 2 hores. T’avisem per SMS.','srv.1a':'Sense gastos d’enviament','srv.1b':'Prova-t’ho allí i canvia talla al moment','srv.1c':'Paga en recollir o per avançat','srv.2s':'Opció 02','srv.2t':'Enviament a domicili 24/48h','srv.2p':'Entrega en península en 24/48h laborables. Embalatge sense plàstic.','srv.2a':'4,95 € · Gratis des de 75 €','srv.2b':'Seguiment en temps real','srv.2c':'Devolució gratuïta 30 dies','srv.3s':'Opció 03','srv.3t':'Paga com preferisques','srv.3p':'Màxima flexibilitat en el pagament, sense lletra menuda.','srv.3a':'En recollir en botiga','srv.3b':'Contrareembossament en rebre-ho','srv.3c':'Passarel·la en línia segura','rev.kicker':'Opinions verificades','rev.title':'El que diuen <em>els nostres clients</em>','ct.kicker':'Contacte','ct.title':'Dubtes amb talles o comandes? <em>Parlem.</em>','ct.sub':'Responem en menys de 24h laborables. També pots visitar-nos en botiga.','ct.card_t':'Botiga AUREA València','ct.addr_t':'Adreça','ct.h1':'Dilluns – Divendres','ct.h2':'Dissabtes','ct.h3':'Diumenges','ct.closed':'Tancat','form.name':'Nom complet','form.name_ph':'Ex. Maria Garcia','form.req':'Este camp és obligatori.','form.req_mail':'Introdueix un correu vàlid.','form.phone':'Telèfon','form.subject':'Assumpte','form.s1':'Dubte sobre talles','form.s2':'Estat de la meua comanda','form.s3':'Canvis i devolucions','form.s4':'Un altre tema','form.msg':'Missatge','form.msg_ph':'Conta’ns en què podem ajudar-te…','form.privacy':'He llegit i accepte la política de privacitat i el tractament de les meues dades. *','form.send':'Enviar missatge','form.note':'En enviar acceptes ser contactat per correu o telèfon.','nl.title':'10% en la teua primera compra','nl.sub':'Subscriu-te i rep novetats, pre-vendes privades i el codi BIENVENIDA10.','nl.ph':'El teu correu','nl.btn':'Vull el meu 10%','ft.desc':'Moda adulta minimalista des de 2008. Botiga física a València i enviament a tota Espanya.','ft.shop':'Botiga','ft.help':'Ajuda','ft.ship':'Enviaments i recollida','ft.ret':'Canvis i devolucions','ft.size':'Guia de talles','ft.req':'Requisits de compra','ft.faq':'Preguntes freqüents','ft.legal':'Legal','ft.priv':'Política de privacitat','ft.cook':'Política de cookies','ft.notice':'Avís legal','ft.terms':'Condicions de venda','search.title':'Cercar en la pàgina','search.sub':'Escriu i ressaltarem les coincidències. Prem Retorn per a anar a la primera.','search.ph':'Ex. abric, devolució, talles…','search.none':'Sense resultats encara.','search.prev':'Anterior','search.next':'Següent','login.welcome':'Hola de nou!','login.welcome_sub':'Has iniciat sessió correctament.','login.logout':'Tancar sessió','login.title':'El meu compte','login.sub':'Accedix per a comprar més ràpid i vore les comandes.','login.tab1':'Iniciar sessió','login.tab2':'Crear compte','login.pass':'Contrasenya','login.enter':'Entrar','login.create':'Crear el meu compte','cart.title':'La teua cistella','cart.subtotal':'Subtotal','cart.discount':'Descompte','cart.shipping':'Enviament','cart.checkout':'Tramitar comanda','cart.keep':'Seguir comprant','co.title':'Tramitar comanda','co.sub':'Reserva per a recollir en botiga o envia-ho a la teua adreça. Tu tries com pagar.','co.s1':'Entrega','co.s2':'Pagament','co.s3':'Confirmació','co.how':'Com vols rebre la compra?','co.pickup':'Recollir en botiga','co.pickup_s':'Llesta en 2h laborables','co.free':'GRATIS','co.ship':'Enviar a domicili','co.ship_s':'Gratis des de 75 €','co.pickup_note':'T’avisarem per SMS quan la comanda estiga llesta per a recollir.','co.addr':'Adreça','co.city':'Ciutat','co.next':'Continuar al pagament','co.pay_q':'Com vols pagar?','co.pay1':'Pagar en recollir en botiga','co.pay1s':'Efectiu o targeta en C/ Colom 48. Sense avançaments.','co.pay2':'Pagar en rebre-ho (contrareembossament)','co.pay2s':'Pagues al missatger en efectiu o targeta. +2 € gestió.','co.pay3':'Pagar ara amb passarel·la segura','co.pay3s':'Targeta, Bizum o PayPal. Aniràs a la finestra de pagament.','co.back':'Arrere','co.confirm':'Confirmar comanda','co.finish':'Tornar a la botiga','gw.kicker':'Passarel·la segura del mercat','gw.title':'Aniràs a pagar','gw.note':'Finestra informativa prèvia al pagament. Ací el client implementarà la seua passarel·la real (Redsys / Stripe / Bizum). En prémer “Pagar” es simularà la confirmació.','gw.pay':'Pagar ara','gw.cancel':'Cancel·lar i tornar','qv.size':'Talla:','qv.add':'Afig a la cistella','qv.note':'✓ Recollida gratis en 2h · ✓ Devolució 30 dies · ✓ Canvi de talla gratis','ck.title':'Fem servir cookies','ck.text':'Utilitzem cookies pròpies i de tercers per a millorar la teua experiència i analitzar el trànsit. Pots acceptar-les o configurar-les.','ck.ok':'Acceptar totes','ck.no':'Només necessàries','ck.more':'Vore política'}};
+
+/* Textos legales (ES base; se mantienen en ES con aviso si idioma distinto) */
+const LEGAL = {
+  cookies:{t:'Política de cookies', s:'Última actualización: enero 2026', b:'<h4>¿Qué son?</h4><p>Archivos que se almacenan en tu dispositivo para recordar preferencias (idioma, tema, cesta) y analizar el uso de la web.</p><h4>Qué usamos</h4><p><b>Necesarias:</b> tema claro/oscuro, idioma, cesta y sesión. <b>Analítica (solo si aceptas):</b> medición anónima de visitas. No vendemos datos.</p><h4>Cómo gestionarlas</h4><p>Puedes cambiar tu elección borrando las cookies del navegador o pulsando “Solo necesarias” en el banner. Más info: hola@aurea-valencia.es.</p>'},
+  requisitos:{t:'Requisitos de compra', s:'Condiciones para comprar online', b:'<h4>Para comprar necesitas</h4><p>1) Ser mayor de 18 años o comprar con autorización. 2) Indicar nombre, teléfono y dirección o tienda de recogida. 3) Aceptar estas condiciones y la política de privacidad.</p><h4>Reserva y recogida</h4><p>La reserva en tienda se guarda 72h. Pasado ese plazo sin recoger ni avisar, se cancela sin coste.</p><h4>Pagos aceptados</h4><p>Efectivo y tarjeta en tienda, contrareembolso (+2 €) y pasarela online segura con tarjeta, Bizum o PayPal.</p>'},
+  envios:{t:'Envíos y recogida en tienda', s:'Toda la península 24/48h', b:'<h4>Recoger en tienda — GRATIS</h4><p>C/ Colón 48, València. Listo en 2h laborables. Te avisamos por SMS. Guarda tu código de pedido.</p><h4>Envío a domicilio</h4><p>4,95 € · Gratis desde 75 €. Entrega 24/48h laborables en península; Baleares 48/72h (6,95 €). Canarias, Ceuta y Melilla bajo consulta.</p><h4>Seguimiento</h4><p>Recibirás email con el localizador en cuanto el mensajero recoja tu pedido.</p>'},
+  devoluciones:{t:'Cambios y devoluciones', s:'30 días, sin preguntas', b:'<h4>Plazo</h4><p>Tienes 30 días naturales desde la recepción o compra. Prendas sin usar, con etiquetas y ticket.</p><h4>Cómo hacerlo</h4><p>En tienda: cambio o reembolso inmediato. Online: escríbenos y te enviamos etiqueta gratuita de devolución.</p><h4>Reembolso</h4><p>En 3–5 días laborables por el mismo método de pago. Si pagaste al recoger, reembolso en tienda o transferencia.</p>'},
+  tallas:{t:'Guía de tallas', s:'Medidas reales de nuestras prendas', b:'<h4>Mujer</h4><p>XS (34): pecho 82 · cintura 64 · cadera 90 — S (36–38): 88/70/96 — M (40–42): 94/76/102 — L (44–46): 102/84/110 — XL (48–50): 110/94/118.</p><h4>Hombre</h4><p>S (46): pecho 92 — M (48–50): 98–102 — L (52): 108 — XL (54): 114 — XXL (56): 120. Entre dos tallas, te recomendamos la mayor.</p><h4>¿Dudas?</h4><p>Llámanos al 963 045 871 y te asesoramos con tus medidas. El cambio de talla en tienda es gratuito.</p>'},
+  faq:{t:'Preguntas frecuentes', s:'Resolvemos tus dudas', b:'<h4>¿Puedo pagar al recoger?</h4><p>Sí. Elige “Pagar al recoger” y abonas en efectivo o tarjeta en tienda.</p><h4>¿Hacéis contrareembolso?</h4><p>Sí, con +2 € de gestión del transportista.</p><h4>¿Cuánto tarda la recogida?</h4><p>2 horas en horario de tienda. Te avisamos por SMS.</p><h4>¿Hay tallas grandes?</h4><p>Sí, hasta la 56 en hombre y XL (48–50) en mujer.</p>'},
+  privacidad:{t:'Política de privacidad', s:'RGPD · Responsable: AUREA Atelier S.L.', b:'<h4>Datos que tratamos</h4><p>Nombre, contacto y datos de pedido para gestionar tu compra, y tu email si te suscribes a la newsletter.</p><h4>Tus derechos</h4><p>Acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a hola@aurea-valencia.es.</p><h4>Conservación</h4><p>Conservamos los datos el tiempo necesario para la relación comercial y obligaciones legales. Nunca cedemos datos con fines publicitarios.</p>'},
+  aviso:{t:'Aviso legal', s:'Datos identificativos', b:'<p>AUREA Atelier S.L. · C/ Colón 48, 46004 València · CIF B-00000000 · Inscrita en el Registro Mercantil de Valencia. Email: hola@aurea-valencia.es · Tel: 963 045 871.</p><p>Los precios incluyen IVA. Las imágenes son orientativas y serán sustituidas por fotografías reales del cliente.</p>'},
+  condiciones:{t:'Condiciones de venta', s:'Compra online y en tienda', b:'<h4>Precios y stock</h4><p>Precios en euros con IVA incluido. Si un producto se agota tras tu pedido, te devolvemos el importe íntegro.</p><h4>Confirmación</h4><p>Recibirás confirmación con código de pedido (AUREA-XXXX). Guárdalo para recogidas y devoluciones.</p><h4>Desistimiento</h4><p>14 días según ley + ampliación comercial hasta 30 días en AUREA.</p>'}
+};
+
+/* ================================================================
+   3. MODO CLARO / OSCURO con localStorage + cambio de icono
+================================================================ */
+const themeToggle = $('#themeToggle');
+function setTheme(t){
+  document.documentElement.dataset.theme = t;
+  store.set('aurea_theme', t);
+}
+setTheme(store.get('aurea_theme', 'light'));
+themeToggle.addEventListener('click', ()=>{
+  const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+  setTheme(next);
+  toast(next === 'dark' ? '🌙 Modo oscuro activado' : '☀️ Modo claro activado', 'info');
+});
+
+/* ================================================================
+   4. MENÚ HAMBURGUESA — abrir/cerrar, cerrar en link y en resize
+================================================================ */
+const burger = $('#burgerBtn'), mobileMenu = $('#mobileMenu');
+function toggleMenu(force){
+  const open = force !== undefined ? force : !mobileMenu.classList.contains('open');
+  mobileMenu.classList.toggle('open', open);
+  burger.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open);
+  mobileMenu.setAttribute('aria-hidden', !open);
+}
+burger.addEventListener('click', ()=>toggleMenu());
+$$('#mobileMenu a[data-scroll]').forEach(a=>a.addEventListener('click', ()=>toggleMenu(false)));
+window.addEventListener('resize', ()=>{ if(window.innerWidth > 920) toggleMenu(false); });
+
+/* ================================================================
+   5. SCROLL SUAVE + cabecera, progreso, reveal y nav activa
+================================================================ */
+$$('a[data-scroll]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    const id = a.getAttribute('href');
+    if(!id || !id.startsWith('#')) return;
+    const target = $(id);
+    if(!target) return;
+    e.preventDefault();
+    // Si el enlace pide un filtro de tienda, aplicarlo
+    if(a.dataset.gotoFilter){ setFilter(a.dataset.gotoFilter); }
+    const top = target.getBoundingClientRect().top + window.scrollY - (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) + 54);
+    window.scrollTo({top, behavior:'smooth'});
+  });
+});
+const toTop = $('#toTop'), progress = $('#scrollProgress');
+function onScroll(){
+  const y = window.scrollY;
+  document.body.classList.toggle('scrolled', y > 40);
+  toTop.classList.toggle('show', y > 600);
+  const h = document.documentElement.scrollHeight - innerHeight;
+  progress.style.width = (h > 0 ? (y/h)*100 : 0) + '%';
+  // Nav activa según sección visible
+  const ids = ['inicio','tienda','nosotros','colecciones','opiniones','contacto'];
+  let current = 'inicio';
+  ids.forEach(id=>{ const s = document.getElementById(id); if(s && s.getBoundingClientRect().top < 160) current = id; });
+  $$('.main-nav a').forEach(a=>a.classList.toggle('active', a.getAttribute('href') === '#'+current));
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+toTop.addEventListener('click', ()=>window.scrollTo({top:0, behavior:'smooth'}));
+// Aparición de secciones (IntersectionObserver)
+const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } }), {threshold:.12});
+$$('.reveal').forEach(el=>io.observe(el));
+
+/* ================================================================
+   6. TIENDA — render, filtros, orden, vista rápida, wishlist
+================================================================ */
+let activeFilter = 'all';
+const grid = $('#productGrid'), sortSel = $('#sortSelect'), resultsCount = $('#resultsCount');
+const wishlist = new Set(store.get('aurea_wish', []));
+function badgeHTML(b){
+  if(!b) return '';
+  const map = {new:'NUEVO', sale:'−20%', eco:'ECO'};
+  return '<div class="badge"><span class="'+b+'">'+map[b]+'</span></div>';
+}
+function renderProducts(){
+  let list = PRODUCTS.filter(p=>activeFilter==='all' || p.cat===activeFilter);
+  const sort = sortSel.value;
+  if(sort==='price-asc') list = [...list].sort((a,b)=>a.price-b.price);
+  if(sort==='price-desc') list = [...list].sort((a,b)=>b.price-a.price);
+  if(sort==='name') list = [...list].sort((a,b)=>a.name.localeCompare(b.name));
+  resultsCount.textContent = list.length + (list.length===1?' producto':' productos');
+  grid.innerHTML = list.map((p,i)=>{
+    const off = p.old ? Math.round((1-p.price/p.old)*100) : 0;
+    return '<article class="product-card reveal visible" style="animation:fadeUp .5s var(--ease) '+(i*0.06)+'s both;">'
+    +'<div class="product-media"><img src="'+p.img+'" alt="'+p.name+'" loading="lazy">'+badgeHTML(p.badge)
+    +'<button class="wishlist'+(wishlist.has(p.id)?' active':'')+'" data-wish="'+p.id+'" aria-label="Añadir a favoritos">♥</button>'
+    +'<div class="quick-actions"><button class="view" data-view="'+p.id+'">👁 Ver</button><button class="add" data-add="'+p.id+'">+ Añadir</button></div></div>'
+    +'<div class="product-info"><span class="product-cat">'+(CAT_LABEL[p.cat]||p.cat)+'</span><h3>'+p.name+'</h3>'
+    +'<div class="product-rating"><span class="stars">★★★★★</span><span>'+p.rating+' ('+p.reviews+')</span></div>'
+    +'<div class="sizes">'+p.sizes.slice(0,5).map((s,j)=>'<button data-size="'+p.id+'|'+s+'" class="'+(j===2||(p.sizes.length<=2&&j===0)?'selected':'')+'">'+s+'</button>').join('')+'</div>'
+    +'<div class="product-price"><strong>'+money(p.price)+'</strong>'+(p.old?'<s>'+money(p.old)+'</s><span class="off">−'+off+'%</span>':'')+'</div>'
+    +'</div></article>';
+  }).join('') || '<p style="grid-column:1/-1;text-align:center;color:var(--muted);padding:40px;">Sin productos en esta categoría.</p>';
+}
+function setFilter(f){
+  activeFilter = f;
+  $$('.filter-btn').forEach(b=>b.classList.toggle('active', b.dataset.filter===f));
+  renderProducts();
+}
+$$('.filter-btn').forEach(b=>b.addEventListener('click', ()=>setFilter(b.dataset.filter)));
+sortSel.addEventListener('change', renderProducts);
+// Delegación: tallas, añadir, ver, wishlist
+const chosenSize = {};
+grid.addEventListener('click', e=>{
+  const sz = e.target.closest('[data-size]');
+  if(sz){ const [id,s] = sz.dataset.size.split('|'); chosenSize[id]=s; $$('[data-size^="'+id+'|"]', grid).forEach(b=>b.classList.toggle('selected', b===sz)); return; }
+  const w = e.target.closest('[data-wish]');
+  if(w){ const id=w.dataset.wish; wishlist.has(id)?wishlist.delete(id):wishlist.add(id); store.set('aurea_wish', [...wishlist]); w.classList.toggle('active'); toast(wishlist.has(id)?'♥ Guardado en favoritos':'Eliminado de favoritos','info'); return; }
+  const v = e.target.closest('[data-view]');
+  if(v){ openQuick(v.dataset.view); return; }
+  const a = e.target.closest('[data-add]');
+  if(a){ const p = PRODUCTS.find(x=>x.id===a.dataset.add); addToCart(p.id, chosenSize[p.id] || p.sizes[Math.min(2,p.sizes.length-1)] || p.sizes[0], 1); return; }
+});
+renderProducts();
+
+/* ---------- Vista rápida ---------- */
+let qvId=null, qvSize=null, qvQty=1;
+function openQuick(id){
+  const p = PRODUCTS.find(x=>x.id===id); if(!p) return;
+  qvId=id; qvQty=1; qvSize = chosenSize[id] || p.sizes[Math.min(2,p.sizes.length-1)] || p.sizes[0];
+  $('#qvImg').src=p.img; $('#qvImg').alt=p.name;
+  $('#qvCat').textContent=CAT_LABEL[p.cat]; $('#qvName').textContent=p.name;
+  $('#qvStars').textContent='★★★★★'; $('#qvReviews').textContent=p.rating+' · '+p.reviews+' opiniones';
+  $('#qvDesc').textContent=p.desc; $('#qvPrice').textContent=money(p.price);
+  $('#qvOld').textContent=p.old?money(p.old):''; $('#qvQty').textContent='1';
+  $('#qvSizes').innerHTML=p.sizes.map(s=>'<button class="'+(s===qvSize?'selected':'')+'" data-qsize="'+s+'">'+s+'</button>').join('');
+  openModal('quickModal');
+}
+$('#qvSizes').addEventListener('click', e=>{ const b=e.target.closest('[data-qsize]'); if(!b) return; qvSize=b.dataset.qsize; $$('#qvSizes button').forEach(x=>x.classList.toggle('selected',x===b)); });
+$('#qvMinus').addEventListener('click', ()=>{ qvQty=Math.max(1,qvQty-1); $('#qvQty').textContent=qvQty; });
+$('#qvPlus').addEventListener('click', ()=>{ qvQty=Math.min(9,qvQty+1); $('#qvQty').textContent=qvQty; });
+$('#qvAdd').addEventListener('click', ()=>{ addToCart(qvId, qvSize, qvQty); closeModal('quickModal'); });
+
+/* ================================================================
+   7. CARRITO — drawer, cantidades, promo, totales, persistencia
+================================================================ */
+let cart = store.get('aurea_cart', []); // [{id,size,qty}]
+let promo = store.get('aurea_promo', null);
+const SHIP_COST = 4.95, FREE_FROM = 75, COD_FEE = 2;
+const drawer = $('#cartDrawer'), overlay = $('#overlay');
+function cartQty(){ return cart.reduce((a,i)=>a+i.qty,0); }
+function cartSubtotal(){ return cart.reduce((a,i)=>{ const p=PRODUCTS.find(x=>x.id===i.id); return a+(p?p.price*i.qty:0); },0); }
+function discount(){ if(promo==='BIENVENIDA10') return cartSubtotal()*0.10; return 0; }
+function shippingPreview(){
+  if(cart.length===0) return 0;
+  if(promo==='ENVIOGRATIS') return 0;
+  return (cartSubtotal()-discount()) >= FREE_FROM ? 0 : SHIP_COST;
+}
+function saveCart(){ store.set('aurea_cart', cart); store.set('aurea_promo', promo); }
+function renderCart(){
+  const n = cartQty(), sub = cartSubtotal(), d = discount(), ship = shippingPreview();
+  $('#cartCount').textContent=n; $('#cartHeadCount').textContent='('+n+')';
+  $('#cartSubtotal').textContent=money(sub);
+  $('#discountRow').style.display=d>0?'flex':'none';
+  $('#cartDiscount').textContent='−'+money(d);
+  $('#cartShipping').textContent=cart.length===0?'—':(ship===0?'GRATIS':money(ship));
+  $('#cartTotal').textContent=money(Math.max(0,sub-d+(cart.length?ship:0)));
+  // Barra envío gratis
+  const pct = Math.min(100, ((sub-d)/FREE_FROM)*100);
+  $('#freeShipBar').style.width=pct+'%';
+  $('#freeShipText').innerHTML = (sub-d)>=FREE_FROM ? '🎉 <b>Tienes envío GRATIS</b> en tu pedido' : 'Te faltan <b>'+money(FREE_FROM-(sub-d))+'</b> para el envío gratis';
+  // Items
+  const box=$('#cartItems');
+  if(!cart.length){ box.innerHTML='<div class="cart-empty"><div class="big">🛍️</div><strong>Tu cesta está vacía</strong><p style="font-size:.88rem;margin:8px 0 18px;">Descubre piezas atemporales hechas para durar.</p><button class="btn btn-primary btn-sm" id="emptyGo">Ver colección</button></div>'; const g=$('#emptyGo'); if(g) g.addEventListener('click',()=>{closeCart(); document.getElementById('tienda').scrollIntoView({behavior:'smooth'});}); return; }
+  box.innerHTML = cart.map((i,idx)=>{ const p=PRODUCTS.find(x=>x.id===i.id); if(!p) return '';
+    return '<div class="cart-item"><img src="'+p.img+'" alt="'+p.name+'"><div><h4>'+p.name+'</h4><span class="meta">Talla '+i.size+' · '+money(p.price)+'</span><br><span class="qty"><button data-dec="'+idx+'">−</button><b>'+i.qty+'</b><button data-inc="'+idx+'">+</button></span></div><div class="cart-item-right"><button class="remove-btn" data-del="'+idx+'" aria-label="Eliminar">✕</button><strong>'+money(p.price*i.qty)+'</strong></div></div>';
+  }).join('');
+}
+$('#cartItems').addEventListener('click', e=>{
+  const inc=e.target.closest('[data-inc]'), dec=e.target.closest('[data-dec]'), del=e.target.closest('[data-del]');
+  if(inc){ cart[+inc.dataset.inc].qty=Math.min(9,cart[+inc.dataset.inc].qty+1); }
+  else if(dec){ const i=+dec.dataset.dec; cart[i].qty--; if(cart[i].qty<1) cart.splice(i,1); }
+  else if(del){ cart.splice(+del.dataset.del,1); toast('Prenda eliminada de la cesta','info'); }
+  else return;
+  saveCart(); renderCart();
+});
+function addToCart(id, size, qty){
+  const found = cart.find(i=>i.id===id && i.size===size);
+  if(found) found.qty=Math.min(9, found.qty+qty); else cart.push({id,size,qty});
+  saveCart(); renderCart(); openCart();
+  const p=PRODUCTS.find(x=>x.id===id);
+  toast('✓ <b>'+p.name+'</b> ('+size+') añadido a la cesta');
+}
+function openCart(){ drawer.classList.add('open'); overlay.classList.add('show'); document.body.style.overflow='hidden'; }
+function closeCart(){ drawer.classList.remove('open'); if(!$('.modal.open')){ overlay.classList.remove('show'); document.body.style.overflow=''; } }
+$('#openCart').addEventListener('click', openCart);
+$('#closeCart').addEventListener('click', closeCart);
+$('#keepBuying').addEventListener('click', closeCart);
+overlay.addEventListener('click', ()=>{ closeCart(); $$('.modal.open').forEach(m=>m.classList.remove('open')); overlay.classList.remove('show'); document.body.style.overflow=''; clearSearchHighlight(); });
+$('#promoBtn').addEventListener('click', ()=>{
+  const v=$('#promoInput').value.trim().toUpperCase();
+  if(v==='BIENVENIDA10'){ promo=v; toast('🎉 Código aplicado: −10% en tu pedido'); }
+  else if(v==='ENVIOGRATIS'){ promo=v; toast('🚚 Código aplicado: envío gratis'); }
+  else if(v===''){ promo=null; toast('Código eliminado','info'); }
+  else { toast('Código no válido. Prueba BIENVENIDA10','error'); return; }
+  saveCart(); renderCart();
+});
+renderCart();
+
+/* ================================================================
+   8. CHECKOUT — entrega (recoger/envío) + pago (3 opciones)
+================================================================ */
+let delivery='pickup', orderTotal=0, lastOrder=null;
+function gotoStep(n){
+  $$('.checkout-step').forEach(s=>s.classList.toggle('active', +s.dataset.step===n));
+  $$('[data-step-pill]').forEach(p=>{ const k=+p.dataset.stepPill; p.classList.toggle('active',k===n); p.classList.toggle('done',k<n); });
+}
+$('#choicePickup').addEventListener('click', ()=>{ delivery='pickup'; $('#choicePickup').classList.add('selected'); $('#choiceShip').classList.remove('selected'); $('#pickupFields').style.display='block'; $('#shipFields').style.display='none'; renderSummary(); });
+$('#choiceShip').addEventListener('click', ()=>{ delivery='ship'; $('#choiceShip').classList.add('selected'); $('#choicePickup').classList.remove('selected'); $('#shipFields').style.display='none'; $('#pickupFields').style.display='block'; $('#pickupFields').style.display='none'; $('#shipFields').style.display='block'; renderSummary(); });
+$$('#payOptions .pay-option').forEach(o=>o.addEventListener('click', ()=>{ $$('#payOptions .pay-option').forEach(x=>x.classList.remove('selected')); o.classList.add('selected'); o.querySelector('input').checked=true; renderSummary(); }));
+function payMethod(){ const r=$('input[name="pay"]:checked'); return r?r.value:'pickup'; }
+function totals(){
+  const sub=cartSubtotal(), d=discount(), base=Math.max(0,sub-d);
+  let ship=0;
+  if(delivery==='ship'){ ship = (promo==='ENVIOGRATIS'||base>=FREE_FROM)?0:SHIP_COST; }
+  const cod = (payMethod()==='cod'&&delivery==='ship')?COD_FEE:0;
+  return {sub,d,base,ship,cod,total:base+ship+cod};
+}
+function renderSummary(){
+  const t=totals(); orderTotal=t.total;
+  const payName={pickup:'Pagar al recoger',cod:'Contrareembolso',gateway:'Pasarela online'}[payMethod()];
+  const delName=delivery==='pickup'?'Recoger en tienda (GRATIS)':'Envío a domicilio';
+  $('#checkoutSummary').innerHTML='<div><span>Productos ('+cartQty()+')</span><b>'+money(t.sub)+'</b></div>'
+  +(t.d>0?'<div><span>Descuento '+promo+'</span><b style="color:var(--success);">−'+money(t.d)+'</b></div>':'')
+  +'<div><span>'+delName+'</span><b>'+(t.ship===0?'GRATIS':money(t.ship))+'</b></div>'
+  +(t.cod>0?'<div><span>Gestión contrareembolso</span><b>'+money(t.cod)+'</b></div>':'')
+  +'<div><span>Pago</span><b>'+payName+'</b></div>'
+  +'<div class="grand"><span>Total a pagar</span><span>'+money(t.total)+'</span></div>';
+}
+$('#goCheckout').addEventListener('click', ()=>{
+  if(!cart.length){ toast('Tu cesta está vacía','error'); return; }
+  closeCart(); gotoStep(1); renderSummary(); openModal('checkoutModal');
+});
+$('#toStep2').addEventListener('click', ()=>{
+  if(delivery==='pickup'){
+    if(!$('#puName').value.trim()||!$('#puPhone').value.trim()){ toast('Indica nombre y teléfono para la recogida','error'); return; }
+  }else{
+    const f=['shName','shPhone','shAddr','shZip','shCity'];
+    if(f.some(id=>!$('#'+id).value.trim())){ toast('Completa todos los campos de envío','error'); return; }
+  }
+  // Si recoge en tienda, forzar pago coherente (no contrareembolso)
+  if(delivery==='pickup' && payMethod()==='cod'){ $('input[name="pay"][value="pickup"]').checked=true; $$('#payOptions .pay-option').forEach(x=>x.classList.toggle('selected',x.querySelector('input').value==='pickup')); }
+  renderSummary(); gotoStep(2);
+});
+$('#backTo1').addEventListener('click', ()=>gotoStep(1));
+$('#confirmOrder').addEventListener('click', ()=>{
+  const t=totals();
+  const code='AUREA-'+Math.floor(1000+Math.random()*9000);
+  lastOrder={code,total:t.total,delivery,pay:payMethod(),items:cartQty(),date:new Date().toLocaleString('es-ES')};
+  if(payMethod()==='gateway'){
+    // Ir a ventana informativa de pasarela
+    closeModal('checkoutModal');
+    $('#gatewayAmount').textContent=money(t.total);
+    $('#gatewayOrder').textContent='Pedido '+code+' · AUREA Atelier · '+cartQty()+' artículos';
+    openModal('gatewayModal');
+  }else{
+    finishOrder(false);
+  }
+});
+$('#payGatewayBtn').addEventListener('click', ()=>{
+  // Simulación: aquí el cliente conectará Redsys/Stripe/Bizum real
+  $('#payGatewayBtn').disabled=true; $('#payGatewayBtn').innerHTML='Procesando…';
+  setTimeout(()=>{ $('#payGatewayBtn').disabled=false; $('#payGatewayBtn').innerHTML='💳 <span>Pagar ahora</span>'; closeModal('gatewayModal'); finishOrder(true); }, 1400);
+});
+function finishOrder(paid){
+  if(!lastOrder) return;
+  const delTxt = lastOrder.delivery==='pickup' ? 'Recoger en C/ Colón 48 (te avisaremos por SMS)' : 'Envío a domicilio 24/48h';
+  const payTxt = lastOrder.pay==='gateway' ? (paid?'Pagado online ✓':'Pasarela online') : lastOrder.pay==='cod' ? 'Contrareembolso' : 'Pago en tienda';
+  $('#orderCode').textContent=lastOrder.code;
+  $('#successText').textContent = lastOrder.delivery==='pickup'
+    ? 'Tu reserva está confirmada. Presenta este código en tienda. ' + (lastOrder.pay==='pickup'?'Pagarás al recoger.':'¡Pago completado online!')
+    : 'Tu pedido está en preparación. Lo recibirás en 24/48h. ' + (lastOrder.pay==='cod'?'Pagarás al mensajero.':'¡Pago completado online!');
+  $('#finalSummary').innerHTML='<div><span>Artículos</span><b>'+lastOrder.items+'</b></div><div><span>Entrega</span><b>'+delTxt+'</b></div><div><span>Pago</span><b>'+payTxt+'</b></div><div class="grand"><span>Total</span><span>'+money(lastOrder.total)+'</span></div>';
+  cart=[]; promo=null; saveCart(); renderCart();
+  openModal('checkoutModal'); gotoStep(3);
+  toast('🎉 Pedido '+lastOrder.code+' confirmado');
+}
+$('#finishOrder').addEventListener('click', ()=>{ closeModal('checkoutModal'); document.getElementById('tienda').scrollIntoView({behavior:'smooth'}); });
+
+/* ================================================================
+   9. MODALES genéricos — abrir/cerrar con animación + ESC
+================================================================ */
+function openModal(id){ $('#'+id).classList.add('open'); overlay.classList.add('show'); document.body.style.overflow='hidden'; }
+function closeModal(id){ $('#'+id).classList.remove('open'); if(!$('.modal.open') && !drawer.classList.contains('open')){ overlay.classList.remove('show'); document.body.style.overflow=''; } }
+$$('[data-close]').forEach(b=>b.addEventListener('click', ()=>{ const m=b.closest('.modal'); if(m) closeModal(m.id); clearSearchHighlight(); }));
+document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ closeCart(); $$('.modal.open').forEach(m=>m.classList.remove('open')); overlay.classList.remove('show'); document.body.style.overflow=''; toggleMenu(false); clearSearchHighlight(); } });
+// Legales
+$$('[data-legal]').forEach(b=>b.addEventListener('click', ()=>{
+  const k=b.dataset.legal, L=LEGAL[k]; if(!L) return;
+  $('#legalTitle').textContent=L.t; $('#legalSub').textContent=L.s; $('#legalBody').innerHTML=L.b;
+  $('#cookieBanner').classList.remove('show'); openModal('legalModal');
+}));
+
+/* ================================================================
+   10. BÚSQUEDA en página — resaltar coincidencias + navegación
+================================================================ */
+const searchInput=$('#searchInput'), searchResults=$('#searchResults'), searchCount=$('#searchCount');
+let marks=[], markIdx=-1;
+function openSearch(){ toggleMenu(false); openModal('searchModal'); setTimeout(()=>searchInput.focus(),120); }
+$('#openSearch').addEventListener('click', openSearch);
+$('#openSearchMobile').addEventListener('click', openSearch);
+function clearSearchHighlight(){
+  $$('mark.search-highlight, mark.search-current').forEach(m=>{ const t=document.createTextNode(m.textContent); m.replaceWith(t); });
+  document.normalize(); marks=[]; markIdx=-1;
+}
+function doSearch(){
+  clearSearchHighlight();
+  const q=searchInput.value.trim();
+  searchResults.innerHTML='';
+  if(q.length<2){ searchCount.textContent=I18N[document.documentElement.dataset.lang]['search.none']; return; }
+  // Recorrer nodos de texto de main
+  const walker=document.createTreeWalker($('main'), NodeFilter.SHOW_TEXT, {acceptNode(n){
+    if(!n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+    if(n.parentElement.closest('script,style')) return NodeFilter.FILTER_REJECT;
+    return NodeFilter.FILTER_ACCEPT;
+  }});
+  const nodes=[]; let n; while(n=walker.nextNode()) nodes.push(n);
+  const ql=q.toLowerCase(); let total=0; const found=[];
+  nodes.forEach(node=>{
+    const txt=node.nodeValue; const idx=txt.toLowerCase().indexOf(ql);
+    if(idx===-1) return;
+    const frag=document.createDocumentFragment();
+    let last=0, li=txt.toLowerCase().indexOf(ql);
+    while(li!==-1){
+      frag.appendChild(document.createTextNode(txt.slice(last,li)));
+      const mark=document.createElement('mark'); mark.className='search-highlight'; mark.textContent=txt.slice(li,li+q.length);
+      frag.appendChild(mark); marks.push(mark); total++;
+      // Guardar contexto para el listado (máx 12)
+      if(found.length<12){
+        const ctx=txt.slice(Math.max(0,li-40), li+q.length+40).replace(/\s+/g,' ').trim();
+        const sec=node.parentElement.closest('section'); const secName=sec&&sec.id?sec.id:'página';
+        found.push({ctx, sec:secName, mark});
+      }
+      last=li+q.length; li=txt.toLowerCase().indexOf(ql,last);
+    }
+    frag.appendChild(document.createTextNode(txt.slice(last)));
+    node.replaceWith(frag);
+  });
+  if(!total){ searchCount.textContent='0 resultados para “'+q+'”'; searchResults.innerHTML='<p style="color:var(--muted);font-size:.9rem;">Prueba con: abrigo, envío, tallas, devolución…</p>'; return; }
+  searchCount.textContent=total+' resultado'+(total>1?'s':'')+' para “'+q+'”';
+  const esc=s=>s.replace(/</g,'&lt;');
+  searchResults.innerHTML=found.map((f,i)=>{
+    const hi=esc(f.ctx).replace(new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig'),'<mark>$1</mark>');
+    return '<button class="search-result" data-goto-mark="'+marks.indexOf(f.mark)+'"><strong>#'+f.sec+'</strong><small>…'+hi+'…</small></button>';
+  }).join('');
+  if(total>found.length) searchResults.innerHTML+='<p style="font-size:.82rem;color:var(--muted);">Mostrando '+found.length+' de '+total+'. Usa Siguiente para recorrerlos.</p>';
+}
+function gotoMark(i){
+  if(!marks.length) return;
+  markIdx=(i+marks.length)%marks.length;
+  marks.forEach(m=>m.classList.replace('search-current','search-highlight'));
+  const m=marks[markIdx]; m.classList.replace('search-highlight','search-current');
+  closeModal('searchModal'); clearOverlayIfNone();
+  m.scrollIntoView({behavior:'smooth', block:'center'});
+  searchCount.textContent=(markIdx+1)+' / '+marks.length;
+}
+function clearOverlayIfNone(){ if(!$('.modal.open') && !drawer.classList.contains('open')){ overlay.classList.remove('show'); document.body.style.overflow=''; } }
+let searchTimer=null;
+searchInput.addEventListener('input', ()=>{ clearTimeout(searchTimer); searchTimer=setTimeout(doSearch,220); });
+searchInput.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); if(!marks.length) doSearch(); gotoMark(markIdx+1); } });
+$('#searchNext').addEventListener('click', ()=>gotoMark(markIdx+1));
+$('#searchPrev').addEventListener('click', ()=>gotoMark(markIdx-1));
+searchResults.addEventListener('click', e=>{ const b=e.target.closest('[data-goto-mark]'); if(b) gotoMark(+b.dataset.gotoMark); });
+
+/* ================================================================
+   11. SISTEMA DE IDIOMA — estructura lista para cambiar textos
+================================================================ */
+function applyLang(lang){
+  const dict=I18N[lang]; if(!dict) return;
+  document.documentElement.dataset.lang=lang;
+  document.documentElement.lang = lang==='va'?'ca':lang;
+  $$('[data-i18n]').forEach(el=>{ const k=el.dataset.i18n; if(dict[k]!==undefined) el.textContent=dict[k]; });
+  $$('[data-i18n-html]').forEach(el=>{ const k=el.dataset.i18nHtml; if(dict[k]!==undefined) el.innerHTML=dict[k]; });
+  $$('[data-i18n-ph]').forEach(el=>{ const k=el.dataset.i18nPh; if(dict[k]!==undefined) el.placeholder=dict[k]; });
+  $$('[data-lang-btn]').forEach(b=>b.classList.toggle('active', b.dataset.langBtn===lang));
+  store.set('aurea_lang', lang);
+}
+$$('[data-lang-btn]').forEach(b=>b.addEventListener('click', ()=>{
+  applyLang(b.dataset.langBtn);
+  toast(b.dataset.langBtn==='es'?'🇪🇸 Español':b.dataset.langBtn==='en'?'🇬🇧 English':'🟡 Valencià','info');
+}));
+applyLang(store.get('aurea_lang','es'));
+
+/* ================================================================
+   12. LOGIN — pestañas, registro e inicio (mock con localStorage)
+================================================================ */
+const tabLogin=$('#tabLogin'), tabRegister=$('#tabRegister');
+function openLogin(){ toggleMenu(false); refreshLogin(); openModal('loginModal'); }
+$('#openLogin').addEventListener('click', openLogin);
+$('#openLoginMobile').addEventListener('click', openLogin);
+tabLogin.addEventListener('click', ()=>{ tabLogin.classList.add('active'); tabRegister.classList.remove('active'); $('#formLogin').style.display='block'; $('#formRegister').style.display='none'; });
+tabRegister.addEventListener('click', ()=>{ tabRegister.classList.add('active'); tabLogin.classList.remove('active'); $('#formRegister').style.display='block'; $('#formLogin').style.display='none'; });
+function refreshLogin(){
+  const u=store.get('aurea_user', null);
+  $('#loginLogged').style.display=u?'block':'none';
+  $('#loginForms').style.display=u?'none':'block';
+  $('#openLogin').classList.toggle('logged', !!u);
+  if(u){ $('#userName').textContent=u.name; $('#userEmail').textContent=u.email; $('#userAvatar').textContent=(u.name||'U')[0].toUpperCase(); }
+}
+$('#formRegister').addEventListener('submit', e=>{
+  e.preventDefault();
+  const name=$('#regName').value.trim(), email=$('#regEmail').value.trim(), pass=$('#regPass').value;
+  if(!name||!email||pass.length<4){ toast('Revisa los datos del registro','error'); return; }
+  store.set('aurea_user',{name,email}); refreshLogin();
+  toast('🎉 ¡Cuenta creada! Bienvenid@, '+name.split(' ')[0]);
+});
+$('#formLogin').addEventListener('submit', e=>{
+  e.preventDefault();
+  const email=$('#loginEmail').value.trim(), pass=$('#loginPass').value;
+  if(!email||pass.length<4){ toast('Email o contraseña no válidos','error'); return; }
+  const prev=store.get('aurea_user', null);
+  const name=prev&&prev.email===email?prev.name:email.split('@')[0];
+  store.set('aurea_user',{name:name[0].toUpperCase()+name.slice(1),email}); refreshLogin();
+  toast('👋 ¡Hola de nuevo, '+name.split(' ')[0]+'!');
+  closeModal('loginModal');
+});
+$('#logoutBtn').addEventListener('click', ()=>{ localStorage.removeItem('aurea_user'); refreshLogin(); toast('Sesión cerrada','info'); });
+refreshLogin();
+
+/* ================================================================
+   13. FORMULARIOS — contacto + newsletter con validación
+================================================================ */
+$('#contactForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  let ok=true;
+  const check=(id,valid)=>{ const f=$('#'+id).closest('.field'); f.classList.toggle('invalid',!valid); if(!valid) ok=false; };
+  check('cName', $('#cName').value.trim().length>=2);
+  check('cEmail', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('#cEmail').value.trim()));
+  check('cMsg', $('#cMsg').value.trim().length>=5);
+  if(!$('#cPrivacy').checked){ ok=false; toast('Debes aceptar la política de privacidad','error'); return; }
+  if(!ok){ toast('Revisa los campos marcados','error'); return; }
+  toast('✉️ ¡Mensaje enviado! Te responderemos en 24h');
+  e.target.reset();
+});
+$('#newsForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const em=$('#newsEmail').value.trim();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){ toast('Introduce un email válido','error'); return; }
+  $('#promoInput').value='BIENVENIDA10';
+  toast('🎉 ¡Suscripción lista! Usa BIENVENIDA10 (−10%)');
+  e.target.reset();
+});
+
+/* ================================================================
+   14. SLIDER opiniones — auto + flechas + dots
+================================================================ */
+const track=$('#slideTrack'), dotsBox=$('#sliderDots');
+let slide=0, slideTimer=null;
+const nSlides=track.children.length;
+for(let i=0;i<nSlides;i++){ const d=document.createElement('button'); d.setAttribute('aria-label','Ir a opinión '+(i+1)); d.addEventListener('click',()=>goSlide(i,true)); dotsBox.appendChild(d); }
+function goSlide(i,manual){
+  slide=(i+nSlides)%nSlides;
+  track.style.transform='translateX(-'+(slide*100)+'%)';
+  $$('#sliderDots button').forEach((d,j)=>d.classList.toggle('active',j===slide));
+  if(manual){ clearInterval(slideTimer); startAuto(); }
+}
+function startAuto(){ slideTimer=setInterval(()=>goSlide(slide+1),6000); }
+$('#prevSlide').addEventListener('click',()=>goSlide(slide-1,true));
+$('#nextSlide').addEventListener('click',()=>goSlide(slide+1,true));
+goSlide(0); startAuto();
+
+/* ================================================================
+   15. COOKIES banner
+================================================================ */
+if(!store.get('aurea_cookies', null)) setTimeout(()=>$('#cookieBanner').classList.add('show'), 1600);
+$('#acceptCookies').addEventListener('click', ()=>{ store.set('aurea_cookies','all'); $('#cookieBanner').classList.remove('show'); toast('🍪 Preferencias guardadas','info'); });
+$('#rejectCookies').addEventListener('click', ()=>{ store.set('aurea_cookies','min'); $('#cookieBanner').classList.remove('show'); toast('Solo cookies necesarias activas','info'); });
+
+/* Init scroll state */
+onScroll();
+})();
+</script>
+</body>
+</html>
