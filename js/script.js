@@ -1,37 +1,51 @@
-/*
+//.. INICIO: Section: Hero
 fetch('components/hero.html')
-.then(response => response.text())
-.then(data => {
-console.log(data);
-document.getElementById('hero-container').innerHTML = data;
-});*/
+  .then(response => response.text())
+  .then(html => {
+      document.getElementById('hero-container').innerHTML = html;
+      iniciarHeroAnimation();
+  });
+
+  function iniciarHeroAnimation() {
+      const hero = document.querySelector('#inicio');
+      const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              const elementos = hero.querySelectorAll(
+                  '.animate-left, .animate-right'
+              );
+              if (entry.isIntersecting) {
+                  elementos.forEach(el => {
+                      el.classList.add('animate-visible');
+                  });
+              } else {
+                  elementos.forEach(el => {
+                      el.classList.remove('animate-visible');
+                  });
+              }
+          });
+      }, {
+          threshold: 0.3
+      });
+      observer.observe(hero);
+  }
+//.. FIN: Section: Hero
 
 
-document.addEventListener('DOMContentLoaded', () => {
-fetch('components/hero.html')
-.then(response => response.text())
-.then(html => {
-document.getElementById('hero-container').innerHTML = html;
-setTimeout(() => {
-document
-.querySelectorAll('.animate-left, .animate-right')
-.forEach(el => {
-el.classList.add('animate-visible');
-});
-}, 100);
-});
-});
 
 
 
-async function loadComponent(container, file) {
+
+
+
+
+/*async function loadComponent(container, file) {
   const response = await fetch(file);
   document.getElementById(container).innerHTML =
   await response.text();
   iniciarAnimaciones();
 }
 loadComponent('hero-container', 'components/hero.html');
-
+*/
 
 
 // Animación de números al hacer scroll
