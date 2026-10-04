@@ -1,8 +1,9 @@
-//.. cargar contenido de la sección hero desde un archivo externo
-fetch('sections/hero.html').then(response => response.text()).then(data => 
-      {document.getElementById('hero-container').innerHTML = data;});
 
-
+document.addEventListener('DOMContentLoaded', () => {
+  //.. cargar contenido de la sección hero desde un archivo externo
+  fetch('components/hero.html').then(r => r.text()).then(html => {
+    document.getElementById('hero-container').innerHTML = html;});
+});
 
 
 
