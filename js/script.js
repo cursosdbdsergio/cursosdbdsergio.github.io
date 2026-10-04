@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
   //.. cargar contenido de la sección hero desde un archivo externo
   fetch('components/hero.html').then(r => r.text()).then(html => {
     document.getElementById('hero-container').innerHTML = html;});
+
+    alert("Bienvenido a mi portafolio!"); // Mensaje de bienvenida
 });
 
 
