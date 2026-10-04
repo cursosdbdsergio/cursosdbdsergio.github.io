@@ -1,6 +1,6 @@
-/*
+
 // Animación de números al hacer scroll
-const elementos = document.querySelectorAll('.animar');
+/*const elementos = document.querySelectorAll('.animar');
 
 const animarNumero = (el) => {
   const final = parseInt(el.dataset.target, 10);
@@ -39,6 +39,7 @@ const observer = new IntersectionObserver((entries) => {
 
 elementos.forEach(el => observer.observe(el));
 */
+
 
 
 

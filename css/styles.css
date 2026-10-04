@@ -580,3 +580,11 @@ body {
     border-radius: 12px;
 }
 
+/* CSS para la section sobremi */
+.metric-number {
+    transition: transform 0.3s ease;
+}
+
+.metric-number.activo {
+    transform: scale(1.08);
+}
