@@ -550,7 +550,7 @@ body {
 /* para animar la primera sección del hero */
 /* Estado inicial (oculto y desplazado) */
 .animate-left, .animate-right {
-  opacity: 0;
+  opacity: 1;
   transform: translateX(0);
   transition: opacity 0.8s ease, transform 1.8s ease;
 }
