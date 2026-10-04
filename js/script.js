@@ -1,13 +1,21 @@
 
+//document.addEventListener('DOMContentLoaded', () => {
+//  //.. cargar contenido de la sección hero desde un archivo externo
+//  fetch('components/hero.html')
+//    .then(r => r.text()).then(html => {
+//    document.getElementById('hero-container').innerHTML = html;});
+
+//    alert("Bienvenido a mi portafolio!"); // Mensaje de bienvenida
+//});
+
 document.addEventListener('DOMContentLoaded', () => {
-  //.. cargar contenido de la sección hero desde un archivo externo
-  fetch('components/hero.html').then(r => r.text()).then(html => {
-    document.getElementById('hero-container').innerHTML = html;});
-
-    alert("Bienvenido a mi portafolio!"); // Mensaje de bienvenida
+fetch('components/hero.html')
+.then(response => response.text())
+.then(data => {
+console.log(data);
+document.getElementById('hero-container').innerHTML = data;
 });
-
-
+});
 
 
 // Animación de números al hacer scroll
