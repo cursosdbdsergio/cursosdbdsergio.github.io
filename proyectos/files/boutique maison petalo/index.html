@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Maison Pétalo, boutique de moda infantil en València. Ropa para niñas, niños y bebé. Recogida en tienda o envío a domicilio.">
+  <title>Maison Pétalo — Boutique de moda infantil</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Barra superior de información general -->
+  <div class="topbar" id="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-info">
+        <a href="tel:+34963014580" class="topbar-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
+          <span>+34 963 014 580</span>
+        </a>
+        <a href="mailto:hola@maisonpetalo.com" class="topbar-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
+          <span>hola@maisonpetalo.com</span>
+        </a>
+        <span class="topbar-link topbar-hours">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 11h-4V7h2v4h2v2z"/></svg>
+          <span data-i18n="topbar.hours">L–S 10:00–20:00 · D 11:00–14:00</span>
+        </span>
+      </div>
+      <div class="topbar-right">
+        <span class="topbar-note" data-i18n="topbar.shipping">Envío gratuito a partir de 60 €</span>
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <button type="button" class="lang-btn is-active" data-lang="es">ES</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+          <button type="button" class="lang-btn" data-lang="va">VA</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cabecera fija -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="#inicio" class="logo" aria-label="Maison Pétalo">
+        <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M24 6c2 8 8 14 16 16-8 2-14 8-16 16-2-8-8-14-16-16 8-2 14-8 16-16z"/>
+        </svg>
+        <span class="logo-text">Maison Pétalo</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Principal">
+        <a href="#inicio" data-i18n="nav.home">Inicio</a>
+        <a href="#coleccion" data-i18n="nav.collection">Colección</a>
+        <a href="#ninas" data-i18n="nav.girls">Niñas</a>
+        <a href="#ninos" data-i18n="nav.boys">Niños</a>
+        <a href="#bebe" data-i18n="nav.baby">Bebé</a>
+        <a href="#atelier" data-i18n="nav.about">Atelier</a>
+        <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="icon-btn" id="search-open" aria-label="Buscar" title="Buscar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-3.2-3.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <button type="button" class="icon-btn" id="user-open" aria-label="Cuenta" title="Cuenta">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M5 19.2c1.6-3.2 4-4.8 7-4.8s5.4 1.6 7 4.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <button type="button" class="icon-btn" id="theme-toggle" aria-label="Cambiar tema" title="Tema">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3v2M12 19v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M3 12h2M19 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 3.2A9 9 0 1112.8 21 7 7 0 0016 3.2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </button>
+        <button type="button" class="icon-btn cart-btn" id="cart-open" aria-label="Carrito">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h15l-1.4 8.2A2 2 0 0117.6 17H9.2a2 2 0 01-2-1.7L5.2 4H3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="20" r="1.2"/><circle cx="17" cy="20" r="1.2"/></svg>
+          <span class="cart-badge" id="cart-badge" hidden>0</span>
+        </button>
+        <button type="button" class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menú móvil: baja desde arriba y queda centrado -->
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <div class="mobile-menu-panel">
+      <button type="button" class="mobile-close" id="mobile-close" aria-label="Cerrar menú">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <nav class="mobile-nav" aria-label="Móvil">
+        <a href="#inicio" data-i18n="nav.home">Inicio</a>
+        <a href="#coleccion" data-i18n="nav.collection">Colección</a>
+        <a href="#ninas" data-i18n="nav.girls">Niñas</a>
+        <a href="#ninos" data-i18n="nav.boys">Niños</a>
+        <a href="#bebe" data-i18n="nav.baby">Bebé</a>
+        <a href="#atelier" data-i18n="nav.about">Atelier</a>
+        <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+      </nav>
+      <div class="mobile-tools">
+        <button type="button" class="btn btn-ghost" id="mobile-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-3.2-3.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span data-i18n="search.btn">Buscar en la página</span>
+        </button>
+        <div class="lang-switch lang-switch-mobile" role="group" aria-label="Idioma">
+          <button type="button" class="lang-btn is-active" data-lang="es">Español</button>
+          <button type="button" class="lang-btn" data-lang="en">English</button>
+          <button type="button" class="lang-btn" data-lang="va">Valencià</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="inicio">
+      <video class="hero-video" autoplay muted loop playsinline poster="https://images.pexels.com/photos/9409259/pexels-photo-9409259.jpeg?auto=compress&cs=tinysrgb&w=1600">
+        <source src="https://videos.pexels.com/video-files/6299086/6299086-hd_1920_1080_25fps.mp4" type="video/mp4">
+        <source src="https://videos.pexels.com/video-files/6299086/6299086-uhd_3840_2160_25fps.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Nueva colección 2026</p>
+        <h1 data-i18n="hero.title">Infancia con estilo, prendas que duran.</h1>
+        <p class="hero-lead" data-i18n="hero.lead">Boutique de moda infantil en el corazón de València. Piezas seleccionadas para niñas, niños y bebé: comodidad, tejidos nobles y un corte que se hereda.</p>
+        <div class="hero-actions">
+          <a href="#coleccion" class="btn btn-primary" data-i18n="hero.cta">Ver colección</a>
+          <a href="#atelier" class="btn btn-outline" data-i18n="hero.cta2">Conocer el atelier</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categorías destacadas -->
+    <section class="categories reveal" id="categorias" aria-labelledby="cat-title">
+      <div class="section-head">
+        <p class="eyebrow" data-i18n="cat.eyebrow">Explorar</p>
+        <h2 id="cat-title" data-i18n="cat.title">Tres mundos, un mismo cuidado</h2>
+      </div>
+      <div class="category-grid">
+        <article class="category-card" id="ninas">
+          <img src="https://images.pexels.com/photos/32525220/pexels-photo-32525220.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Niña con vestido rosa de ceremonia">
+          <div class="category-body">
+            <h3 data-i18n="cat.girls">Niñas</h3>
+            <p data-i18n="cat.girlsText">Vestidos, punto y conjuntos con un aire de atelier.</p>
+            <button type="button" class="text-link" data-filter="nina" data-i18n="cat.view">Ver prendas</button>
+          </div>
+        </article>
+        <article class="category-card" id="ninos">
+          <img src="https://images.pexels.com/photos/16396429/pexels-photo-16396429.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Niño con look denim urbano">
+          <div class="category-body">
+            <h3 data-i18n="cat.boys">Niños</h3>
+            <p data-i18n="cat.boysText">Denim, cazadoras y básicos con carácter.</p>
+            <button type="button" class="text-link" data-filter="nino" data-i18n="cat.view">Ver prendas</button>
+          </div>
+        </article>
+        <article class="category-card" id="bebe">
+          <img src="https://images.pexels.com/photos/3845156/pexels-photo-3845156.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Bebé con pelele de algodón">
+          <div class="category-body">
+            <h3 data-i18n="cat.baby">Bebé</h3>
+            <p data-i18n="cat.babyText">Algodón orgánico, primeras puestas y suavidad.</p>
+            <button type="button" class="text-link" data-filter="bebe" data-i18n="cat.view">Ver prendas</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Sección informativa: Atelier -->
+    <section class="atelier reveal" id="atelier">
+      <div class="atelier-grid">
+        <div class="atelier-copy">
+          <p class="eyebrow" data-i18n="about.eyebrow">La boutique</p>
+          <h2 data-i18n="about.title">Un atelier pequeño para grandes comienzos</h2>
+          <p data-i18n="about.p1">Maison Pétalo nace en València como un espacio íntimo donde la moda infantil se elige despacio. Cada prenda pasa por nuestras manos: tejidos certificados, costuras resistentes y siluetas pensadas para jugar, celebrar y crecer.</p>
+          <p data-i18n="about.p2">No seguimos tendencias ruidosas. Preferimos el lino, el punto, el denim bien cortado y los vestidos que se recuerdan en las fotografías de familia.</p>
+          <ul class="atelier-list">
+            <li data-i18n="about.li1">Algodón orgánico y lino europeo</li>
+            <li data-i18n="about.li2">Tallas de 0 meses a 10 años</li>
+            <li data-i18n="about.li3">Recogida en boutique o envío 24/48 h</li>
+          </ul>
+        </div>
+        <figure class="atelier-media">
+          <img src="https://images.pexels.com/photos/16063792/pexels-photo-16063792.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Prendas infantiles colgadas en el atelier">
+        </figure>
+      </div>
+    </section>
+
+    <!-- Colección / productos -->
+    <section class="collection reveal" id="coleccion">
+      <div class="section-head">
+        <p class="eyebrow" data-i18n="shop.eyebrow">Boutique online</p>
+        <h2 data-i18n="shop.title">La colección</h2>
+        <p class="section-lead" data-i18n="shop.lead">Veinte piezas seleccionadas. Elige talla, añade al carrito y decide si recoges en la boutique o te lo enviamos a casa.</p>
+      </div>
+      <div class="filters" id="product-filters" role="tablist">
+        <button type="button" class="chip is-active" data-filter="all" data-i18n="filter.all">Todas</button>
+        <button type="button" class="chip" data-filter="nina" data-i18n="filter.girls">Niñas</button>
+        <button type="button" class="chip" data-filter="nino" data-i18n="filter.boys">Niños</button>
+        <button type="button" class="chip" data-filter="bebe" data-i18n="filter.baby">Bebé</button>
+        <button type="button" class="chip" data-filter="unisex" data-i18n="filter.unisex">Unisex</button>
+      </div>
+      <div class="product-grid" id="product-grid"></div>
+    </section>
+
+    <!-- Sección secundaria: valores y lookbook -->
+    <section class="values reveal" id="valores">
+      <div class="values-grid">
+        <article class="value-card">
+          <span class="value-num">01</span>
+          <h3 data-i18n="val.1t">Tejidos que respiran</h3>
+          <p data-i18n="val.1p">Algodón orgánico, lino y punto de merino. Pieles sensibles, días largos, lavados reales.</p>
+        </article>
+        <article class="value-card">
+          <span class="value-num">02</span>
+          <h3 data-i18n="val.2t">Hecho para crecer</h3>
+          <p data-i18n="val.2p">Dobladillos generosos, botones de recambio y calidad que aguanta hermanos y primas.</p>
+        </article>
+        <article class="value-card">
+          <span class="value-num">03</span>
+          <h3 data-i18n="val.3t">Compra a tu ritmo</h3>
+          <p data-i18n="val.3p">Reserva y recoge en tienda, paga al recibir o usa la pasarela segura del mercado.</p>
+        </article>
+      </div>
+      <div class="lookbook">
+        <img src="https://images.pexels.com/photos/1094069/pexels-photo-1094069.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Niños sentados en un jardín">
+        <img src="https://images.pexels.com/photos/8457818/pexels-photo-8457818.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Niños jugando al aire libre">
+        <img src="https://images.pexels.com/photos/1620759/pexels-photo-1620759.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Look náutico de niño y niña">
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contact reveal" id="contacto">
+      <div class="contact-grid">
+        <div class="contact-copy">
+          <p class="eyebrow" data-i18n="contact.eyebrow">Boutique València</p>
+          <h2 data-i18n="contact.title">Pasa a vernos o escríbenos</h2>
+          <p data-i18n="contact.lead">Estamos en el Ensanche. Probamos tallas, envolvemos regalos y reservamos pedidos online para recoger el mismo día.</p>
+          <address class="contact-card">
+            <p><strong>Maison Pétalo</strong></p>
+            <p>Carrer de Colón, 28</p>
+            <p>46004 València</p>
+            <p><a href="tel:+34963014580">+34 963 014 580</a></p>
+            <p><a href="mailto:hola@maisonpetalo.com">hola@maisonpetalo.com</a></p>
+          </address>
+        </div>
+        <form class="contact-form" id="contact-form" novalidate>
+          <label>
+            <span data-i18n="form.name">Nombre</span>
+            <input type="text" name="name" required autocomplete="name">
+          </label>
+          <label>
+            <span data-i18n="form.email">Email</span>
+            <input type="email" name="email" required autocomplete="email">
+          </label>
+          <label>
+            <span data-i18n="form.phone">Teléfono</span>
+            <input type="tel" name="phone" autocomplete="tel">
+          </label>
+          <label>
+            <span data-i18n="form.message">Mensaje</span>
+            <textarea name="message" rows="4" required></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary" data-i18n="form.send">Enviar mensaje</button>
+          <p class="form-note" id="contact-note" hidden></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <p class="logo-text">Maison Pétalo</p>
+        <p data-i18n="footer.blurb">Boutique de moda infantil. Niñas, niños y bebé. València, 2018.</p>
+      </div>
+      <div>
+        <h3 data-i18n="footer.shop">Tienda</h3>
+        <button type="button" class="footer-link" data-open="cookies" data-i18n="footer.cookies">Política de cookies</button>
+        <button type="button" class="footer-link" data-open="requisitos" data-i18n="footer.terms">Requisitos</button>
+        <button type="button" class="footer-link" data-open="envios" data-i18n="footer.shipping">Envíos y recogida</button>
+      </div>
+      <div>
+        <h3 data-i18n="footer.hoursTitle">Horario</h3>
+        <p data-i18n="footer.hours">Lunes a sábado 10:00–20:00</p>
+        <p data-i18n="footer.hoursSun">Domingo 11:00–14:00</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Maison Pétalo. <span data-i18n="footer.copy">Todos los derechos reservados.</span></p>
+    </div>
+  </footer>
+
+  <!-- Modal de búsqueda -->
+  <div class="modal" id="search-modal" hidden>
+    <div class="modal-backdrop" data-close="search"></div>
+    <div class="modal-dialog search-dialog" role="dialog" aria-labelledby="search-title">
+      <button type="button" class="modal-close" data-close="search" aria-label="Cerrar">×</button>
+      <h2 id="search-title" data-i18n="search.title">Buscar en la página</h2>
+      <form id="search-form" class="search-form">
+        <input type="search" id="search-input" placeholder="Vestido, bebé, denim…" autocomplete="off">
+        <button type="submit" class="btn btn-primary" data-i18n="search.submit">Buscar</button>
+      </form>
+      <p class="search-meta" id="search-meta"></p>
+      <div id="search-results"></div>
+    </div>
+  </div>
+
+  <!-- Modal de usuario / login -->
+  <div class="modal" id="login-modal" hidden>
+    <div class="modal-backdrop" data-close="login"></div>
+    <div class="modal-dialog" role="dialog" aria-labelledby="login-title">
+      <button type="button" class="modal-close" data-close="login" aria-label="Cerrar">×</button>
+      <div class="tabs">
+        <button type="button" class="tab is-active" data-tab="login" data-i18n="login.tab">Acceder</button>
+        <button type="button" class="tab" data-tab="register" data-i18n="login.register">Crear cuenta</button>
+      </div>
+      <form id="login-form" class="auth-form">
+        <h2 id="login-title" data-i18n="login.title">Tu cuenta Maison Pétalo</h2>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" required>
+        </label>
+        <label>
+          <span data-i18n="login.pass">Contraseña</span>
+          <input type="password" name="password" required minlength="6">
+        </label>
+        <label class="register-only" hidden>
+          <span data-i18n="form.name">Nombre</span>
+          <input type="text" name="name">
+        </label>
+        <button type="submit" class="btn btn-primary" data-i18n="login.submit">Entrar</button>
+        <p class="form-note" data-i18n="login.note">El sistema de acceso se conectará más adelante. Tus datos no se envían a ningún servidor.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal de producto -->
+  <div class="modal" id="product-modal" hidden>
+    <div class="modal-backdrop" data-close="product"></div>
+    <div class="modal-dialog product-dialog" role="dialog" aria-labelledby="product-title"></div>
+  </div>
+
+  <!-- Carrito lateral -->
+  <div class="drawer" id="cart-drawer" hidden>
+    <div class="drawer-backdrop" data-close="cart"></div>
+    <aside class="drawer-panel" role="dialog" aria-labelledby="cart-title">
+      <header class="drawer-head">
+        <h2 id="cart-title" data-i18n="cart.title">Tu cesta</h2>
+        <button type="button" class="modal-close" data-close="cart" aria-label="Cerrar">×</button>
+      </header>
+      <div class="cart-body" id="cart-body"></div>
+      <footer class="cart-foot" id="cart-foot"></footer>
+    </aside>
+  </div>
+
+  <!-- Checkout -->
+  <div class="modal" id="checkout-modal" hidden>
+    <div class="modal-backdrop" data-close="checkout"></div>
+    <div class="modal-dialog checkout-dialog" role="dialog" aria-labelledby="checkout-title">
+      <button type="button" class="modal-close" data-close="checkout" aria-label="Cerrar">×</button>
+      <div id="checkout-root"></div>
+    </div>
+  </div>
+
+  <!-- Pasarela de pago (ventana resumen) -->
+  <div class="modal" id="pay-modal" hidden>
+    <div class="modal-backdrop" data-close="pay"></div>
+    <div class="modal-dialog pay-dialog" role="dialog" aria-labelledby="pay-title">
+      <button type="button" class="modal-close" data-close="pay" aria-label="Cerrar">×</button>
+      <div id="pay-root"></div>
+    </div>
+  </div>
+
+  <!-- Modales legales -->
+  <div class="modal" id="legal-modal" hidden>
+    <div class="modal-backdrop" data-close="legal"></div>
+    <div class="modal-dialog legal-dialog" role="dialog" aria-labelledby="legal-title">
+      <button type="button" class="modal-close" data-close="legal" aria-label="Cerrar">×</button>
+      <div id="legal-root"></div>
+    </div>
+  </div>
+
+  <!-- Aviso de cookies -->
+  <div class="cookie-banner" id="cookie-banner" hidden>
+    <p data-i18n="cookie.text">Usamos cookies técnicas para recordar tu idioma, el tema y la cesta. No hacemos seguimiento publicitario.</p>
+    <div class="cookie-actions">
+      <button type="button" class="btn btn-ghost" data-open="cookies" data-i18n="cookie.more">Más información</button>
+      <button type="button" class="btn btn-primary" id="cookie-accept" data-i18n="cookie.accept">Aceptar</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+  <button type="button" class="to-top" id="to-top" aria-label="Volver arriba">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>

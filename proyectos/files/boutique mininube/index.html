@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mini Nube · Boutique de moda infantil</title>
+  <meta name="description" content="Mini Nube: boutique de moda infantil para niñas y niños. Compra online, recoge en el mercado o recíbelo en casa.">
+  <meta name="theme-color" content="#FFFBF6">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23E0503F' d='M7 19a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 9.5a4.75 4.75 0 0 1 .5 9.5z'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body class="theme-light">
+
+  <!-- Sprite de iconos SVG incrustados -->
+  <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+    <symbol id="i-store" viewBox="0 0 24 24"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M5 12v8h14v-8"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 19a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 9.5a4.75 4.75 0 0 1 .5 9.5z"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Saltar al contenido</a>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ============ CABECERA FIJA ============ -->
+  <header class="site-header" id="siteHeader">
+
+    <!-- Barra de información general -->
+    <div class="topbar">
+      <div class="container topbar__inner">
+        <div class="topbar__group">
+          <a class="topbar__item" href="tel:+34960000000">
+            <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+            <span>+34 960 000 000</span>
+          </a>
+          <a class="topbar__item" href="mailto:hola@mininube.es">
+            <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+            <span>hola@mininube.es</span>
+          </a>
+        </div>
+        <div class="topbar__group topbar__group--end">
+          <span class="topbar__item">
+            <svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>
+            <span data-i18n="top.hours">Lun–Sáb · 8:00–14:30</span>
+          </span>
+          <span class="topbar__item">
+            <svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg>
+            <span data-i18n="top.shipping">Envío gratis desde 60 €</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barra de navegación principal -->
+    <div class="navbar container">
+      <a class="logo" href="#inicio" aria-label="Mini Nube">
+        <svg class="logo__icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cloud"/></svg>
+        <span class="logo__text">Mini<strong>Nube</strong></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Principal">
+        <ul class="main-nav__list">
+          <li><a href="#inicio" data-i18n="nav.home">Inicio</a></li>
+          <li><a href="#colecciones" data-i18n="nav.collections">Colecciones</a></li>
+          <li><a href="#tienda" data-i18n="nav.shop">Tienda</a></li>
+          <li><a href="#nosotros" data-i18n="nav.about">Nosotros</a></li>
+          <li><a href="#envios" data-i18n="nav.shipping">Envíos y recogida</a></li>
+          <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switch lang-switch--desktop" role="group" aria-label="Idioma" data-i18n-aria="aria.lang">
+          <button type="button" data-lang="es" aria-pressed="true" lang="es">ES</button>
+          <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+          <button type="button" data-lang="va" aria-pressed="false" lang="ca">VAL</button>
+        </div>
+        <button type="button" class="icon-btn icon-btn--desktop" data-open-modal="searchModal" aria-label="Buscar" data-i18n-aria="aria.search">
+          <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+        </button>
+        <button type="button" class="icon-btn" id="userButton" aria-label="Acceder a mi cuenta" data-i18n-aria="aria.user">
+          <svg class="icon" aria-hidden="true"><use href="#i-user"/></svg>
+        </button>
+        <button type="button" class="icon-btn theme-toggle" id="themeToggle" aria-pressed="false" aria-label="Cambiar entre modo claro y oscuro" data-i18n-aria="aria.theme">
+          <svg class="icon theme-toggle__moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          <svg class="icon theme-toggle__sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        </button>
+        <button type="button" class="icon-btn cart-toggle" id="cartToggle" data-open-modal="cartDrawer" aria-label="Abrir carrito" data-i18n-aria="aria.cart">
+          <svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg>
+          <span class="cart-toggle__badge" id="cartBadge" hidden>0</span>
+        </button>
+        <button type="button" class="hamburger" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú" data-i18n-aria="aria.menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú móvil: baja desde arriba y queda centrado -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true" inert>
+      <div class="mobile-menu__panel">
+        <nav aria-label="Menú móvil">
+          <ul class="mobile-menu__list">
+            <li><a href="#inicio" data-i18n="nav.home">Inicio</a></li>
+            <li><a href="#colecciones" data-i18n="nav.collections">Colecciones</a></li>
+            <li><a href="#tienda" data-i18n="nav.shop">Tienda</a></li>
+            <li><a href="#nosotros" data-i18n="nav.about">Nosotros</a></li>
+            <li><a href="#envios" data-i18n="nav.shipping">Envíos y recogida</a></li>
+            <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+          </ul>
+        </nav>
+        <div class="mobile-menu__tools">
+          <button type="button" class="btn btn--outline" data-open-modal="searchModal">
+            <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+            <span data-i18n="menu.search">Buscar en la página</span>
+          </button>
+          <div class="lang-switch" role="group" aria-label="Idioma" data-i18n-aria="aria.lang">
+            <button type="button" data-lang="es" aria-pressed="true" lang="es">Español</button>
+            <button type="button" data-lang="en" aria-pressed="false" lang="en">English</button>
+            <button type="button" data-lang="va" aria-pressed="false" lang="ca">Valencià</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="inicio" aria-labelledby="heroTitle">
+      <div class="hero__media" aria-hidden="true">
+        <video class="hero__video" autoplay muted loop playsinline preload="metadata"
+               poster="https://images.pexels.com/photos/8926845/pexels-photo-8926845.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=1600">
+          <source src="https://videos.pexels.com/video-files/8951290/8951290-hd_1920_1080_25fps.mp4" type="video/mp4">
+        </video>
+        <div class="hero__overlay"></div>
+      </div>
+      <div class="container hero__content">
+        <p class="eyebrow eyebrow--light reveal" data-i18n="hero.eyebrow">Colección Primavera 2026</p>
+        <h1 class="hero__title reveal" id="heroTitle" data-i18n="hero.title">Moda que crece con ellos</h1>
+        <p class="hero__text reveal" data-i18n="hero.text">Prendas suaves, coloridas y pensadas para jugar, saltar y descubrir. Para niñas y niños de 0 a 10 años.</p>
+        <div class="hero__actions reveal">
+          <a class="btn btn--primary btn--lg" href="#tienda" data-i18n="hero.cta1">Comprar ahora</a>
+          <a class="btn btn--glass btn--lg" href="#colecciones" data-i18n="hero.cta2">Ver colecciones</a>
+        </div>
+        <ul class="hero__perks reveal">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg><span data-i18n="hero.perk1">Envío gratis desde 60 €</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-store"/></svg><span data-i18n="hero.perk2">Recogida en el mercado</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg><span data-i18n="hero.perk3">Algodón certificado</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ COLECCIONES ============ -->
+    <section class="section" id="colecciones" aria-labelledby="collectionsTitle">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow" data-i18n="col.eyebrow">Colecciones</p>
+          <h2 class="section__title" id="collectionsTitle" data-i18n="col.title">Encuentra su estilo</h2>
+          <p class="section__text" data-i18n="col.text">Cuatro universos de moda infantil, cómodos y llenos de color.</p>
+        </header>
+        <div class="collections-grid">
+          <a class="collection-card reveal" href="#tienda" data-filter-link="girl">
+            <img src="https://images.pexels.com/photos/8084232/pexels-photo-8084232.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=600" alt="" loading="lazy" width="600" height="800">
+            <div class="collection-card__body">
+              <h3 data-i18n="cat.girl">Niña</h3>
+              <p data-i18n="col.girl.desc">Vestidos, conjuntos y básicos con mucho encanto.</p>
+              <span class="link-arrow"><span data-i18n="col.view">Ver prendas</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            </div>
+          </a>
+          <a class="collection-card reveal" href="#tienda" data-filter-link="boy">
+            <img src="https://images.pexels.com/photos/17428403/pexels-photo-17428403.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=600" alt="" loading="lazy" width="600" height="800">
+            <div class="collection-card__body">
+              <h3 data-i18n="cat.boy">Niño</h3>
+              <p data-i18n="col.boy.desc">Denim, punto y camisetas con personalidad.</p>
+              <span class="link-arrow"><span data-i18n="col.view">Ver prendas</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            </div>
+          </a>
+          <a class="collection-card reveal" href="#tienda" data-filter-link="baby">
+            <img src="https://images.pexels.com/photos/2869315/pexels-photo-2869315.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=600" alt="" loading="lazy" width="600" height="800">
+            <div class="collection-card__body">
+              <h3 data-i18n="cat.baby">Bebé</h3>
+              <p data-i18n="col.baby.desc">Suavidad extra para los primeros meses.</p>
+              <span class="link-arrow"><span data-i18n="col.view">Ver prendas</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            </div>
+          </a>
+          <a class="collection-card reveal" href="#tienda" data-filter-link="extras">
+            <img src="https://images.pexels.com/photos/19448964/pexels-photo-19448964.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=600" alt="" loading="lazy" width="600" height="800">
+            <div class="collection-card__body">
+              <h3 data-i18n="cat.extras">Calzado y accesorios</h3>
+              <p data-i18n="col.extras.desc">Zapatillas, gorros y complementos.</p>
+              <span class="link-arrow"><span data-i18n="col.view">Ver prendas</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TIENDA ============ -->
+    <section class="section section--alt" id="tienda" aria-labelledby="shopTitle">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow" data-i18n="shop.eyebrow">Tienda online</p>
+          <h2 class="section__title" id="shopTitle" data-i18n="shop.title">Nuestros favoritos</h2>
+          <p class="section__text" data-i18n="shop.text">Reserva para recoger en el mercado o recíbelo en casa.</p>
+        </header>
+
+        <div class="shop-toolbar reveal">
+          <div class="filter-chips" id="filterChips" role="group" aria-label="Categorías" data-i18n-aria="shop.filters">
+            <button type="button" class="chip" data-filter="all" aria-pressed="true" data-i18n="cat.all">Todo</button>
+            <button type="button" class="chip" data-filter="girl" aria-pressed="false" data-i18n="cat.girl">Niña</button>
+            <button type="button" class="chip" data-filter="boy" aria-pressed="false" data-i18n="cat.boy">Niño</button>
+            <button type="button" class="chip" data-filter="baby" aria-pressed="false" data-i18n="cat.baby">Bebé</button>
+            <button type="button" class="chip" data-filter="extras" aria-pressed="false" data-i18n="cat.extras">Calzado y accesorios</button>
+          </div>
+          <div class="sort-box">
+            <label for="sortSelect" data-i18n="sort.label">Ordenar</label>
+            <select id="sortSelect" class="select">
+              <option value="featured" data-i18n="sort.featured">Destacados</option>
+              <option value="priceAsc" data-i18n="sort.priceAsc">Precio: menor a mayor</option>
+              <option value="priceDesc" data-i18n="sort.priceDesc">Precio: mayor a menor</option>
+              <option value="name" data-i18n="sort.name">Nombre A–Z</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="product-grid" id="productGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ============ SECCIÓN INFORMATIVA ============ -->
+    <section class="section" id="nosotros" aria-labelledby="aboutTitle">
+      <div class="container about">
+        <div class="about__media reveal">
+          <img class="about__img about__img--main" src="https://images.pexels.com/photos/8082821/pexels-photo-8082821.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700" alt="Dos niñas con sombreros jugando en un parque" data-i18n-alt="about.alt1" loading="lazy" width="700" height="900">
+          <img class="about__img about__img--small" src="https://images.pexels.com/photos/4982528/pexels-photo-4982528.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=500" alt="Dos niñas tumbadas en la hierba" data-i18n-alt="about.alt2" loading="lazy" width="500" height="500">
+        </div>
+        <div class="about__content">
+          <p class="eyebrow reveal" data-i18n="about.eyebrow">Nosotros</p>
+          <h2 class="section__title reveal" id="aboutTitle" data-i18n="about.title">Una boutique pequeña con grandes ideas</h2>
+          <p class="section__text reveal" data-i18n="about.text1">En Mini Nube elegimos cada prenda pensando en la comodidad de los peques y la tranquilidad de las familias. Trabajamos con tejidos suaves, tintes seguros y diseños que resisten mil aventuras.</p>
+          <p class="section__text reveal" data-i18n="about.text2">Nacimos en el mercado del barrio y seguimos siendo ese rincón cercano donde puedes tocar, probar y recibir consejo.</p>
+
+          <ul class="feature-grid">
+            <li class="feature reveal">
+              <span class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg></span>
+              <h3 data-i18n="about.f1.title">Tejidos suaves</h3>
+              <p data-i18n="about.f1.text">Algodón orgánico y fibras certificadas, sin irritaciones.</p>
+            </li>
+            <li class="feature reveal">
+              <span class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg></span>
+              <h3 data-i18n="about.f2.title">Diseño cómodo</h3>
+              <p data-i18n="about.f2.text">Costuras planas, cierres fáciles y tallas con margen.</p>
+            </li>
+            <li class="feature reveal">
+              <span class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span>
+              <h3 data-i18n="about.f3.title">Hecho para durar</h3>
+              <p data-i18n="about.f3.text">Prendas resistentes que pasan de hermano a hermano.</p>
+            </li>
+            <li class="feature reveal">
+              <span class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#i-store"/></svg></span>
+              <h3 data-i18n="about.f4.title">Trato cercano</h3>
+              <p data-i18n="about.f4.text">Te asesoramos en persona, por teléfono o por email.</p>
+            </li>
+          </ul>
+
+          <dl class="stats reveal">
+            <div class="stat"><dt data-i18n="stat.families">familias felices</dt><dd class="stat__value" data-count="2500" data-suffix="+">0</dd></div>
+            <div class="stat"><dt data-i18n="stat.years">años en el mercado</dt><dd class="stat__value" data-count="12">0</dd></div>
+            <div class="stat"><dt data-i18n="stat.repeat">repiten compra</dt><dd class="stat__value" data-count="98" data-suffix="%">0</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SECCIÓN SECUNDARIA: ENVÍOS, PAGOS Y TALLAS ============ -->
+    <section class="section section--alt" id="envios" aria-labelledby="shippingTitle">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow" data-i18n="ship.eyebrow">Envíos y recogida</p>
+          <h2 class="section__title" id="shippingTitle" data-i18n="ship.title">Compra fácil, a tu manera</h2>
+          <p class="section__text" data-i18n="ship.text">Elige cómo recibir tu pedido y cómo pagarlo. Sin sorpresas.</p>
+        </header>
+
+        <div class="method-grid">
+          <article class="method-card reveal">
+            <span class="method-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-store"/></svg></span>
+            <span class="tag" data-i18n="ship.pickup.tag">Gratis</span>
+            <h3 data-i18n="ship.pickup.title">Recogida en el mercado</h3>
+            <p data-i18n="ship.pickup.text">Reserva online y recoge en el Mercat Municipal, Local 42, en la franja horaria que elijas.</p>
+          </article>
+          <article class="method-card reveal">
+            <span class="method-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg></span>
+            <span class="tag" data-i18n="ship.delivery.tag">24–48 h</span>
+            <h3 data-i18n="ship.delivery.title">Envío a domicilio</h3>
+            <p data-i18n="ship.delivery.text">Recíbelo en tu dirección. 4,90 € o gratis a partir de 60 € de compra.</p>
+          </article>
+          <article class="method-card reveal">
+            <span class="method-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-card"/></svg></span>
+            <span class="tag" data-i18n="ship.pay.tag">Seguro</span>
+            <h3 data-i18n="ship.pay.title">Paga como prefieras</h3>
+            <p data-i18n="ship.pay.text">Al recoger, al recibir el pedido u online con tarjeta mediante pasarela de pago segura.</p>
+          </article>
+        </div>
+
+        <div class="size-guide reveal">
+          <h3 data-i18n="size.guide.title">Guía de tallas</h3>
+          <div class="size-guide__table-wrap">
+            <table class="size-table">
+              <thead>
+                <tr>
+                  <th scope="col" data-i18n="size.th.age">Edad (años)</th>
+                  <th scope="col" data-i18n="size.th.height">Altura (cm)</th>
+                  <th scope="col" data-i18n="size.th.chest">Pecho (cm)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">2</th><td>92</td><td>54</td></tr>
+                <tr><th scope="row">4</th><td>104</td><td>58</td></tr>
+                <tr><th scope="row">6</th><td>116</td><td>62</td></tr>
+                <tr><th scope="row">8</th><td>128</td><td>66</td></tr>
+                <tr><th scope="row">10</th><td>140</td><td>70</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="size-guide__note" data-i18n="size.guide.note">Si dudas entre dos tallas, elige la mayor: crecen muy rápido.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="section" id="contacto" aria-labelledby="contactTitle">
+      <div class="container contact">
+        <div class="contact__info">
+          <p class="eyebrow reveal" data-i18n="contact.eyebrow">Contacto</p>
+          <h2 class="section__title reveal" id="contactTitle" data-i18n="contact.title">Hablemos</h2>
+          <p class="section__text reveal" data-i18n="contact.text">¿Dudas con una talla o con un pedido? Escríbenos y te respondemos en menos de 24 horas.</p>
+          <ul class="contact-list">
+            <li class="reveal">
+              <span class="contact-list__icon"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <div><strong data-i18n="contact.address.label">Dirección</strong><span>Mercat Municipal, Local 42 · València</span></div>
+            </li>
+            <li class="reveal">
+              <span class="contact-list__icon"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span>
+              <div><strong data-i18n="contact.phone.label">Teléfono</strong><a href="tel:+34960000000">+34 960 000 000</a></div>
+            </li>
+            <li class="reveal">
+              <span class="contact-list__icon"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></span>
+              <div><strong data-i18n="contact.email.label">Email</strong><a href="mailto:hola@mininube.es">hola@mininube.es</a></div>
+            </li>
+            <li class="reveal">
+              <span class="contact-list__icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
+              <div><strong data-i18n="contact.hours.label">Horario</strong><span data-i18n="contact.hours.value">Lunes a sábado, 8:00–14:30</span></div>
+            </li>
+          </ul>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <div class="field">
+            <label for="contactName" data-i18n="form.name">Nombre</label>
+            <input type="text" id="contactName" name="name" autocomplete="name" required>
+            <p class="field__error" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="contactEmail" data-i18n="form.email">Correo electrónico</label>
+            <input type="email" id="contactEmail" name="email" autocomplete="email" required>
+            <p class="field__error" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="contactSubject" data-i18n="form.subject">Asunto</label>
+            <select id="contactSubject" name="subject" class="select select--full">
+              <option value="order" data-i18n="form.subject.order">Mi pedido</option>
+              <option value="size" data-i18n="form.subject.size">Consulta de tallas</option>
+              <option value="other" data-i18n="form.subject.other">Otro</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="contactMessage" data-i18n="form.message">Mensaje</label>
+            <textarea id="contactMessage" name="message" rows="5" required></textarea>
+            <p class="field__error" role="alert"></p>
+          </div>
+          <div class="field field--check">
+            <label class="check">
+              <input type="checkbox" id="contactPrivacy" name="privacy" required>
+              <span data-i18n="form.privacy">Acepto la política de privacidad y el tratamiento de mis datos.</span>
+            </label>
+            <p class="field__error" role="alert"></p>
+          </div>
+          <button type="submit" class="btn btn--primary btn--lg" data-i18n="form.send">Enviar mensaje</button>
+          <p class="form-status" id="contactStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ PIE DE PÁGINA ============ -->
+  <footer class="site-footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a class="logo" href="#inicio" aria-label="Mini Nube">
+          <svg class="logo__icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cloud"/></svg>
+          <span class="logo__text">Mini<strong>Nube</strong></span>
+        </a>
+        <p data-i18n="foot.about">Moda infantil con cariño, desde el mercado de tu barrio.</p>
+        <div class="social">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="#i-facebook"/></svg></a>
+        </div>
+      </div>
+
+      <nav class="footer__col" aria-labelledby="footShopTitle">
+        <h3 id="footShopTitle" data-i18n="foot.shop">Tienda</h3>
+        <ul>
+          <li><a href="#tienda" data-filter-link="girl" data-i18n="cat.girl">Niña</a></li>
+          <li><a href="#tienda" data-filter-link="boy" data-i18n="cat.boy">Niño</a></li>
+          <li><a href="#tienda" data-filter-link="baby" data-i18n="cat.baby">Bebé</a></li>
+          <li><a href="#tienda" data-filter-link="extras" data-i18n="cat.extras">Calzado y accesorios</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__col" aria-labelledby="footInfoTitle">
+        <h3 id="footInfoTitle" data-i18n="foot.info">Información</h3>
+        <ul>
+          <li><button type="button" class="link-btn" data-info="cookies" data-i18n="foot.cookies">Política de cookies</button></li>
+          <li><button type="button" class="link-btn" data-info="requirements" data-i18n="foot.requirements">Requisitos y condiciones</button></li>
+          <li><button type="button" class="link-btn" data-info="returns" data-i18n="foot.returns">Cambios y devoluciones</button></li>
+          <li><a href="#envios" data-i18n="nav.shipping">Envíos y recogida</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__col">
+        <h3 data-i18n="foot.useful">Datos útiles</h3>
+        <ul class="footer__facts">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span>Mercat Municipal, Local 42 · València</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span data-i18n="contact.hours.value">Lunes a sábado, 8:00–14:30</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-card"/></svg><span data-i18n="foot.payments">Efectivo · Tarjeta · Pago online</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p>© <span id="currentYear">2026</span> Mini Nube · <span data-i18n="foot.rights">Todos los derechos reservados.</span></p>
+        <p class="footer__note" data-i18n="foot.note">Imágenes de muestra, serán sustituidas por fotografías de la tienda.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" id="backToTop" aria-label="Volver arriba" data-i18n-aria="aria.backTop">
+    <svg class="icon" aria-hidden="true"><use href="#i-up"/></svg>
+  </button>
+
+  <button type="button" class="clear-highlights" id="clearHighlights" hidden>
+    <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
+    <span data-i18n="search.clearHighlights">Quitar resaltado</span>
+  </button>
+
+  <!-- ============ MODAL DE BÚSQUEDA ============ -->
+  <div class="modal modal--top" id="searchModal" aria-hidden="true" inert>
+    <div class="modal__dialog modal__dialog--search" role="dialog" aria-modal="true" aria-labelledby="searchTitle" tabindex="-1">
+      <div class="modal__head">
+        <h2 id="searchTitle" data-i18n="search.title">Buscar en la página</h2>
+        <button type="button" class="icon-btn" data-close-modal aria-label="Cerrar" data-i18n-aria="aria.close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+      <form class="search-form" id="searchForm" role="search">
+        <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+        <input type="search" id="searchInput" placeholder="Escribe una palabra…" data-i18n-placeholder="search.placeholder" autocomplete="off" aria-label="Buscar" data-i18n-aria="aria.search">
+        <button type="button" class="link-btn" id="searchClear" data-i18n="search.clear">Limpiar</button>
+      </form>
+      <p class="search-summary" id="searchSummary" role="status" data-i18n="search.hint">Se resaltan las coincidencias en toda la página.</p>
+      <ul class="search-results" id="searchResults"></ul>
+    </div>
+  </div>
+
+  <!-- ============ CARRITO (PANEL LATERAL) ============ -->
+  <div class="modal modal--drawer" id="cartDrawer" aria-hidden="true" inert>
+    <aside class="modal__dialog drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" tabindex="-1">
+      <div class="modal__head">
+        <h2 id="cartTitle" data-i18n="cart.title">Tu carrito</h2>
+        <button type="button" class="icon-btn" data-close-modal aria-label="Cerrar" data-i18n-aria="aria.close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+
+      <div class="drawer__body" id="cartBody"></div>
+
+      <div class="drawer__footer" id="cartFooter" hidden>
+        <div class="free-ship">
+          <p id="freeShipText"></p>
+          <div class="free-ship__bar"><span id="freeShipBar"></span></div>
+        </div>
+        <form class="promo" id="promoForm">
+          <input type="text" id="promoInput" placeholder="Código promocional" data-i18n-placeholder="cart.promo.placeholder" aria-label="Código promocional" data-i18n-aria="cart.promo.placeholder" autocomplete="off">
+          <button type="submit" class="btn btn--outline btn--sm" data-i18n="cart.promo.apply">Aplicar</button>
+        </form>
+        <p class="promo__msg" id="promoMsg" role="status"></p>
+        <dl class="totals" id="cartTotals"></dl>
+        <button type="button" class="btn btn--primary btn--block btn--lg" id="checkoutButton" data-i18n="cart.checkout">Finalizar compra</button>
+        <button type="button" class="link-btn link-btn--center" id="clearCartButton" data-i18n="cart.clear">Vaciar carrito</button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ============ FINALIZAR COMPRA ============ -->
+  <div class="modal" id="checkoutModal" aria-hidden="true" inert>
+    <div class="modal__dialog modal__dialog--wide" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle" tabindex="-1">
+      <div class="modal__head">
+        <h2 id="checkoutTitle" data-i18n="co.title">Finalizar compra</h2>
+        <button type="button" class="icon-btn" data-close-modal aria-label="Cerrar" data-i18n-aria="aria.close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+
+      <form class="checkout" id="checkoutForm" novalidate>
+        <div class="checkout__fields">
+
+          <fieldset class="fieldset">
+            <legend><span class="step">1</span><span data-i18n="co.step.data">Tus datos</span></legend>
+            <div class="field">
+              <label for="coName" data-i18n="co.name">Nombre completo</label>
+              <input type="text" id="coName" name="fullName" autocomplete="name">
+              <p class="field__error" role="alert"></p>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="coEmail" data-i18n="co.email">Correo electrónico</label>
+                <input type="email" id="coEmail" name="email" autocomplete="email">
+                <p class="field__error" role="alert"></p>
+              </div>
+              <div class="field">
+                <label for="coPhone" data-i18n="co.phone">Teléfono</label>
+                <input type="tel" id="coPhone" name="phone" autocomplete="tel">
+                <p class="field__error" role="alert"></p>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldset">
+            <legend><span class="step">2</span><span data-i18n="co.step.delivery">Entrega</span></legend>
+            <div class="option-grid">
+              <label class="option">
+                <input type="radio" name="deliveryMethod" value="pickup" checked>
+                <span class="option__body">
+                  <svg class="icon" aria-hidden="true"><use href="#i-store"/></svg>
+                  <strong data-i18n="co.pickup">Recoger en el mercado</strong>
+                  <small data-i18n="co.pickup.desc">Gratis · Mercat Municipal, Local 42</small>
+                </span>
+              </label>
+              <label class="option">
+                <input type="radio" name="deliveryMethod" value="delivery">
+                <span class="option__body">
+                  <svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg>
+                  <strong data-i18n="co.delivery">Envío a domicilio</strong>
+                  <small data-i18n="co.delivery.desc">4,90 € · gratis desde 60 €</small>
+                </span>
+              </label>
+            </div>
+
+            <div id="pickupFields" class="field-row">
+              <div class="field">
+                <label for="coDate" data-i18n="co.date">Fecha de recogida</label>
+                <input type="date" id="coDate" name="pickupDate">
+                <p class="field__error" role="alert"></p>
+              </div>
+              <div class="field">
+                <label for="coSlot" data-i18n="co.slot">Franja horaria</label>
+                <select id="coSlot" name="pickupSlot" class="select select--full">
+                  <option value="09:00–11:00">09:00 – 11:00</option>
+                  <option value="11:00–13:00">11:00 – 13:00</option>
+                  <option value="13:00–14:30">13:00 – 14:30</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="deliveryFields" hidden>
+              <div class="field">
+                <label for="coAddress" data-i18n="co.address">Dirección</label>
+                <input type="text" id="coAddress" name="address" autocomplete="street-address" disabled>
+                <p class="field__error" role="alert"></p>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="coCity" data-i18n="co.city">Ciudad</label>
+                  <input type="text" id="coCity" name="city" autocomplete="address-level2" disabled>
+                  <p class="field__error" role="alert"></p>
+                </div>
+                <div class="field">
+                  <label for="coZip" data-i18n="co.zip">Código postal</label>
+                  <input type="text" id="coZip" name="zip" inputmode="numeric" maxlength="5" autocomplete="postal-code" disabled>
+                  <p class="field__error" role="alert"></p>
+                </div>
+              </div>
+              <div class="field">
+                <label for="coNotes" data-i18n="co.notes">Indicaciones para el repartidor (opcional)</label>
+                <input type="text" id="coNotes" name="deliveryNotes" disabled>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldset">
+            <legend><span class="step">3</span><span data-i18n="co.step.payment">Método de pago</span></legend>
+            <div class="option-grid option-grid--3">
+              <label class="option">
+                <input type="radio" name="paymentMethod" value="pickup" checked>
+                <span class="option__body">
+                  <svg class="icon" aria-hidden="true"><use href="#i-store"/></svg>
+                  <strong data-i18n="pay.pickup">Pagar al recoger</strong>
+                  <small data-i18n="pay.pickup.desc">Efectivo o tarjeta en el puesto</small>
+                </span>
+              </label>
+              <label class="option">
+                <input type="radio" name="paymentMethod" value="cod" disabled>
+                <span class="option__body">
+                  <svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg>
+                  <strong data-i18n="pay.cod">Pagar a la entrega</strong>
+                  <small data-i18n="pay.cod.desc">Efectivo o tarjeta al repartidor</small>
+                </span>
+              </label>
+              <label class="option">
+                <input type="radio" name="paymentMethod" value="online">
+                <span class="option__body">
+                  <svg class="icon" aria-hidden="true"><use href="#i-card"/></svg>
+                  <strong data-i18n="pay.online">Pagar online ahora</strong>
+                  <small data-i18n="pay.online.desc">Tarjeta mediante pasarela segura</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="field field--check">
+            <label class="check">
+              <input type="checkbox" id="coTerms" name="terms">
+              <span><span data-i18n="co.terms">Acepto los requisitos y condiciones de compra.</span> <button type="button" class="link-btn" data-info="requirements" data-i18n="co.terms.link">Leer</button></span>
+            </label>
+            <p class="field__error" role="alert"></p>
+          </div>
+        </div>
+
+        <aside class="checkout__summary" aria-labelledby="summaryTitle">
+          <h3 id="summaryTitle" data-i18n="co.summary">Resumen del pedido</h3>
+          <ul class="summary-list" id="checkoutItems"></ul>
+          <dl class="totals" id="checkoutTotals"></dl>
+          <button type="submit" class="btn btn--primary btn--block btn--lg" id="checkoutSubmit">Confirmar pedido</button>
+          <button type="button" class="link-btn link-btn--center" data-open-modal="cartDrawer" data-i18n="co.back">Volver al carrito</button>
+        </aside>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============ VENTANA DE PAGO ONLINE (pasarela pendiente de integrar) ============ -->
+  <div class="modal" id="paymentModal" aria-hidden="true" inert>
+    <div class="modal__dialog modal__dialog--medium" role="dialog" aria-modal="true" aria-labelledby="paymentTitle" tabindex="-1">
+      <div class="modal__head">
+        <h2 id="paymentTitle" data-i18n="pm.title">Pago seguro</h2>
+        <button type="button" class="icon-btn" data-close-modal aria-label="Cerrar" data-i18n-aria="aria.close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+      <p class="modal__lead" data-i18n="pm.text">Revisa lo que vas a pagar. Después podrás completar el pago en la pasarela segura.</p>
+      <p class="payment__ref"><span data-i18n="ok.ref">Referencia</span>: <strong id="paymentRef"></strong></p>
+      <ul class="summary-list" id="paymentItems"></ul>
+      <dl class="totals" id="paymentTotals"></dl>
+      <div class="payment__amount">
+        <span data-i18n="pm.amount">Importe a pagar</span>
+        <strong id="paymentAmount"></strong>
+      </div>
+      <!-- Punto de montaje para la pasarela de pago -->
+      <div class="payment__gateway" id="paymentGatewayMount">
+        <svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>
+        <span data-i18n="pm.mount">Espacio reservado para la pasarela de pago</span>
+      </div>
+      <p class="payment__status" id="paymentStatus" role="status"></p>
+      <div class="modal__actions">
+        <button type="button" class="btn btn--outline" id="paymentBack" data-i18n="pm.back">Volver</button>
+        <button type="button" class="btn btn--primary" id="paymentPay">Pagar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CONFIRMACIÓN DE PEDIDO ============ -->
+  <div class="modal" id="confirmModal" aria-hidden="true" inert>
+    <div class="modal__dialog modal__dialog--medium modal__dialog--center" role="dialog" aria-modal="true" aria-labelledby="confirmTitle" tabindex="-1">
+      <span class="confirm__icon"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span>
+      <h2 id="confirmTitle" data-i18n="ok.title">¡Pedido confirmado!</h2>
+      <p class="payment__ref"><span data-i18n="ok.ref">Referencia</span>: <strong id="confirmRef"></strong></p>
+      <p class="confirm__text" id="confirmText"></p>
+      <ul class="summary-list" id="confirmItems"></ul>
+      <dl class="totals" id="confirmTotals"></dl>
+      <button type="button" class="btn btn--primary btn--block" data-close-modal data-i18n="ok.continue">Seguir comprando</button>
+    </div>
+  </div>
+
+  <!-- ============ INFORMACIÓN LEGAL (cookies, requisitos, devoluciones) ============ -->
+  <div class="modal" id="infoModal" aria-hidden="true" inert>
+    <div class="modal__dialog modal__dialog--medium" role="dialog" aria-modal="true" aria-labelledby="infoTitle" tabindex="-1">
+      <div class="modal__head">
+        <h2 id="infoTitle"></h2>
+        <button type="button" class="icon-btn" data-close-modal aria-label="Cerrar" data-i18n-aria="aria.close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+      <div class="info-body" id="infoBody"></div>
+    </div>
+  </div>
+
+  <!-- Avisos breves -->
+  <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+
+</body>
+</html>
