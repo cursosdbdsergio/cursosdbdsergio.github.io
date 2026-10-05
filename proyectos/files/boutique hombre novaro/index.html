@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NOVARO · Boutique de moda para hombre</title>
+  <meta id="meta-description" name="description" content="Moda masculina atemporal en València. Camisas, americanas, pantalones, punto, calzado y accesorios. Compra online y recoge en tienda o recíbelo en casa.">
+  <meta id="theme-color-meta" name="theme-color" content="#faf8f4">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2317150f'/%3E%3Ctext x='16' y='22.5' font-family='Georgia,serif' font-size='19' text-anchor='middle' fill='%23e3c79d'%3EN%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-light">
+
+  <a class="skip-link" href="#contenido" data-i18n="aria.skip">Saltar al contenido</a>
+
+  <!-- ======================================================================
+       Sprite de iconos SVG (se reutilizan con <use href="#icon-...">)
+       ====================================================================== -->
+  <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></symbol>
+    <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c.8-3.8 3.7-6 7.5-6s6.7 2.2 7.5 6"/></symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/></symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></symbol>
+    <symbol id="icon-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="icon-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="icon-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="icon-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A15 15 0 0 1 4 5a1 1 0 0 1 1-1z"/></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></symbol>
+    <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.400-6.500 11-6.500 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="icon-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
+    <symbol id="icon-store" viewBox="0 0 24 24"><path d="M4 9.5 5.500 4h13L20 9.500M4 9.500a2.700 2.700 0 0 0 5.300 0 2.700 2.700 0 0 0 5.400 0 2.700 2.700 0 0 0 5.300 0M5.500 12.500V20h13v-7.500M10 20v-4.500h4V20"/></symbol>
+    <symbol id="icon-card" viewBox="0 0 24 24"><rect x="3" y="5.500" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h3"/></symbol>
+    <symbol id="icon-cash" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="10" rx="2"/><circle cx="12" cy="12" r="2.500"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12.500 4.500 4.500L19 7.500"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="icon-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="icon-swap" viewBox="0 0 24 24"><path d="M4 8h13l-3-3M20 16H7l3 3"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5.500c0 4.300 2.900 7.800 7 9.500 4.100-1.700 7-5.200 7-9.500V6l-7-3z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="icon-sparkle" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6.300 6.300l2.400 2.400M15.300 15.300l2.400 2.400M17.700 6.300l-2.400 2.400M8.700 15.300l-2.400 2.400"/></symbol>
+    <symbol id="icon-scissors" viewBox="0 0 24 24"><circle cx="6.500" cy="6.500" r="2.500"/><circle cx="6.500" cy="17.500" r="2.500"/><path d="M8.500 8 20 18M8.500 16 20 6"/></symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="3.500" y="3.500" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.200" cy="6.800" r=".6"/></symbol>
+    <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M14 21v-8h2.700l.5-3.200H14V7.800c0-1 .5-1.800 1.800-1.800h1.500V3.200A17 17 0 0 0 15 3c-2.400 0-4 1.500-4 4.100v2.700H8.300V13H11v8"/></symbol>
+  </svg>
+
+  <!-- ======================================================================
+       CABECERA FIJA: barra informativa + menú principal
+       ====================================================================== -->
+  <header class="site-header" id="site-header">
+
+    <!-- Barra superior con información general -->
+    <div class="topbar">
+      <div class="container topbar__inner">
+        <ul class="topbar__list">
+          <li>
+            <a href="tel:+34961234567">
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-phone"/></svg>
+              <span>+34 961 234 567</span>
+            </a>
+          </li>
+          <li class="topbar__email">
+            <a href="mailto:hola@novaro-boutique.es">
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-mail"/></svg>
+              <span>hola@novaro-boutique.es</span>
+            </a>
+          </li>
+        </ul>
+        <p class="topbar__message">
+          <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-truck"/></svg>
+          <span data-i18n="topbar.shipping">Envío gratis desde 100 €</span>
+        </p>
+        <p class="topbar__hours">
+          <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-clock"/></svg>
+          <span data-i18n="topbar.hours">Lun–Sáb · 10:00–20:30</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Barra principal: logo · menú centrado · acciones -->
+    <div class="container header-bar">
+      <a class="logo" href="#inicio" data-i18n-label="aria.home" aria-label="NOVARO, inicio">
+        <span class="logo__word">NOVARO</span>
+        <span class="logo__sub" data-i18n="logo.sub">Boutique · Hombre</span>
+      </a>
+
+      <nav class="site-nav" data-i18n-label="aria.mainNav" aria-label="Navegación principal">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="#inicio" data-i18n="nav.home">Inicio</a></li>
+          <li><a class="site-nav__link" href="#nosotros" data-i18n="nav.about">Nosotros</a></li>
+          <li><a class="site-nav__link" href="#colecciones" data-i18n="nav.collections">Colecciones</a></li>
+          <li><a class="site-nav__link" href="#tienda" data-i18n="nav.shop">Tienda</a></li>
+          <li><a class="site-nav__link" href="#sastreria" data-i18n="nav.tailoring">Sastrería</a></li>
+          <li><a class="site-nav__link" href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Búsqueda (en móvil está dentro del menú hamburguesa) -->
+        <button type="button" class="icon-button header-actions__desktop" data-modal-open="search-modal" data-i18n-label="aria.search" aria-label="Buscar en la página">
+          <svg class="icon" aria-hidden="true"><use href="#icon-search"/></svg>
+        </button>
+
+        <!-- Selector de idioma (en móvil está dentro del menú hamburguesa) -->
+        <div class="lang-switch header-actions__desktop" role="group" data-i18n-label="aria.language" aria-label="Idioma">
+          <button type="button" class="lang-switch__button" data-lang-option="es" lang="es" aria-label="Español" title="Español" aria-pressed="true">ES</button>
+          <button type="button" class="lang-switch__button" data-lang-option="en" lang="en" aria-label="English" title="English" aria-pressed="false">EN</button>
+          <button type="button" class="lang-switch__button" data-lang-option="va" lang="ca-ES-valencia" aria-label="Valencià" title="Valencià" aria-pressed="false">VAL</button>
+        </div>
+
+        <!-- Acceso de usuario: el login se conecta escuchando el evento "auth:login-request" -->
+        <button type="button" class="icon-button" id="user-button" data-i18n-label="aria.user" aria-label="Acceder a mi cuenta">
+          <svg class="icon" aria-hidden="true"><use href="#icon-user"/></svg>
+        </button>
+
+        <!-- Modo claro / oscuro -->
+        <button type="button" class="icon-button theme-toggle" id="theme-toggle" data-i18n-label="aria.theme" aria-label="Cambiar modo claro u oscuro" aria-pressed="false">
+          <svg class="icon icon--sun" aria-hidden="true"><use href="#icon-sun"/></svg>
+          <svg class="icon icon--moon" aria-hidden="true"><use href="#icon-moon"/></svg>
+        </button>
+
+        <!-- Carrito -->
+        <button type="button" class="icon-button" id="cart-button" data-modal-open="cart-drawer" data-i18n-label="aria.cart" aria-label="Abrir carrito">
+          <svg class="icon" aria-hidden="true"><use href="#icon-bag"/></svg>
+          <span class="cart-count" id="cart-count" aria-hidden="true">0</span>
+        </button>
+
+        <!-- Menú hamburguesa -->
+        <button type="button" class="icon-button menu-toggle" id="menu-toggle" aria-controls="mobile-menu" aria-expanded="false" data-i18n-label="aria.menu" aria-label="Menú">
+          <span class="menu-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  </header>
+
+  <!-- Menú móvil: aparece centrado bajando desde arriba -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav data-i18n-label="aria.mobileNav" aria-label="Menú móvil">
+      <ul class="mobile-menu__list">
+        <li><a class="mobile-menu__link" style="--i:0" href="#inicio" data-i18n="nav.home">Inicio</a></li>
+        <li><a class="mobile-menu__link" style="--i:1" href="#nosotros" data-i18n="nav.about">Nosotros</a></li>
+        <li><a class="mobile-menu__link" style="--i:2" href="#colecciones" data-i18n="nav.collections">Colecciones</a></li>
+        <li><a class="mobile-menu__link" style="--i:3" href="#tienda" data-i18n="nav.shop">Tienda</a></li>
+        <li><a class="mobile-menu__link" style="--i:4" href="#sastreria" data-i18n="nav.tailoring">Sastrería</a></li>
+        <li><a class="mobile-menu__link" style="--i:5" href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="mobile-menu__tools">
+      <button type="button" class="btn btn--outline" data-modal-open="search-modal">
+        <svg class="icon" aria-hidden="true"><use href="#icon-search"/></svg>
+        <span data-i18n="menu.search">Buscar en la página</span>
+      </button>
+
+      <div class="lang-switch lang-switch--large" role="group" data-i18n-label="aria.language" aria-label="Idioma">
+        <button type="button" class="lang-switch__button" data-lang-option="es" lang="es" aria-pressed="true">Español</button>
+        <button type="button" class="lang-switch__button" data-lang-option="en" lang="en" aria-pressed="false">English</button>
+        <button type="button" class="lang-switch__button" data-lang-option="va" lang="ca-ES-valencia" aria-pressed="false">Valencià</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       CONTENIDO PRINCIPAL
+       ====================================================================== -->
+  <main id="contenido" tabindex="-1">
+
+    <!-- HERO con vídeo en bucle -->
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <video class="hero__video" id="hero-video" autoplay muted loop playsinline preload="metadata"
+             poster="https://images.pexels.com/videos/5321390/pexels-photo-5321390.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1080&w=1920"
+             aria-hidden="true">
+        <source src="https://videos.pexels.com/video-files/5321390/5321390-hd_1920_1080_25fps.mp4" type="video/mp4">
+      </video>
+      <div class="hero__overlay"></div>
+
+      <div class="container hero__content">
+        <p class="eyebrow eyebrow--light hero__item" style="--d:.1s" data-i18n="hero.eyebrow">Colección Otoño · Invierno 2026</p>
+        <h1 class="hero__title hero__item" style="--d:.25s" id="hero-title" data-i18n="hero.title">Elegancia serena para el hombre de hoy</h1>
+        <p class="hero__text hero__item" style="--d:.4s" data-i18n="hero.text">Prendas atemporales, tejidos nobles y patronaje preciso. Una boutique pensada para vestir bien sin esfuerzo, en València y online.</p>
+        <div class="hero__actions hero__item" style="--d:.55s">
+          <a class="btn btn--light" href="#tienda">
+            <span data-i18n="hero.ctaShop">Ver colección</span>
+            <svg class="icon icon--arrow" aria-hidden="true"><use href="#icon-arrow"/></svg>
+          </a>
+          <a class="btn btn--outline-light" href="#sastreria" data-i18n="hero.ctaTailoring">Reservar cita</a>
+        </div>
+      </div>
+
+      <a class="hero__scroll" href="#nosotros">
+        <span data-i18n="hero.scroll">Descubre</span>
+        <span class="hero__scroll-line" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <!-- Ventajas de compra -->
+    <section class="benefits" aria-label="Ventajas">
+      <ul class="container benefits__list">
+        <li class="benefit reveal">
+          <svg class="icon icon--lg" aria-hidden="true"><use href="#icon-truck"/></svg>
+          <div>
+            <h2 class="benefit__title" data-i18n="benefits.shipping.title">Envío en 24–48 h</h2>
+            <p class="benefit__text" data-i18n="benefits.shipping.text">Gratis desde 100 €</p>
+          </div>
+        </li>
+        <li class="benefit reveal" style="--delay:.08s">
+          <svg class="icon icon--lg" aria-hidden="true"><use href="#icon-store"/></svg>
+          <div>
+            <h2 class="benefit__title" data-i18n="benefits.pickup.title">Recogida en tienda</h2>
+            <p class="benefit__text" data-i18n="benefits.pickup.text">Reserva y recoge sin coste</p>
+          </div>
+        </li>
+        <li class="benefit reveal" style="--delay:.16s">
+          <svg class="icon icon--lg" aria-hidden="true"><use href="#icon-swap"/></svg>
+          <div>
+            <h2 class="benefit__title" data-i18n="benefits.returns.title">Cambios en 30 días</h2>
+            <p class="benefit__text" data-i18n="benefits.returns.text">Sin complicaciones</p>
+          </div>
+        </li>
+        <li class="benefit reveal" style="--delay:.24s">
+          <svg class="icon icon--lg" aria-hidden="true"><use href="#icon-shield"/></svg>
+          <div>
+            <h2 class="benefit__title" data-i18n="benefits.secure.title">Pago seguro</h2>
+            <p class="benefit__text" data-i18n="benefits.secure.text">Tarjeta, efectivo o contra reembolso</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- SECCIÓN INFORMATIVA -->
+    <section class="section about" id="nosotros" aria-labelledby="about-title">
+      <div class="container about__grid">
+        <div class="about__media reveal">
+          <img src="https://images.pexels.com/photos/30947677/pexels-photo-30947677.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=900&h=1125"
+               alt="Hombre ajustándose una americana azul en la boutique" width="900" height="1125" loading="lazy">
+          <p class="about__badge" data-i18n="about.badge">Boutique en València · desde 2011</p>
+        </div>
+
+        <div class="about__content">
+          <p class="eyebrow reveal" data-i18n="about.eyebrow">Nuestra boutique</p>
+          <h2 class="section-title reveal" id="about-title" data-i18n="about.title">Moda masculina con criterio, hecha para durar</h2>
+          <p class="section-text reveal" data-i18n="about.text1">En NOVARO seleccionamos cada prenda pensando en el hombre que quiere vestir bien sin darle demasiadas vueltas. Líneas limpias, colores sobrios y acabados que se notan con los años.</p>
+          <p class="section-text reveal" data-i18n="about.text2">Trabajamos con talleres de proximidad y tejidos de origen certificado, y te acompañamos en tienda con asesoramiento de imagen y ajustes incluidos.</p>
+
+          <ul class="feature-list">
+            <li class="feature reveal">
+              <span class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#icon-sparkle"/></svg></span>
+              <div>
+                <h3 class="feature__title" data-i18n="about.f1.title">Tejidos nobles</h3>
+                <p class="feature__text" data-i18n="about.f1.text">Lana merino, algodón egipcio y lino europeo elegidos por su tacto y durabilidad.</p>
+              </div>
+            </li>
+            <li class="feature reveal" style="--delay:.08s">
+              <span class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#icon-scissors"/></svg></span>
+              <div>
+                <h3 class="feature__title" data-i18n="about.f2.title">Patronaje preciso</h3>
+                <p class="feature__text" data-i18n="about.f2.text">Cortes limpios y proporciones equilibradas que favorecen cualquier silueta.</p>
+              </div>
+            </li>
+            <li class="feature reveal" style="--delay:.16s">
+              <span class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#icon-user"/></svg></span>
+              <div>
+                <h3 class="feature__title" data-i18n="about.f3.title">Atención personal</h3>
+                <p class="feature__text" data-i18n="about.f3.text">Asesoramiento de imagen en tienda y ajustes de sastrería incluidos.</p>
+              </div>
+            </li>
+          </ul>
+
+          <dl class="stats reveal">
+            <div class="stat"><dt class="stat__label" data-i18n="about.stat1">Años de oficio</dt><dd class="stat__value" data-count-to="15">15</dd></div>
+            <div class="stat"><dt class="stat__label" data-i18n="about.stat2">Clientes satisfechos</dt><dd class="stat__value" data-count-to="8500" data-count-suffix="+">8.500+</dd></div>
+            <div class="stat"><dt class="stat__label" data-i18n="about.stat3">Tejidos certificados</dt><dd class="stat__value" data-count-to="100" data-count-suffix="%">100%</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLECCIONES (accesos por categoría) -->
+    <section class="section collections" id="colecciones" aria-labelledby="collections-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow reveal" data-i18n="collections.eyebrow">Colecciones</p>
+          <h2 class="section-title reveal" id="collections-title" data-i18n="collections.title">Explora por categoría</h2>
+          <p class="section-text reveal" data-i18n="collections.text">Desde la camisa de cada día hasta la americana para las ocasiones especiales.</p>
+        </header>
+
+        <div class="bento">
+          <a class="collection-card collection-card--tall reveal" href="#tienda" data-category-link="jackets">
+            <img src="https://images.pexels.com/photos/22276713/pexels-photo-22276713.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=1000"
+                 alt="Americana oscura, zapatos de piel y complementos" width="800" height="1000" loading="lazy">
+            <span class="collection-card__body">
+              <span class="collection-card__title" data-i18n="categories.jackets">Americanas y trajes</span>
+              <span class="collection-card__cta"><span data-i18n="collections.explore">Explorar</span><svg class="icon icon--arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></span>
+            </span>
+          </a>
+
+          <a class="collection-card reveal" style="--delay:.08s" href="#tienda" data-category-link="shirts">
+            <img src="https://images.pexels.com/photos/16062780/pexels-photo-16062780.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=600"
+                 alt="Hombre con camisa a rayas" width="800" height="600" loading="lazy">
+            <span class="collection-card__body">
+              <span class="collection-card__title" data-i18n="categories.shirts">Camisas</span>
+              <span class="collection-card__cta"><span data-i18n="collections.explore">Explorar</span><svg class="icon icon--arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></span>
+            </span>
+          </a>
+
+          <a class="collection-card reveal" style="--delay:.16s" href="#tienda" data-category-link="shoes">
+            <img src="https://images.pexels.com/photos/18368127/pexels-photo-18368127.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=600"
+                 alt="Zapatilla blanca sobre un muro de piedra" width="800" height="600" loading="lazy">
+            <span class="collection-card__body">
+              <span class="collection-card__title" data-i18n="categories.shoes">Calzado</span>
+              <span class="collection-card__cta"><span data-i18n="collections.explore">Explorar</span><svg class="icon icon--arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></span>
+            </span>
+          </a>
+
+          <a class="collection-card collection-card--wide reveal" style="--delay:.24s" href="#tienda" data-category-link="accessories">
+            <img src="https://images.pexels.com/photos/2494607/pexels-photo-2494607.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1200&h=600"
+                 alt="Zapatos marrones, reloj, cinturón y gafas de sol" width="1200" height="600" loading="lazy">
+            <span class="collection-card__body">
+              <span class="collection-card__title" data-i18n="categories.accessories">Accesorios</span>
+              <span class="collection-card__cta"><span data-i18n="collections.explore">Explorar</span><svg class="icon icon--arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIENDA ONLINE -->
+    <section class="section shop" id="tienda" aria-labelledby="shop-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow reveal" data-i18n="shop.eyebrow">Tienda online</p>
+          <h2 class="section-title reveal" id="shop-title" data-i18n="shop.title">Selección de temporada</h2>
+          <p class="section-text reveal" data-i18n="shop.text">Compra online y recoge en tienda o recíbelo en casa. Elige la forma de pago que te resulte más cómoda.</p>
+        </header>
+
+        <div class="shop-toolbar">
+          <div class="filter-chips" role="group" data-i18n-label="aria.filters" aria-label="Filtrar por categoría">
+            <button type="button" class="chip is-active" data-filter="all" aria-pressed="true" data-i18n="categories.all">Todo</button>
+            <button type="button" class="chip" data-filter="shirts" aria-pressed="false" data-i18n="categories.shirts">Camisas</button>
+            <button type="button" class="chip" data-filter="jackets" aria-pressed="false" data-i18n="categories.jackets">Americanas y trajes</button>
+            <button type="button" class="chip" data-filter="trousers" aria-pressed="false" data-i18n="categories.trousers">Pantalones</button>
+            <button type="button" class="chip" data-filter="knitwear" aria-pressed="false" data-i18n="categories.knitwear">Punto</button>
+            <button type="button" class="chip" data-filter="shoes" aria-pressed="false" data-i18n="categories.shoes">Calzado</button>
+            <button type="button" class="chip" data-filter="accessories" aria-pressed="false" data-i18n="categories.accessories">Accesorios</button>
+          </div>
+
+          <div class="shop-toolbar__sort">
+            <label for="sort-select" data-i18n="shop.sortLabel">Ordenar por</label>
+            <select id="sort-select">
+              <option value="featured" data-i18n="sort.featured">Destacados</option>
+              <option value="priceAsc" data-i18n="sort.priceAsc">Precio: de menor a mayor</option>
+              <option value="priceDesc" data-i18n="sort.priceDesc">Precio: de mayor a menor</option>
+            </select>
+          </div>
+        </div>
+
+        <p class="shop-count" id="product-count" aria-live="polite"></p>
+        <div class="product-grid" id="product-grid"></div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN SECUNDARIA: sastrería a medida -->
+    <section class="section tailoring" id="sastreria" aria-labelledby="tailoring-title">
+      <div class="container tailoring__grid">
+        <div class="tailoring__content">
+          <p class="eyebrow eyebrow--light reveal" data-i18n="tailoring.eyebrow">Sastrería a medida</p>
+          <h2 class="section-title reveal" id="tailoring-title" data-i18n="tailoring.title">Un traje que cuenta tu historia</h2>
+          <p class="section-text reveal" data-i18n="tailoring.text">Diseñamos contigo una prenda única: tejido, corte y detalles. Nuestros sastres la elaboran y la ajustan hasta que te siente como una segunda piel.</p>
+
+          <ol class="steps">
+            <li class="step reveal">
+              <span class="step__number" aria-hidden="true">01</span>
+              <div>
+                <h3 class="step__title" data-i18n="tailoring.s1.title">Cita y asesoramiento</h3>
+                <p class="step__text" data-i18n="tailoring.s1.text">Hablamos de estilo, ocasión y presupuesto en una visita de 45 minutos.</p>
+              </div>
+            </li>
+            <li class="step reveal" style="--delay:.08s">
+              <span class="step__number" aria-hidden="true">02</span>
+              <div>
+                <h3 class="step__title" data-i18n="tailoring.s2.title">Toma de medidas</h3>
+                <p class="step__text" data-i18n="tailoring.s2.text">Más de 20 medidas y más de 200 tejidos entre los que elegir.</p>
+              </div>
+            </li>
+            <li class="step reveal" style="--delay:.16s">
+              <span class="step__number" aria-hidden="true">03</span>
+              <div>
+                <h3 class="step__title" data-i18n="tailoring.s3.title">Prueba y entrega</h3>
+                <p class="step__text" data-i18n="tailoring.s3.text">Primera prueba en 2 semanas y entrega con un ajuste incluido.</p>
+              </div>
+            </li>
+          </ol>
+
+          <a class="btn btn--light reveal" href="#contacto" data-contact-subject="tailoring">
+            <span data-i18n="tailoring.cta">Reservar cita</span>
+            <svg class="icon icon--arrow" aria-hidden="true"><use href="#icon-arrow"/></svg>
+          </a>
+        </div>
+
+        <div class="tailoring__media reveal">
+          <img src="https://images.pexels.com/photos/6765651/pexels-photo-6765651.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=900&h=1125"
+               alt="Sastre tomando medidas a un cliente en el taller" width="900" height="1125" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="section contact" id="contacto" aria-labelledby="contact-title">
+      <div class="container contact__grid">
+        <div class="contact__info">
+          <p class="eyebrow reveal" data-i18n="contact.eyebrow">Contacto</p>
+          <h2 class="section-title reveal" id="contact-title" data-i18n="contact.title">Visítanos o escríbenos</h2>
+          <p class="section-text reveal" data-i18n="contact.text">Estamos en el corazón de València. Pasa por la tienda o envíanos un mensaje y te responderemos en menos de 24 horas.</p>
+
+          <ul class="contact-list">
+            <li class="contact-list__item reveal">
+              <svg class="icon" aria-hidden="true"><use href="#icon-pin"/></svg>
+              <div><p class="contact-list__label" data-i18n="contact.addressLabel">Dirección</p><p>Carrer de Colón, 24 · 46004 València</p></div>
+            </li>
+            <li class="contact-list__item reveal" style="--delay:.06s">
+              <svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>
+              <div><p class="contact-list__label" data-i18n="contact.phoneLabel">Teléfono</p><p><a href="tel:+34961234567">+34 961 234 567</a></p></div>
+            </li>
+            <li class="contact-list__item reveal" style="--delay:.12s">
+              <svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>
+              <div><p class="contact-list__label" data-i18n="contact.emailLabel">Correo electrónico</p><p><a href="mailto:hola@novaro-boutique.es">hola@novaro-boutique.es</a></p></div>
+            </li>
+            <li class="contact-list__item reveal" style="--delay:.18s">
+              <svg class="icon" aria-hidden="true"><use href="#icon-clock"/></svg>
+              <div><p class="contact-list__label" data-i18n="contact.hoursLabel">Horario</p><p data-i18n="contact.hoursValue">Lun–Sáb · 10:00–14:00 y 17:00–20:30</p></div>
+            </li>
+          </ul>
+        </div>
+
+        <form class="contact-form reveal" id="contact-form" novalidate>
+          <div class="field">
+            <label for="contact-name" data-i18n="form.name">Nombre y apellidos</label>
+            <input id="contact-name" name="name" type="text" autocomplete="name" data-validate="required">
+            <p class="field__error" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="contact-email" data-i18n="form.email">Correo electrónico</label>
+            <input id="contact-email" name="email" type="email" autocomplete="email" data-validate="required email">
+            <p class="field__error" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="contact-subject" data-i18n="form.subject">Motivo</label>
+            <select id="contact-subject" name="subject">
+              <option value="info" data-i18n="form.subjectInfo">Información general</option>
+              <option value="order" data-i18n="form.subjectOrder">Consulta sobre un pedido</option>
+              <option value="tailoring" data-i18n="form.subjectTailoring">Cita de sastrería</option>
+              <option value="other" data-i18n="form.subjectOther">Otros</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="contact-message" data-i18n="form.message">Mensaje</label>
+            <textarea id="contact-message" name="message" rows="5" data-validate="required"></textarea>
+            <p class="field__error" role="alert"></p>
+          </div>
+          <div class="field field--check">
+            <label class="check">
+              <input type="checkbox" name="privacy" data-validate="checked">
+              <span data-i18n="form.privacy">He leído y acepto el tratamiento de mis datos para responder a mi consulta.</span>
+            </label>
+            <p class="field__error" role="alert"></p>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block">
+            <span data-i18n="form.send">Enviar mensaje</span>
+            <svg class="icon icon--arrow" aria-hidden="true"><use href="#icon-arrow"/></svg>
+          </button>
+          <p class="form-success" id="contact-success" role="status" hidden data-i18n="form.success">¡Gracias! Hemos recibido tu mensaje y te responderemos muy pronto.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================================
+       PIE DE PÁGINA
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a class="logo logo--footer" href="#inicio" aria-label="NOVARO">
+          <span class="logo__word">NOVARO</span>
+          <span class="logo__sub" data-i18n="logo.sub">Boutique · Hombre</span>
+        </a>
+        <p data-i18n="footer.about">Boutique de moda masculina en València. Prendas atemporales, sastrería a medida y compra online con recogida o envío.</p>
+        <div class="footer__social">
+          <a class="icon-button" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"/></svg></a>
+          <a class="icon-button" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="#icon-facebook"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer__column">
+        <h2 class="footer__title" data-i18n="footer.shop">Tienda</h2>
+        <ul>
+          <li><a href="#tienda" data-category-link="shirts" data-i18n="categories.shirts">Camisas</a></li>
+          <li><a href="#tienda" data-category-link="jackets" data-i18n="categories.jackets">Americanas y trajes</a></li>
+          <li><a href="#tienda" data-category-link="trousers" data-i18n="categories.trousers">Pantalones</a></li>
+          <li><a href="#tienda" data-category-link="knitwear" data-i18n="categories.knitwear">Punto</a></li>
+          <li><a href="#tienda" data-category-link="shoes" data-i18n="categories.shoes">Calzado</a></li>
+          <li><a href="#tienda" data-category-link="accessories" data-i18n="categories.accessories">Accesorios</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__column">
+        <h2 class="footer__title" data-i18n="footer.info">Información</h2>
+        <ul>
+          <li>Carrer de Colón, 24<br>46004 València</li>
+          <li><a href="tel:+34961234567">+34 961 234 567</a></li>
+          <li><a href="mailto:hola@novaro-boutique.es">hola@novaro-boutique.es</a></li>
+          <li>
+            <span data-i18n="footer.hoursWeek">De lunes a sábado</span><br>
+            <span data-i18n="footer.hoursTimes">10:00–14:00 · 17:00–20:30</span><br>
+            <span data-i18n="footer.hoursSunday">Domingo: cerrado</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer__column">
+        <h2 class="footer__title" data-i18n="footer.legal">Legal</h2>
+        <ul>
+          <li><button type="button" class="footer__link" data-legal="cookies" data-i18n="legal.cookies.link">Política de cookies</button></li>
+          <li><button type="button" class="footer__link" data-legal="requirements" data-i18n="legal.requirements.link">Requisitos de compra</button></li>
+          <li><button type="button" class="footer__link" data-legal="shipping" data-i18n="legal.shipping.link">Envíos y devoluciones</button></li>
+        </ul>
+        <p class="footer__payments" data-i18n="footer.payments">Aceptamos tarjeta, efectivo en tienda y pago contra reembolso.</p>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p data-i18n="footer.copyright">© 2026 NOVARO Boutique. Todos los derechos reservados.</p>
+      <p data-i18n="footer.credit">Imágenes de muestra: Pexels</p>
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       MODALES Y PANELES SUPERPUESTOS
+       ====================================================================== -->
+
+  <!-- Modal de búsqueda -->
+  <div class="modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-title" aria-hidden="true">
+    <div class="modal__panel modal__panel--medium" tabindex="-1">
+      <h2 class="visually-hidden" id="search-title" data-i18n="search.title">Buscar en la página</h2>
+      <form class="search-form" id="search-form" role="search">
+        <svg class="icon" aria-hidden="true"><use href="#icon-search"/></svg>
+        <input type="search" id="search-input" autocomplete="off" spellcheck="false" data-autofocus
+               data-i18n-placeholder="search.placeholder" placeholder="Escribe una palabra…"
+               data-i18n-label="search.title" aria-label="Buscar en la página">
+        <button type="button" class="icon-button" data-modal-close data-i18n-label="aria.close" aria-label="Cerrar">
+          <svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg>
+        </button>
+      </form>
+      <p class="search-status" id="search-status" aria-live="polite"></p>
+      <ul class="search-results" id="search-results"></ul>
+      <div class="search-footer">
+        <button type="button" class="btn btn--ghost btn--small" id="search-clear-button" data-i18n="search.clear">Quitar resaltado</button>
+        <span class="search-footer__hint" data-i18n="search.esc">Esc para cerrar</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carrito (panel lateral) -->
+  <div class="modal modal--drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" aria-hidden="true">
+    <aside class="modal__panel" tabindex="-1">
+      <header class="modal__header">
+        <h2 class="modal__title" id="cart-title"><span data-i18n="cart.title">Tu carrito</span> <span id="cart-title-count"></span></h2>
+        <button type="button" class="icon-button" data-modal-close data-i18n-label="aria.close" aria-label="Cerrar">
+          <svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg>
+        </button>
+      </header>
+
+      <div class="shipping-progress" id="shipping-progress">
+        <p id="shipping-progress-text"></p>
+        <div class="progress" aria-hidden="true"><span id="shipping-progress-bar"></span></div>
+      </div>
+
+      <ul class="cart-list" id="cart-list"></ul>
+
+      <div class="cart-empty" id="cart-empty" hidden>
+        <svg class="icon icon--xl" aria-hidden="true"><use href="#icon-bag"/></svg>
+        <p class="cart-empty__title" data-i18n="cart.empty">Tu carrito está vacío</p>
+        <p data-i18n="cart.emptyText">Añade alguna prenda para empezar.</p>
+        <button type="button" class="btn btn--primary" data-modal-close data-i18n="cart.continue">Seguir comprando</button>
+      </div>
+
+      <footer class="drawer__footer" id="cart-footer">
+        <form class="promo" id="promo-form" novalidate>
+          <label for="promo-input" data-i18n="cart.promoLabel">Código promocional</label>
+          <div class="promo__row">
+            <input id="promo-input" type="text" autocomplete="off" autocapitalize="characters" data-i18n-placeholder="cart.promoPlaceholder" placeholder="Código">
+            <button type="submit" class="btn btn--outline btn--small" data-i18n="cart.promoApply">Aplicar</button>
+          </div>
+          <p class="promo__message" id="promo-message" aria-live="polite"></p>
+          <p class="promo__error" id="promo-error" role="alert"></p>
+        </form>
+
+        <div id="cart-totals"></div>
+        <p class="drawer__note" data-i18n="cart.shippingNote">Los gastos de envío se calculan al finalizar la compra.</p>
+
+        <button type="button" class="btn btn--primary btn--block" id="checkout-button">
+          <span data-i18n="cart.checkout">Finalizar compra</span>
+          <svg class="icon icon--arrow" aria-hidden="true"><use href="#icon-arrow"/></svg>
+        </button>
+        <button type="button" class="link-button" id="clear-cart-button" data-i18n="cart.clear">Vaciar carrito</button>
+      </footer>
+    </aside>
+  </div>
+
+  <!-- Finalizar compra -->
+  <div class="modal" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title" aria-hidden="true">
+    <div class="modal__panel modal__panel--wide" tabindex="-1">
+      <header class="modal__header">
+        <h2 class="modal__title" id="checkout-title" data-i18n="checkout.title">Finalizar compra</h2>
+        <button type="button" class="icon-button" data-modal-close data-i18n-label="aria.close" aria-label="Cerrar">
+          <svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg>
+        </button>
+      </header>
+
+      <form class="checkout" id="checkout-form" novalidate>
+        <div class="checkout__main">
+
+          <!-- 1. Método de entrega -->
+          <fieldset class="checkout__step">
+            <legend class="checkout__legend" data-i18n="checkout.deliveryTitle">1. Entrega</legend>
+            <div class="option-grid">
+              <label class="option">
+                <input type="radio" name="delivery" value="pickup" checked>
+                <span class="option__body">
+                  <svg class="icon" aria-hidden="true"><use href="#icon-store"/></svg>
+                  <span class="option__content">
+                    <span class="option__title" data-i18n="checkout.pickup.title">Recoger en tienda</span>
+                    <span class="option__text" data-i18n="checkout.pickup.text">Reserva tu pedido y recógelo sin coste.</span>
+                  </span>
+                </span>
+              </label>
+              <label class="option">
+                <input type="radio" name="delivery" value="delivery">
+                <span class="option__body">
+                  <svg class="icon" aria-hidden="true"><use href="#icon-truck"/></svg>
+                  <span class="option__content">
+                    <span class="option__title" data-i18n="checkout.ship.title">Envío a domicilio</span>
+                    <span class="option__text" data-i18n="checkout.ship.text">24–48 h · Gratis desde 100 €</span>
+                  </span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Datos de recogida (solo si se recoge en tienda) -->
+          <fieldset class="checkout__step" data-delivery-group="pickup">
+            <legend class="checkout__legend checkout__legend--sub" data-i18n="checkout.pickupTitle">Datos de recogida</legend>
+            <div class="field-row">
+              <div class="field">
+                <label for="pickup-date" data-i18n="checkout.pickupDate">Día de recogida</label>
+                <select id="pickup-date" name="pickupDate" data-validate="required"></select>
+                <p class="field__error" role="alert"></p>
+              </div>
+              <div class="field">
+                <label for="pickup-slot" data-i18n="checkout.pickupSlot">Franja horaria</label>
+                <select id="pickup-slot" name="pickupSlot" data-validate="required">
+                  <option value="" data-i18n="checkout.selectPlaceholder">Selecciona…</option>
+                  <option value="10:00 – 12:00">10:00 – 12:00</option>
+                  <option value="12:00 – 14:00">12:00 – 14:00</option>
+                  <option value="17:00 – 19:00">17:00 – 19:00</option>
+                  <option value="19:00 – 20:30">19:00 – 20:30</option>
+                </select>
+                <p class="field__error" role="alert"></p>
+              </div>
+            </div>
+            <p class="checkout__note" data-i18n="checkout.storeNote">Te esperamos en {address}. Tu pedido estará reservado durante el día elegido.</p>
+          </fieldset>
+
+          <!-- Dirección de envío (solo si se envía a domicilio) -->
+          <fieldset class="checkout__step" data-delivery-group="delivery" hidden disabled>
+            <legend class="checkout__legend checkout__legend--sub" data-i18n="checkout.addressTitle">Dirección de envío</legend>
+            <div class="field">
+              <label for="checkout-street" data-i18n="checkout.street">Dirección</label>
+              <input id="checkout-street" name="street" type="text" autocomplete="street-address" data-validate="required">
+              <p class="field__error" role="alert"></p>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="checkout-city" data-i18n="checkout.city">Ciudad</label>
+                <input id="checkout-city" name="city" type="text" autocomplete="address-level2" data-validate="required">
+                <p class="field__error" role="alert"></p>
+              </div>
+              <div class="field">
+                <label for="checkout-postal" data-i18n="checkout.postal">Código postal</label>
+                <input id="checkout-postal" name="postalCode" type="text" inputmode="numeric" maxlength="5" autocomplete="postal-code" data-validate="required postal">
+                <p class="field__error" role="alert"></p>
+              </div>
+            </div>
+            <div class="field">
+              <label for="checkout-province" data-i18n="checkout.province">Provincia</label>
+              <input id="checkout-province" name="province" type="text" autocomplete="address-level1" data-validate="required">
+              <p class="field__error" role="alert"></p>
+            </div>
+          </fieldset>
+
+          <!-- 2. Datos del cliente -->
+          <fieldset class="checkout__step">
+            <legend class="checkout__legend" data-i18n="checkout.customerTitle">2. Tus datos</legend>
+            <div class="field">
+              <label for="checkout-name" data-i18n="form.name">Nombre y apellidos</label>
+              <input id="checkout-name" name="name" type="text" autocomplete="name" data-validate="required">
+              <p class="field__error" role="alert"></p>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="checkout-email" data-i18n="form.email">Correo electrónico</label>
+                <input id="checkout-email" name="email" type="email" autocomplete="email" data-validate="required email">
+                <p class="field__error" role="alert"></p>
+              </div>
+              <div class="field">
+                <label for="checkout-phone" data-i18n="form.phone">Teléfono</label>
+                <input id="checkout-phone" name="phone" type="tel" autocomplete="tel" data-validate="required phone">
+                <p class="field__error" role="alert"></p>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- 3. Forma de pago -->
+          <fieldset class="checkout__step">
+            <legend class="checkout__legend" data-i18n="checkout.paymentTitle">3. Forma de pago</legend>
+            <div class="option-grid option-grid--stack">
+              <label class="option">
+                <input type="radio" name="payment" value="pickup" checked>
+                <span class="option__body">
+                  <svg class="icon" aria-hidden="true"><use href="#icon-store"/></svg>
+                  <span class="option__content">
+                    <span class="option__title" data-i18n="pay.pickup.title">Pagar al recoger</span>
+                    <span class="option__text" data-i18n="pay.pickup.text">Efectivo o tarjeta en la tienda</span>
+                    <span class="option__note" data-i18n="checkout.unavailable" hidden>No disponible con esta entrega</span>
+                  </span>
+                </span>
+              </label>
+              <label class="option">
+                <input type="radio" name="payment" value="delivery">
+                <span class="option__body">
+                  <svg class="icon" aria-hidden="true"><use href="#icon-cash"/></svg>
+                  <span class="option__content">
+                    <span class="option__title" data-i18n="pay.delivery.title">Pagar en la entrega</span>
+                    <span class="option__text" data-i18n="pay.delivery.text">Paga al repartidor al recibir el pedido</span>
+                    <span class="option__note" data-i18n="checkout.unavailable" hidden>No disponible con esta entrega</span>
+                  </span>
+                </span>
+              </label>
+              <label class="option">
+                <input type="radio" name="payment" value="online">
+                <span class="option__body">
+                  <svg class="icon" aria-hidden="true"><use href="#icon-card"/></svg>
+                  <span class="option__content">
+                    <span class="option__title" data-i18n="pay.online.title">Pagar online</span>
+                    <span class="option__text" data-i18n="pay.online.text">Tarjeta mediante pasarela de pago segura</span>
+                    <span class="option__note" data-i18n="checkout.unavailable" hidden>No disponible con esta entrega</span>
+                  </span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="checkout-notes" data-i18n="checkout.notes">Notas del pedido (opcional)</label>
+            <textarea id="checkout-notes" name="notes" rows="2"></textarea>
+          </div>
+
+          <div class="field field--check">
+            <label class="check">
+              <input type="checkbox" name="terms" data-validate="checked">
+              <span>
+                <span data-i18n="checkout.termsPrefix">He leído y acepto los</span>
+                <button type="button" class="link-button link-button--inline" data-legal="requirements" data-i18n="checkout.termsLink">requisitos de compra</button>
+              </span>
+            </label>
+            <p class="field__error" role="alert"></p>
+          </div>
+        </div>
+
+        <!-- Resumen del pedido -->
+        <aside class="checkout__summary" aria-labelledby="summary-title">
+          <h3 class="checkout__summary-title" id="summary-title" data-i18n="checkout.summary">Resumen del pedido</h3>
+          <div id="checkout-summary"></div>
+          <button type="submit" class="btn btn--primary btn--block" id="checkout-submit">Reservar pedido</button>
+        </aside>
+      </form>
+    </div>
+  </div>
+
+  <!-- Ventana de pago online: aquí se integrará la pasarela de pago -->
+  <div class="modal" id="payment-modal" role="dialog" aria-modal="true" aria-labelledby="payment-title" aria-hidden="true">
+    <div class="modal__panel modal__panel--medium" tabindex="-1">
+      <header class="modal__header">
+        <h2 class="modal__title" id="payment-title" data-i18n="payment.title">Pago seguro</h2>
+        <button type="button" class="icon-button" data-modal-close data-i18n-label="aria.close" aria-label="Cerrar">
+          <svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg>
+        </button>
+      </header>
+
+      <div class="payment">
+        <p class="payment__label" data-i18n="payment.amountLabel">Vas a pagar</p>
+        <p class="payment__amount" id="payment-amount"></p>
+        <p class="payment__order"><span data-i18n="payment.orderLabel">Pedido</span> <strong id="payment-order-id"></strong></p>
+        <p class="payment__delivery" id="payment-delivery"></p>
+
+        <div class="payment__summary" id="payment-summary"></div>
+
+        <!-- PUNTO DE INTEGRACIÓN: contenedor reservado para la pasarela de pago -->
+        <div class="payment__slot" id="payment-gateway-slot">
+          <svg class="icon icon--lg" aria-hidden="true"><use href="#icon-shield"/></svg>
+          <div>
+            <p class="payment__slot-title" data-i18n="payment.slotTitle">Pasarela de pago</p>
+            <p data-i18n="payment.slotNote">Aquí se integrará la pasarela de pago de la tienda. Modo demostración: al continuar se simulará un pago correcto.</p>
+          </div>
+        </div>
+
+        <div class="payment__actions">
+          <button type="button" class="btn btn--outline" id="payment-back-button" data-i18n="payment.back">Volver</button>
+          <button type="button" class="btn btn--primary" id="payment-pay-button">Pagar</button>
+        </div>
+        <p class="payment__secure"><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-shield"/></svg> <span data-i18n="payment.secure">Pago cifrado y seguro</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirmación del pedido -->
+  <div class="modal" id="confirmation-modal" role="dialog" aria-modal="true" aria-labelledby="confirmation-title" aria-hidden="true">
+    <div class="modal__panel modal__panel--medium" tabindex="-1">
+      <div class="confirmation">
+        <span class="confirmation__icon"><svg class="icon icon--lg" aria-hidden="true"><use href="#icon-check"/></svg></span>
+        <h2 class="confirmation__title" id="confirmation-title" data-i18n="confirmation.title">¡Gracias por tu pedido!</h2>
+        <p class="confirmation__message" id="confirmation-message"></p>
+        <p class="confirmation__order">
+          <span data-i18n="confirmation.orderLabel">Número de pedido</span>
+          <strong id="confirmation-order-id"></strong>
+        </p>
+        <p class="confirmation__keep" data-i18n="confirmation.keep">Guarda este número para cualquier consulta.</p>
+        <div class="confirmation__summary" id="confirmation-summary"></div>
+        <button type="button" class="btn btn--primary btn--block" data-modal-close data-i18n="confirmation.close">Seguir comprando</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Información legal (cookies, requisitos, envíos) -->
+  <div class="modal" id="legal-modal" role="dialog" aria-modal="true" aria-labelledby="legal-title" aria-hidden="true">
+    <div class="modal__panel modal__panel--medium" tabindex="-1">
+      <header class="modal__header">
+        <h2 class="modal__title" id="legal-title"></h2>
+        <button type="button" class="icon-button" data-modal-close data-i18n-label="aria.close" aria-label="Cerrar">
+          <svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg>
+        </button>
+      </header>
+      <div class="legal-body" id="legal-body"></div>
+      <div class="legal-footer">
+        <button type="button" class="btn btn--primary" data-modal-close data-i18n="legal.understood">Entendido</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Aviso de cookies -->
+  <div class="cookie-banner" id="cookie-banner" role="region" data-i18n-label="legal.cookies.title" aria-label="Política de cookies">
+    <p data-i18n="cookies.text">Usamos cookies técnicas para recordar tu carrito, idioma y tema. Con tu permiso, también cookies de análisis anónimas.</p>
+    <div class="cookie-banner__actions">
+      <button type="button" class="btn btn--primary btn--small" id="cookie-accept" data-i18n="cookies.accept">Aceptar</button>
+      <button type="button" class="btn btn--outline btn--small" id="cookie-reject" data-i18n="cookies.reject">Rechazar</button>
+      <button type="button" class="link-button" data-legal="cookies" data-i18n="cookies.more">Más información</button>
+    </div>
+  </div>
+
+  <!-- Botón flotante para quitar el resaltado de la búsqueda -->
+  <button type="button" class="highlight-chip" id="clear-highlights-button" hidden></button>
+
+  <!-- Avisos breves (toasts) -->
+  <div class="toast-region" id="toast-region" role="status" aria-live="polite"></div>
+
+  <!-- Volver arriba -->
+  <button type="button" class="back-to-top" id="back-to-top" data-i18n-label="aria.top" aria-label="Volver arriba">
+    <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up"/></svg>
+  </button>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
