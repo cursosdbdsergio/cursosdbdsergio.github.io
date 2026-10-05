@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Maison Alba · Boutique de moda para mujer en Valencia. Colecciones, tienda online, recogida en boutique y envío a domicilio.">
+  <title>Maison Alba · Boutique de moda mujer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-light">
+
+  <!-- ===== BARRA SUPERIOR DE INFORMACIÓN ===== -->
+  <div class="top-bar">
+    <div class="container top-bar__inner">
+      <ul class="top-bar__info">
+        <li><a href="tel:+34960000000">+34 960 000 000</a></li>
+        <li class="hide-mobile"><a href="mailto:hola@maisonalba.es">hola@maisonalba.es</a></li>
+        <li class="hide-tablet" data-i18n="topbar.shipping">Envío gratis desde 60 € · Devoluciones 30 días</li>
+      </ul>
+      <div class="lang-switch" role="group" aria-label="Idioma">
+        <button class="lang-btn is-active" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="va">VA</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CABECERA FIJA ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container site-header__inner">
+      <a href="#inicio" class="logo" aria-label="Maison Alba inicio">
+        <span class="logo__mark">MA</span>
+        <span class="logo__text">Maison Alba</span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Menú principal">
+        <ul class="main-nav__list">
+          <li><a href="#inicio" class="nav-link" data-i18n="nav.home">Inicio</a></li>
+          <li><a href="#colecciones" class="nav-link" data-i18n="nav.collections">Colecciones</a></li>
+          <li><a href="#tienda" class="nav-link" data-i18n="nav.shop">Tienda</a></li>
+          <li><a href="#nosotros" class="nav-link" data-i18n="nav.about">Nosotros</a></li>
+          <li><a href="#servicios" class="nav-link" data-i18n="nav.services">Servicios</a></li>
+          <li><a href="#contacto" class="nav-link" data-i18n="nav.contact">Contacto</a></li>
+        </ul>
+        <!-- Extras visibles solo en el menú móvil -->
+        <div class="mobile-extras">
+          <button class="btn btn--outline js-open-search" type="button">
+            <svg viewBox="0 0 24 24" class="icon"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+            <span data-i18n="search.button">Buscar</span>
+          </button>
+          <div class="lang-switch lang-switch--mobile" role="group" aria-label="Idioma">
+            <button class="lang-btn is-active" data-lang="es">Español</button>
+            <button class="lang-btn" data-lang="en">English</button>
+            <button class="lang-btn" data-lang="va">Valencià</button>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn js-open-search hide-mobile-flex" type="button" aria-label="Buscar">
+          <svg viewBox="0 0 24 24" class="icon"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+        </button>
+        <button class="icon-btn" id="userBtn" type="button" aria-label="Mi cuenta">
+          <svg viewBox="0 0 24 24" class="icon"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+        </button>
+        <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Cambiar modo claro/oscuro">
+          <svg viewBox="0 0 24 24" class="icon icon-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg viewBox="0 0 24 24" class="icon icon-moon"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <button class="icon-btn cart-btn" id="cartBtn" type="button" aria-label="Carrito">
+          <svg viewBox="0 0 24 24" class="icon"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="mainContent">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="inicio">
+      <video class="hero__video" autoplay muted loop playsinline poster="https://images.pexels.com/photos/36772528/pexels-photo-36772528.jpeg?auto=compress&cs=tinysrgb&w=1600">
+        <source src="https://videos.pexels.com/video-files/9479932/9479932-hd_1920_1080_30fps.mp4" type="video/mp4">
+      </video>
+      <div class="hero__overlay"></div>
+      <div class="container hero__content">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Nueva colección Primavera · Verano</p>
+        <h1 class="hero__title" data-i18n="hero.title">Elegancia natural para cada día</h1>
+        <p class="hero__text" data-i18n="hero.text">Prendas atemporales, tejidos nobles y piezas diseñadas para acompañarte en cada momento.</p>
+        <div class="hero__actions">
+          <a href="#tienda" class="btn btn--primary" data-i18n="hero.cta">Comprar ahora</a>
+          <a href="#colecciones" class="btn btn--ghost" data-i18n="hero.cta2">Ver colecciones</a>
+        </div>
+      </div>
+      <a href="#colecciones" class="hero__scroll" aria-label="Bajar"><span></span></a>
+    </section>
+
+    <!-- ===== SECCIÓN INFORMATIVA: COLECCIONES ===== -->
+    <section class="section reveal" id="colecciones">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow" data-i18n="collections.eyebrow">Colecciones</p>
+          <h2 class="section__title" data-i18n="collections.title">Descubre nuestro universo</h2>
+          <p class="section__lead" data-i18n="collections.lead">Seleccionamos cada prenda pensando en la mujer real: cómoda, versátil y con personalidad.</p>
+        </header>
+        <div class="collections-grid">
+          <article class="collection-card collection-card--tall">
+            <img src="https://images.pexels.com/photos/35741388/pexels-photo-35741388.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800" alt="Vestidos de temporada" loading="lazy">
+            <div class="collection-card__body">
+              <h3 data-i18n="collections.c1">Vestidos</h3>
+              <a href="#tienda" class="link-arrow" data-filter-link="vestidos" data-i18n="collections.explore">Explorar</a>
+            </div>
+          </article>
+          <article class="collection-card">
+            <img src="https://images.pexels.com/photos/38194951/pexels-photo-38194951.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=800" alt="Conjuntos y blazers" loading="lazy">
+            <div class="collection-card__body">
+              <h3 data-i18n="collections.c2">Conjuntos</h3>
+              <a href="#tienda" class="link-arrow" data-filter-link="conjuntos" data-i18n="collections.explore">Explorar</a>
+            </div>
+          </article>
+          <article class="collection-card">
+            <img src="https://images.pexels.com/photos/26651160/pexels-photo-26651160.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=800" alt="Denim y básicos" loading="lazy">
+            <div class="collection-card__body">
+              <h3 data-i18n="collections.c3">Denim y básicos</h3>
+              <a href="#tienda" class="link-arrow" data-filter-link="basicos" data-i18n="collections.explore">Explorar</a>
+            </div>
+          </article>
+          <article class="collection-card collection-card--wide">
+            <img src="https://images.pexels.com/photos/19060012/pexels-photo-19060012.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=700&w=1200" alt="Chaquetas y abrigos" loading="lazy">
+            <div class="collection-card__body">
+              <h3 data-i18n="collections.c4">Chaquetas</h3>
+              <a href="#tienda" class="link-arrow" data-filter-link="chaquetas" data-i18n="collections.explore">Explorar</a>
+            </div>
+          </article>
+        </div>
+
+        <ul class="features">
+          <li class="feature">
+            <svg viewBox="0 0 24 24" class="icon"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg>
+            <div><strong data-i18n="features.f1t">Envío 24/48 h</strong><p data-i18n="features.f1">Gratis a partir de 60 €</p></div>
+          </li>
+          <li class="feature">
+            <svg viewBox="0 0 24 24" class="icon"><path d="M4 10h16v10H4zM2 6h20v4H2zM12 6v14"/></svg>
+            <div><strong data-i18n="features.f2t">Recogida en boutique</strong><p data-i18n="features.f2">Reserva online y recoge en 2 h</p></div>
+          </li>
+          <li class="feature">
+            <svg viewBox="0 0 24 24" class="icon"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+            <div><strong data-i18n="features.f3t">Devoluciones fáciles</strong><p data-i18n="features.f3">30 días para cambiar de opinión</p></div>
+          </li>
+          <li class="feature">
+            <svg viewBox="0 0 24 24" class="icon"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+            <div><strong data-i18n="features.f4t">Pago seguro</strong><p data-i18n="features.f4">En tienda, contra reembolso u online</p></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== TIENDA ONLINE ===== -->
+    <section class="section section--alt reveal" id="tienda">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow" data-i18n="shop.eyebrow">Tienda online</p>
+          <h2 class="section__title" data-i18n="shop.title">Lo más deseado</h2>
+        </header>
+        <div class="shop-filters" role="tablist">
+          <button class="filter-btn is-active" data-filter="todos" data-i18n="shop.all">Todo</button>
+          <button class="filter-btn" data-filter="vestidos" data-i18n="collections.c1">Vestidos</button>
+          <button class="filter-btn" data-filter="conjuntos" data-i18n="collections.c2">Conjuntos</button>
+          <button class="filter-btn" data-filter="basicos" data-i18n="collections.c3">Denim y básicos</button>
+          <button class="filter-btn" data-filter="chaquetas" data-i18n="collections.c4">Chaquetas</button>
+        </div>
+        <div class="products-grid" id="productsGrid"><!-- Generado por script.js --></div>
+      </div>
+    </section>
+
+    <!-- ===== SECCIÓN SECUNDARIA: NOSOTROS ===== -->
+    <section class="section reveal" id="nosotros">
+      <div class="container about">
+        <div class="about__media">
+          <img src="https://images.pexels.com/photos/5418894/pexels-photo-5418894.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800" alt="Atención personalizada en Maison Alba" loading="lazy">
+          <div class="about__badge"><strong>15</strong><span data-i18n="about.years">años vistiendo mujeres</span></div>
+        </div>
+        <div class="about__text">
+          <p class="eyebrow" data-i18n="about.eyebrow">Nuestra historia</p>
+          <h2 class="section__title" data-i18n="about.title">Moda consciente con alma mediterránea</h2>
+          <p data-i18n="about.p1">Nacimos en el corazón de Valencia con una idea sencilla: ofrecer prendas bonitas, bien hechas y pensadas para durar. Trabajamos con pequeños talleres y tejidos naturales como lino, algodón orgánico y seda.</p>
+          <p data-i18n="about.p2">Cada temporada creamos colecciones cápsula limitadas para que tu armario sea tan único como tú.</p>
+          <ul class="stats">
+            <li><strong>+8.000</strong><span data-i18n="about.s1">clientas felices</span></li>
+            <li><strong>70%</strong><span data-i18n="about.s2">tejidos sostenibles</span></li>
+            <li><strong>2</strong><span data-i18n="about.s3">boutiques físicas</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SERVICIOS ===== -->
+    <section class="section section--alt reveal" id="servicios">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow" data-i18n="services.eyebrow">Servicios</p>
+          <h2 class="section__title" data-i18n="services.title">Una experiencia a tu medida</h2>
+        </header>
+        <div class="services-grid">
+          <article class="service-card">
+            <span class="service-card__num">01</span>
+            <h3 data-i18n="services.s1t">Personal shopper</h3>
+            <p data-i18n="services.s1">Asesoría de estilo gratuita en boutique o por videollamada.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-card__num">02</span>
+            <h3 data-i18n="services.s2t">Arreglos a medida</h3>
+            <p data-i18n="services.s2">Ajustamos bajos y cinturas en 48 h sin coste adicional.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-card__num">03</span>
+            <h3 data-i18n="services.s3t">Click & Collect</h3>
+            <p data-i18n="services.s3">Reserva online y recoge tu pedido en la boutique cuando quieras.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-card__num">04</span>
+            <h3 data-i18n="services.s4t">Tarjeta regalo</h3>
+            <p data-i18n="services.s4">El detalle perfecto, válida en tienda física y online.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACTO ===== -->
+    <section class="section reveal" id="contacto">
+      <div class="container contact">
+        <div class="contact__info">
+          <p class="eyebrow" data-i18n="contact.eyebrow">Contacto</p>
+          <h2 class="section__title" data-i18n="contact.title">Visítanos o escríbenos</h2>
+          <ul class="contact__list">
+            <li><strong data-i18n="contact.address">Dirección</strong><span>Carrer de Colón 24, 46004 València</span></li>
+            <li><strong data-i18n="contact.hours">Horario</strong><span data-i18n="contact.hoursText">Lunes a sábado · 10:00 – 20:30</span></li>
+            <li><strong data-i18n="contact.phone">Teléfono</strong><a href="tel:+34960000000">+34 960 000 000</a></li>
+            <li><strong>Email</strong><a href="mailto:hola@maisonalba.es">hola@maisonalba.es</a></li>
+          </ul>
+        </div>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <label><span data-i18n="form.name">Nombre</span><input type="text" name="name" required></label>
+            <label><span>Email</span><input type="email" name="email" required></label>
+          </div>
+          <label><span data-i18n="form.subject">Asunto</span><input type="text" name="subject"></label>
+          <label><span data-i18n="form.message">Mensaje</span><textarea name="message" rows="5" required></textarea></label>
+          <label class="checkbox"><input type="checkbox" required> <span data-i18n="form.privacy">Acepto la política de privacidad</span></label>
+          <button type="submit" class="btn btn--primary" data-i18n="form.send">Enviar mensaje</button>
+          <p class="form-feedback" id="contactFeedback" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#inicio" class="logo"><span class="logo__mark">MA</span><span class="logo__text">Maison Alba</span></a>
+        <p class="footer-text" data-i18n="footer.about">Boutique de moda femenina en Valencia desde 2010.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer.help">Ayuda</h4>
+        <ul>
+          <li><a href="#" data-info="shipping" data-i18n="footer.shipping">Envíos y entregas</a></li>
+          <li><a href="#" data-info="returns" data-i18n="footer.returns">Cambios y devoluciones</a></li>
+          <li><a href="#" data-info="sizes" data-i18n="footer.sizes">Guía de tallas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.legal">Legal</h4>
+        <ul>
+          <li><a href="#" data-info="cookies" data-i18n="footer.cookies">Política de cookies</a></li>
+          <li><a href="#" data-info="privacy" data-i18n="footer.privacy">Privacidad</a></li>
+          <li><a href="#" data-info="requirements" data-i18n="footer.requirements">Requisitos y condiciones de compra</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.newsletter">Newsletter</h4>
+        <form class="newsletter" id="newsletterForm">
+          <input type="email" placeholder="tu@email.com" required aria-label="Email">
+          <button class="btn btn--primary" type="submit">OK</button>
+        </form>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> Maison Alba. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
+    </div>
+  </footer>
+
+  <!-- ===== MODAL DE BÚSQUEDA ===== -->
+  <div class="modal" id="searchModal" aria-hidden="true" role="dialog" aria-label="Buscar">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel modal__panel--search">
+      <button class="modal__close" data-close aria-label="Cerrar">×</button>
+      <form class="search-form" id="searchForm">
+        <svg viewBox="0 0 24 24" class="icon"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+        <input type="search" id="searchInput" data-i18n-placeholder="search.placeholder" placeholder="Buscar en la página..." autocomplete="off">
+      </form>
+      <p class="search-summary" id="searchSummary"></p>
+      <ul class="search-results" id="searchResults"></ul>
+    </div>
+  </div>
+
+  <!-- ===== MODAL LOGIN (estructura para sistema futuro) ===== -->
+  <div class="modal" id="loginModal" aria-hidden="true" role="dialog" aria-label="Acceso">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel">
+      <button class="modal__close" data-close aria-label="Cerrar">×</button>
+      <h3 class="modal__title" data-i18n="login.title">Mi cuenta</h3>
+      <form class="stack-form" id="loginForm">
+        <label><span>Email</span><input type="email" required></label>
+        <label><span data-i18n="login.password">Contraseña</span><input type="password" required></label>
+        <button class="btn btn--primary btn--block" type="submit" data-i18n="login.enter">Entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== MODAL INFORMATIVO (cookies, requisitos...) ===== -->
+  <div class="modal" id="infoModal" aria-hidden="true" role="dialog">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel">
+      <button class="modal__close" data-close aria-label="Cerrar">×</button>
+      <h3 class="modal__title" id="infoTitle"></h3>
+      <div class="info-body" id="infoBody"></div>
+    </div>
+  </div>
+
+  <!-- ===== CARRITO LATERAL ===== -->
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="cart-drawer__backdrop" data-close-cart></div>
+    <div class="cart-drawer__panel">
+      <div class="cart-drawer__head">
+        <h3 data-i18n="cart.title">Tu cesta</h3>
+        <button class="modal__close" data-close-cart aria-label="Cerrar">×</button>
+      </div>
+      <ul class="cart-items" id="cartItems"></ul>
+      <div class="cart-drawer__foot">
+        <div class="cart-line"><span data-i18n="cart.subtotal">Subtotal</span><strong id="cartSubtotal">0,00 €</strong></div>
+        <p class="cart-note" data-i18n="cart.note">Envío gratis desde 60 €. Recogida en boutique siempre gratis.</p>
+        <button class="btn btn--primary btn--block" id="checkoutBtn" data-i18n="cart.checkout">Finalizar compra</button>
+        <button class="btn btn--text btn--block" id="clearCartBtn" data-i18n="cart.clear">Vaciar cesta</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===== MODAL CHECKOUT ===== -->
+  <div class="modal" id="checkoutModal" aria-hidden="true" role="dialog" aria-label="Finalizar compra">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel modal__panel--wide">
+      <button class="modal__close" data-close aria-label="Cerrar">×</button>
+      <h3 class="modal__title" data-i18n="checkout.title">Finalizar compra</h3>
+      <form class="stack-form" id="checkoutForm">
+        <fieldset>
+          <legend data-i18n="checkout.data">1. Tus datos</legend>
+          <div class="form-row">
+            <label><span data-i18n="form.name">Nombre</span><input type="text" name="name" required></label>
+            <label><span data-i18n="contact.phone">Teléfono</span><input type="tel" name="phone" required></label>
+          </div>
+          <label><span>Email</span><input type="email" name="email" required></label>
+        </fieldset>
+
+        <fieldset>
+          <legend data-i18n="checkout.delivery">2. Entrega</legend>
+          <div class="option-grid">
+            <label class="option-card"><input type="radio" name="delivery" value="pickup" checked><span><strong data-i18n="checkout.pickup">Recoger en boutique</strong><small data-i18n="checkout.pickupInfo">Carrer de Colón 24 · Gratis</small></span></label>
+            <label class="option-card"><input type="radio" name="delivery" value="home"><span><strong data-i18n="checkout.home">Envío a domicilio</strong><small data-i18n="checkout.homeInfo">24/48 h · 4,95 € (gratis +60 €)</small></span></label>
+          </div>
+          <div class="address-fields" id="addressFields" hidden>
+            <label><span data-i18n="checkout.address">Dirección</span><input type="text" name="address"></label>
+            <div class="form-row">
+              <label><span data-i18n="checkout.city">Ciudad</span><input type="text" name="city"></label>
+              <label><span data-i18n="checkout.zip">Código postal</span><input type="text" name="zip" pattern="[0-9]{5}"></label>
+            </div>
+          </div>
+          <label class="pickup-date" id="pickupDate"><span data-i18n="checkout.pickupDate">Fecha de recogida</span><input type="date" name="pickupDate"></label>
+        </fieldset>
+
+        <fieldset>
+          <legend data-i18n="checkout.payment">3. Pago</legend>
+          <div class="option-grid option-grid--3">
+            <label class="option-card" data-pay-for="pickup"><input type="radio" name="payment" value="store" checked><span><strong data-i18n="checkout.payStore">Pagar al recoger</strong><small data-i18n="checkout.payStoreInfo">Efectivo o tarjeta en boutique</small></span></label>
+            <label class="option-card" data-pay-for="home"><input type="radio" name="payment" value="cod"><span><strong data-i18n="checkout.payCod">Pagar en la entrega</strong><small data-i18n="checkout.payCodInfo">Contra reembolso al repartidor</small></span></label>
+            <label class="option-card"><input type="radio" name="payment" value="online"><span><strong data-i18n="checkout.payOnline">Pago online</strong><small data-i18n="checkout.payOnlineInfo">Pasarela segura de la boutique</small></span></label>
+          </div>
+        </fieldset>
+
+        <div class="order-summary" id="orderSummary"></div>
+        <button class="btn btn--primary btn--block" type="submit" data-i18n="checkout.confirm">Confirmar pedido</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== VENTANA DE PAGO (previa a la pasarela) ===== -->
+  <div class="modal" id="paymentModal" aria-hidden="true" role="dialog" aria-label="Pago">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel">
+      <button class="modal__close" data-close aria-label="Cerrar">×</button>
+      <h3 class="modal__title" data-i18n="payment.title">Resumen del pago</h3>
+      <div id="paymentSummary"></div>
+      <!-- Punto de integración de la pasarela de pago -->
+      <div class="gateway-placeholder" id="paymentGateway" data-i18n="payment.gateway">Aquí se integrará la pasarela de pago.</div>
+      <button class="btn btn--primary btn--block" id="payNowBtn" data-i18n="payment.pay">Ir a pagar</button>
+    </div>
+  </div>
+
+  <!-- ===== MODAL CONFIRMACIÓN ===== -->
+  <div class="modal" id="confirmModal" aria-hidden="true" role="dialog">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel modal__panel--center">
+      <button class="modal__close" data-close aria-label="Cerrar">×</button>
+      <div class="confirm-icon">✓</div>
+      <h3 class="modal__title" data-i18n="confirm.title">¡Pedido reservado!</h3>
+      <div id="confirmBody"></div>
+      <button class="btn btn--primary" data-close data-i18n="confirm.ok">Seguir comprando</button>
+    </div>
+  </div>
+
+  <!-- Aviso de cookies -->
+  <div class="cookie-banner" id="cookieBanner" hidden>
+    <p data-i18n="cookies.text">Usamos cookies propias para mejorar tu experiencia.</p>
+    <button class="btn btn--primary" id="acceptCookies" data-i18n="cookies.accept">Aceptar</button>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

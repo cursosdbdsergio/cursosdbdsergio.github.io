@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Maison Élise - Boutique de moda femenina. Colecciones exclusivas de ropa de mujer con diseño europeo y calidad premium.">
+  <meta name="keywords" content="moda femenina, boutique, ropa mujer, diseñador, elegancia, colecciones">
+  <title>Maison Élise — Boutique de Moda Femenina</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👗</text></svg>">
+</head>
+<body>
+
+  <!-- ============================================
+       BARRA SUPERIOR - Información General
+       ============================================ -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-info">
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          <span data-i18n="topbar_phone">+34 900 123 456</span>
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <span data-i18n="topbar_email">info@maisonelise.com</span>
+        </span>
+        <span style="font-weight:500; letter-spacing:0.12em;">
+          <span data-i18n="topbar_promo">ENVÍO GRATIS A PARTIR DE 80€</span>
+        </span>
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-social">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="Pinterest">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4c-.5 0-1-.2-1.4-.4L9 20"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+        <!-- Selector de idioma en topbar -->
+        <div style="display:flex;gap:6px;align-items:center;font-size:0.75rem;">
+          <button class="lang-btn active" data-lang="es" style="background:none;border:none;color:var(--color-topbar-text);cursor:pointer;font-size:0.75rem;letter-spacing:0.05em;opacity:0.7;transition:opacity 0.2s;">ES</button>
+          <span style="opacity:0.3;">|</span>
+          <button class="lang-btn" data-lang="en" style="background:none;border:none;color:var(--color-topbar-text);cursor:pointer;font-size:0.75rem;letter-spacing:0.05em;opacity:0.7;transition:opacity 0.2s;">EN</button>
+          <span style="opacity:0.3;">|</span>
+          <button class="lang-btn" data-lang="va" style="background:none;border:none;color:var(--color-topbar-text);cursor:pointer;font-size:0.75rem;letter-spacing:0.05em;opacity:0.7;transition:opacity 0.2s;">VA</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       HEADER / NAVEGACIÓN PRINCIPAL
+       ============================================ -->
+  <header class="header has-topbar">
+    <nav class="nav">
+      <!-- Logo -->
+      <a href="#" class="logo">
+        Maison Élise
+        <span>Boutique de Mode</span>
+      </a>
+
+      <!-- Menú Principal (Desktop) -->
+      <ul class="nav-menu">
+        <li><a href="#inicio" data-i18n="nav_inicio">Inicio</a></li>
+        <li><a href="#colecciones" data-i18n="nav_colecciones">Colecciones</a></li>
+        <li><a href="#novedades" data-i18n="nav_novedades">Novedades</a></li>
+        <li><a href="#lookbook" data-i18n="nav_lookbook">Lookbook</a></li>
+        <li><a href="#nosotros" data-i18n="nav_nosotros">Nosotros</a></li>
+        <li><a href="#contacto" data-i18n="nav_contacto">Contacto</a></li>
+      </ul>
+
+      <!-- Iconos -->
+      <div class="nav-icons">
+        <!-- Búsqueda -->
+        <button class="nav-icon-btn search-btn" aria-label="Buscar" data-i18n-title="nav_buscar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+
+        <!-- Usuario (Login) -->
+        <button class="nav-icon-btn" aria-label="Mi Cuenta" data-i18n-title="nav_cuenta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+        </button>
+
+        <!-- Carrito -->
+        <button class="nav-icon-btn cart-btn" aria-label="Carrito" data-i18n-title="nav_carrito">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="cart-count" style="display:none;">0</span>
+        </button>
+
+        <!-- Modo Claro/Oscuro -->
+        <button class="nav-icon-btn dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Cambiar tema">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <!-- Hamburger (Móvil) -->
+        <button class="hamburger-btn" aria-label="Menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============================================
+       MENÚ HAMBURGUESA (Móvil - Full Screen)
+       ============================================ -->
+  <div class="mobile-menu">
+    <button class="mobile-menu-close" aria-label="Cerrar menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+
+    <nav class="mobile-menu-nav">
+      <a href="#inicio" data-i18n="nav_inicio">Inicio</a>
+      <a href="#colecciones" data-i18n="nav_colecciones">Colecciones</a>
+      <a href="#novedades" data-i18n="nav_novedades">Novedades</a>
+      <a href="#lookbook" data-i18n="nav_lookbook">Lookbook</a>
+      <a href="#nosotros" data-i18n="nav_nosotros">Nosotros</a>
+      <a href="#contacto" data-i18n="nav_contacto">Contacto</a>
+    </nav>
+
+    <!-- Herramientas del menú móvil -->
+    <div class="mobile-menu-tools">
+      <button class="mobile-menu-tool-btn mobile-search-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <span data-i18n="nav_buscar">Buscar</span>
+      </button>
+      <button class="mobile-menu-tool-btn cart-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <span data-i18n="nav_carrito">Carrito</span>
+      </button>
+      <button class="mobile-menu-tool-btn" onclick="toggleDarkMode()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <span>Tema</span>
+      </button>
+    </div>
+
+    <!-- Selector de idioma móvil -->
+    <div class="mobile-lang-selector">
+      <button class="mobile-lang-btn active" data-lang="es">ES</button>
+      <button class="mobile-lang-btn" data-lang="en">EN</button>
+      <button class="mobile-lang-btn" data-lang="va">VA</button>
+    </div>
+  </div>
+
+  <!-- ============================================
+       CONTENIDO PRINCIPAL
+       ============================================ -->
+  <main>
+    <!-- HERO -->
+    <section id="inicio" class="hero has-topbar">
+      <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1600&h=900&fit=crop&q=80" 
+             alt="Maison Élise - Moda Femenina Elegante" loading="eager">
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-tag" data-i18n="hero_tag">Nueva Temporada 2026</p>
+        <h1 class="hero-title" data-i18n="hero_title">Elegancia que Define tu <em>Esencia</em></h1>
+        <p class="hero-description" data-i18n="hero_description">
+          Descubre nuestra colección exclusiva de moda femenina. Piezas únicas diseñadas para mujeres que saben que la verdadera elegancia está en los detalles.
+        </p>
+        <div class="hero-actions">
+          <a href="#colecciones" class="btn btn-primary" data-i18n="hero_btn1">Ver Colección</a>
+          <a href="#nosotros" class="btn btn-outline" data-i18n="hero_btn2">Nuestro Mundo</a>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <span data-i18n="hero_scroll">Descubrir</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- SECCIÓN INFORMATIVA -->
+    <section id="novedades" class="info-section">
+      <div class="container">
+        <h2 class="section-title fade-in" data-i18n="info_title">¿Por qué elegir Maison Élise?</h2>
+        <p class="section-subtitle fade-in" data-i18n="info_subtitle">EXPERIENCIA & CALIDAD</p>
+        <div class="section-divider fade-in"></div>
+        <div class="info-grid">
+          <div class="info-card fade-in">
+            <div class="info-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <h3 data-i18n="info1_title">Diseño Exclusivo</h3>
+            <p data-i18n="info1_text">Cada pieza es cuidadosamente seleccionada para ofrecer lo último en moda femenina europea.</p>
+          </div>
+          <div class="info-card fade-in" style="transition-delay: 0.15s;">
+            <div class="info-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 data-i18n="info2_title">Calidad Premium</h3>
+            <p data-i18n="info2_text">Trabajamos con los mejores materiales y artesanos para garantizar prendas duraderas y sofisticadas.</p>
+          </div>
+          <div class="info-card fade-in" style="transition-delay: 0.3s;">
+            <div class="info-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+              </svg>
+            </div>
+            <h3 data-i18n="info3_title">Atención Personal</h3>
+            <p data-i18n="info3_text">Nuestro equipo de estilistas te asesora para crear el look perfecto para cada ocasión.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN COLECCIONES / PRODUCTOS -->
+    <section id="colecciones" class="collections-section">
+      <div class="container">
+        <h2 class="section-title fade-in" data-i18n="collections_title">Nuestras Colecciones</h2>
+        <p class="section-subtitle fade-in" data-i18n="collections_subtitle">PIEZAS SELECCIONADAS</p>
+        <div class="section-divider fade-in"></div>
+
+        <!-- Filtros -->
+        <div class="collections-filter fade-in">
+          <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Todo</button>
+          <button class="filter-btn" data-filter="vestidos" data-i18n="filter_vestidos">Vestidos</button>
+          <button class="filter-btn" data-filter="abrigos" data-i18n="filter_abrigos">Abrigos</button>
+          <button class="filter-btn" data-filter="trajes" data-i18n="filter_trajes">Trajes</button>
+          <button class="filter-btn" data-filter="accesorios" data-i18n="filter_accesorios">Accesorios</button>
+        </div>
+
+        <!-- Grid de Productos -->
+        <div class="products-grid">
+          <!-- Se llena dinámicamente con JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN LOOKBOOK -->
+    <section id="lookbook" class="lookbook-section">
+      <div class="container">
+        <div class="lookbook-grid">
+          <div class="lookbook-image fade-in-left">
+            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&h=1000&fit=crop&q=80" 
+                 alt="Lookbook Primavera Verano - Moda Femenina" loading="lazy">
+          </div>
+          <div class="lookbook-content fade-in-right">
+            <p class="tag" data-i18n="lookbook_tag">Primavera / Verano 2026</p>
+            <h2 data-i18n="lookbook_title">El Arte de Vestir con <em>Intención</em></h2>
+            <div class="section-divider" style="margin: 1.5rem 0;"></div>
+            <p data-i18n="lookbook_text">
+              Nuestra nueva colección primavera-verano celebra la feminidad en todas sus formas. Telas ligeras, colores vibrantes y cortes que favorecen cada silueta. Diseñada para la mujer moderna que no sigue tendencias, sino que las crea.
+            </p>
+            <a href="#colecciones" class="btn btn-primary" data-i18n="lookbook_btn">Explorar Lookbook</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN NOSOTROS (Segunda sección informativa) -->
+    <section id="nosotros" class="info-section" style="background-color: var(--color-bg);">
+      <div class="container">
+        <div class="lookbook-grid" style="direction: rtl;">
+          <div class="lookbook-image fade-in-right" style="direction: ltr;">
+            <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800&h=1000&fit=crop&q=80" 
+                 alt="Interior de Boutique Maison Élise" loading="lazy">
+          </div>
+          <div class="lookbook-content fade-in-left" style="direction: ltr;">
+            <p class="tag">NUESTRA HISTORIA</p>
+            <h2>Más que Moda, una <em>Filosofía</em></h2>
+            <div class="section-divider" style="margin: 1.5rem 0;"></div>
+            <p>
+              Desde 2018, Maison Élise redefine la moda femenina desde el corazón de Madrid. Creemos que cada mujer merece piezas que no solo se vean bien, sino que la hagan sentir poderosa. Nuestro equipo de diseñadores europeos selecciona cada tela, cada corte y cada detalle con pasión y dedicación.
+            </p>
+            <p style="margin-top: 1rem;">
+              Trabajamos con talleres artesanales comprometidos con la sostenibilidad y la calidad. Cada prenda cuenta una historia — la tuya.
+            </p>
+            <a href="#contacto" class="btn btn-primary" style="margin-top: 1.5rem;">Conócenos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN TESTIMONIOS -->
+    <section class="testimonials-section">
+      <div class="container">
+        <h2 class="section-title fade-in" data-i18n="testimonials_title">Lo que Dicen Nuestras Clientas</h2>
+        <p class="section-subtitle fade-in" data-i18n="testimonials_subtitle">TESTIMONIOS</p>
+        <div class="section-divider fade-in"></div>
+
+        <div class="testimonials-slider fade-in">
+          <div class="testimonial-track">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-item">
+              <div class="testimonial-stars">
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="testimonial-text">"Cada pieza que he comprado en Maison Élise se ha convertido en un básico de mi armario. La calidad es incomparable y el servicio al cliente es excepcional."</p>
+              <p class="testimonial-author">— María García, Madrid</p>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="testimonial-item">
+              <div class="testimonial-stars">
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="testimonial-text">"El traje sastre que compré para mi entrevista de trabajo me hizo sentir invencible. Recibí más cumplidos ese día que nunca. ¡Gracias Maison Élise!"</p>
+              <p class="testimonial-author">— Laura Fernández, Valencia</p>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="testimonial-item">
+              <div class="testimonial-stars">
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="testimonial-text">"Me encanta poder recoger mis pedidos en la tienda y combinarlo con una sesión de asesoramiento personal. Es como tener una estilista privada."</p>
+              <p class="testimonial-author">— Ana Martínez, Barcelona</p>
+            </div>
+          </div>
+          <div class="testimonial-nav">
+            <div class="testimonial-dot active"></div>
+            <div class="testimonial-dot"></div>
+            <div class="testimonial-dot"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN NEWSLETTER -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-content fade-in">
+          <h2 data-i18n="newsletter_title">Únete a Nuestro Mundo</h2>
+          <p data-i18n="newsletter_text">Suscríbete para recibir las últimas tendencias, ofertas exclusivas y acceso anticipado a nuevas colecciones.</p>
+          <form class="newsletter-form">
+            <input type="email" required data-i18n="newsletter_placeholder" placeholder="Tu correo electrónico">
+            <button type="submit" data-i18n="newsletter_btn">Suscribirse</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN CONTACTO -->
+    <section id="contacto" class="contact-section">
+      <div class="container">
+        <h2 class="section-title fade-in" data-i18n="contact_title">Ponte en Contacto</h2>
+        <p class="section-subtitle fade-in" data-i18n="contact_subtitle">ESTAMOS AQUÍ PARA TI</p>
+        <div class="section-divider fade-in"></div>
+
+        <div class="contact-grid">
+          <div class="contact-info fade-in-left">
+            <h3>Maison Élise Madrid</h3>
+            <p data-i18n="contact_text">
+              ¿Tienes alguna pregunta sobre nuestras colecciones, pedidos o servicios? Nuestro equipo estará encantado de ayudarte.
+            </p>
+            <div class="contact-details">
+              <div class="contact-detail">
+                <div class="contact-detail-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </div>
+                <div class="contact-detail-text">
+                  <h4 data-i18n="contact_direccion_title">Dirección</h4>
+                  <p data-i18n="contact_direccion">Calle de Serrano 45, Madrid, España</p>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <div class="contact-detail-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                  </svg>
+                </div>
+                <div class="contact-detail-text">
+                  <h4 data-i18n="contact_telefono_title">Teléfono</h4>
+                  <p data-i18n="contact_telefono">+34 900 123 456</p>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <div class="contact-detail-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                </div>
+                <div class="contact-detail-text">
+                  <h4 data-i18n="contact_email_title">Email</h4>
+                  <p data-i18n="contact_email">info@maisonelise.com</p>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <div class="contact-detail-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </div>
+                <div class="contact-detail-text">
+                  <h4 data-i18n="contact_horario_title">Horario</h4>
+                  <p data-i18n="contact_horario">Lun - Sáb: 10:00 - 21:00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form fade-in-right">
+            <form id="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contact-name" data-i18n="form_nombre">Nombre</label>
+                  <input type="text" id="contact-name" required>
+                </div>
+                <div class="form-group">
+                  <label for="contact-lastname" data-i18n="form_apellido">Apellido</label>
+                  <input type="text" id="contact-lastname" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="contact-email" data-i18n="form_email">Email</label>
+                <input type="email" id="contact-email" required>
+              </div>
+              <div class="form-group">
+                <label for="contact-subject" data-i18n="form_asunto">Asunto</label>
+                <select id="contact-subject" required>
+                  <option value="" disabled selected>Seleccione una opción</option>
+                  <option value="pedido">Pedido</option>
+                  <option value="devolucion">Devolución</option>
+                  <option value="consulta">Consulta general</option>
+                  <option value="otro">Otro</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="contact-message" data-i18n="form_mensaje">Mensaje</label>
+                <textarea id="contact-message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="form-submit" data-i18n="form_submit">Enviar Mensaje</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            Maison Élise
+            <span>Boutique de Mode</span>
+          </a>
+          <p data-i18n="footer_desc">Boutique de moda femenina comprometida con la elegancia, la calidad y el estilo atemporal. Desde el corazón de Madrid para el mundo.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" aria-label="Pinterest">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4c-.5 0-1-.2-1.4-.4L9 20"/></svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Twitter">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4 data-i18n="footer_tienda">Tienda</h4>
+          <ul>
+            <li><a href="#colecciones" data-i18n="filter_vestidos">Vestidos</a></li>
+            <li><a href="#colecciones" data-i18n="filter_abrigos">Abrigos</a></li>
+            <li><a href="#colecciones" data-i18n="filter_trajes">Trajes</a></li>
+            <li><a href="#colecciones" data-i18n="filter_accesorios">Accesorios</a></li>
+            <li><a href="#novedades" data-i18n="nav_novedades">Novedades</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4 data-i18n="footer_nosotros">Nosotros</h4>
+          <ul>
+            <li><a href="#nosotros">Nuestra Historia</a></li>
+            <li><a href="#lookbook" data-i18n="nav_lookbook">Lookbook</a></li>
+            <li><a href="#">Sostenibilidad</a></li>
+            <li><a href="#">Trabaja con Nosotros</a></li>
+            <li><a href="#">Prensa</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4 data-i18n="footer_ayuda">Ayuda</h4>
+          <ul>
+            <li><a href="#contacto" data-i18n="nav_contacto">Contacto</a></li>
+            <li><a href="#">Envíos y Entregas</a></li>
+            <li><a href="#">Devoluciones</a></li>
+            <li><a href="#">Guía de Tallas</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="footer_copyright">© 2026 Maison Élise. Todos los derechos reservados.</p>
+        <div class="footer-legal">
+          <a href="#" data-i18n="footer_privacidad">Política de Privacidad</a>
+          <a href="#" data-i18n="footer_cookies">Política de Cookies</a>
+          <a href="#" data-i18n="footer_terminos">Términos y Condiciones</a>
+          <a href="#" data-i18n="footer_requisitos">Requisitos Legales</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       MODAL DE BÚSQUEDA
+       ============================================ -->
+  <div class="search-modal">
+    <div class="search-modal-overlay"></div>
+    <div class="search-modal-content">
+      <button class="search-modal-close" aria-label="Cerrar búsqueda">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <div class="search-modal-input-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" class="search-modal-input" data-i18n="search_placeholder" placeholder="Buscar productos, colecciones...">
+      </div>
+      <div class="search-results"></div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       CARRITO DE COMPRAS (Sidebar)
+       ============================================ -->
+  <div class="cart-overlay"></div>
+  <aside class="cart-sidebar">
+    <div class="cart-header">
+      <h3 data-i18n="cart_title">Tu Carrito</h3>
+      <button class="cart-close" aria-label="Cerrar carrito">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="cart-items">
+      <!-- Se llena dinámicamente -->
+    </div>
+
+    <div class="cart-footer" style="display:none;">
+      <div class="cart-delivery-options">
+        <h4 data-i18n="delivery_title">Opción de entrega</h4>
+        
+        <label class="delivery-option selected" data-method="pickup">
+          <input type="radio" name="delivery" value="pickup" checked>
+          <div class="delivery-option-label">
+            <span data-i18n="delivery_pickup">Recoger en tienda</span>
+            <small data-i18n="delivery_pickup_desc">Pago al recoger — Gratis</small>
+          </div>
+        </label>
+
+        <label class="delivery-option" data-method="home">
+          <input type="radio" name="delivery" value="home">
+          <div class="delivery-option-label">
+            <span data-i18n="delivery_home">Envío a domicilio</span>
+            <small data-i18n="delivery_home_desc">Entrega en 2-5 días laborables</small>
+          </div>
+        </label>
+
+        <label class="delivery-option" data-method="cod">
+          <input type="radio" name="delivery" value="cod">
+          <div class="delivery-option-label">
+            <span data-i18n="delivery_cod">Contra reembolso</span>
+            <small data-i18n="delivery_cod_desc">Pagar al recibir el pedido</small>
+          </div>
+        </label>
+      </div>
+
+      <div class="cart-subtotal">
+        <span data-i18n="cart_subtotal">Subtotal</span>
+        <span class="amount">0.00€</span>
+      </div>
+      <p class="cart-shipping-note" data-i18n="cart_envio">Envío calculado en el checkout</p>
+      <button class="cart-checkout-btn" data-i18n="cart_checkout">Proceder al Pago</button>
+      <button class="cart-continue" data-i18n="cart_see_more">← Seguir comprando</button>
+    </div>
+  </aside>
+
+  <!-- ============================================
+       MODAL DE CHECKOUT (Resumen de Pedido)
+       ============================================ -->
+  <div class="checkout-modal">
+    <div class="checkout-modal-overlay"></div>
+    <div class="checkout-modal-content">
+      <!-- Se llena dinámicamente -->
+    </div>
+  </div>
+
+  <!-- Script principal -->
+  <script src="script.js"></script>
+</body>
+</html>

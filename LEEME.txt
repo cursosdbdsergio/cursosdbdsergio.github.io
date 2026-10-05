@@ -89,4 +89,4 @@ El generador debe producir:
 Investiga la competencia actual sobre el tema toma referencias y prepara un diseño nuevo con estilo moderno y minimalista.
 Debemos incluir si el tema lleva la oferta de productos para comprar online incluir el carrito de compra con todas las opciones que lleva su uso incluyendo la reserva de la compra para recoger en el mercado o enviarlo a la dirección del cliente. necesito incluir la posibilidad de que el cliente decida si pagara al ir a recogerlo, si pagara cuando se lo entreguen o pagara por la pasarela de pago del mercado  en este caso se enviara a una ventana donde se le indicara lo que va a pagar y después yo implementare la pasarela de pago.
 Después de toda esta explicación te indico cual sera el tema de la pagina web que vas a generar y si se le incluye el carrito de compra.
-Tema de la web a generar: Tienda de ropa por departamentos para todas las edades incluye carrito de compra
+Tema de la web a generar: Tienda de ropa para personas tallas extra pasados de peso incluye carrito de compra
