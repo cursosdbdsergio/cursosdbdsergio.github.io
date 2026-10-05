@@ -1,4 +1,4 @@
-Genera una página web moderna, minimalista, responsive y funcional estilo landinpage o sea que el usuario tenga prácticamente toda la información en una sola pagina utilizando
+Genera una página web moderna, minimalista, responsive y funcional estilo landing page o sea que el usuario tenga prácticamente toda la información en una sola pagina utilizando
 exclusivamente HTML, CSS y JavaScript puro. No utilices frameworks, librerías externas,
 paquetes de terceros, preprocesadores ni dependencias externas. Todo el código debe
 ser implementado desde cero.
@@ -85,8 +85,8 @@ El generador debe producir:
 ▪ styles.css con diseño moderno y responsive.
 ▪ script.js con todas las funcionalidades solicitadas.
 ▪ Paleta de colores aplicada según el tema indicado al final.
-▪ Utiliza imágenes asociadas al tema y tomalas con accesos directos a la web de lugares preferiblemente sin copyright de todas formas las imágenes seran sustituidas por imagenes reales del cliente.
+▪ Utiliza imágenes asociadas al tema y tomalas con accesos directos a la web de lugares preferiblemente sin copyright de todas formas las imágenes seran sustituidas por imágenes reales del cliente.
 Investiga la competencia actual sobre el tema toma referencias y prepara un diseño nuevo con estilo moderno y minimalista.
-Debemos incluir si el tema lleva la oferta de productos para comprar online incluir el carrito de compra con todas las opciones que lleva su uso incluyendo la reserva de la compra para recoger en el mercado o enviarlo a la dirección del cliente. necesito incluir la posibilidad de que el cliente decida si pagara al ir a recogerlo, si pagara cuando se lo entreguen o pagara por la pasarela de pago del mercado  en este caso se enviara a una ventana donde se le indicara lo que va a pagar y después yo implementare la pasarela de pago.
+Debemos incluir si el tema lleva la oferta de productos para comprar online incluir el carrito de compra con todas las opciones que lleva su uso incluyendo la reserva de la compra para recoger en el mercado o enviarlo a la dirección del cliente. necesito incluir la posibilidad de que el cliente decida si pagara al ir a recogerlo, si pagara cuando se lo entreguen o pagara por la pasarela de pago del mercado  en este caso se enviara a una ventana donde se le indicara lo que va a pagar y después yo implementare la pasarela de pago. Chequea bien el funcionamiento del carrito de compra si se incluyera.
 Después de toda esta explicación te indico cual sera el tema de la pagina web que vas a generar y si se le incluye el carrito de compra.
-Tema de la web a generar: Tienda de ropa para personas tallas extra pasados de peso incluye carrito de compra
+Tema de la web a generar: Boutiques de moda Ropa de hombre. Incluir carrito de compra.
