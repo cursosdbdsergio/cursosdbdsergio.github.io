@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURÉLIA | Haute Joaillerie &amp; Boutiques de Lujo</title>
+  <meta name="description" content="Boutique de alta joyería y complementos de lujo. Diamantes certificados GIA, oro ético de 18 quilates y piezas artesanales hechas a mano en París y Valencia.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ===================================================================
+       ANNOUNCEMENT / TOP CONTACT BAR
+       =================================================================== -->
+  <aside class="topbar" aria-label="Información General">
+    <div class="container topbar-content">
+      <div class="topbar-left">
+        <div class="topbar-item">
+          <!-- Phone SVG -->
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <a href="tel:+34963800240" data-i18n="topbar_call">+34 963 800 240</a>
+        </div>
+        <div class="topbar-item">
+          <!-- Mail SVG -->
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <a href="mailto:boutique@aurelia-joaillerie.es" data-i18n="topbar_email">boutique@aurelia-joaillerie.es</a>
+        </div>
+      </div>
+
+      <div class="topbar-center">
+        <!-- Sparkle SVG -->
+        <svg class="sparkle" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"></path>
+        </svg>
+        <span data-i18n="topbar_notice">Cita privada en showroom y envíos blindados asegurados</span>
+      </div>
+
+      <div class="topbar-right">
+        <!-- Language Switcher -->
+        <div class="lang-selector" aria-label="Seleccionar idioma">
+          <button class="lang-btn active" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="va">VA</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===================================================================
+       FIXED HEADER & NAVIGATION
+       =================================================================== -->
+  <header class="site-header">
+    <div class="container header-container">
+      <!-- Logo in top-left corner -->
+      <a href="#inicio" class="logo" aria-label="Aurélia Haute Joaillerie">
+        <div class="logo-symbol">
+          <!-- Diamond Luxury Monogram SVG -->
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="6 3 18 3 22 9 12 22 2 9 6 3"></polygon>
+            <line x1="2" y1="9" x2="22" y2="9"></line>
+            <line x1="12" y1="22" x2="6" y2="9"></line>
+            <line x1="12" y1="22" x2="18" y2="9"></line>
+            <line x1="6" y1="3" x2="12" y2="9"></line>
+            <line x1="18" y1="3" x2="12" y2="9"></line>
+          </svg>
+        </div>
+        <div class="logo-text-group">
+          <span class="logo-title">AURÉLIA</span>
+          <span class="logo-sub">Haute Joaillerie</span>
+        </div>
+      </a>
+
+      <!-- Centered Main Menu -->
+      <nav class="main-nav" aria-label="Navegación Principal">
+        <a href="#inicio" class="nav-link active" data-i18n="nav_home">Inicio</a>
+        <a href="#colecciones" class="nav-link" data-i18n="nav_collections">Colecciones</a>
+        <a href="#catalogo" class="nav-link" data-i18n="nav_catalog">Catálogo Joyas</a>
+        <a href="#atelier" class="nav-link" data-i18n="nav_atelier">El Atelier</a>
+        <a href="#servicios" class="nav-link" data-i18n="nav_services">Servicios de Lujo</a>
+        <a href="#boutiques" class="nav-link" data-i18n="nav_boutiques">Boutiques</a>
+        <a href="#contacto" class="nav-link" data-i18n="nav_contact">Contacto</a>
+      </nav>
+
+      <!-- Action Buttons (Right) -->
+      <div class="header-actions">
+        <!-- Search Button (embedded SVG) -->
+        <button class="icon-btn open-search-btn" title="Buscar en la web" aria-label="Abrir buscador">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <!-- User Profile Button (embedded SVG) -->
+        <button class="icon-btn open-auth-btn" title="Acceso Clientes VIP" aria-label="Acceso usuario VIP">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </button>
+
+        <!-- Light/Dark Mode Button (embedded SVG) -->
+        <button class="icon-btn theme-toggle-btn" title="Alternar modo Claro/Oscuro" aria-label="Cambiar tema">
+          <div class="theme-icon-svg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </div>
+        </button>
+
+        <!-- Shopping Cart Button with Dynamic Badge -->
+        <button class="icon-btn cart-btn open-cart-btn" title="Bolsa de Compras" aria-label="Bolsa de compras">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-badge" style="display:none;">0</span>
+        </button>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="hamburger-btn" aria-label="Menú Móvil">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================
+       MOBILE MENU OVERLAY (Centered, Slides Down from Top)
+       =================================================================== -->
+  <div class="mobile-menu-overlay" aria-label="Menú desplegable móvil">
+    <div class="mobile-menu-inner">
+      <!-- Search Button inside Mobile Menu -->
+      <button class="mobile-search-trigger">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span data-i18n="search_placeholder">Buscar joyas, gemas o servicios...</span>
+      </button>
+
+      <!-- Centered Mobile Nav Links -->
+      <ul class="mobile-nav-list">
+        <li><a href="#inicio" class="mobile-nav-link" data-i18n="nav_home">Inicio</a></li>
+        <li><a href="#colecciones" class="mobile-nav-link" data-i18n="nav_collections">Colecciones</a></li>
+        <li><a href="#catalogo" class="mobile-nav-link" data-i18n="nav_catalog">Catálogo Joyas</a></li>
+        <li><a href="#atelier" class="mobile-nav-link" data-i18n="nav_atelier">El Atelier</a></li>
+        <li><a href="#servicios" class="mobile-nav-link" data-i18n="nav_services">Servicios de Lujo</a></li>
+        <li><a href="#boutiques" class="mobile-nav-link" data-i18n="nav_boutiques">Boutiques</a></li>
+        <li><a href="#contacto" class="mobile-nav-link" data-i18n="nav_contact">Contacto</a></li>
+      </ul>
+
+      <!-- Extra Actions (Language Selector & Theme Toggle) -->
+      <div class="mobile-extra-actions">
+        <div class="mobile-lang-box">
+          <span>Idioma / Language:</span>
+          <div class="lang-selector">
+            <button class="lang-btn active" data-lang="es">ES</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="va">VA</button>
+          </div>
+        </div>
+        <button class="btn btn-secondary open-cart-btn" style="width: 100%; max-width: 280px;">
+          Ver Bolsa de Compras
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ===================================================================
+         HERO SECTION
+         =================================================================== -->
+    <section id="inicio" class="hero-section">
+      <div class="hero-bg">
+        <img src="https://images.pexels.com/photos/24815712/pexels-photo-24815712.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Alta Joyería Aurélia Fondo">
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-content">
+        <div class="hero-badge-wrap">
+          <span class="badge" data-i18n="hero_badge">Haute Joaillerie &amp; Boutiques de Lujo</span>
+        </div>
+
+        <h1 class="hero-title" data-i18n="hero_title">
+          La Belleza Eterna Forjada en <span>Oro y Diamantes</span>
+        </h1>
+
+        <p class="hero-description" data-i18n="hero_desc">
+          Creaciones de alta joyería esculpidas a mano en nuestros talleres de París y Valencia. Gemas éticas certificadas y un legado centenario de distinción.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#catalogo" class="btn btn-primary" data-i18n="hero_btn_explore">Explorar Catálogo</a>
+          <a href="#contacto" class="btn btn-secondary" data-i18n="hero_btn_appointment">Reservar Cita Privada</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-num">45+</div>
+            <div class="stat-label" data-i18n="stat_legacy">Años de Tradición</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">100%</div>
+            <div class="stat-label" data-i18n="stat_gems">Gemas Certificadas</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">4</div>
+            <div class="stat-label" data-i18n="stat_boutiques">Boutiques Propias</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         TRUST PILLARS BAR
+         =================================================================== -->
+    <section class="trust-bar" aria-label="Garantías Aurélia">
+      <div class="container">
+        <div class="trust-grid">
+          <div class="trust-item">
+            <div class="trust-icon">
+              <!-- Shield SVG -->
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <div class="trust-text">
+              <h4 data-i18n="trust_shipping">Envío Blindado Asegurado</h4>
+              <p data-i18n="trust_shipping_sub">100% cubierto hasta entrega</p>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon">
+              <!-- Diamond SVG -->
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <polygon points="6 3 18 3 22 9 12 22 2 9 6 3"></polygon>
+              </svg>
+            </div>
+            <div class="trust-text">
+              <h4 data-i18n="trust_gia">Certificación GIA &amp; HRD</h4>
+              <p data-i18n="trust_gia_sub">Diamantes éticos seleccionados</p>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon">
+              <!-- Feather SVG -->
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
+                <line x1="16" y1="8" x2="2" y2="22"></line>
+                <line x1="17.5" y1="15" x2="9" y2="15"></line>
+              </svg>
+            </div>
+            <div class="trust-text">
+              <h4 data-i18n="trust_atelier">Oro Ético 18K</h4>
+              <p data-i18n="trust_atelier_sub">Traçabilitat ecològica</p>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon">
+              <!-- Award SVG -->
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="8" r="7"></circle>
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+              </svg>
+            </div>
+            <div class="trust-text">
+              <h4 data-i18n="trust_warranty">Garantía de por Vida</h4>
+              <p data-i18n="trust_warranty_sub">Mantenimiento gratuito</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         COLECCIONES DESTACADAS
+         =================================================================== -->
+    <section id="colecciones" class="collections-section section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="sub-title">Líneas Exclusivas</span>
+          <h2>Colecciones Magistrales</h2>
+          <p>Cada una de nuestras series encarna una filosofía estética única donde el fuego de las piedras preciosas dialoga con la nobleza del metal precioso.</p>
+        </div>
+
+        <div class="collections-grid">
+          <!-- Card 1 -->
+          <div class="collection-card" onclick="jumpToCatalogCategory('anillos')">
+            <img src="https://images.pexels.com/photos/11504786/pexels-photo-11504786.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Diamantes Celestiales" loading="lazy">
+            <div class="collection-card-overlay">
+              <span class="tag">Solitarios &amp; Alianzas</span>
+              <h3>Diamantes Celestiales</h3>
+              <p>Brillantez máxima con engastes invisibles y diamantes de color D-F.</p>
+              <span class="collection-link">Descubrir colección →</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="collection-card" onclick="jumpToCatalogCategory('collares')">
+            <img src="https://images.pexels.com/photos/15064041/pexels-photo-15064041.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Esmeraldas Reales" loading="lazy">
+            <div class="collection-card-overlay">
+              <span class="tag">Gemas de Color</span>
+              <h3>Esmeraldas Muzo</h3>
+              <p>Gemas legendarias de verde virgen extraídas éticamente en Colombia.</p>
+              <span class="collection-link">Descubrir colección →</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="collection-card" onclick="jumpToCatalogCategory('pendientes')">
+            <img src="https://images.pexels.com/photos/3266700/pexels-photo-3266700.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Perlas del Sur" loading="lazy">
+            <div class="collection-card-overlay">
+              <span class="tag">Perlas Naturales</span>
+              <h3>Perlas &amp; Oro Rosa</h3>
+              <p>Lustre satinado irrepetible cultivado en aguas de los mares del sur.</p>
+              <span class="collection-link">Descubrir colección →</span>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="collection-card" onclick="jumpToCatalogCategory('relojes')">
+            <img src="https://images.pexels.com/photos/28977357/pexels-photo-28977357.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Alta Relojería" loading="lazy">
+            <div class="collection-card-overlay">
+              <span class="tag">Haute Horlogerie</span>
+              <h3>Relojería Suiza</h3>
+              <p>Mecanismos automáticos y tourbillons ensamblados en el Jura suizo.</p>
+              <span class="collection-link">Descubrir colección →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         CATÁLOGO COMPLETO DE JOYAS (20 PRODUCTOS DISPONIBLES)
+         =================================================================== -->
+    <section id="catalogo" class="catalog-section section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="sub-title" data-i18n="catalog_subtitle">Piezas Excepcionales</span>
+          <h2 data-i18n="catalog_title">Nuestra Colección de Joyas</h2>
+          <p>Seleccione entre una cuidada muestra de 20 creaciones disponibles para reserva inmediata, recogida en boutiques oficiales o envío con escolta de seguridad.</p>
+        </div>
+
+        <!-- Filter and Sort Controls -->
+        <div class="catalog-controls">
+          <div class="filter-pills" role="tablist" aria-label="Filtro por Categorías">
+            <button class="filter-pill active" data-category="todos" data-i18n="filter_all">Todos</button>
+            <button class="filter-pill" data-category="anillos" data-i18n="filter_rings">Anillos</button>
+            <button class="filter-pill" data-category="collares" data-i18n="filter_necklaces">Collares</button>
+            <button class="filter-pill" data-category="pendientes" data-i18n="filter_earrings">Pendientes</button>
+            <button class="filter-pill" data-category="pulseras" data-i18n="filter_bracelets">Pulseras</button>
+            <button class="filter-pill" data-category="relojes" data-i18n="filter_watches">Relojes</button>
+          </div>
+
+          <div class="catalog-sort-box">
+            <label for="catalog-sort">Ordenar:</label>
+            <select id="catalog-sort" class="catalog-select">
+              <option value="featured">Destacados</option>
+              <option value="price-low">Precio: menor a mayor</option>
+              <option value="price-high">Precio: mayor a menor</option>
+              <option value="name">Alfabético</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Products Grid Container (Populated by script.js) -->
+        <div id="products-grid" class="products-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECCIÓN INFORMATIVA: EL ATELIER Y ARTESANÍA
+         =================================================================== -->
+    <section id="atelier" class="atelier-section section-padding">
+      <div class="container">
+        <div class="atelier-grid">
+          <div class="atelier-image-col">
+            <img src="https://images.pexels.com/photos/28146843/pexels-photo-28146843.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Atelier Aurélia Joyeros" class="atelier-img-main" loading="lazy">
+            <div class="atelier-floating-card">
+              <div class="floating-num">45+</div>
+              <div class="floating-text">Años perfeccionando el arte secreto de la orfebrería y el engaste de gemas preciosas.</div>
+            </div>
+          </div>
+
+          <div class="atelier-text-col">
+            <span class="sub-title">Maestría Centenaria</span>
+            <h2>El Arte de Trascender las Épocas</h2>
+            <p>
+              En Aurélia, cada joya nace de un diálogo silencioso entre la materia primigenia de la Tierra y la devoción de nuestros maestros orfebres. Seleccionamos únicamente diamantes de origen libre de conflicto, avalados por el riguroso Proceso de Kimberley y certificados de forma individual por el Gemological Institute of America (GIA).
+            </p>
+            <p>
+              Nuestros bancos de trabajo combinan técnicas heredadas del siglo XIX —como el burilado a mano y el engaste milgrain— con el corte asistido por microscopio óptico suizo, asegurando que cada faceta resplandezca con un fuego inmarcesible.
+            </p>
+
+            <div class="atelier-features">
+              <div class="atelier-feat-item">
+                <span class="feat-bullet"></span>
+                <div>
+                  <h4>Oro Ético Certificado</h4>
+                  <p>Aleaciones propias de 18 quilates con oro 100% reciclado y trazable.</p>
+                </div>
+              </div>
+              <div class="atelier-feat-item">
+                <span class="feat-bullet"></span>
+                <div>
+                  <h4>Gemas de Selección Única</h4>
+                  <p>Inspección microscópica de cada gema en corte, color y pureza.</p>
+                </div>
+              </div>
+              <div class="atelier-feat-item">
+                <span class="feat-bullet"></span>
+                <div>
+                  <h4>Taller en Casa</h4>
+                  <p>Ateliers propios en Valencia y París sin intermediación industrial.</p>
+                </div>
+              </div>
+              <div class="atelier-feat-item">
+                <span class="feat-bullet"></span>
+                <div>
+                  <h4>Certificado de Autenticidad</h4>
+                  <p>Pasaporte gemológico numerado expedido con cada pieza.</p>
+                </div>
+              </div>
+            </div>
+
+            <a href="#contacto" class="btn btn-outline-gold">Solicitar Visita al Taller</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECCIÓN SECUNDARIA: SERVICIOS EXCLUSIVOS DE LUJO
+         =================================================================== -->
+    <section id="servicios" class="services-section section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="sub-title">Atención Sin Límites</span>
+          <h2>Servicios Exclusivos de Alta Joyería</h2>
+          <p>Ofrecemos una atención integral que acompaña a su joya a lo largo de las generaciones, preservando su valor y magnificencia.</p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon-wrap">
+              <!-- Compass/Design SVG -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+              </svg>
+            </div>
+            <h3>Alta Medida (Bespoke)</h3>
+            <p>Diseñamos piezas irrepetibles a partir de sus sueños. Bocetos acuarelados a mano, modelado 3D y forja artesanal de piezas únicas.</p>
+            <a href="#contacto" class="service-action-link">Iniciar Encargo →</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon-wrap">
+              <!-- Sparkle Tool SVG -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+              </svg>
+            </div>
+            <h3>Restauración &amp; Spa Joyero</h3>
+            <p>Limpieza ultrasónica profunda, rodiado de oro blanco, ajuste de garras y pulido de espejo para recuperar el resplandor del primer día.</p>
+            <a href="#contacto" class="service-action-link">Mantenimiento →</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon-wrap">
+              <!-- Scale / Appraisal SVG -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 3v18"></path>
+                <path d="M5 8l7-5 7 5"></path>
+                <path d="M3 13l4-8 4 8H3z"></path>
+                <path d="M13 13l4-8 4 8h-8z"></path>
+              </svg>
+            </div>
+            <h3>Tasación Gemológica Oficial</h3>
+            <p>Informes periciales para pólizas de seguro, herencias y tasación de gemas históricas avalados por gemólogos graduados del IGE y GIA.</p>
+            <a href="#contacto" class="service-action-link">Pedir Cita →</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon-wrap">
+              <!-- Key VIP SVG -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="7.5" cy="15.5" r="5.5"></circle>
+                <path d="M21 2l-9.6 9.6"></path>
+                <path d="M15.5 7.5l3 3L22 7l-3-3"></path>
+              </svg>
+            </div>
+            <h3>Concierge Privado</h3>
+            <p>Presentación a puerta cerrada en su residencia o suite privada con un asesor de alta joyería y servicio de custodia acorazada.</p>
+            <a href="#contacto" class="service-action-link">Solicitar Salón →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECCIÓN BOUTIQUES
+         =================================================================== -->
+    <section id="boutiques" class="boutiques-section section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="sub-title">Nuestros Espacios</span>
+          <h2>Boutiques &amp; Salones Privados</h2>
+          <p>Visite nuestros templos de la joyería fina donde ser recibido en un ambiente de absoluta confidencialidad, distinción y servicio de champán.</p>
+        </div>
+
+        <div class="boutiques-grid">
+          <!-- Boutique 1 -->
+          <div class="boutique-card">
+            <div class="boutique-img-wrap">
+              <img src="https://images.pexels.com/photos/28146843/pexels-photo-28146843.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Boutique Valencia" loading="lazy">
+              <span class="boutique-city-badge">Valencia</span>
+            </div>
+            <div class="boutique-details">
+              <h3>Boutique de la Pau</h3>
+              <p>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Carrer de la Pau, 14, Ciutat Vella
+              </p>
+              <p>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                Lun - Sáb: 10:30 - 20:30
+              </p>
+              <p>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                +34 963 800 240
+              </p>
+            </div>
+          </div>
+
+          <!-- Boutique 2 -->
+          <div class="boutique-card">
+            <div class="boutique-img-wrap">
+              <img src="https://images.pexels.com/photos/36297025/pexels-photo-36297025.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Boutique Madrid Serrano" loading="lazy">
+              <span class="boutique-city-badge">Madrid</span>
+            </div>
+            <div class="boutique-details">
+              <h3>Boutique Salamanca</h3>
+              <p>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Calle Serrano, 48, Barrio Salamanca
+              </p>
+              <p>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                Lun - Sáb: 10:00 - 20:30
+              </p>
+              <p>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                +34 914 220 180
+              </p>
+            </div>
+          </div>
+
+          <!-- Boutique 3 -->
+          <div class="boutique-card">
+            <div class="boutique-img-wrap">
+              <img src="https://images.pexels.com/photos/18285668/pexels-photo-18285668.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Boutique Barcelona" loading="lazy">
+              <span class="boutique-city-badge">Barcelona</span>
+            </div>
+            <div class="boutique-details">
+              <h3>Boutique Passeig de Gràcia</h3>
+              <p>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Passeig de Gràcia, 72, Eixample
+              </p>
+              <p>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                Lun - Sáb: 10:30 - 20:00
+              </p>
+              <p>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                +34 932 150 940
+              </p>
+            </div>
+          </div>
+
+          <!-- Boutique 4 -->
+          <div class="boutique-card">
+            <div class="boutique-img-wrap">
+              <img src="https://images.pexels.com/photos/18285657/pexels-photo-18285657.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Boutique Paris" loading="lazy">
+              <span class="boutique-city-badge">París</span>
+            </div>
+            <div class="boutique-details">
+              <h3>Salon Place Vendôme</h3>
+              <p>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                12 Place Vendôme, 75001 Paris
+              </p>
+              <p>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                Mar - Sáb: Cita Previa VIP
+              </p>
+              <p>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                +33 1 42 68 00 22
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         TESTIMONIOS & PRENSA
+         =================================================================== -->
+    <section class="testimonials-section section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="sub-title">Testimonios Exclusivos</span>
+          <h2>Elogios a la Excelencia</h2>
+          <p>Lo que dicen nuestros clientes de alta alcurnia y la crítica internacional sobre las creaciones Aurélia.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="rating-stars">★★★★★</div>
+            <p class="quote-text">
+              "El solitario Éternel superó cualquier expectativa. El diamante posee una luminosidad hipnótica y la atención privada en la boutique de Valencia fue de una delicadeza inolvidable."
+            </p>
+            <div class="author-info">
+              <div class="author-avatar">CL</div>
+              <div class="author-meta">
+                <h4>Carmen L.</h4>
+                <span>Coleccionista Privada • Valencia</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="rating-stars">★★★★★</div>
+            <p class="quote-text">
+              "Aurélia redefine la alta orfebrería con un rigor gemológico inaudito. Sus piezas no son accesorios; son legados esculpidos para vencer al paso del tiempo."
+            </p>
+            <div class="author-info">
+              <div class="author-avatar">VJ</div>
+              <div class="author-meta">
+                <h4>Vogue Joaillerie Magazine</h4>
+                <span>Crítica Internacional de Gemas</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="rating-stars">★★★★★</div>
+            <p class="quote-text">
+              "El servicio de recogida reservada en la boutique de Calle Serrano con entrega custodiada me brindó la máxima tranquilidad para la pedida de mano de mi prometida."
+            </p>
+            <div class="author-info">
+              <div class="author-avatar">AR</div>
+              <div class="author-meta">
+                <h4>Alejandro R.</h4>
+                <span>Cliente VIP • Madrid</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         CONTACTO & RESERVA DE CITA PRIVADA EN SHOWROOM
+         =================================================================== -->
+    <section id="contacto" class="contact-section section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="sub-title" data-i18n="contact_subtitle">Atención Personalizada</span>
+          <h2 data-i18n="contact_title">Concierge &amp; Cita VIP</h2>
+          <p>Reserve una sesión privada exclusiva con nuestros maestros gemólogos o solicite asistencia directa para encargos singulares.</p>
+        </div>
+
+        <div class="contact-wrapper">
+          <!-- Left Info Panel -->
+          <div class="contact-info-panel">
+            <div>
+              <h3>Experiencia Aurélia</h3>
+              <p>
+                Permítanos recibirle en el salón privado de la boutique de su elección para descubrir gemas seleccionadas especialmente para su perfil, acompañadas por una copa de espumoso de cortesía.
+              </p>
+
+              <div class="contact-methods">
+                <div class="c-method">
+                  <div class="c-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  </div>
+                  <div class="c-details">
+                    <h5>Línea Telefónica Directa VIP</h5>
+                    <a href="tel:+34963800240">+34 963 800 240</a>
+                  </div>
+                </div>
+
+                <div class="c-method">
+                  <div class="c-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  </div>
+                  <div class="c-details">
+                    <h5>Correspondencia Electrónica</h5>
+                    <a href="mailto:concierge@aurelia-joaillerie.es">concierge@aurelia-joaillerie.es</a>
+                  </div>
+                </div>
+
+                <div class="c-method">
+                  <div class="c-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  </div>
+                  <div class="c-details">
+                    <h5>Horario de Asistencia Privada</h5>
+                    <p>Lunes a Sábado: 09:30 - 21:00 CET</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="concierge-card">
+              <h4>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                Garantía de Confidencialidad
+              </h4>
+              <p>Todos los encuentros privados y presupuestos de alta joyería se gestionan bajo estricto acuerdo de privacidad.</p>
+            </div>
+          </div>
+
+          <!-- Right Form Panel -->
+          <div class="contact-form-panel">
+            <h3>Solicitud de Cita en Boutique</h3>
+            <p>Rellene el siguiente formulario para que nuestro concierge organice su visita en el salón privado.</p>
+
+            <form id="vip-contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="c-name" class="form-label">Nombre y Apellidos *</label>
+                  <input type="text" id="c-name" class="form-control" placeholder="Ej: Doña Victoria Mendoza" required>
+                </div>
+                <div class="form-group">
+                  <label for="c-phone" class="form-label">Teléfono de Contacto *</label>
+                  <input type="tel" id="c-phone" class="form-control" placeholder="+34 600 000 000" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="c-email" class="form-label">Correo Electrónico *</label>
+                  <input type="email" id="c-email" class="form-control" placeholder="victoria@ejemplo.es" required>
+                </div>
+                <div class="form-group">
+                  <label for="c-boutique" class="form-label">Boutique Preferida</label>
+                  <select id="c-boutique" class="form-control">
+                    <option value="Valencia - Carrer de la Pau">Valencia - Carrer de la Pau</option>
+                    <option value="Madrid - Calle Serrano">Madrid - Calle Serrano</option>
+                    <option value="Barcelona - Passeig de Gràcia">Barcelona - Passeig de Gràcia</option>
+                    <option value="París - Place Vendôme">París - Place Vendôme</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="c-date" class="form-label">Fecha Deseada</label>
+                  <input type="date" id="c-date" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="c-interest" class="form-label">Interés Principal</label>
+                  <select id="c-interest" class="form-control">
+                    <option value="anillo-compromiso">Anillo de Compromiso / Solitario</option>
+                    <option value="alta-joyeria">Pieza de Alta Joyería / Collares</option>
+                    <option value="relojes-suizos">Alta Relojería Suiza</option>
+                    <option value="encargo-bespoke">Encargo a Medida (Bespoke)</option>
+                    <option value="tasacion">Tasación / Restauración</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="c-message" class="form-label">Detalles o Petición Especial</label>
+                <textarea id="c-message" class="form-control" placeholder="Indíquenos preferencias de metales, gemas, tallas o necesidades específicas..."></textarea>
+              </div>
+
+              <div class="form-checkbox">
+                <input type="checkbox" id="c-policy" required>
+                <label for="c-policy">He leído y acepto la política de privacidad y protección de datos para la gestión de mi cita VIP.</label>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Confirmar Solicitud de Cita VIP
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================================================================
+       FOOTER
+       =================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#inicio" class="logo">
+            <div class="logo-symbol">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <polygon points="6 3 18 3 22 9 12 22 2 9 6 3"></polygon>
+                <line x1="2" y1="9" x2="22" y2="9"></line>
+                <line x1="12" y1="22" x2="6" y2="9"></line>
+                <line x1="12" y1="22" x2="18" y2="9"></line>
+              </svg>
+            </div>
+            <div class="logo-text-group">
+              <span class="logo-title">AURÉLIA</span>
+              <span class="logo-sub">Haute Joaillerie</span>
+            </div>
+          </a>
+          <p>
+            Maison de alta orfebrería fundada en la devoción a las piedras preciosas puras y la nobleza del oro de 18 quilates. Creaciones creadas para trascender el tiempo.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" title="Instagram" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="#" class="social-link" title="Pinterest" aria-label="Pinterest">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 12c.5 2 2.5 4 4.5 4s3.5-1.5 3.5-4-1.5-4-3.5-4c-3 0-5 3-4 8"></path></svg>
+            </a>
+            <a href="#" class="social-link" title="LinkedIn" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Colecciones</h4>
+          <ul class="footer-links">
+            <li><a href="#catalogo" onclick="jumpToCatalogCategory('anillos')">Anillos Solitarios</a></li>
+            <li><a href="#catalogo" onclick="jumpToCatalogCategory('collares')">Collares &amp; Gargantillas</a></li>
+            <li><a href="#catalogo" onclick="jumpToCatalogCategory('pendientes')">Pendientes &amp; Criollas</a></li>
+            <li><a href="#catalogo" onclick="jumpToCatalogCategory('pulseras')">Pulseras Rivière &amp; Brazaletes</a></li>
+            <li><a href="#catalogo" onclick="jumpToCatalogCategory('relojes')">Alta Relojería de Lujo</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>La Maison</h4>
+          <ul class="footer-links">
+            <li><a href="#atelier">El Atelier &amp; Artesanía</a></li>
+            <li><a href="#servicios">Encargos a Medida</a></li>
+            <li><a href="#boutiques">Boutiques Oficiales</a></li>
+            <li><a href="#contacto">Cita Privada VIP</a></li>
+            <li><a href="#" onclick="openModal('cookie-policy-modal'); return false;">Política de Cookies</a></li>
+            <li><a href="#" onclick="openModal('warranty-modal'); return false;">Garantía &amp; Requisitos</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-newsletter">
+          <h4>Gazette Privée</h4>
+          <p>Reciba en primicia nuestras asignaciones de piedras preciosas excepcionales y desfiles de alta joyería.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Suscripción confirmada a la Gazette Privée Aurélia', 'gold'); this.reset();">
+            <input type="email" class="newsletter-input" placeholder="Su correo electrónico..." required>
+            <button type="submit" class="newsletter-btn">Unirse</button>
+          </form>
+          <span style="font-size:0.75rem; color:var(--text-muted);">Custodiamos rigurosamente sus datos personales.</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div data-i18n="footer_rights">
+          © 2026 Aurélia Joaillerie S.L. Todos los derechos reservados.
+        </div>
+        <div class="footer-legal-links">
+          <a href="#" onclick="openModal('warranty-modal'); return false;">Requisitos Legales</a>
+          <a href="#" onclick="openModal('cookie-policy-modal'); return false;">Política de Cookies</a>
+          <a href="#" onclick="openModal('warranty-modal'); return false;">Términos de Compra &amp; Reserva</a>
+          <a href="#contacto">Atención al Cliente</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================
+       MODAL 1: BÚSQUEDA INTERNA EN LA PÁGINA
+       =================================================================== -->
+  <div id="search-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Buscador de la boutique">
+    <div class="modal-dialog search-modal-dialog">
+      <button class="modal-close-btn" onclick="closeModal('search-modal')" aria-label="Cerrar búsqueda">✕</button>
+      <div class="search-header-group">
+        <h3 data-i18n="modal_search_title">Búsqueda en la Boutique</h3>
+        <p data-i18n="modal_search_sub">Encuentre piezas de joyería o secciones de información dentro de nuestra web.</p>
+      </div>
+
+      <div class="search-input-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="site-search-input" class="search-input-field" placeholder="Buscar por joya, oro, diamantes, perlas, servicios..." data-i18n-placeholder="search_placeholder" autocomplete="off">
+        <button class="search-clear-btn" aria-label="Limpiar búsqueda">✕</button>
+      </div>
+
+      <div id="search-results-list" class="search-results-area">
+        <p style="font-size:0.85rem; color:var(--text-muted); text-align:center; padding:20px;">
+          Escriba al menos 2 letras para buscar joyas, diamantes, materiales o servicios.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       MODAL 2: BOLSA DE COMPRAS (CART DRAWER LATERAL)
+       =================================================================== -->
+  <div class="cart-drawer-overlay" aria-label="Bolsa de compra desplegable">
+    <div class="cart-drawer" role="dialog" aria-modal="true">
+      <div class="cart-drawer-header">
+        <h3 data-i18n="cart_title">
+          Bolsa de Alta Joyería
+          <span class="count-pill">0 piezas</span>
+        </h3>
+        <button class="modal-close-btn close-cart-btn" aria-label="Cerrar bolsa">✕</button>
+      </div>
+
+      <!-- Items List -->
+      <div id="cart-items-wrap" class="cart-items-container">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+
+      <!-- Drawer Footer with Subtotal & Actions -->
+      <div class="cart-drawer-footer">
+        <div class="cart-summary-line">
+          <span data-i18n="cart_subtotal">Subtotal:</span>
+          <span id="drawer-subtotal">0 €</span>
+        </div>
+        <div class="cart-summary-line">
+          <span data-i18n="cart_tax">IVA (21% incluido):</span>
+          <span id="drawer-tax">0 €</span>
+        </div>
+        <div class="cart-summary-line">
+          <span data-i18n="cart_shipping">Envío Asegurado:</span>
+          <span style="color:var(--accent-gold); font-weight:600;" data-i18n="cart_free">Gratuito</span>
+        </div>
+        <div class="cart-summary-line total">
+          <span data-i18n="cart_total">Total:</span>
+          <span id="drawer-total">0 €</span>
+        </div>
+
+        <div class="cart-actions-box">
+          <button id="cart-checkout-btn" class="btn btn-primary" style="width: 100%;" data-i18n="cart_checkout_btn">
+            Finalizar Pedido / Reserva
+          </button>
+          <button class="btn btn-secondary close-cart-btn" style="width: 100%;">
+            Continuar Explorando
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       MODAL 3: CHECKOUT & RESERVA CON OPCIONES DE RECOGIDA / ENVÍO Y PAGOS
+       =================================================================== -->
+  <div id="checkout-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Tramitar Pedido y Reserva">
+    <div class="modal-dialog checkout-modal-dialog">
+      <button class="modal-close-btn" onclick="closeModal('checkout-modal')" aria-label="Cerrar ventana de compra">✕</button>
+      
+      <div class="section-header" style="margin-bottom:24px; text-align:left;">
+        <span class="sub-title">Finalización de Compra</span>
+        <h3 style="font-family:var(--font-serif); font-size:1.8rem;">Reserva &amp; Modalidad de Entrega</h3>
+        <p style="font-size:0.85rem;">Elija si prefiere recibir su joya mediante transporte blindado o reservarla para retirarla en una de nuestras boutiques oficiales.</p>
+      </div>
+
+      <!-- Order Items Summary Box -->
+      <div style="background:var(--bg-secondary); padding:16px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle); margin-bottom:24px;">
+        <div style="font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent-gold); font-weight:700; margin-bottom:10px;">Resumen de Piezas en Bolsa</div>
+        <div id="checkout-items-summary"></div>
+        <div style="display:flex; justify-content:space-between; font-size:0.85rem; padding-top:10px; border-top:1px solid var(--border-subtle);">
+          <span>Subtotal:</span>
+          <span id="checkout-subtotal" style="font-weight:600;">0 €</span>
+        </div>
+        <div id="checkout-discount-row" style="display:none; justify-content:space-between; font-size:0.85rem; color:var(--accent-gold); padding-top:4px;">
+          <span>Descuento Cortesía VIP:</span>
+          <span id="checkout-discount-val">0 €</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:1.1rem; font-weight:700; padding-top:10px; border-top:1px dashed var(--border-subtle); margin-top:10px;">
+          <span>Importe Total:</span>
+          <span id="checkout-final-total" style="color:var(--accent-gold); font-family:var(--font-serif);">0 €</span>
+        </div>
+      </div>
+
+      <!-- Step 1: Delivery Mode Selection -->
+      <div style="margin-bottom:24px;">
+        <label class="form-label">1. Modalidad de Entrega:</label>
+        <div class="delivery-options-grid">
+          <div class="delivery-opt-card selected" data-method="pickup">
+            <h4>
+              <!-- Boutique Store SVG -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              Recogida en Boutique
+            </h4>
+            <p>Reserva gratuita con inspección previa en el salón privado con su asesor gemólogo.</p>
+          </div>
+
+          <div class="delivery-opt-card" data-method="delivery">
+            <h4>
+              <!-- Armored Delivery SVG -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+              Envío Blindado a Domicilio
+            </h4>
+            <p>Entrega de alta seguridad asegurada al 100% hasta su recepción en mano.</p>
+          </div>
+        </div>
+
+        <!-- Conditional Field: Store Selector for Pickup -->
+        <div id="checkout-pickup-fields">
+          <label for="pickup-store-select" class="form-label">Seleccione la Boutique para la recogida:</label>
+          <select id="pickup-store-select" class="form-control">
+            <option value="Boutique Valencia - Carrer de la Pau 14">Boutique Valencia - Carrer de la Pau 14</option>
+            <option value="Boutique Madrid - Calle Serrano 48">Boutique Madrid - Calle Serrano 48</option>
+            <option value="Boutique Barcelona - Passeig de Gràcia 72">Boutique Barcelona - Passeig de Gràcia 72</option>
+            <option value="Salon Privé París - 12 Place Vendôme">Salon Privé París - 12 Place Vendôme</option>
+          </select>
+        </div>
+
+        <!-- Conditional Field: Address for Home Delivery -->
+        <div id="checkout-delivery-fields" style="display:none; margin-top:16px;">
+          <div class="form-group">
+            <label for="order-address" class="form-label">Dirección Completa de Envío *</label>
+            <input type="text" id="order-address" class="form-control" placeholder="Calle, número, piso, puerta...">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="order-city" class="form-label">Ciudad *</label>
+              <input type="text" id="order-city" class="form-control" placeholder="Ej: Valencia / Madrid">
+            </div>
+            <div class="form-group">
+              <label for="order-zip" class="form-label">Código Postal *</label>
+              <input type="text" id="order-zip" class="form-control" placeholder="46003">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Payment Options Selection (3 exact options requested) -->
+      <div style="margin-bottom:24px;">
+        <label class="form-label">2. Forma de Pago de la Adquisición:</label>
+        <div class="payment-methods-stack">
+          <!-- Option 1: Pagar al recoger en la boutique -->
+          <div class="payment-opt-item selected" data-payment="boutique">
+            <input type="radio" name="payment_method_choice" class="payment-opt-radio" checked>
+            <div class="payment-opt-text">
+              <h4>Pagar al ir a recogerlo a la Boutique</h4>
+              <p>Abone el importe en persona (tarjeta bancaria o efectivo de conformidad con la ley) al examinar su joya.</p>
+            </div>
+          </div>
+
+          <!-- Option 2: Pagar contra entrega / mensajería -->
+          <div class="payment-opt-item" data-payment="cash_on_delivery">
+            <input type="radio" name="payment_method_choice" class="payment-opt-radio">
+            <div class="payment-opt-text">
+              <h4>Pagar cuando se lo entreguen</h4>
+              <p>Pago contra reembolso directo al agente de seguridad de la empresa de transporte blindado.</p>
+            </div>
+          </div>
+
+          <!-- Option 3: Pasarela de pago del mercado -->
+          <div class="payment-opt-item" data-payment="gateway">
+            <input type="radio" name="payment_method_choice" class="payment-opt-radio">
+            <div class="payment-opt-text">
+              <h4>Pagar por la pasarela de pago online</h4>
+              <p>Se abrirá una ventana con el desglose exacto de pago para procesar la transacción bancaria cifrada (Tarjeta / Bizum).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Customer Details & Promo -->
+      <div style="margin-bottom:24px;">
+        <label class="form-label">3. Datos del Titular de la Reserva:</label>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="order-name" class="form-label">Nombre Completo *</label>
+            <input type="text" id="order-name" class="form-control" placeholder="Ej: Don Santiago Bellver" required>
+          </div>
+          <div class="form-group">
+            <label for="order-phone" class="form-label">Teléfono Móvil *</label>
+            <input type="tel" id="order-phone" class="form-control" placeholder="+34 600 000 000" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="order-email" class="form-label">Correo Electrónico *</label>
+          <input type="email" id="order-email" class="form-control" placeholder="santiago@ejemplo.es" required>
+        </div>
+
+        <!-- Promo Code Input -->
+        <div class="form-group" style="margin-top:14px;">
+          <label for="promo-code-input" class="form-label">Código de Invitación VIP o Cortesía</label>
+          <div style="display:flex; gap:8px;">
+            <input type="text" id="promo-code-input" class="form-control" placeholder="Pruebe con: AURELIA10" style="text-transform:uppercase;">
+            <button type="button" id="btn-apply-promo" class="btn btn-secondary" style="white-space:nowrap; padding:10px 18px;">Aplicar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <button id="btn-submit-order" class="btn btn-primary" style="width:100%; font-size:0.95rem; padding:16px;">
+        Confirmar Pedido &amp; Proceder
+      </button>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       MODAL 4: VENTANA DE LA PASARELA DE PAGO (DESGLOSE EXACTO)
+       =================================================================== -->
+  <div id="gateway-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Pasarela de Pago Segura">
+    <div class="modal-dialog gateway-modal-dialog">
+      <button class="modal-close-btn" onclick="closeModal('gateway-modal')" aria-label="Cancelar pasarela">✕</button>
+
+      <span class="gateway-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        Pasarela Bancaria Cifrada TLS 256-bit
+      </span>
+
+      <h3 style="font-family:var(--font-serif); font-size:1.6rem; margin-bottom:6px;">Desglose Final de Pago</h3>
+      <p style="font-size:0.85rem; color:var(--text-secondary);">
+        A continuación se muestra el importe exacto a liquidar mediante la pasarela bancaria oficial de Aurélia Haute Joaillerie.
+      </p>
+
+      <div class="gateway-amount-box">
+        <div class="label">Importe a Pagar</div>
+        <div id="gateway-amount" class="amount">0 €</div>
+      </div>
+
+      <div id="gateway-breakdown-details" style="background:var(--bg-secondary); border-radius:var(--radius-sm); padding:16px; text-align:left; border:1px solid var(--border-subtle); margin-bottom:20px;">
+        <!-- Filled dynamically -->
+      </div>
+
+      <!-- Simulated Card Gateway Inputs -->
+      <form class="mock-card-form" onsubmit="event.preventDefault();">
+        <div class="form-group" style="margin-bottom:12px;">
+          <label class="form-label">Número de Tarjeta (Simulación)</label>
+          <input type="text" class="form-control" placeholder="•••• •••• •••• 4242" value="4556 •••• •••• 9812" style="font-family:monospace;">
+        </div>
+        <div class="form-row" style="margin-bottom:16px;">
+          <div class="form-group" style="margin-bottom:0;">
+            <label class="form-label">Caducidad</label>
+            <input type="text" class="form-control" placeholder="MM/AA" value="09/28" style="font-family:monospace;">
+          </div>
+          <div class="form-group" style="margin-bottom:0;">
+            <label class="form-label">CVC / CVV</label>
+            <input type="password" class="form-control" placeholder="•••" value="888" style="font-family:monospace;">
+          </div>
+        </div>
+
+        <button id="btn-confirm-gateway-payment" type="button" class="btn btn-primary" style="width:100%;">
+          Autorizar Cargo &amp; Confirmar Compra
+        </button>
+      </form>
+
+      <div style="font-size:0.75rem; color:var(--text-muted); display:flex; align-items:center; justify-content:center; gap:6px; margin-top:14px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        Transacción asegurada bajo normativa europea PSD2 y autenticación reforzada SCA.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       MODAL 5: CONFIRMACIÓN DE RESERVA / COMPRA
+       =================================================================== -->
+  <div id="confirmation-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Confirmación de Reserva">
+    <div class="modal-dialog" style="max-width:560px; padding:36px;">
+      <button class="modal-close-btn" onclick="closeModal('confirmation-modal')" aria-label="Cerrar">✕</button>
+      <div id="order-confirm-content"></div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       MODAL 6: ACCESO / LOGIN DE CLIENTES VIP
+       =================================================================== -->
+  <div id="auth-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Portal de Clientes VIP">
+    <div class="modal-dialog auth-modal-dialog">
+      <button class="modal-close-btn" onclick="closeModal('auth-modal')" aria-label="Cerrar">✕</button>
+
+      <div style="text-align:center; margin-bottom:20px;">
+        <h3 style="font-family:var(--font-serif); font-size:1.6rem; margin-bottom:4px;">Espacio Clientes VIP</h3>
+        <p style="font-size:0.82rem; color:var(--text-secondary);">Acceda a sus certificados GIA, historial de compras y citas privadas.</p>
+      </div>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-mode="login">Iniciar Sesión</button>
+        <button class="auth-tab" data-mode="register">Crear Cuenta VIP</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form" style="display:flex; flex-direction:column; gap:16px;">
+        <div class="form-group" style="margin-bottom:0;">
+          <label for="login-email" class="form-label">Correo Electrónico</label>
+          <input type="email" id="login-email" class="form-control" placeholder="cliente@aurelia-vip.es" required>
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label for="login-password" class="form-label">Contraseña</label>
+          <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.78rem; color:var(--text-secondary);">
+          <label style="display:flex; align-items:center; gap:6px;">
+            <input type="checkbox" checked> Recordarme
+          </label>
+          <a href="#" class="text-gold" onclick="alert('Instrucciones de restablecimiento enviadas a su correo.'); return false;">¿Olvidó su clave?</a>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:8px;">Acceder al Salón VIP</button>
+      </form>
+
+      <!-- Register Form -->
+      <form id="register-form" style="display:none; flex-direction:column; gap:16px;">
+        <div class="form-group" style="margin-bottom:0;">
+          <label for="reg-name" class="form-label">Nombre Completo</label>
+          <input type="text" id="reg-name" class="form-control" placeholder="Doña Claudia Valero" required>
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label for="reg-email" class="form-label">Correo Electrónico</label>
+          <input type="email" id="reg-email" class="form-control" placeholder="claudia@ejemplo.es" required>
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label for="reg-password" class="form-label">Contraseña Deseada</label>
+          <input type="password" id="reg-password" class="form-control" placeholder="Mínimo 8 caracteres" required>
+        </div>
+        <div class="form-checkbox" style="margin-bottom:0;">
+          <input type="checkbox" id="reg-terms" required>
+          <label for="reg-terms" style="font-size:0.75rem;">Acepto los términos de servicio para miembros del círculo exclusivo Aurélia.</label>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:8px;">Registrar Miembro VIP</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       MODAL 7: VISTA RÁPIDA DE PRODUCTO (QUICK VIEW)
+       =================================================================== -->
+  <div id="quickview-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Detalles de la Joya">
+    <div class="modal-dialog quickview-modal-dialog">
+      <button class="modal-close-btn" onclick="closeModal('quickview-modal')" aria-label="Cerrar vista rápida">✕</button>
+      <div id="quickview-content"></div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       MODAL 8: POLÍTICA DE COOKIES & LEGALES
+       =================================================================== -->
+  <div id="cookie-policy-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Política de Cookies">
+    <div class="modal-dialog" style="max-width:680px; padding:36px;">
+      <button class="modal-close-btn" onclick="closeModal('cookie-policy-modal')" aria-label="Cerrar">✕</button>
+      <h3 style="font-family:var(--font-serif); font-size:1.6rem; margin-bottom:14px;">Política de Cookies</h3>
+      <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.7; margin-bottom:14px;">
+        En Aurélia Haute Joaillerie utilizamos cookies propias y técnicas de terceros con la exclusiva finalidad de garantizar la navegación segura, recordar sus preferencias de tema (modo claro u oscuro), el idioma seleccionado (Español, Inglés o Valenciano) y los artículos preservados en su bolsa de alta joyería.
+      </p>
+      <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.7; margin-bottom:14px;">
+        No realizamos venta de perfiles ni compartimos datos con intermediarios comerciales sin su consentimiento expreso.
+      </p>
+      <button class="btn btn-primary" onclick="closeModal('cookie-policy-modal')">Entendido y Aceptar</button>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       MODAL 9: REQUISITOS Y GARANTÍAS DE COMPRA
+       =================================================================== -->
+  <div id="warranty-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Garantía y Requisitos">
+    <div class="modal-dialog" style="max-width:680px; padding:36px;">
+      <button class="modal-close-btn" onclick="closeModal('warranty-modal')" aria-label="Cerrar">✕</button>
+      <h3 style="font-family:var(--font-serif); font-size:1.6rem; margin-bottom:14px;">Requisitos de Compra &amp; Garantía Vitalicia</h3>
+      <ul style="font-size:0.85rem; color:var(--text-secondary); line-height:1.8; margin-bottom:20px; padding-left:20px;">
+        <li><strong>Identificación Oficial:</strong> Para importes superiores a 2.500 € en boutique física se requerirá DNI/Pasaporte en cumplimiento con la normativa europea de prevención de blanqueo de capitales.</li>
+        <li><strong>Certificación GIA:</strong> Cada diamante central a partir de 0.50 quilates va acompañado de su certificado de gradación original con grabado láser en el filetín.</li>
+        <li><strong>Mantenimiento Gratuito Vitalicio:</strong> Incluye dos revisiones anuales de sujeción de garras y limpieza ultrasónica en cualquiera de nuestras boutiques oficiales.</li>
+        <li><strong>Plazo de Cambio:</strong> 30 días para cambio o ajuste de talla en piezas estándar no grabadas.</li>
+      </ul>
+      <button class="btn btn-primary" onclick="closeModal('warranty-modal')">Cerrar Información</button>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       FLOATING COOKIE CONSENT BANNER
+       =================================================================== -->
+  <div class="cookie-banner" role="region" aria-label="Aviso de Cookies">
+    <div class="cookie-title">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+      Aviso de Privacidad y Cookies
+    </div>
+    <p class="cookie-text">
+      Utilizamos cookies para garantizar la mejor experiencia en nuestra boutique de alta joyería, recordar sus piezas en la bolsa de compra y guardar sus preferencias estéticas y lingüísticas.
+    </p>
+    <div class="cookie-actions">
+      <button id="btn-reject-cookies" class="cookie-btn btn-secondary">Solo Esenciales</button>
+      <button id="btn-accept-cookies" class="cookie-btn btn-primary">Aceptar Todas</button>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       HELPER INLINE FUNCTION FOR CATEGORY JUMP
+       =================================================================== -->
+  <script>
+    function jumpToCatalogCategory(category) {
+      const catalogSection = document.getElementById('catalogo');
+      if (catalogSection) {
+        catalogSection.scrollIntoView({ behavior: 'smooth' });
+      }
+      setTimeout(() => {
+        const pill = document.querySelector(`.filter-pill[data-category="${category}"]`);
+        if (pill) pill.click();
+      }, 400);
+    }
+  </script>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aurèle · Joyería y complementos de lujo</title>
+  <meta name="description" content="Aurèle, boutique de joyería y complementos de lujo en Valencia. Anillos, collares, pendientes, relojes y conjuntos con reserva online y recogida en tienda.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b08d3e' stroke-width='1.6' stroke-linejoin='round'%3E%3Cpath d='M6 3h12l4 6-10 12L2 9l4-6z'/%3E%3Cpath d='M2 9h20M9 3l3 6 3-6M12 21 9 9M12 21l3-12'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+</head>
+
+<body class="theme-light">
+
+  <!-- ============ Sprite de iconos SVG (incrustado) ============ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></symbol>
+      <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+      <symbol id="i-gem" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 12L2 9l4-6z"/><path d="M2 9h20M9 3l3 6 3-6M12 21 9 9M12 21l3-12"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h11v10H2zM13 9h4l4 4v3h-8"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
+      <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l1-4L16 5l3 3L8 19l-4 1zM14 7l3 3"/></symbol>
+      <symbol id="i-store" viewBox="0 0 24 24"><path d="M3 9l1.5-5h15L21 9H3zM5 12v8h14v-8"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/></symbol>
+      <symbol id="i-card" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></symbol>
+      <symbol id="i-cash" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5m-6 6 6-6 6 6"/></symbol>
+      <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#contenido" data-i18n="a11y.skip">Saltar al contenido</a>
+
+  <!-- ============ Cabecera fija ============ -->
+  <header class="site-header" id="site-header">
+
+    <!-- Barra superior de información general -->
+    <div class="topbar">
+      <div class="container topbar__inner">
+        <div class="topbar__info">
+          <a href="tel:+34961234567"><svg class="icon icon--sm"><use href="#i-phone"/></svg><span>+34 961 23 45 67</span></a>
+          <a href="mailto:hola@aurele.example"><svg class="icon icon--sm"><use href="#i-mail"/></svg><span>hola@aurele.example</span></a>
+          <span class="topbar__promo" data-i18n="topbar.shipping">Envío gratuito desde 500 €</span>
+        </div>
+        <div class="language-switcher language-switcher--topbar" role="group" data-i18n-aria="a11y.language" aria-label="Idioma">
+          <button type="button" data-lang="es" aria-pressed="true">ES</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+          <button type="button" data-lang="va" aria-pressed="false">VA</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barra de navegación principal -->
+    <div class="navbar" id="navbar">
+      <div class="container navbar__inner">
+        <a class="logo" href="#inicio" aria-label="Aurèle">
+          <svg class="icon logo__icon"><use href="#i-gem"/></svg>
+          <span class="logo__text">AURÈLE<small data-i18n="logo.tagline">Joyería &amp; complementos</small></span>
+        </a>
+
+        <nav class="main-nav" data-i18n-aria="a11y.mainNav" aria-label="Navegación principal">
+          <ul>
+            <li><a href="#inicio" data-nav-link data-i18n="nav.home">Inicio</a></li>
+            <li><a href="#colecciones" data-nav-link data-i18n="nav.collections">Colecciones</a></li>
+            <li><a href="#tienda" data-nav-link data-i18n="nav.shop">Tienda</a></li>
+            <li><a href="#atelier" data-nav-link data-i18n="nav.atelier">Atelier</a></li>
+            <li><a href="#contacto" data-nav-link data-i18n="nav.contact">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <div class="navbar__actions">
+          <button type="button" class="icon-button navbar__search" data-open-overlay="search-modal" data-i18n-aria="a11y.search" aria-label="Buscar en la página">
+            <svg class="icon"><use href="#i-search"/></svg>
+          </button>
+          <button type="button" class="icon-button" id="login-button" data-i18n-aria="a11y.login" aria-label="Acceder a mi cuenta">
+            <svg class="icon"><use href="#i-user"/></svg>
+          </button>
+          <button type="button" class="icon-button theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
+            <svg class="icon icon-sun"><use href="#i-sun"/></svg>
+            <svg class="icon icon-moon"><use href="#i-moon"/></svg>
+          </button>
+          <button type="button" class="icon-button cart-toggle" id="cart-toggle" data-open-overlay="cart-drawer" data-i18n-aria="a11y.cart" aria-label="Abrir cesta">
+            <svg class="icon"><use href="#i-bag"/></svg>
+            <span class="cart-toggle__count" id="cart-count" aria-live="polite">0</span>
+          </button>
+          <button type="button" class="hamburger" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <div class="scroll-progress" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- ============ Menú móvil (baja desde arriba, centrado) ============ -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu__panel">
+      <nav data-i18n-aria="a11y.mainNav" aria-label="Navegación principal">
+        <ul class="mobile-menu__list">
+          <li><a href="#inicio" data-nav-link data-i18n="nav.home">Inicio</a></li>
+          <li><a href="#colecciones" data-nav-link data-i18n="nav.collections">Colecciones</a></li>
+          <li><a href="#tienda" data-nav-link data-i18n="nav.shop">Tienda</a></li>
+          <li><a href="#atelier" data-nav-link data-i18n="nav.atelier">Atelier</a></li>
+          <li><a href="#contacto" data-nav-link data-i18n="nav.contact">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="mobile-menu__tools">
+        <button type="button" class="btn btn--ghost btn--small" data-open-overlay="search-modal">
+          <svg class="icon icon--sm"><use href="#i-search"/></svg><span data-i18n="mobile.search">Buscar en la página</span>
+        </button>
+        <div class="language-switcher language-switcher--mobile" role="group" data-i18n-aria="a11y.language" aria-label="Idioma">
+          <button type="button" data-lang="es" aria-pressed="true">Español</button>
+          <button type="button" data-lang="en" aria-pressed="false">English</button>
+          <button type="button" data-lang="va" aria-pressed="false">Valencià</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="contenido">
+
+    <!-- ============ Hero principal ============ -->
+    <section class="hero" id="inicio" data-section-key="nav.home">
+      <video class="hero__video" id="hero-video" autoplay muted loop playsinline preload="metadata"
+             poster="https://images.pexels.com/videos/8971888/pexels-photo-8971888.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200">
+        <source src="https://videos.pexels.com/video-files/8971888/8971888-uhd_3840_2160_25fps.mp4" type="video/mp4">
+      </video>
+      <div class="container hero__content">
+        <p class="eyebrow eyebrow--light reveal" data-i18n="hero.eyebrow">Joyería de autor · Valencia, desde 1987</p>
+        <h1 class="reveal" data-i18n="hero.title">El arte de brillar con elegancia</h1>
+        <p class="hero__text reveal" data-i18n="hero.text">Piezas únicas en oro, diamantes y perlas, creadas por maestros orfebres para acompañarte en los momentos que importan.</p>
+        <div class="hero__actions reveal">
+          <a class="btn btn--gold" href="#tienda"><span data-i18n="hero.ctaShop">Descubrir la tienda</span><svg class="icon icon--sm"><use href="#i-arrow-right"/></svg></a>
+          <a class="btn btn--outline-light" href="#atelier" data-i18n="hero.ctaAtelier">Nuestro atelier</a>
+        </div>
+      </div>
+      <ul class="hero__badges container">
+        <li><svg class="icon icon--sm"><use href="#i-shield"/></svg><span data-i18n="hero.badge1">Oro 18k certificado</span></li>
+        <li><svg class="icon icon--sm"><use href="#i-truck"/></svg><span data-i18n="hero.badge2">Envío asegurado</span></li>
+        <li><svg class="icon icon--sm"><use href="#i-store"/></svg><span data-i18n="hero.badge3">Recogida en tienda</span></li>
+      </ul>
+    </section>
+
+    <!-- ============ Sección informativa: colecciones y valores ============ -->
+    <section class="section" id="colecciones" data-section-key="nav.collections">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="eyebrow" data-i18n="collections.eyebrow">Colecciones</p>
+          <h2 data-i18n="collections.title">Cinco universos, una misma obsesión por el detalle</h2>
+          <p data-i18n="collections.text">Desde solitarios atemporales hasta relojes de edición limitada. Cada colección nace en nuestro taller y se entrega con certificado de autenticidad.</p>
+        </header>
+
+        <div class="category-grid">
+          <a class="category-card reveal" href="#tienda" data-filter-link="ring">
+            <img src="https://images.pexels.com/photos/10475789/pexels-photo-10475789.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=900" alt="" loading="lazy">
+            <div class="category-card__body">
+              <h3 data-i18n="cat.ring">Anillos</h3>
+              <p><span data-category-count="ring"></span> · <span data-i18n="collections.view">Ver colección</span></p>
+            </div>
+          </a>
+          <a class="category-card reveal" href="#tienda" data-filter-link="necklace">
+            <img src="https://images.pexels.com/photos/13325931/pexels-photo-13325931.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=900" alt="" loading="lazy">
+            <div class="category-card__body">
+              <h3 data-i18n="cat.necklace">Collares</h3>
+              <p><span data-category-count="necklace"></span> · <span data-i18n="collections.view">Ver colección</span></p>
+            </div>
+          </a>
+          <a class="category-card reveal" href="#tienda" data-filter-link="earrings">
+            <img src="https://images.pexels.com/photos/33370247/pexels-photo-33370247.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800&h=900" alt="" loading="lazy">
+            <div class="category-card__body">
+              <h3 data-i18n="cat.earrings">Pendientes</h3>
+              <p><span data-category-count="earrings"></span> · <span data-i18n="collections.view">Ver colección</span></p>
+            </div>
+          </a>
+          <a class="category-card reveal" href="#tienda" data-filter-link="watch">
+            <img src="https://images.pexels.com/photos/12835318/pexels-photo-12835318.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1000&h=700" alt="" loading="lazy">
+            <div class="category-card__body">
+              <h3 data-i18n="cat.watch">Relojes</h3>
+              <p><span data-category-count="watch"></span> · <span data-i18n="collections.view">Ver colección</span></p>
+            </div>
+          </a>
+          <a class="category-card reveal" href="#tienda" data-filter-link="set">
+            <img src="https://images.pexels.com/photos/6716445/pexels-photo-6716445.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1000&h=700" alt="" loading="lazy">
+            <div class="category-card__body">
+              <h3 data-i18n="cat.set">Conjuntos</h3>
+              <p><span data-category-count="set"></span> · <span data-i18n="collections.view">Ver colección</span></p>
+            </div>
+          </a>
+        </div>
+
+        <ul class="values-grid">
+          <li class="value-card reveal">
+            <svg class="icon icon--lg"><use href="#i-shield"/></svg>
+            <h3 data-i18n="values.gold.title">Oro 18k certificado</h3>
+            <p data-i18n="values.gold.text">Cada pieza lleva contraste oficial y certificado.</p>
+          </li>
+          <li class="value-card reveal">
+            <svg class="icon icon--lg"><use href="#i-gem"/></svg>
+            <h3 data-i18n="values.diamond.title">Diamantes éticos</h3>
+            <p data-i18n="values.diamond.text">Gemas trazables, libres de conflicto.</p>
+          </li>
+          <li class="value-card reveal">
+            <svg class="icon icon--lg"><use href="#i-clock"/></svg>
+            <h3 data-i18n="values.warranty.title">Garantía 2 años</h3>
+            <p data-i18n="values.warranty.text">Revisión y limpieza gratuitas en tienda.</p>
+          </li>
+          <li class="value-card reveal">
+            <svg class="icon icon--lg"><use href="#i-pen"/></svg>
+            <h3 data-i18n="values.engraving.title">Grabado personal</h3>
+            <p data-i18n="values.engraving.text">Añade iniciales o una fecha especial sin coste.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ Tienda online ============ -->
+    <section class="section section--alt" id="tienda" data-section-key="nav.shop">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="eyebrow" data-i18n="shop.eyebrow">Tienda online</p>
+          <h2 data-i18n="shop.title">Piezas seleccionadas</h2>
+          <p data-i18n="shop.text">Reserva online y recoge en nuestra boutique o recíbela en casa en un embalaje de regalo.</p>
+        </header>
+
+        <div class="shop-toolbar reveal">
+          <div class="chips" role="group" data-i18n-aria="shop.filterLabel" aria-label="Filtrar por categoría">
+            <button type="button" class="chip is-active" data-filter="all" aria-pressed="true" data-i18n="cat.all">Todo</button>
+            <button type="button" class="chip" data-filter="ring" aria-pressed="false" data-i18n="cat.ring">Anillos</button>
+            <button type="button" class="chip" data-filter="necklace" aria-pressed="false" data-i18n="cat.necklace">Collares</button>
+            <button type="button" class="chip" data-filter="earrings" aria-pressed="false" data-i18n="cat.earrings">Pendientes</button>
+            <button type="button" class="chip" data-filter="watch" aria-pressed="false" data-i18n="cat.watch">Relojes</button>
+            <button type="button" class="chip" data-filter="set" aria-pressed="false" data-i18n="cat.set">Conjuntos</button>
+          </div>
+          <div class="shop-toolbar__sort">
+            <span class="shop-toolbar__count" id="shop-count" aria-live="polite"></span>
+            <label for="sort-select" class="visually-hidden" data-i18n="shop.sort">Ordenar por</label>
+            <select id="sort-select">
+              <option value="featured" data-i18n="sort.featured">Destacados</option>
+              <option value="priceAsc" data-i18n="sort.priceAsc">Precio: de menor a mayor</option>
+              <option value="priceDesc" data-i18n="sort.priceDesc">Precio: de mayor a menor</option>
+              <option value="name" data-i18n="sort.name">Nombre (A-Z)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="product-grid" id="product-grid"></div>
+      </div>
+    </section>
+
+    <!-- ============ Sección secundaria: atelier y servicios ============ -->
+    <section class="section" id="atelier" data-section-key="nav.atelier">
+      <div class="container atelier">
+        <figure class="atelier__media reveal">
+          <img src="https://images.pexels.com/photos/10944923/pexels-photo-10944923.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=900&h=1100" alt="Modelo luciendo un conjunto de joyas de oro" data-i18n-alt="atelier.imageAlt" loading="lazy">
+        </figure>
+
+        <div class="atelier__content">
+          <p class="eyebrow reveal" data-i18n="atelier.eyebrow">Atelier</p>
+          <h2 class="reveal" data-i18n="atelier.title">Alta joyería hecha a mano en Valencia</h2>
+          <p class="reveal" data-i18n="atelier.text1">Desde 1987 trabajamos el oro y las gemas como lo hacían nuestros abuelos: despacio, con paciencia y sin atajos. Cada joya pasa por más de veinte manos antes de llegar a las tuyas.</p>
+          <p class="reveal" data-i18n="atelier.text2">Ofrecemos diseño a medida, restauración de piezas familiares y asesoramiento personalizado para regalos y compromisos.</p>
+
+          <dl class="stats reveal">
+            <div><dt>39</dt><dd data-i18n="stats.years">años de oficio</dd></div>
+            <div><dt>12</dt><dd data-i18n="stats.masters">maestros orfebres</dd></div>
+            <div><dt>4.800</dt><dd data-i18n="stats.pieces">piezas únicas creadas</dd></div>
+          </dl>
+
+          <blockquote class="quote reveal">
+            <p data-i18n="atelier.quote">“Una joya bien hecha no se lleva: se hereda.”</p>
+            <footer data-i18n="atelier.quoteAuthor">Elena Aurèle, fundadora</footer>
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="container">
+        <h3 class="services-title reveal" data-i18n="services.title">Servicios del atelier</h3>
+        <ul class="services-grid">
+          <li class="service-card reveal">
+            <svg class="icon icon--lg"><use href="#i-pen"/></svg>
+            <h4 data-i18n="service.custom.title">Diseño a medida</h4>
+            <p data-i18n="service.custom.text">Creamos tu joya desde un boceto.</p>
+          </li>
+          <li class="service-card reveal">
+            <svg class="icon icon--lg"><use href="#i-gem"/></svg>
+            <h4 data-i18n="service.repair.title">Reparación y limpieza</h4>
+            <p data-i18n="service.repair.text">Devolvemos el brillo a tus piezas.</p>
+          </li>
+          <li class="service-card reveal">
+            <svg class="icon icon--lg"><use href="#i-shield"/></svg>
+            <h4 data-i18n="service.appraisal.title">Tasación</h4>
+            <p data-i18n="service.appraisal.text">Valoración certificada de joyas y relojes.</p>
+          </li>
+          <li class="service-card reveal">
+            <svg class="icon icon--lg"><use href="#i-bag"/></svg>
+            <h4 data-i18n="service.gift.title">Embalaje de regalo</h4>
+            <p data-i18n="service.gift.text">Estuche y tarjeta manuscrita incluidos.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ Contacto ============ -->
+    <section class="section section--alt" id="contacto" data-section-key="nav.contact">
+      <div class="container contact">
+        <div class="contact__info reveal">
+          <p class="eyebrow" data-i18n="contact.eyebrow">Contacto</p>
+          <h2 data-i18n="contact.title">Visítanos o escríbenos</h2>
+          <p data-i18n="contact.text">Te atenderemos con cita previa o sin ella. Respondemos en menos de 24 horas.</p>
+          <ul class="contact__list">
+            <li><svg class="icon"><use href="#i-pin"/></svg><div><strong data-i18n="contact.address.label">Boutique</strong><span>Calle Colón, 24 · 46004 Valencia</span></div></li>
+            <li><svg class="icon"><use href="#i-phone"/></svg><div><strong data-i18n="contact.phone.label">Teléfono</strong><a href="tel:+34961234567">+34 961 23 45 67</a></div></li>
+            <li><svg class="icon"><use href="#i-mail"/></svg><div><strong data-i18n="contact.email.label">Email</strong><a href="mailto:hola@aurele.example">hola@aurele.example</a></div></li>
+            <li><svg class="icon"><use href="#i-clock"/></svg><div><strong data-i18n="contact.hours.label">Horario</strong><span data-i18n="contact.hours.value">Lun–Sáb · 10:00–20:30</span></div></li>
+          </ul>
+        </div>
+
+        <form class="contact__form reveal" id="contact-form" novalidate>
+          <div class="field">
+            <label for="ct-name" data-i18n="form.name">Nombre y apellidos</label>
+            <input id="ct-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="ct-email" data-i18n="form.email">Correo electrónico</label>
+              <input id="ct-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="ct-phone" data-i18n="form.phone">Teléfono</label>
+              <input id="ct-phone" name="phone" type="tel" autocomplete="tel" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="ct-subject" data-i18n="form.subject">Asunto</label>
+            <select id="ct-subject" name="subject" required>
+              <option value="info" data-i18n="form.subject.info">Información sobre una pieza</option>
+              <option value="custom" data-i18n="form.subject.custom">Diseño a medida</option>
+              <option value="order" data-i18n="form.subject.order">Estado de mi pedido</option>
+              <option value="other" data-i18n="form.subject.other">Otro</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="ct-message" data-i18n="form.message">Mensaje</label>
+            <textarea id="ct-message" name="message" rows="5" required></textarea>
+          </div>
+          <div class="field field--check">
+            <label class="check"><input type="checkbox" name="consent" required><span data-i18n="form.consent">Acepto el tratamiento de mis datos para responder a mi consulta.</span></label>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block" data-i18n="form.send">Enviar mensaje</button>
+          <p class="form-feedback" id="contact-feedback" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer" data-section-key="search.footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a class="logo logo--light" href="#inicio" aria-label="Aurèle">
+          <svg class="icon logo__icon"><use href="#i-gem"/></svg>
+          <span class="logo__text">AURÈLE</span>
+        </a>
+        <p data-i18n="footer.about">Joyería y complementos de lujo. Piezas únicas hechas a mano desde 1987.</p>
+      </div>
+      <div>
+        <h3 data-i18n="footer.shop">Tienda</h3>
+        <ul>
+          <li><a href="#tienda" data-filter-link="ring" data-i18n="cat.ring">Anillos</a></li>
+          <li><a href="#tienda" data-filter-link="necklace" data-i18n="cat.necklace">Collares</a></li>
+          <li><a href="#tienda" data-filter-link="earrings" data-i18n="cat.earrings">Pendientes</a></li>
+          <li><a href="#tienda" data-filter-link="watch" data-i18n="cat.watch">Relojes</a></li>
+          <li><a href="#tienda" data-filter-link="set" data-i18n="cat.set">Conjuntos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 data-i18n="footer.info">Información</h3>
+        <ul>
+          <li data-i18n="footer.info1">Envío gratuito desde 500 €</li>
+          <li data-i18n="footer.info2">Devoluciones en 30 días</li>
+          <li data-i18n="footer.info3">Certificado de autenticidad</li>
+          <li data-i18n="footer.info4">Recogida en tienda en 24 h</li>
+        </ul>
+      </div>
+      <div>
+        <h3 data-i18n="footer.legal">Legal</h3>
+        <ul>
+          <li><button type="button" class="link-button" data-legal="cookies" data-i18n="footer.cookies">Política de cookies</button></li>
+          <li><button type="button" class="link-button" data-legal="requirements" data-i18n="footer.requirements">Requisitos de compra</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <small>© <span id="current-year"></span> Aurèle Joyeros. <span data-i18n="footer.rights">Todos los derechos reservados.</span></small>
+      <small data-i18n="footer.credits">Imágenes de muestra: Pexels. Serán sustituidas por fotografías del cliente.</small>
+    </div>
+  </footer>
+
+  <!-- ============ Modal de búsqueda ============ -->
+  <div class="overlay overlay--top" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-title" aria-hidden="true">
+    <div class="modal modal--search" tabindex="-1">
+      <header class="modal__header">
+        <h2 id="search-title" data-i18n="search.title">Buscar en la página</h2>
+        <button type="button" class="icon-button" data-close-overlay data-i18n-aria="a11y.close" aria-label="Cerrar"><svg class="icon"><use href="#i-close"/></svg></button>
+      </header>
+      <form class="search-form" id="search-form" role="search">
+        <svg class="icon"><use href="#i-search"/></svg>
+        <input type="search" id="search-input" data-autofocus autocomplete="off" placeholder="Escribe una palabra…" data-i18n-placeholder="search.placeholder" data-i18n-aria="search.title" aria-label="Buscar en la página">
+      </form>
+      <p class="search-status" id="search-status" role="status" aria-live="polite"></p>
+      <ul class="search-results" id="search-results"></ul>
+      <button type="button" class="link-button search-clear" id="search-clear" hidden data-i18n="search.clear">Quitar resaltado</button>
+    </div>
+  </div>
+
+  <!-- ============ Cesta de la compra (panel lateral) ============ -->
+  <div class="overlay overlay--drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" aria-hidden="true">
+    <aside class="drawer" tabindex="-1">
+      <header class="modal__header">
+        <h2 id="cart-title" data-i18n="cart.title">Tu cesta</h2>
+        <button type="button" class="icon-button" data-close-overlay data-i18n-aria="a11y.close" aria-label="Cerrar"><svg class="icon"><use href="#i-close"/></svg></button>
+      </header>
+
+      <div class="cart-empty" id="cart-empty">
+        <svg class="icon icon--xl"><use href="#i-bag"/></svg>
+        <h3 data-i18n="cart.empty">Tu cesta está vacía</h3>
+        <p data-i18n="cart.emptyText">Descubre nuestras piezas y añade tus favoritas.</p>
+        <a href="#tienda" class="btn btn--primary" data-close-overlay data-i18n="cart.continue">Seguir comprando</a>
+      </div>
+
+      <div class="cart-content" id="cart-content">
+        <div class="cart-progress">
+          <p id="cart-progress-text"></p>
+          <div class="cart-progress__track"><div class="cart-progress__bar" id="cart-progress-bar"></div></div>
+        </div>
+
+        <ul class="cart-items" id="cart-items"></ul>
+
+        <footer class="drawer__footer">
+          <form class="promo-form" id="promo-form" novalidate>
+            <label for="promo-input" data-i18n="cart.promo.label">Código promocional</label>
+            <div class="promo-form__row">
+              <input id="promo-input" type="text" autocomplete="off" placeholder="Ej. BIENVENIDA10" data-i18n-placeholder="cart.promo.placeholder">
+              <button type="submit" class="btn btn--ghost btn--small" data-i18n="cart.promo.apply">Aplicar</button>
+            </div>
+            <p class="promo-form__message" id="promo-message" role="status"></p>
+            <button type="button" class="link-button" id="promo-remove" hidden data-i18n="cart.promo.remove">Quitar</button>
+          </form>
+
+          <dl class="totals">
+            <div><dt data-i18n="cart.subtotal">Subtotal</dt><dd id="cart-subtotal"></dd></div>
+            <div id="cart-discount-row" hidden><dt data-i18n="cart.discount">Descuento</dt><dd id="cart-discount"></dd></div>
+            <div><dt data-i18n="cart.shipping">Envío</dt><dd id="cart-shipping" data-i18n="cart.shipping.calc">Se calcula al elegir entrega</dd></div>
+            <div class="totals__total"><dt data-i18n="cart.total">Total</dt><dd id="cart-total"></dd></div>
+          </dl>
+          <p class="totals__note" data-i18n="cart.vatIncluded">IVA incluido</p>
+
+          <button type="button" class="btn btn--primary btn--block" id="cart-checkout" data-i18n="cart.checkout">Finalizar compra</button>
+          <button type="button" class="link-button cart-clear" id="cart-clear" data-i18n="cart.clear">Vaciar cesta</button>
+        </footer>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ============ Finalizar compra: datos, entrega y pago ============ -->
+  <div class="overlay" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title" aria-hidden="true">
+    <div class="modal modal--wide" tabindex="-1">
+      <header class="modal__header">
+        <h2 id="checkout-title" data-i18n="checkout.title">Finalizar compra</h2>
+        <button type="button" class="icon-button" data-close-overlay data-i18n-aria="a11y.close" aria-label="Cerrar"><svg class="icon"><use href="#i-close"/></svg></button>
+      </header>
+
+      <div class="checkout">
+        <form class="checkout__form" id="checkout-form" novalidate>
+
+          <fieldset class="form-group">
+            <legend data-i18n="checkout.step.data">1. Tus datos</legend>
+            <div class="field">
+              <label for="co-name" data-i18n="form.name">Nombre y apellidos</label>
+              <input id="co-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="co-email" data-i18n="form.email">Correo electrónico</label>
+                <input id="co-email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label for="co-phone" data-i18n="form.phone">Teléfono</label>
+                <input id="co-phone" name="phone" type="tel" autocomplete="tel" required>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-group">
+            <legend data-i18n="checkout.step.delivery">2. Entrega</legend>
+            <div class="option-grid">
+              <label class="option-card">
+                <input type="radio" name="delivery" value="pickup" checked>
+                <span class="option-card__body">
+                  <svg class="icon"><use href="#i-store"/></svg>
+                  <strong data-i18n="delivery.pickup.title">Recoger en la boutique</strong>
+                  <small data-i18n="delivery.pickup.text">Gratis · Listo en 24 h</small>
+                </span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="delivery" value="shipping">
+                <span class="option-card__body">
+                  <svg class="icon"><use href="#i-truck"/></svg>
+                  <strong data-i18n="delivery.ship.title">Envío a domicilio</strong>
+                  <small data-i18n="delivery.ship.text">Entrega asegurada en 24-48 h</small>
+                </span>
+              </label>
+            </div>
+
+            <div id="pickup-fields">
+              <p class="form-note"><svg class="icon icon--sm"><use href="#i-pin"/></svg><span data-i18n="pickup.store">Boutique Aurèle · Calle Colón, 24, Valencia</span></p>
+              <div class="field-row">
+                <div class="field">
+                  <label for="co-date" data-i18n="pickup.date">Día de recogida</label>
+                  <input id="co-date" name="pickupDate" type="date" required>
+                </div>
+                <div class="field">
+                  <label for="co-time" data-i18n="pickup.time">Franja horaria</label>
+                  <select id="co-time" name="pickupTime" required>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="17:00">17:00</option>
+                    <option value="18:00">18:00</option>
+                    <option value="19:00">19:00</option>
+                    <option value="20:00">20:00</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div id="shipping-fields" hidden>
+              <div class="field">
+                <label for="co-address" data-i18n="ship.address">Dirección</label>
+                <input id="co-address" name="address" type="text" autocomplete="street-address" required disabled>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="co-postal" data-i18n="ship.postal">Código postal</label>
+                  <input id="co-postal" name="postal" type="text" inputmode="numeric" maxlength="5" autocomplete="postal-code" required disabled>
+                </div>
+                <div class="field">
+                  <label for="co-city" data-i18n="ship.city">Ciudad</label>
+                  <input id="co-city" name="city" type="text" autocomplete="address-level2" required disabled>
+                </div>
+              </div>
+              <div class="field">
+                <label for="co-notes" data-i18n="ship.notes">Indicaciones para el repartidor (opcional)</label>
+                <textarea id="co-notes" name="notes" rows="2"></textarea>
+              </div>
+            </div>
+
+            <div class="field field--check">
+              <label class="check"><input type="checkbox" name="gift"><span data-i18n="checkout.gift">Preparar como regalo (estuche y tarjeta, sin coste)</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-group">
+            <legend data-i18n="checkout.step.payment">3. Pago</legend>
+            <div class="option-grid option-grid--payment">
+              <label class="option-card">
+                <input type="radio" name="payment" value="pay-pickup" data-delivery="pickup" checked>
+                <span class="option-card__body">
+                  <svg class="icon"><use href="#i-cash"/></svg>
+                  <strong data-i18n="payment.pickup.title">Pagar al recoger</strong>
+                  <small data-i18n="payment.pickup.text">Abonas en la boutique con tarjeta o efectivo.</small>
+                </span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="payment" value="pay-delivery" data-delivery="shipping">
+                <span class="option-card__body">
+                  <svg class="icon"><use href="#i-truck"/></svg>
+                  <strong data-i18n="payment.delivery.title">Pagar en la entrega</strong>
+                  <small data-i18n="payment.delivery.text">Pagas al repartidor al recibir tu pedido.</small>
+                </span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="payment" value="online" data-delivery="both">
+                <span class="option-card__body">
+                  <svg class="icon"><use href="#i-card"/></svg>
+                  <strong data-i18n="payment.online.title">Pagar ahora online</strong>
+                  <small data-i18n="payment.online.text">Tarjeta, Bizum o Apple Pay en pasarela segura.</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+        </form>
+
+        <aside class="checkout__summary">
+          <h3 data-i18n="checkout.summary">Resumen del pedido</h3>
+          <ul class="summary-items" id="checkout-items"></ul>
+          <dl class="totals">
+            <div><dt data-i18n="cart.subtotal">Subtotal</dt><dd id="co-subtotal"></dd></div>
+            <div id="co-discount-row" hidden><dt data-i18n="cart.discount">Descuento</dt><dd id="co-discount"></dd></div>
+            <div><dt data-i18n="cart.shipping">Envío</dt><dd id="co-shipping"></dd></div>
+            <div class="totals__total"><dt data-i18n="cart.total">Total</dt><dd id="co-total"></dd></div>
+          </dl>
+          <p class="totals__note" id="co-vat"></p>
+          <button type="submit" form="checkout-form" class="btn btn--primary btn--block" id="checkout-submit"></button>
+          <button type="button" class="link-button" id="checkout-back" data-i18n="checkout.back">Volver a la cesta</button>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ Ventana de pasarela de pago (integración pendiente) ============ -->
+  <div class="overlay" id="gateway-modal" role="dialog" aria-modal="true" aria-labelledby="gateway-title" aria-hidden="true">
+    <div class="modal modal--narrow" tabindex="-1">
+      <header class="modal__header">
+        <h2 id="gateway-title" data-i18n="gateway.title">Pasarela de pago</h2>
+        <button type="button" class="icon-button" data-close-overlay data-i18n-aria="a11y.close" aria-label="Cerrar"><svg class="icon"><use href="#i-close"/></svg></button>
+      </header>
+      <div class="gateway">
+        <p data-i18n="gateway.text">Revisa lo que vas a pagar. Al continuar se abrirá la pasarela de pago segura.</p>
+        <p class="gateway__order"><span data-i18n="gateway.order">Pedido</span> <strong id="gateway-order"></strong></p>
+        <ul class="summary-items" id="gateway-items"></ul>
+        <div class="gateway__amount">
+          <span data-i18n="gateway.amount">Importe a pagar</span>
+          <strong id="gateway-amount"></strong>
+        </div>
+        <!-- Espacio reservado: aquí se montará la pasarela de pago -->
+        <div class="gateway__slot" id="payment-gateway-slot">
+          <svg class="icon icon--lg"><use href="#i-card"/></svg>
+          <p data-i18n="gateway.slot">Aquí se cargará la pasarela de pago del mercado.</p>
+        </div>
+        <button type="button" class="btn btn--primary btn--block" id="gateway-pay" data-i18n="gateway.pay">Continuar al pago</button>
+        <button type="button" class="link-button" id="gateway-back" data-i18n="gateway.back">Volver</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ Confirmación del pedido ============ -->
+  <div class="overlay" id="confirm-modal" role="dialog" aria-modal="true" aria-labelledby="confirm-title" aria-hidden="true">
+    <div class="modal modal--narrow modal--center" tabindex="-1">
+      <div class="confirm">
+        <span class="confirm__icon"><svg class="icon icon--lg"><use href="#i-check"/></svg></span>
+        <h2 id="confirm-title" data-i18n="confirm.title">¡Gracias por tu compra!</h2>
+        <p class="confirm__order" id="confirm-order"></p>
+        <p id="confirm-message"></p>
+        <p class="confirm__email" id="confirm-email"></p>
+        <button type="button" class="btn btn--primary" data-close-overlay data-i18n="confirm.close">Seguir explorando</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ Información legal (cookies, requisitos) ============ -->
+  <div class="overlay" id="legal-modal" role="dialog" aria-modal="true" aria-labelledby="legal-title" aria-hidden="true">
+    <div class="modal" tabindex="-1">
+      <header class="modal__header">
+        <h2 id="legal-title"></h2>
+        <button type="button" class="icon-button" data-close-overlay data-i18n-aria="a11y.close" aria-label="Cerrar"><svg class="icon"><use href="#i-close"/></svg></button>
+      </header>
+      <div class="legal-body" id="legal-body"></div>
+    </div>
+  </div>
+
+  <!-- ============ Elementos flotantes ============ -->
+  <div class="cookie-banner" id="cookie-banner" role="region" data-i18n-aria="footer.cookies" aria-label="Política de cookies">
+    <p data-i18n="cookies.text">Usamos cookies técnicas para recordar tu cesta, idioma y tema. Puedes leer nuestra política.</p>
+    <div class="cookie-banner__actions">
+      <button type="button" class="btn btn--primary btn--small" id="cookie-accept" data-i18n="cookies.accept">Aceptar</button>
+      <button type="button" class="btn btn--ghost btn--small" id="cookie-reject" data-i18n="cookies.reject">Solo necesarias</button>
+      <button type="button" class="link-button" data-legal="cookies" data-i18n="cookies.more">Más información</button>
+    </div>
+  </div>
+
+  <button type="button" class="back-to-top" id="back-to-top" data-i18n-aria="a11y.top" aria-label="Volver arriba">
+    <svg class="icon"><use href="#i-arrow-up"/></svg>
+  </button>
+
+  <div class="toast-region" id="toast-region" aria-live="polite"></div>
+</body>
+</html>
