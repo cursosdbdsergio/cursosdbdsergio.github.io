@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURELIA Maison · Bisutería de diseño y complementos de lujo</title>
+<meta name="description" content="Bisutería de diseño y complementos de lujo hechos a mano en Valencia. Collares, pendientes, anillos, pulseras y relojes con acabados en oro de 18k.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ================= BARRA SUPERIOR INFORMATIVA ================= -->
+<div class="topbar" id="topbar">
+  <div class="topbar__inner">
+    <a class="topbar__item" href="tel:+34960462130" data-i18n="top.phone">+34 960 46 21 30</a>
+    <span class="topbar__sep" aria-hidden="true"></span>
+    <a class="topbar__item" href="mailto:hola@aurelia-maison.es" data-i18n="top.email">hola@aurelia-maison.es</a>
+    <span class="topbar__sep" aria-hidden="true"></span>
+    <span class="topbar__item topbar__item--soft" data-i18n="top.ship">Envío gratis a partir de 250 € · Recogida en boutique en 2 h</span>
+  </div>
+</div>
+
+<!-- ================= HEADER FIJO ================= -->
+<header class="header" id="header">
+  <div class="header__inner">
+
+    <!-- Logo -->
+    <a href="#inicio" class="logo" aria-label="AURELIA Maison, inicio">
+      <svg class="logo__mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.6 22.4 12 12 22.4 1.6 12 12 1.6Zm0 3.4L5 12l7 7 7-7-7-7Z"/></svg>
+      <span class="logo__text">AURELIA<small>Boutique · Valencia</small></span>
+    </a>
+
+    <!-- Navegación principal (centrada, escritorio) -->
+    <nav class="nav" id="mainNav" aria-label="Menú principal">
+      <a href="#inicio" class="nav__link is-active" data-i18n="nav.home">Inicio</a>
+      <a href="#colecciones" class="nav__link" data-i18n="nav.collections">Colecciones</a>
+      <a href="#artesania" class="nav__link" data-i18n="nav.craft">Artesanía</a>
+      <a href="#tienda" class="nav__link" data-i18n="nav.shop">Tienda</a>
+      <a href="#lookbook" class="nav__link" data-i18n="nav.lookbook">Lookbook</a>
+      <a href="#contacto" class="nav__link" data-i18n="nav.contact">Contacto</a>
+    </nav>
+
+    <!-- Acciones -->
+    <div class="actions">
+      <button class="icon-btn" id="searchBtn" type="button" aria-label="Buscar" data-i18n-aria="btn.search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4.5 4.5"/></svg>
+      </button>
+      <button class="icon-btn" id="accountBtn" type="button" aria-label="Acceder a mi cuenta" data-i18n-aria="btn.account">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+      </button>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Cambiar modo claro u oscuro" data-i18n-aria="btn.theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.4"/><path d="M12 2v2.6M12 19.4V22M2 12h2.6M19.4 12H22M4.9 4.9l1.9 1.9M17.2 17.2l1.9 1.9M19.1 4.9l-1.9 1.9M6.8 17.2l-1.9 1.9"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+      <button class="icon-btn icon-btn--cart" id="cartBtn" type="button" aria-label="Abrir carrito de compra" data-i18n-aria="btn.cart">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1.2 12.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 7Z"/><path d="M9 7V5.8A3 3 0 0 1 12 3a3 3 0 0 1 3 2.8V7"/></svg>
+        <span class="cart-count" id="cartCount" hidden>0</span>
+      </button>
+      <button class="icon-btn burger" id="burgerBtn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu" data-i18n-aria="btn.menu">
+        <span class="burger__box"><span class="burger__line"></span><span class="burger__line"></span><span class="burger__line"></span></span>
+      </button>
+    </div>
+  </div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+</header>
+
+<!-- ================= MENÚ HAMBURGUESA (MÓVIL) ================= -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menú móvil" aria-hidden="true">
+  <div class="mobile-menu__panel">
+    <div class="mobile-menu__row">
+      <button class="mm-btn" id="mmSearchBtn" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4.5 4.5"/></svg>
+        <span data-i18n="md.search.t">Buscar en la página</span>
+      </button>
+    </div>
+    <nav class="mobile-menu__nav" aria-label="Menú móvil principal">
+      <a href="#inicio" class="mm-link" data-i18n="nav.home">Inicio</a>
+      <a href="#colecciones" class="mm-link" data-i18n="nav.collections">Colecciones</a>
+      <a href="#artesania" class="mm-link" data-i18n="nav.craft">Artesanía</a>
+      <a href="#tienda" class="mm-link" data-i18n="nav.shop">Tienda</a>
+      <a href="#lookbook" class="mm-link" data-i18n="nav.lookbook">Lookbook</a>
+      <a href="#servicios" class="mm-link" data-i18n="nav.services">Servicios</a>
+      <a href="#contacto" class="mm-link" data-i18n="nav.contact">Contacto</a>
+    </nav>
+    <div class="mobile-menu__row mobile-menu__row--lang">
+      <span class="lang__label" data-i18n="lang.label">Idioma</span>
+      <div class="lang" id="langSwitcherMobile" role="group" aria-label="Seleccionar idioma">
+        <button class="lang__btn" data-lang="es" type="button">ES</button>
+        <button class="lang__btn" data-lang="en" type="button">EN</button>
+        <button class="lang__btn" data-lang="va" type="button">VAL</button>
+      </div>
+    </div>
+    <p class="mobile-menu__info">
+      <a href="tel:+34960462130">+34 960 46 21 30</a> ·
+      <a href="mailto:hola@aurelia-maison.es">hola@aurelia-maison.es</a>
+    </p>
+  </div>
+</div>
+
+<!-- Barra de progreso de idioma (escritorio, en topbar) -->
+<div class="lang lang--desktop" id="langSwitcherDesktop" role="group" aria-label="Seleccionar idioma">
+  <button class="lang__btn" data-lang="es" type="button">ES</button>
+  <button class="lang__btn" data-lang="en" type="button">EN</button>
+  <button class="lang__btn" data-lang="va" type="button">VAL</button>
+</div>
+
+<main id="contenido">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="inicio">
+    <video class="hero__video" id="heroVideo" autoplay muted loop playsinline
+           poster="https://images.pexels.com/photos/33257665/pexels-photo-33257665.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=1600">
+      <source src="https://videos.pexels.com/video-files/855854/855854-hd_1920_1080_24fps.mp4" type="video/mp4">
+    </video>
+    <div class="hero__overlay" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <p class="eyebrow eyebrow--light reveal" data-i18n="hero.eyebrow">Colección Otoño · Invierno 2026</p>
+      <h1 class="hero__title reveal" data-i18n="hero.title">Bisutería de diseño</h1>
+      <p class="hero__title hero__title--sub reveal" data-i18n="hero.title2">para momentos inolvidables</p>
+      <p class="hero__text reveal" data-i18n="hero.text">Piezas únicas trabajadas a mano en nuestro taller de Valencia con baños de oro de 18 quilates, perlas de agua dulce y gemas seleccionadas.</p>
+      <div class="hero__cta reveal">
+        <a href="#tienda" class="btn btn--solid" data-i18n="hero.cta1">Ver la colección</a>
+        <a href="#artesania" class="btn btn--ghost" data-i18n="hero.cta2">Nuestro taller</a>
+      </div>
+    </div>
+
+    <ul class="hero__stats reveal">
+      <li><strong>1998</strong><span data-i18n="hero.s1">Años de oficio</span></li>
+      <li><strong>+340</strong><span data-i18n="hero.s2">Piezas al año</span></li>
+      <li><strong>4,9/5</strong><span data-i18n="hero.s3">Valoración clientas</span></li>
+      <li><strong>2 años</strong><span data-i18n="hero.s4">Garantía</span></li>
+    </ul>
+    <a class="hero__scroll" href="#colecciones" aria-label="Bajar a colecciones"><span data-i18n="hero.scroll">Descubrir</span><i></i></a>
+  </section>
+
+  <!-- ================= CINTA / MARQUEE ================= -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span data-i18n="mq.1">Hecho a mano en Valencia</span><span class="dot"></span>
+      <span data-i18n="mq.2">Baño de oro 18k</span><span class="dot"></span>
+      <span data-i18n="mq.3">Níquel libre · Hipoalergénico</span><span class="dot"></span>
+      <span data-i18n="mq.4">Envoltorio de regalo incluido</span><span class="dot"></span>
+      <span data-i18n="mq.5">Compra online · Recogida en boutique</span><span class="dot"></span>
+      <span data-i18n="mq.1">Hecho a mano en Valencia</span><span class="dot"></span>
+      <span data-i18n="mq.2">Baño de oro 18k</span><span class="dot"></span>
+      <span data-i18n="mq.3">Níquel libre · Hipoalergénico</span><span class="dot"></span>
+      <span data-i18n="mq.4">Envoltorio de regalo incluido</span><span class="dot"></span>
+      <span data-i18n="mq.5">Compra online · Recogida en boutique</span><span class="dot"></span>
+    </div>
+  </div>
+
+  <!-- ================= SECCIÓN SECUNDARIA: COLECCIONES ================= -->
+  <section class="section section--alt" id="colecciones">
+    <div class="wrap">
+      <header class="section__head reveal">
+        <p class="eyebrow" data-i18n="col.eyebrow">Tres universos</p>
+        <h2 class="section__title" data-i18n="col.title">Colecciones de autor</h2>
+        <p class="section__text" data-i18n="col.text">Cada colección nace de un estudio de materiales y proporciones. Piezas pensadas para combinarse entre sí y acompañarte durante años.</p>
+      </header>
+
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card__media"><img loading="lazy" src="https://images.pexels.com/photos/34524680/pexels-photo-34524680.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1000&w=800" alt="Retrato con pendientes dorados de la colección Esencia Minimal" data-i18n-alt="col.1.alt"></div>
+          <div class="card__body">
+            <h3 data-i18n="col.1.title">Esencia Minimal</h3>
+            <p data-i18n="col.1.text">Líneas limpias y geometría discreta en oro pulido. La bisutería de cada día.</p>
+            <a class="link" href="#tienda" data-filter="collares" data-i18n="col.link">Ver piezas</a>
+          </div>
+        </article>
+        <article class="card reveal">
+          <div class="card__media"><img loading="lazy" src="https://images.pexels.com/photos/18285686/pexels-photo-18285686.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1000&w=800" alt="Detalle de collar de perlas de la colección Perla Atlántica" data-i18n-alt="col.2.alt"></div>
+          <div class="card__body">
+            <h3 data-i18n="col.2.title">Perla Atlántica</h3>
+            <p data-i18n="col.2.text">Perlas de agua dulce y tonos nácar inspirados en la luz del Mediterráneo.</p>
+            <a class="link" href="#tienda" data-filter="conjuntos" data-i18n="col.link">Ver piezas</a>
+          </div>
+        </article>
+        <article class="card reveal">
+          <div class="card__media"><img loading="lazy" src="https://images.pexels.com/photos/22605254/pexels-photo-22605254.png?auto=compress&cs=tinysrgb&fit=crop&h=1000&w=800" alt="Retrato editorial con joyería dorada de la colección Noir Soirée" data-i18n-alt="col.3.alt"></div>
+          <div class="card__body">
+            <h3 data-i18n="col.3.title">Noir Soirée</h3>
+            <p data-i18n="col.3.text">Piezas de declaración: onyx, circonitas talladas y cadenas en relieve.</p>
+            <a class="link" href="#tienda" data-filter="pendientes" data-i18n="col.link">Ver piezas</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECCIÓN INFORMATIVA: ARTESANÍA ================= -->
+  <section class="section" id="artesania">
+    <div class="wrap wrap--split">
+      <figure class="split__media reveal">
+        <img loading="lazy" src="https://images.pexels.com/photos/20858959/pexels-photo-20858959.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=1200" alt="Expositor con piezas de bisutería dorada en la boutique" data-i18n-alt="craft.img">
+        <figcaption data-i18n="craft.caption">Taller-boutique del barrio del Carmen, Valencia.</figcaption>
+      </figure>
+      <div class="split__body">
+        <p class="eyebrow reveal" data-i18n="craft.eyebrow">El taller</p>
+        <h2 class="section__title reveal" data-i18n="craft.title">Veinticinco años de oficio joyero</h2>
+        <p class="section__text reveal" data-i18n="craft.text">Trabajamos con talleres locales de Valencia y pequeñas fundiciones familiares. Cada pieza pasa por catorce fases: del dibujo técnico al pulido final.</p>
+        <ul class="feature-list">
+          <li class="reveal"><span class="feature-list__ico" aria-hidden="true">✦</span><div><strong data-i18n="craft.f1">Diseño propio</strong><p data-i18n="craft.f1t">Series cortas de 20 a 40 unidades por referencia.</p></div></li>
+          <li class="reveal"><span class="feature-list__ico" aria-hidden="true">✦</span><div><strong data-i18n="craft.f2">Materiales nobles</strong><p data-i18n="craft.f2t">Latón macizo, baño de oro 18k, plata 925 y perlas cultivadas.</p></div></li>
+          <li class="reveal"><span class="feature-list__ico" aria-hidden="true">✦</span><div><strong data-i18n="craft.f3">Acabado a mano</strong><p data-i18n="craft.f3t">Pulido, engaste y cierre revisados pieza por pieza.</p></div></li>
+          <li class="reveal"><span class="feature-list__ico" aria-hidden="true">✦</span><div><strong data-i18n="craft.f4">Reparación y brillo</strong><p data-i18n="craft.f4t">Servicio gratuito de limpieza y ajuste durante el primer año.</p></div></li>
+        </ul>
+        <a href="#tienda" class="btn btn--outline reveal" data-i18n="craft.cta">Explorar la tienda</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TIENDA / CATÁLOGO ================= -->
+  <section class="section section--alt" id="tienda">
+    <div class="wrap">
+      <header class="section__head reveal">
+        <p class="eyebrow" data-i18n="shop.eyebrow">Boutique online</p>
+        <h2 class="section__title" data-i18n="shop.title">Nuestras piezas</h2>
+        <p class="section__text" data-i18n="shop.text">Veinte referencias disponibles para envío a domicilio o recogida en boutique. Elige cómo recibirla y cuándo pagarla.</p>
+      </header>
+
+      <div class="shop__toolbar reveal">
+        <div class="chips" id="filters" role="tablist" aria-label="Filtrar por categoría">
+          <button class="chip is-active" data-cat="all" type="button" data-i18n="shop.filter.all">Todo</button>
+          <button class="chip" data-cat="collares" type="button" data-i18n="shop.filter.collares">Collares</button>
+          <button class="chip" data-cat="pendientes" type="button" data-i18n="shop.filter.pendientes">Pendientes</button>
+          <button class="chip" data-cat="anillos" type="button" data-i18n="shop.filter.anillos">Anillos</button>
+          <button class="chip" data-cat="pulseras" type="button" data-i18n="shop.filter.pulseras">Pulseras</button>
+          <button class="chip" data-cat="relojes" type="button" data-i18n="shop.filter.relojes">Relojes</button>
+          <button class="chip" data-cat="conjuntos" type="button" data-i18n="shop.filter.conjuntos">Conjuntos</button>
+        </div>
+        <div class="shop__tools">
+          <label class="sort">
+            <span data-i18n="shop.sort.label">Ordenar</span>
+            <select id="sortSelect">
+              <option value="featured" data-i18n="shop.sort.featured">Destacados</option>
+              <option value="asc" data-i18n="shop.sort.asc">Precio: menor a mayor</option>
+              <option value="desc" data-i18n="shop.sort.desc">Precio: mayor a menor</option>
+              <option value="name" data-i18n="shop.sort.name">Nombre A-Z</option>
+            </select>
+          </label>
+          <span class="shop__count" id="shopCount"></span>
+        </div>
+      </div>
+
+      <div class="grid-products" id="productGrid"></div>
+      <p class="shop__empty" id="shopEmpty" hidden data-i18n="shop.empty">No hay piezas en esta categoría.</p>
+
+      <p class="shop__note reveal" data-i18n="shop.note">¿Buscas una pieza a medida o un regalo de empresa? Escríbenos desde el formulario y prepararemos un presupuesto en 24 h.</p>
+    </div>
+  </section>
+
+  <!-- ================= LOOKBOOK ================= -->
+  <section class="section" id="lookbook">
+    <div class="wrap">
+      <header class="section__head reveal">
+        <p class="eyebrow" data-i18n="look.eyebrow">Lookbook</p>
+        <h2 class="section__title" data-i18n="look.title">Cómo llevarlas</h2>
+        <p class="section__text" data-i18n="look.text">Combinaciones reales fotografías para nuestros clientas: del look de oficina a la cena de gala.</p>
+      </header>
+      <div class="lookbook">
+        <figure class="look look--tall reveal">
+          <img loading="lazy" src="https://images.pexels.com/photos/38774151/pexels-photo-38774151.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1100&w=800" alt="Perfil con pendientes de aro dorado" data-i18n-alt="look.1.alt">
+          <figcaption><span data-i18n="look.1">Aro Aura + collar Esencia</span></figcaption>
+        </figure>
+        <figure class="look reveal">
+          <img loading="lazy" src="https://images.pexels.com/photos/18285668/pexels-photo-18285668.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=800" alt="Retrato con conjunto de perlas" data-i18n-alt="look.2.alt">
+          <figcaption><span data-i18n="look.2">Conjunto Perla Atlántica</span></figcaption>
+        </figure>
+        <figure class="look reveal">
+          <img loading="lazy" src="https://images.pexels.com/photos/16096036/pexels-photo-16096036.png?auto=compress&cs=tinysrgb&fit=crop&h=900&w=800" alt="Primer plano con pendientes dorados" data-i18n-alt="look.3.alt">
+          <figcaption><span data-i18n="look.3">Pendiente Noir Soirée</span></figcaption>
+        </figure>
+        <figure class="look look--quote reveal">
+          <blockquote>
+            <p data-i18n="look.quote">“Una buena pieza de bisutería no grita: acompaña.”</p>
+            <footer data-i18n="look.author">Clara Aurelia · Directora creativa</footer>
+          </blockquote>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICIOS ================= -->
+  <section class="section section--tight" id="servicios">
+    <div class="wrap">
+      <div class="services">
+        <article class="service reveal"><h3 data-i18n="svc.1">Envío 24-48 h</h3><p data-i18n="svc.1t">Península y Baleares. Gratuito desde 250 €.</p></article>
+        <article class="service reveal"><h3 data-i18n="svc.2">Recogida en boutique</h3><p data-i18n="svc.2t">Reserva online y recoge en 2 h en Valencia.</p></article>
+        <article class="service reveal"><h3 data-i18n="svc.3">Envoltorio de regalo</h3><p data-i18n="svc.3t">Estuche rígido, lazo de seda y tarjeta manuscrita.</p></article>
+        <article class="service reveal"><h3 data-i18n="svc.4">Cambio y devolución</h3><p data-i18n="svc.4t">30 días para cambiar la talla o devolver la pieza.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACTO ================= -->
+  <section class="section section--alt" id="contacto">
+    <div class="wrap wrap--contact">
+      <div>
+        <p class="eyebrow reveal" data-i18n="ct.eyebrow">Contacto</p>
+        <h2 class="section__title reveal" data-i18n="ct.title">Hablemos de tu pieza</h2>
+        <p class="section__text reveal" data-i18n="ct.text">Respondemos en menos de 24 horas laborables. También puedes visitarnos con cita previa para una asesoría privada.</p>
+
+        <div class="info-grid">
+          <div class="info reveal"><h3 data-i18n="ct.i1">Boutique</h3><p>Carrer dels Cavallers 84<br>46003 València, España</p></div>
+          <div class="info reveal"><h3 data-i18n="ct.i2">Horario</h3><p data-i18n="ct.i2t">Lun - Vie · 10:00 - 14:00 / 17:00 - 20:30<br>Sáb · 10:30 - 14:00</p></div>
+          <div class="info reveal"><h3 data-i18n="ct.i3">Teléfono</h3><p><a href="tel:+34960462130">+34 960 46 21 30</a></p></div>
+          <div class="info reveal"><h3 data-i18n="ct.i4">Email</h3><p><a href="mailto:hola@aurelia-maison.es">hola@aurelia-maison.es</a></p></div>
+        </div>
+      </div>
+
+      <form class="form reveal" id="contactForm" novalidate>
+        <h3 class="form__title" data-i18n="ct.form.title">Formulario de contacto</h3>
+        <div class="field">
+          <label for="cfName" data-i18n="ct.f.name">Nombre completo</label>
+          <input type="text" id="cfName" name="name" required autocomplete="name" placeholder="María Ferrer">
+        </div>
+        <div class="field__row">
+          <div class="field">
+            <label for="cfEmail" data-i18n="ct.f.email">Email</label>
+            <input type="email" id="cfEmail" name="email" required autocomplete="email" placeholder="maria@email.com">
+          </div>
+          <div class="field">
+            <label for="cfPhone" data-i18n="ct.f.phone">Teléfono</label>
+            <input type="tel" id="cfPhone" name="phone" autocomplete="tel" placeholder="600 000 000">
+          </div>
+        </div>
+        <div class="field">
+          <label for="cfSubject" data-i18n="ct.f.subject">Asunto</label>
+          <select id="cfSubject" name="subject">
+            <option data-i18n="ct.f.s1">Asesoría personal</option>
+            <option data-i18n="ct.f.s2">Pieza a medida</option>
+            <option data-i18n="ct.f.s3">Estado de mi pedido</option>
+            <option data-i18n="ct.f.s4">Prensa y colaboraciones</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cfMsg" data-i18n="ct.f.msg">Mensaje</label>
+          <textarea id="cfMsg" name="message" rows="4" required placeholder="Cuéntanos qué buscas..."></textarea>
+        </div>
+        <label class="check"><input type="checkbox" id="cfPriv" required><span data-i18n="ct.f.priv">He leído y acepto la política de privacidad.</span></label>
+        <button class="btn btn--solid btn--full" type="submit" data-i18n="ct.f.send">Enviar mensaje</button>
+        <p class="form__status" id="cfStatus" role="status" hidden></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div class="footer__brand">
+      <a href="#inicio" class="logo logo--footer">
+        <svg class="logo__mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.6 22.4 12 12 22.4 1.6 12 12 1.6Zm0 3.4L5 12l7 7 7-7-7-7Z"/></svg>
+        <span class="logo__text">AURELIA<small>Boutique · Valencia</small></span>
+      </a>
+      <p data-i18n="ft.about">Bisutería de diseño y complementos de lujo elaborados a mano en Valencia desde 1998.</p>
+      <form class="news" id="newsForm" novalidate>
+        <label class="sr-only" for="newsEmail" data-i18n="nl.label">Email para la newsletter</label>
+        <input type="email" id="newsEmail" required placeholder="tu@email.com" data-i18n-ph="nl.ph">
+        <button type="submit" class="btn btn--solid" data-i18n="nl.btn">Suscribirme</button>
+      </form>
+      <p class="news__status" id="newsStatus" role="status" hidden></p>
+    </div>
+
+    <nav class="footer__col" aria-label="Ayuda">
+      <h3 data-i18n="ft.help.t">Ayuda</h3>
+      <a href="#servicios" data-i18n="ft.help.1">Envíos y entregas</a>
+      <a href="#servicios" data-i18n="ft.help.2">Cambios y devoluciones</a>
+      <a href="#artesania" data-i18n="ft.help.3">Cuidado de las piezas</a>
+      <a href="#contacto" data-i18n="ft.help.4">Guía de tallas</a>
+    </nav>
+
+    <nav class="footer__col" aria-label="Legal">
+      <h3 data-i18n="ft.legal.t">Legal</h3>
+      <a href="#" data-legal="cookies" data-i18n="ft.legal.1">Política de cookies</a>
+      <a href="#" data-legal="terms" data-i18n="ft.legal.2">Requisitos y condiciones</a>
+      <a href="#" data-legal="privacy" data-i18n="ft.legal.3">Política de privacidad</a>
+      <a href="#" data-legal="payments" data-i18n="ft.legal.4">Formas de pago</a>
+    </nav>
+
+    <div class="footer__col">
+      <h3 data-i18n="ft.boutique.t">Boutique</h3>
+      <p>Carrer dels Cavallers 84<br>46003 València</p>
+      <p><a href="tel:+34960462130">+34 960 46 21 30</a><br><a href="mailto:hola@aurelia-maison.es">hola@aurelia-maison.es</a></p>
+      <p data-i18n="ft.boutique.h">Lun - Vie 10:00 - 20:30 · Sáb 10:30 - 14:00</p>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <div class="wrap footer__bottom-inner">
+      <p data-i18n="ft.copy">© 2026 AURELIA Maison S.L. · Todos los derechos reservados.</p>
+      <p data-i18n="ft.made">Diseño y desarrollo propio · HTML, CSS y JavaScript puro.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= MODAL DE BÚSQUEDA ================= -->
+<div class="modal" id="searchModal" role="dialog" aria-modal="true" aria-labelledby="searchTitle" aria-hidden="true">
+  <div class="modal__backdrop" data-close="searchModal"></div>
+  <div class="modal__dialog modal__dialog--search">
+    <h2 class="sr-only" id="searchTitle" data-i18n="md.search.t">Buscar en la página</h2>
+    <div class="searchbar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4.5 4.5"/></svg>
+      <input type="search" id="searchInput" placeholder="Buscar collares, perlas, regalo..." data-i18n-ph="md.search.ph" autocomplete="off">
+      <button class="icon-btn" type="button" data-close="searchModal" aria-label="Cerrar" data-i18n-aria="btn.close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg>
+      </button>
+    </div>
+    <div class="search-results" id="searchResults">
+      <p class="search-hint" data-i18n="md.search.hint">Escribe al menos dos letras para buscar entre nuestras piezas y secciones.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= MODAL LOGIN ================= -->
+<div class="modal" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle" aria-hidden="true">
+  <div class="modal__backdrop" data-close="loginModal"></div>
+  <div class="modal__dialog">
+    <button class="modal__close icon-btn" type="button" data-close="loginModal" aria-label="Cerrar" data-i18n-aria="btn.close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg>
+    </button>
+    <h2 id="loginTitle" data-i18n="lg.title">Mi cuenta</h2>
+    <p class="modal__lead" data-i18n="lg.text">Accede para consultar tus pedidos, reservas y lista de deseos.</p>
+    <form class="form" id="loginForm" novalidate>
+      <div class="field"><label for="lgEmail" data-i18n="ct.f.email">Email</label><input type="email" id="lgEmail" required autocomplete="email"></div>
+      <div class="field"><label for="lgPass" data-i18n="lg.pass">Contraseña</label><input type="password" id="lgPass" required minlength="6" autocomplete="current-password"></div>
+      <button class="btn btn--solid btn--full" type="submit" data-i18n="lg.submit">Entrar</button>
+      <p class="form__status" id="lgStatus" role="status" hidden></p>
+    </form>
+    <p class="modal__note" data-i18n="lg.note">Sistema de login preparado para conectar con tu backend.</p>
+  </div>
+</div>
+
+<!-- ================= MODAL LEGAL (cookies / requisitos / privacidad) ================= -->
+<div class="modal" id="legalModal" role="dialog" aria-modal="true" aria-labelledby="legalTitle" aria-hidden="true">
+  <div class="modal__backdrop" data-close="legalModal"></div>
+  <div class="modal__dialog modal__dialog--scroll">
+    <button class="modal__close icon-btn" type="button" data-close="legalModal" aria-label="Cerrar" data-i18n-aria="btn.close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg>
+    </button>
+    <h2 id="legalTitle"></h2>
+    <div class="modal__body" id="legalBody"></div>
+  </div>
+</div>
+
+<!-- ================= VISTA RÁPIDA DE PRODUCTO ================= -->
+<div class="modal" id="quickModal" role="dialog" aria-modal="true" aria-labelledby="quickTitle" aria-hidden="true">
+  <div class="modal__backdrop" data-close="quickModal"></div>
+  <div class="modal__dialog modal__dialog--product">
+    <button class="modal__close icon-btn" type="button" data-close="quickModal" aria-label="Cerrar" data-i18n-aria="btn.close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg>
+    </button>
+    <div class="quick" id="quickBody"></div>
+  </div>
+</div>
+
+<!-- ================= CARRITO (DRAWER LATERAL) ================= -->
+<aside class="drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true">
+  <div class="drawer__backdrop" data-close="cartDrawer"></div>
+  <div class="drawer__panel">
+    <header class="drawer__head">
+      <h2 id="cartTitle" data-i18n="crt.title">Cesta de compra</h2>
+      <button class="icon-btn" type="button" data-close="cartDrawer" aria-label="Cerrar carrito" data-i18n-aria="btn.close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg>
+      </button>
+    </header>
+
+    <div class="drawer__steps">
+      <span class="step is-active" id="step1"><i>1</i><span data-i18n="crt.step1">Piezas</span></span>
+      <span class="step" id="step2"><i>2</i><span data-i18n="crt.step2">Entrega y pago</span></span>
+    </div>
+
+    <!-- Paso 1: piezas -->
+    <div class="drawer__body" id="cartStep1">
+      <p class="drawer__empty" id="cartEmpty" data-i18n="crt.empty">Tu cesta está vacía.</p>
+      <p class="drawer__empty-text" id="cartEmptyText" data-i18n="crt.emptyt">Descubre nuestras colecciones y añade tus piezas favoritas.</p>
+      <ul class="cart-list" id="cartList"></ul>
+
+      <div class="cart-extras" id="cartExtras">
+        <label class="check"><input type="checkbox" id="giftWrap"><span data-i18n="crt.gift">Añadir envoltorio de regalo (+4,90 €)</span></label>
+      </div>
+
+      <div class="cart-summary">
+        <div class="row"><span data-i18n="crt.subtotal">Subtotal</span><strong id="sumSubtotal">0,00 €</strong></div>
+        <div class="row"><span data-i18n="crt.shipping">Gastos de envío</span><strong id="sumShip">—</strong></div>
+        <div class="row row--total"><span data-i18n="crt.total">Total</span><strong id="sumTotal">0,00 €</strong></div>
+      </div>
+      <button class="btn btn--solid btn--full" id="toCheckout" type="button" data-i18n="crt.next">Continuar con la entrega</button>
+      <button class="btn btn--link" id="clearCart" type="button" data-i18n="crt.clear">Vaciar cesta</button>
+    </div>
+
+    <!-- Paso 2: entrega y pago -->
+    <div class="drawer__body" id="cartStep2" hidden>
+      <button class="btn btn--link" id="backToCart" type="button" data-i18n="crt.back">← Volver a la cesta</button>
+
+      <h3 class="drawer__subtitle" data-i18n="crt.delivery.t">¿Cómo quieres recibirla?</h3>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="delivery" value="pickup" checked>
+          <span class="option__box">
+            <strong data-i18n="crt.pickup">Recogida en boutique</strong>
+            <small data-i18n="crt.pickupt">Gratuito · Lista en 2 horas · Valencia centro</small>
+          </span>
+        </label>
+        <label class="option">
+          <input type="radio" name="delivery" value="ship">
+          <span class="option__box">
+            <strong data-i18n="crt.ship">Envío a domicilio</strong>
+            <small data-i18n="crt.shipt">24-48 h · 6,90 € (gratis desde 250 €)</small>
+          </span>
+        </label>
+      </div>
+
+      <h3 class="drawer__subtitle" data-i18n="crt.payment.t">¿Cómo prefieres pagar?</h3>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="payment" value="pickup" checked>
+          <span class="option__box">
+            <strong data-i18n="crt.pay.pickup">Pagar al recoger en boutique</strong>
+            <small data-i18n="crt.pay.pickupt">Efectivo o tarjeta en el mostrador</small>
+          </span>
+        </label>
+        <label class="option">
+          <input type="radio" name="payment" value="cod">
+          <span class="option__box">
+            <strong data-i18n="crt.pay.cod">Pagar en la entrega</strong>
+            <small data-i18n="crt.pay.codt">Contra reembolso · Suplemento 2,50 €</small>
+          </span>
+        </label>
+        <label class="option">
+          <input type="radio" name="payment" value="gateway">
+          <span class="option__box">
+            <strong data-i18n="crt.pay.gw">Pasar por la pasarela de pago</strong>
+            <small data-i18n="crt.pay.gwt">Tarjeta · Bizum · Pago seguro online</small>
+          </span>
+        </label>
+      </div>
+
+      <h3 class="drawer__subtitle" data-i18n="crt.data.t">Tus datos</h3>
+      <form class="form form--compact" id="checkoutForm" novalidate>
+        <div class="field"><label for="coName" data-i18n="crt.f.name">Nombre y apellidos</label><input type="text" id="coName" required autocomplete="name"></div>
+        <div class="field__row">
+          <div class="field"><label for="coEmail" data-i18n="ct.f.email">Email</label><input type="email" id="coEmail" required autocomplete="email"></div>
+          <div class="field"><label for="coPhone" data-i18n="ct.f.phone">Teléfono</label><input type="tel" id="coPhone" required autocomplete="tel"></div>
+        </div>
+
+        <!-- Bloque dirección (solo envío) -->
+        <div id="shipFields" hidden>
+          <div class="field"><label for="coAddr" data-i18n="crt.f.addr">Dirección</label><input type="text" id="coAddr" autocomplete="street-address"></div>
+          <div class="field__row">
+            <div class="field"><label for="coCity" data-i18n="crt.f.city">Ciudad</label><input type="text" id="coCity" autocomplete="address-level2"></div>
+            <div class="field"><label for="coZip" data-i18n="crt.f.zip">Código postal</label><input type="text" id="coZip" inputmode="numeric" autocomplete="postal-code"></div>
+          </div>
+        </div>
+
+        <!-- Bloque reserva (solo recogida) -->
+        <div id="pickupFields">
+          <div class="field__row">
+            <div class="field"><label for="coDate" data-i18n="crt.f.date">Día de recogida</label><input type="date" id="coDate"></div>
+            <div class="field"><label for="coSlot" data-i18n="crt.f.slot">Franja horaria</label>
+              <select id="coSlot">
+                <option>10:00 - 12:00</option><option>12:00 - 14:00</option>
+                <option>17:00 - 19:00</option><option>19:00 - 20:30</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="field"><label for="coNotes" data-i18n="crt.f.notes">Notas para el pedido</label><textarea id="coNotes" rows="2"></textarea></div>
+        <label class="check"><input type="checkbox" id="coPriv" required><span data-i18n="crt.f.priv">Acepto las condiciones de venta y la política de privacidad.</span></label>
+
+        <div class="cart-summary cart-summary--final">
+          <div class="row"><span data-i18n="crt.subtotal">Subtotal</span><strong id="sumSubtotal2">0,00 €</strong></div>
+          <div class="row" id="rowWrap" hidden><span data-i18n="crt.gift.row">Envoltorio de regalo</span><strong id="sumWrap">0,00 €</strong></div>
+          <div class="row"><span data-i18n="crt.shipping">Gastos de envío</span><strong id="sumShip2">0,00 €</strong></div>
+          <div class="row" id="rowCod" hidden><span data-i18n="crt.cod.row">Suplemento contra reembolso</span><strong id="sumCod">0,00 €</strong></div>
+          <div class="row row--total"><span data-i18n="crt.total">Total</span><strong id="sumTotal2">0,00 €</strong></div>
+        </div>
+
+        <button class="btn btn--solid btn--full" type="submit" id="placeOrder" data-i18n="crt.confirm">Confirmar pedido</button>
+        <p class="form__status" id="coStatus" role="status" hidden></p>
+      </form>
+    </div>
+  </div>
+</aside>
+
+<!-- ================= VENTANA DE PAGO (PASARELA) ================= -->
+<div class="modal" id="payModal" role="dialog" aria-modal="true" aria-labelledby="payTitle" aria-hidden="true">
+  <div class="modal__backdrop" data-close="payModal"></div>
+  <div class="modal__dialog modal__dialog--pay">
+    <button class="modal__close icon-btn" type="button" data-close="payModal" aria-label="Cerrar" data-i18n-aria="btn.close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg>
+    </button>
+    <h2 id="payTitle" data-i18n="ck.title">Pasarela de pago</h2>
+    <p class="modal__lead" data-i18n="ck.text">Importe total a pagar por tu pedido. Al continuar pasarás a la plataforma de pago seguro.</p>
+    <div class="pay-amount"><span id="payTotal">0,00 €</span><small data-i18n="ck.amount">Importe a pagar</small></div>
+    <ul class="pay-breakdown" id="payBreakdown"></ul>
+    <button class="btn btn--solid btn--full" id="payNow" type="button" data-i18n="ck.pay">Pagar ahora</button>
+    <button class="btn btn--link" type="button" data-close="payModal" data-i18n="ck.cancel">Cancelar y volver</button>
+    <p class="modal__note" data-i18n="ck.note">Aquí se conectará tu pasarela de pago real (Stripe, Redsys, Bizum...).</p>
+  </div>
+</div>
+
+<!-- ================= CONFIRMACIÓN DE PEDIDO ================= -->
+<div class="modal" id="okModal" role="dialog" aria-modal="true" aria-labelledby="okTitle" aria-hidden="true">
+  <div class="modal__backdrop" data-close="okModal"></div>
+  <div class="modal__dialog">
+    <button class="modal__close icon-btn" type="button" data-close="okModal" aria-label="Cerrar" data-i18n-aria="btn.close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg>
+    </button>
+    <div class="ok">
+      <span class="ok__ico" aria-hidden="true">✦</span>
+      <h2 id="okTitle" data-i18n="sc.title">¡Pedido registrado!</h2>
+      <p id="okText" class="modal__lead"></p>
+      <p class="ok__code"><span data-i18n="sc.code">Código de reserva</span><strong id="okCode"></strong></p>
+      <button class="btn btn--solid btn--full" type="button" data-close="okModal" data-i18n="sc.close">Seguir comprando</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= AVISO DE COOKIES ================= -->
+<div class="cookies" id="cookieBar" hidden>
+  <p><strong data-i18n="cb.title">Cookies</strong><span data-i18n="cb.text">Usamos cookies propias para recordar tu idioma, el modo claro/oscuro y tu cesta.</span></p>
+  <div class="cookies__btns">
+    <button class="btn btn--ghost btn--sm" id="cookieReject" type="button" data-i18n="cb.reject">Rechazar</button>
+    <button class="btn btn--solid btn--sm" id="cookieAccept" type="button" data-i18n="cb.accept">Aceptar</button>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
