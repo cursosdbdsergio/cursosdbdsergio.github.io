@@ -1,0 +1,1929 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f7f3">
+  <meta name="description" content="Auréa, boutique nupcial de esencia mediterránea. Descubre vestidos, velos y accesorios para un sí muy tuyo.">
+  <title>Auréa | Tu esencia. Para siempre.</title>
+  <link rel="preconnect" href="https://images.pexels.com">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    :root {
+      --paper: #f8f7f3;
+      --surface: #fffefa;
+      --soft: #eeeee7;
+      --ink: #363b31;
+      --muted: #73766b;
+      --line: #dedfd5;
+      --olive: #626c51;
+      --olive-hover: #4e5840;
+      --on-olive: #fffef8;
+      --footer: #333c2e;
+      --serif: 'Bodoni MT', 'Didot', 'Times New Roman', serif;
+      --sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --header-height: 112px;
+      --page-gutter: clamp(22px, 4.5vw, 76px);
+      --ease: cubic-bezier(.22, 1, .36, 1);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-height) + 22px); scrollbar-gutter: stable; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 14px; line-height: 1.65; -webkit-font-smoothing: antialiased; transition: background .35s, color .35s; }
+    body.dark-mode { --paper: #22271f; --surface: #2a3026; --soft: #2e3529; --ink: #eeeede; --muted: #b9beae; --line: #474e3f; --olive: #c2caae; --olive-hover: #dae0cc; --on-olive: #252d20; --footer: #161c14; }
+    body.modal-open, body.menu-open { overflow: hidden; }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3 { font-weight: 400; }
+    h2, h3 { font-family: var(--serif); }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; color: inherit; }
+    button, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+    button { background: none; border: 0; }
+    button:disabled { opacity: .42; cursor: not-allowed; }
+    input, select, textarea { min-width: 0; border-radius: 0; }
+    img { display: block; width: 100%; object-fit: cover; }
+    svg { display: inline-block; width: 21px; height: 21px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; vertical-align: middle; }
+    :focus-visible { outline: 2px solid var(--olive); outline-offset: 5px; }
+    ::selection { background: #d7dcc8; color: #30362a; }
+    [hidden] { display: none !important; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    .skip-link { position: fixed; top: -60px; left: 20px; z-index: 200; padding: 10px 20px; background: var(--surface); }
+    .skip-link:focus { top: 12px; }
+    .eyebrow { font-size: 10px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; }
+    .muted { color: var(--muted); }
+    .small { font-size: 12px; }
+    .icon-button { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 42px; padding: 8px; transition: color .2s, transform .2s; }
+    .icon-button:hover { color: var(--olive); transform: translateY(-1px); }
+    .button { min-height: 48px; display: inline-flex; justify-content: center; align-items: center; gap: 22px; padding: 13px 25px; font-size: 11px; font-weight: 500; letter-spacing: .065em; border: 1px solid var(--olive); transition: background .25s, border-color .25s, color .25s, transform .25s; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--olive); color: var(--on-olive); }
+    .button-primary:hover { background: var(--olive-hover); border-color: var(--olive-hover); }
+    .button-secondary { color: var(--ink); border-color: var(--line); }
+    .button-secondary:hover { background: var(--soft); border-color: var(--muted); }
+    .button svg { width: 18px; height: 18px; }
+    .full-width { width: 100%; }
+    .text-link { display: inline-flex; align-items: center; gap: 15px; width: fit-content; font-size: 12px; border-bottom: 1px solid currentColor; padding: 7px 0; transition: gap .25s; }
+    .text-link:hover { gap: 23px; }
+    .text-link svg { width: 18px; height: 18px; }
+    .site-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 50; background: var(--paper); transition: background .3s, box-shadow .3s; }
+    .site-header.is-scrolled { box-shadow: 0 2px 18px #242b1a0b; }
+    .utility-bar { height: 30px; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--page-gutter); background: var(--soft); color: var(--muted); font-size: 10px; letter-spacing: .02em; }
+    .utility-bar .utility-message { position: absolute; left: 50%; transform: translateX(-50%); font-size: 9px; letter-spacing: .09em; }
+    .utility-bar a { display: flex; align-items: center; gap: 7px; }
+    .utility-bar svg { height: 11px; width: 11px; }
+    .main-nav { height: 82px; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--page-gutter); gap: 24px; border-bottom: 1px solid var(--line); position: relative; }
+    .brand { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: fit-content; }
+    .wordmark { font-family: var(--serif); font-size: 43px; line-height: .98; letter-spacing: -2.7px; }
+    .brand-subtitle { margin: 7px 0 0 4px; font-size: 7px; line-height: 1; letter-spacing: .29em; }
+    .desktop-nav { display: flex; align-items: center; gap: clamp(20px, 2.2vw, 36px); list-style: none; margin: 0 0 0 55px; padding: 0; }
+    .desktop-nav a { font-size: 11px; position: relative; padding: 10px 0; white-space: nowrap; }
+    .desktop-nav a::after { content: ''; position: absolute; height: 1px; background: var(--olive); left: 0; bottom: 2px; width: 100%; transform: scaleX(0); transform-origin: left; transition: transform .3s; }
+    .desktop-nav a:hover::after, .desktop-nav a.active::after { transform: scaleX(1); }
+    .nav-actions { display: flex; align-items: center; gap: 3px; }
+    .bag-button { width: auto; min-width: 42px; gap: 5px; padding-right: 0; }
+    .bag-count { font-size: 10px; min-width: 12px; }
+    .theme-button svg { transition: transform .45s var(--ease); }
+    .theme-button:hover svg { transform: rotate(30deg); }
+    .sun-icon, .dark-mode .moon-icon { display: none; }
+    .dark-mode .sun-icon { display: inline-block; }
+    .language-picker { position: relative; }
+    .language-trigger { font-size: 10px; display: flex; gap: 3px; align-items: center; height: 42px; padding: 0 8px; }
+    .language-trigger svg { width: 12px; height: 12px; }
+    .language-menu { position: absolute; right: 0; top: 48px; width: 154px; background: var(--surface); border: 1px solid var(--line); padding: 7px; box-shadow: 0 10px 30px #242b1a0d; }
+    .language-menu button { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 9px 12px; text-align: left; font-size: 12px; }
+    .language-menu button:hover, .language-menu button[aria-checked="true"] { background: var(--soft); }
+    .language-menu button[aria-checked="true"]::after { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--olive); }
+    .menu-toggle { display: none; width: 40px; height: 42px; flex-direction: column; justify-content: center; align-items: center; gap: 5px; }
+    .menu-toggle span { width: 20px; height: 1px; background: currentColor; transition: transform .3s, opacity .2s; }
+    .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(6px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-6px) rotate(-45deg); }
+    .mobile-menu { display: none; }
+    .mobile-scrim { position: fixed; inset: var(--header-height) 0 0; z-index: 39; background: #151b2045; backdrop-filter: blur(3px); }
+    main { padding-top: var(--header-height); }
+    section { scroll-margin-top: 16px; }
+    .hero { height: min(650px, 73vw); min-height: 575px; position: relative; overflow: hidden; isolation: isolate; background: #e5e1d7; }
+    .hero-visual { position: absolute; inset: 0; height: 100%; object-position: center 43%; z-index: -3; animation: hero-breathe 1.8s var(--ease) both; }
+    .hero-shade { position: absolute; inset: 0; z-index: -2; background: linear-gradient(90deg, #eeeae2 0%, #eeeae2ed 20%, #eeeae2c4 34%, #eeeae235 53%, transparent 72%); }
+    .hero-content { height: 100%; position: relative; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; width: 57%; padding: 48px 0 54px calc(var(--page-gutter) + 20px); }
+    .hero-content > * { animation: hero-arrive 1s var(--ease) both; }
+    .hero-content > :nth-child(2) { animation-delay: .12s; }
+    .hero-content > :nth-child(3) { animation-delay: .22s; }
+    .hero-content > :nth-child(4) { animation-delay: .32s; }
+    .hero .eyebrow { font-size: 9px; color: #5b6053; letter-spacing: .22em; }
+    .hero h1 { margin-top: 17px; font-family: var(--serif); }
+    .hero-brand { display: block; font-size: clamp(82px, 7.7vw, 112px); line-height: .92; letter-spacing: -5px; margin-left: -4px; }
+    .hero-title { display: block; font-size: clamp(41px, 4.2vw, 62px); line-height: 1.07; letter-spacing: -1.7px; margin-top: 23px; }
+    .hero-title em { font-weight: 400; }
+    .hero-description { font-size: 12px; max-width: 315px; line-height: 1.85; margin-top: 23px; color: #626559; }
+    .hero-actions { display: flex; align-items: center; gap: 28px; margin-top: 29px; }
+    .hero-actions .button { font-size: 10px; min-height: 47px; padding: 12px 23px; }
+    .hero-actions .text-link { font-size: 10px; padding-bottom: 4px; }
+    .dark-mode .hero-shade { background: linear-gradient(90deg, #272d23 0%, #272d23ee 20%, #272d23c7 34%, #272d2330 58%, transparent 80%); }
+    .dark-mode .hero .eyebrow, .dark-mode .hero-description { color: #d0d4c4; }
+    .dark-mode .hero-visual { filter: brightness(.77); }
+    .section-shell { max-width: 1600px; margin-inline: auto; padding: 86px var(--page-gutter); }
+    .section-heading { text-align: center; margin-bottom: 42px; }
+    .section-heading .eyebrow { color: var(--muted); margin-bottom: 13px; }
+    .section-heading h2 { font-size: clamp(35px, 3.5vw, 50px); letter-spacing: -1.2px; line-height: 1.16; }
+    .section-heading p:last-child:not(.eyebrow) { margin-top: 15px; font-size: 12px; color: var(--muted); }
+    .collection-toolbar { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); gap: 18px; }
+    .category-filters { display: flex; align-items: center; gap: 30px; overflow-x: auto; scrollbar-width: none; }
+    .category-filters::-webkit-scrollbar { display: none; }
+    .filter-button { padding: 16px 0; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid transparent; white-space: nowrap; }
+    .filter-button[aria-pressed="true"] { color: var(--ink); border-color: var(--ink); }
+    .filter-button:hover { color: var(--ink); }
+    .collection-tools { display: flex; align-items: center; gap: 18px; flex-shrink: 0; }
+    .favorites-filter { width: 35px; padding: 6px; }
+    .favorites-filter[aria-pressed="true"] svg, .favorite-button[aria-pressed="true"] svg { fill: currentColor; }
+    .collection-tools select { background: transparent; color: var(--muted); border: 0; font-size: 10px; cursor: pointer; padding: 10px 0; max-width: 150px; }
+    select option { background: var(--surface); color: var(--ink); }
+    .collection-meta { display: flex; justify-content: space-between; font-size: 9px; letter-spacing: .055em; color: var(--muted); padding: 19px 0 22px; }
+    .product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 41px 23px; }
+    .product-card { min-width: 0; }
+    .product-media { position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: var(--soft); }
+    .product-open { display: block; height: 100%; width: 100%; padding: 0; text-align: left; }
+    .product-open img { height: 100%; transition: transform .85s var(--ease), filter .5s; }
+    .product-media:hover .product-open img { transform: scale(1.045); }
+    .favorite-button { position: absolute; right: 9px; top: 9px; width: 36px; height: 36px; color: #444a3b; background: #f8f7f3cc; border-radius: 50%; display: flex; justify-content: center; align-items: center; transition: background .25s; }
+    .favorite-button:hover { background: #f8f7f3; }
+    .favorite-button svg { width: 17px; height: 17px; }
+    .product-tag { position: absolute; top: 17px; left: 15px; font-size: 8px; letter-spacing: .14em; text-transform: uppercase; color: #454b3d; background: #f8f7f3df; padding: 3px 7px; pointer-events: none; }
+    .quick-view { position: absolute; bottom: 0; left: 0; width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 13px 17px; background: #f8f7f3ef; color: #363b31; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; transform: translateY(100%); transition: transform .35s var(--ease); pointer-events: none; }
+    .quick-view svg { width: 17px; height: 17px; }
+    .product-media:hover .quick-view, .product-open:focus-visible .quick-view { transform: translateY(0); }
+    .product-category { margin-top: 15px; color: var(--muted); font-size: 8px; letter-spacing: .12em; text-transform: uppercase; }
+    .product-info { display: flex; align-items: baseline; justify-content: space-between; gap: 7px; margin-top: 2px; }
+    .product-name { font-family: var(--serif); font-size: 27px; line-height: 1.2; padding: 0; text-align: left; }
+    .product-price { font-size: 11px; white-space: nowrap; }
+    .product-material { color: var(--muted); font-size: 10px; margin-top: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .collection-bottom { text-align: center; padding-top: 45px; }
+    .collection-bottom p { font-family: var(--serif); font-size: 23px; margin-bottom: 6px; }
+    .empty-state { text-align: center; padding: 62px 16px; grid-column: 1 / -1; }
+    .empty-state svg { width: 39px; height: 39px; margin-bottom: 20px; stroke-width: .9; }
+    .empty-state h3 { font-size: 30px; }
+    .empty-state p { color: var(--muted); font-size: 12px; max-width: 300px; margin: 10px auto 23px; }
+    .atelier-section { display: grid; grid-template-columns: 1fr 1fr; background: var(--soft); }
+    .atelier-image { height: 100%; min-height: 610px; max-height: 700px; object-position: center 48%; }
+    .atelier-copy { padding: 85px clamp(35px, 7vw, 112px); align-self: center; }
+    .atelier-copy .eyebrow { color: var(--muted); margin-bottom: 26px; }
+    .atelier-copy h2 { font-size: clamp(34px, 3.6vw, 54px); letter-spacing: -1.1px; line-height: 1.15; }
+    .atelier-copy > p:not(.eyebrow):not(.signature) { font-size: 12px; color: var(--muted); margin-top: 25px; max-width: 330px; line-height: 1.9; }
+    .atelier-copy .text-link { margin-top: 27px; font-size: 11px; }
+    .signature { font-family: var(--serif); font-style: italic; font-size: 29px; margin-top: 43px; }
+    .experience-section { padding-top: 90px; padding-bottom: 88px; }
+    .experience-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 58px; max-width: 1090px; margin: 52px auto 39px; }
+    .experience-step { border-top: 1px solid var(--line); padding-top: 25px; }
+    .step-number { font-family: var(--serif); font-size: 33px; color: var(--olive); font-style: italic; }
+    .experience-step h3 { font-size: 26px; margin: 10px 0; }
+    .experience-step p { font-size: 12px; color: var(--muted); max-width: 290px; }
+    .center { text-align: center; }
+    .contact-section { background: var(--soft); }
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 12%; max-width: 1200px; padding-top: 80px; padding-bottom: 84px; }
+    .contact-intro .eyebrow { color: var(--muted); margin-bottom: 22px; }
+    .contact-intro h2 { font-size: clamp(40px, 4.5vw, 64px); line-height: 1.08; letter-spacing: -1.5px; }
+    .contact-intro > p:not(.eyebrow) { font-size: 12px; color: var(--muted); max-width: 310px; margin-top: 24px; }
+    .contact-details { margin-top: 33px; display: flex; flex-direction: column; align-items: flex-start; gap: 5px; font-size: 12px; font-style: normal; }
+    .contact-details .location { font-family: var(--serif); font-size: 23px; margin-bottom: 6px; }
+    .contact-details .hours { color: var(--muted); font-size: 10px; margin-top: 9px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 20px; }
+    .field { display: flex; flex-direction: column; gap: 7px; }
+    .field label, .field-label { font-size: 10px; letter-spacing: .035em; }
+    .field input, .field select, .field textarea { width: 100%; min-height: 39px; padding: 8px 0; border: 0; border-bottom: 1px solid var(--muted); color: var(--ink); background: transparent; font-size: 12px; outline-offset: 4px; }
+    .field input::placeholder, .field textarea::placeholder { color: var(--muted); opacity: .8; }
+    .field textarea { min-height: 92px; resize: vertical; }
+    .field select { cursor: pointer; }
+    .field-wide { grid-column: 1 / -1; }
+    .checkbox-line { display: flex; align-items: flex-start; gap: 9px; font-size: 10px; color: var(--muted); line-height: 1.6; }
+    .checkbox-line input { accent-color: var(--olive); margin: 2px 0 0; width: 14px; height: 14px; flex-shrink: 0; }
+    .checkbox-line button { padding: 0; text-decoration: underline; text-underline-offset: 3px; font-size: inherit; }
+    .form-footnote { font-size: 9px; color: var(--muted); margin-top: 10px; }
+    .faq-section { display: grid; grid-template-columns: .8fr 1.2fr; gap: 12%; max-width: 1250px; padding-top: 76px; padding-bottom: 80px; }
+    .faq-heading .eyebrow { color: var(--muted); margin-bottom: 19px; }
+    .faq-heading h2 { font-size: 40px; line-height: 1.15; letter-spacing: -1px; }
+    .faq-list details { border-bottom: 1px solid var(--line); }
+    .faq-list details:first-child { border-top: 1px solid var(--line); }
+    .faq-list summary { list-style: none; display: flex; justify-content: space-between; gap: 20px; padding: 20px 0; cursor: pointer; font-size: 12px; }
+    summary::-webkit-details-marker { display: none; }
+    .faq-list summary svg { height: 15px; width: 15px; margin-top: 2px; transition: transform .3s; }
+    .faq-list details[open] summary svg { transform: rotate(45deg); }
+    .faq-list details p { font-size: 12px; line-height: 1.85; color: var(--muted); padding-bottom: 22px; padding-right: 25px; }
+    .site-footer { background: var(--footer); color: #f0f0e5; padding: 57px var(--page-gutter) 20px; }
+    .footer-top { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1.1fr; gap: 35px; max-width: 1450px; margin: auto; }
+    .footer-brand { align-items: flex-start; }
+    .footer-brand .wordmark { font-size: 65px; }
+    .footer-brand .brand-subtitle { font-size: 8px; letter-spacing: .32em; margin-left: 7px; }
+    .footer-description { max-width: 215px; font-size: 11px; line-height: 1.8; color: #c4cabb; margin-top: 23px; }
+    .footer-column h3 { font-family: var(--sans); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; margin: 7px 0 19px; }
+    .footer-column a, .footer-column button, .footer-column > p { display: block; padding: 4px 0; font-size: 11px; color: #c4cabb; text-align: left; }
+    .footer-column a:hover, .footer-column button:hover { color: #fff; }
+    .footer-bottom { max-width: 1450px; margin: 45px auto 0; padding-top: 18px; border-top: 1px solid #ffffff25; display: flex; gap: 20px; justify-content: space-between; color: #b4bcaa; font-size: 9px; }
+    .footer-bottom span:last-child { text-align: right; }
+    .back-top { position: fixed; right: 23px; bottom: 24px; background: var(--paper); border: 1px solid var(--line); z-index: 25; opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .25s, transform .25s, visibility .25s; }
+    .back-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    .back-top svg { width: 17px; height: 17px; }
+    .reveal { transition: opacity .8s var(--ease), transform .8s var(--ease); }
+    .reveal.is-pending { opacity: 0; transform: translateY(24px); }
+    .search-match { background: #e3d6ac; color: #343829; padding: 0 1px; border-radius: 1px; }
+    dialog { color: var(--ink); background: var(--paper); border: 1px solid var(--line); padding: 0; width: min(620px, calc(100% - 32px)); max-width: none; max-height: calc(100dvh - 60px); margin: auto; overflow: auto; box-shadow: 0 20px 100px #10160e21; }
+    dialog::backdrop { background: #1f251b73; backdrop-filter: blur(7px); }
+    dialog[open] { animation: dialog-in .3s var(--ease); }
+    dialog[open]::backdrop { animation: backdrop-in .3s ease; }
+    dialog.is-closing { animation: dialog-out .2s ease forwards; }
+    dialog.is-closing::backdrop { animation: backdrop-out .2s ease forwards; }
+    .modal-shell { padding: 37px; position: relative; }
+    .modal-close { position: absolute; top: 15px; right: 15px; z-index: 3; }
+    .modal-close svg { width: 19px; height: 19px; }
+    .modal-eyebrow { color: var(--muted); margin-bottom: 11px; }
+    .modal-title { font-family: var(--serif); font-size: 35px; line-height: 1.15; letter-spacing: -.8px; padding-right: 24px; }
+    .modal-description { color: var(--muted); font-size: 12px; margin-top: 13px; }
+    .modal-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+    .search-dialog { width: min(690px, calc(100% - 32px)); }
+    .search-input-wrap { display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--muted); margin-top: 25px; }
+    .search-input-wrap input { flex: 1; border: none; background: transparent; color: var(--ink); padding: 14px 0; font-size: 14px; outline-offset: -2px; }
+    .search-clear { font-size: 10px; color: var(--muted); padding: 10px 0 10px 10px; }
+    .search-status { font-size: 10px; color: var(--muted); margin: 17px 0 9px; }
+    .search-results { max-height: 380px; overflow-y: auto; }
+    .search-result { display: flex; width: 100%; align-items: center; gap: 15px; padding: 11px 0; border-bottom: 1px solid var(--line); text-align: left; }
+    .search-result:hover { background: var(--soft); }
+    .search-result img { width: 43px; height: 58px; }
+    .search-result-copy { flex: 1; }
+    .search-result-copy strong { display: block; font-family: var(--serif); font-size: 21px; font-weight: 400; }
+    .search-result-copy small { display: block; color: var(--muted); font-size: 10px; }
+    .search-result > svg { width: 17px; height: 17px; margin-right: 5px; }
+    .product-dialog { width: min(930px, calc(100% - 36px)); }
+    .product-detail { display: grid; grid-template-columns: .95fr 1fr; position: relative; }
+    .detail-image { min-height: 610px; height: 100%; max-height: 760px; object-position: center 30%; }
+    .detail-copy { padding: 42px 35px 32px; }
+    .detail-copy h2 { font-size: 52px; margin-top: 7px; line-height: 1.15; }
+    .detail-material { color: var(--muted); font-size: 12px; margin-top: 9px; }
+    .detail-price { font-size: 18px; margin-top: 20px; }
+    .detail-description { font-size: 12px; color: var(--muted); line-height: 1.85; margin: 21px 0; }
+    fieldset { min-width: 0; padding: 0; border: 0; margin: 0; }
+    .size-legend { font-size: 10px; margin-bottom: 10px; }
+    .size-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .size-option { min-width: 41px; height: 37px; padding: 5px 12px; border: 1px solid var(--line); font-size: 11px; }
+    .size-option[aria-pressed="true"] { border-color: var(--olive); background: var(--olive); color: var(--on-olive); }
+    .size-error { min-height: 19px; font-size: 10px; color: #a15141; margin: 5px 0; }
+    .detail-add-row { display: flex; gap: 12px; }
+    .detail-add-row > .button { flex: 1; padding-inline: 12px; gap: 12px; }
+    .quantity-control { display: inline-flex; align-items: center; border: 1px solid var(--line); height: 48px; flex-shrink: 0; }
+    .quantity-control button { width: 30px; height: 100%; display: flex; align-items: center; justify-content: center; padding: 4px; }
+    .quantity-control button:hover { background: var(--soft); }
+    .quantity-control svg { width: 12px; height: 12px; }
+    .quantity-control span { text-align: center; min-width: 22px; font-size: 11px; }
+    .detail-favorite { font-size: 10px; display: inline-flex; align-items: center; gap: 8px; padding: 14px 0; }
+    .detail-favorite svg { width: 15px; height: 15px; }
+    .detail-favorite[aria-pressed="true"] svg { fill: currentColor; }
+    .detail-note { font-size: 9px; color: var(--muted); margin: 3px 0 17px; }
+    .detail-accordion { border-top: 1px solid var(--line); font-size: 11px; }
+    .detail-accordion summary { cursor: pointer; padding: 13px 0; display: flex; justify-content: space-between; }
+    .detail-accordion summary svg { width: 14px; height: 14px; }
+    .detail-accordion p { color: var(--muted); font-size: 10px; padding-bottom: 15px; }
+    .size-table { width: 100%; border-collapse: collapse; font-size: 10px; margin: 0 0 14px; }
+    .size-table th, .size-table td { padding: 6px; text-align: center; border-bottom: 1px solid var(--line); font-weight: 400; }
+    .cart-dialog { position: fixed; inset: 0 0 0 auto; margin: 0; width: min(490px, 100%); height: 100dvh; max-height: 100dvh; border-width: 0 0 0 1px; overflow: hidden; }
+    .cart-dialog[open] { animation: drawer-in .4s var(--ease); }
+    .cart-dialog.is-closing { animation: drawer-out .22s ease forwards; }
+    .cart-shell { display: flex; flex-direction: column; height: 100%; padding: 0; }
+    .cart-header { padding: 32px 28px 23px; border-bottom: 1px solid var(--line); position: relative; }
+    .cart-header .modal-title { font-size: 34px; }
+    .cart-header .modal-eyebrow { margin-bottom: 7px; font-size: 9px; }
+    .cart-items { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 0 28px; }
+    .cart-items > .empty-state { padding-top: 90px; }
+    .cart-line { display: flex; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .cart-line > img { width: 83px; height: 113px; }
+    .cart-line-copy { flex: 1; min-width: 0; }
+    .cart-line-top { display: flex; gap: 10px; justify-content: space-between; align-items: baseline; }
+    .cart-line-top h3 { font-size: 26px; line-height: 1.2; }
+    .cart-line-top > span { font-size: 11px; white-space: nowrap; }
+    .cart-line-copy > p { font-size: 10px; color: var(--muted); margin-top: 5px; }
+    .cart-line-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 13px; }
+    .cart-line .quantity-control { height: 30px; }
+    .remove-item { color: var(--muted); font-size: 9px; padding: 8px 0 8px 8px; text-decoration: underline; text-underline-offset: 3px; }
+    .cart-footer { padding: 23px 28px 26px; border-top: 1px solid var(--line); background: var(--paper); }
+    .cart-subtotal { display: flex; justify-content: space-between; font-size: 13px; }
+    .cart-subtotal strong { font-weight: 500; }
+    .cart-footer > p { font-size: 10px; color: var(--muted); margin: 9px 0 20px; }
+    .cart-footer .continue-shopping { display: block; text-align: center; width: 100%; font-size: 10px; padding-top: 14px; }
+    .cart-clear { display: block; color: var(--muted); font-size: 10px; padding: 16px 0; margin-left: auto; text-decoration: underline; text-underline-offset: 3px; }
+    .checkout-dialog { width: min(970px, calc(100% - 36px)); }
+    .checkout-shell { padding: 38px; }
+    .checkout-layout { display: grid; grid-template-columns: 1.3fr .8fr; gap: 39px; margin-top: 27px; }
+    .checkout-form > fieldset { margin-top: 25px; }
+    .checkout-form > fieldset > legend { font-family: var(--serif); font-size: 24px; margin-bottom: 13px; }
+    .choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .choice { display: flex; align-items: flex-start; gap: 9px; padding: 13px 11px; border: 1px solid var(--line); cursor: pointer; font-size: 11px; }
+    .choice:has(input:checked) { border-color: var(--olive); background: var(--soft); }
+    .choice input { accent-color: var(--olive); margin: 3px 0 0; flex-shrink: 0; }
+    .choice small { display: block; font-size: 9px; color: var(--muted); margin-top: 3px; }
+    .fulfillment-fields { margin-top: 17px; }
+    .payment-choices { display: flex; flex-direction: column; gap: 9px; }
+    .checkout-consent { margin-top: 23px; }
+    .checkout-form > .button { margin-top: 21px; }
+    .checkout-conditions { margin-top: 10px; color: var(--muted); font-size: 10px; }
+    .checkout-conditions summary { cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+    .checkout-conditions p { margin-top: 9px; }
+    .order-summary { border-left: 1px solid var(--line); padding-left: 25px; }
+    .order-summary h3 { font-size: 26px; margin-bottom: 14px; }
+    .summary-line { display: flex; gap: 12px; align-items: center; margin: 14px 0; }
+    .summary-line img { width: 43px; height: 58px; }
+    .summary-line > div { flex: 1; }
+    .summary-line strong { font-weight: 400; font-family: var(--serif); font-size: 19px; display: block; }
+    .summary-line small { color: var(--muted); font-size: 9px; display: block; }
+    .summary-line > span { font-size: 10px; white-space: nowrap; }
+    .summary-totals { border-top: 1px solid var(--line); margin-top: 20px; padding-top: 10px; }
+    .summary-totals > div { display: flex; justify-content: space-between; gap: 10px; margin-top: 7px; font-size: 11px; }
+    .summary-totals .grand-total { border-top: 1px solid var(--line); padding-top: 12px; margin-top: 12px; font-size: 16px; }
+    .summary-totals strong { font-weight: 500; }
+    .summary-totals > p { font-size: 9px; color: var(--muted); margin-top: 8px; }
+    .summary-demo { margin-top: 23px; color: var(--muted); font-size: 10px; line-height: 1.8; }
+    .review-total { font-family: var(--serif); font-size: 55px; line-height: 1.2; margin: 17px 0; }
+    .review-details { font-size: 12px; border-block: 1px solid var(--line); padding: 15px 0; margin: 20px 0; overflow-wrap: anywhere; }
+    .review-details p + p { margin-top: 7px; }
+    .review-details strong { font-weight: 500; }
+    .payment-notice { font-size: 12px; color: var(--muted); line-height: 1.85; margin-top: 19px; }
+    .success-mark { width: 45px; height: 45px; color: var(--olive); margin-bottom: 18px; }
+    .order-reference { font-size: 10px; letter-spacing: .09em; color: var(--muted); margin: 18px 0; }
+    .account-form { margin-top: 25px; display: flex; flex-direction: column; gap: 20px; }
+    .account-status { font-size: 12px; color: var(--olive); margin-top: 15px; }
+    .info-content { margin-top: 23px; font-size: 12px; line-height: 1.85; color: var(--muted); }
+    .info-content p + p { margin-top: 15px; }
+    .info-content a { text-decoration: underline; text-underline-offset: 3px; }
+    .info-content ul { padding-left: 17px; margin: 14px 0; }
+    .info-content li { margin-top: 7px; }
+    .toast { position: fixed; top: auto; right: auto; bottom: 24px; left: 50%; margin: 0; border: 0; width: max-content; transform: translate(-50%, 15px); max-width: calc(100% - 32px); min-width: 270px; background: var(--ink); color: var(--paper); z-index: 120; font-size: 12px; padding: 14px 22px; opacity: 0; visibility: hidden; display: flex; align-items: center; justify-content: center; gap: 13px; transition: transform .3s var(--ease), opacity .3s, visibility .3s; box-shadow: 0 5px 20px #11111114; pointer-events: none; }
+    .toast.is-visible { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+    .toast svg { width: 17px; height: 17px; }
+    @keyframes hero-arrive { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes hero-breathe { from { opacity: .4; transform: scale(1.035); } to { opacity: 1; transform: scale(1); } }
+    @keyframes dialog-in { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes dialog-out { to { opacity: 0; transform: translateY(10px); } }
+    @keyframes backdrop-in { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes backdrop-out { to { opacity: 0; } }
+    @keyframes drawer-in { from { transform: translateX(100%); } to { transform: translateX(0); } }
+    @keyframes drawer-out { to { transform: translateX(100%); } }
+    @media (min-width: 1600px) { .hero { height: 710px; } .hero-content { padding-left: max(var(--page-gutter), calc((100vw - 1448px) / 2)); } }
+    @media (max-width: 1100px) {
+      .desktop-nav { gap: 19px; margin-left: 10px; }
+      .main-nav { gap: 15px; }
+      .nav-actions { gap: 0; }
+      .nav-actions .icon-button { width: 33px; }
+      .hero-content { padding-left: var(--page-gutter); width: 61%; }
+      .product-grid { gap: 33px 18px; }
+      .atelier-copy { padding: 55px 45px; }
+      .experience-steps { gap: 35px; }
+    }
+    @media (max-width: 950px) {
+      :root { --header-height: 102px; }
+      .main-nav { height: 72px; }
+      .desktop-nav { display: none; }
+      .menu-toggle { display: flex; position: absolute; left: 50%; transform: translateX(-50%); }
+      .mobile-menu { display: flex; flex-direction: column; align-items: center; position: fixed; z-index: 45; left: 0; right: 0; top: var(--header-height); max-height: calc(100dvh - var(--header-height)); overflow-y: auto; padding: 27px 25px 32px; background: var(--paper); opacity: 0; visibility: hidden; transform: translateY(-18px); transition: opacity .3s, transform .4s var(--ease), visibility .3s; border-bottom: 1px solid var(--line); }
+      .mobile-menu.is-open { opacity: 1; visibility: visible; transform: translateY(0); }
+      .mobile-menu > a { padding: 8px 15px; font-family: var(--serif); font-size: 29px; }
+      .mobile-menu-tools { display: flex; justify-content: center; gap: 25px; margin-top: 22px; padding-top: 19px; border-top: 1px solid var(--line); width: 100%; }
+      .mobile-menu-tools button { display: flex; gap: 8px; align-items: center; font-size: 11px; }
+      .mobile-menu-tools svg { width: 16px; height: 16px; }
+      .hero { height: 600px; min-height: 0; }
+      .hero-content { width: 65%; }
+      .hero-brand { font-size: 92px; }
+      .hero-title { font-size: 50px; }
+      .hero-shade { background: linear-gradient(90deg, #eeeae2f2 0%, #eeeae2db 28%, #eeeae260 57%, transparent 86%); }
+      .hero-actions { gap: 22px; }
+      .hero-actions .button { padding-inline: 18px; gap: 15px; }
+      .section-shell { padding-block: 67px; }
+      .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .atelier-image { min-height: 540px; }
+      .atelier-copy { padding: 42px 34px; }
+      .atelier-copy h2 { font-size: 38px; }
+      .category-filters { gap: 22px; }
+      .collection-tools { gap: 9px; }
+      .contact-layout { gap: 8%; }
+      .footer-top { grid-template-columns: 1.4fr 1fr 1fr; }
+      .footer-contact { display: none; }
+      .checkout-layout { gap: 26px; }
+      .order-summary { padding-left: 20px; }
+    }
+    @media (max-width: 650px) {
+      :root { --page-gutter: 22px; --header-height: 96px; }
+      .utility-bar { height: 26px; font-size: 8px; }
+      .utility-message { display: none; }
+      .utility-bar svg { width: 10px; height: 10px; }
+      .main-nav { height: 70px; gap: 8px; padding-inline: 18px; }
+      .wordmark { font-size: 35px; letter-spacing: -2px; }
+      .brand-subtitle { font-size: 5.7px; margin-top: 6px; }
+      .nav-actions .icon-button { width: 29px; padding: 5px; }
+      .nav-actions .account-button { display: none; }
+      .nav-actions svg { width: 18px; height: 18px; }
+      .language-trigger { font-size: 9px; padding-inline: 4px; }
+      .language-trigger svg { width: 10px; height: 10px; }
+      .nav-actions .bag-button { width: 35px; min-width: 35px; gap: 2px; }
+      .bag-count { font-size: 9px; min-width: 9px; }
+      .menu-toggle { left: 50%; width: 32px; }
+      .hero { height: 640px; max-height: calc(100svh - var(--header-height)); min-height: 535px; }
+      .hero-visual { object-position: 63% center; }
+      .hero-shade { background: linear-gradient(90deg, #eeeae2de 0%, #eeeae2c5 20%, #eeeae287 45%, #eeeae226 76%), linear-gradient(0deg, #eeeae25c, transparent 40%); }
+      .hero-content { width: 100%; padding: 56px 28px 51px; justify-content: center; }
+      .hero .eyebrow { font-size: 8px; letter-spacing: .2em; }
+      .hero-brand { font-size: 88px; }
+      .hero-title { font-size: 46px; letter-spacing: -1.3px; margin-top: 23px; }
+      .hero-description { font-size: 11px; max-width: 242px; margin-top: 22px; }
+      .hero-actions { margin-top: 25px; gap: 20px; }
+      .hero-actions .button { min-height: 46px; padding-inline: 17px; font-size: 9px; gap: 13px; }
+      .hero-actions .text-link { font-size: 9px; }
+      .dark-mode .hero-shade { background: linear-gradient(90deg, #272d23ec 0%, #272d23c4 28%, #272d2366 63%, #272d2320 95%); }
+      .section-shell { padding-block: 56px; }
+      .section-heading { margin-bottom: 27px; }
+      .section-heading h2 { font-size: 36px; letter-spacing: -.9px; }
+      .section-heading .eyebrow { font-size: 8px; }
+      .section-heading p:last-child:not(.eyebrow) { font-size: 11px; max-width: 270px; margin: 13px auto 0; }
+      .collection-toolbar { flex-wrap: wrap; gap: 0; }
+      .category-filters { width: 100%; gap: 0; justify-content: space-between; border-bottom: 1px solid var(--line); }
+      .filter-button { font-size: 8px; padding-block: 13px; }
+      .collection-tools { width: 100%; justify-content: space-between; padding-top: 4px; }
+      .collection-tools select { max-width: 160px; }
+      .collection-meta { font-size: 8px; padding: 15px 0 19px; }
+      .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 14px; }
+      .product-media { aspect-ratio: 3 / 4.25; }
+      .favorite-button { width: 29px; height: 29px; right: 6px; top: 6px; }
+      .favorite-button svg { width: 14px; height: 14px; }
+      .product-tag { font-size: 6px; left: 9px; top: 13px; padding: 2px 4px; }
+      .product-category { font-size: 7px; margin-top: 11px; }
+      .product-name { font-size: 24px; }
+      .product-price { font-size: 9px; }
+      .product-material { font-size: 9px; margin-top: 4px; }
+      .quick-view { padding: 9px 11px; font-size: 7px; }
+      .quick-view svg { width: 13px; height: 13px; }
+      .collection-bottom { padding-top: 33px; }
+      .collection-bottom p { font-size: 21px; }
+      .collection-bottom .text-link { font-size: 10px; }
+      .atelier-section { grid-template-columns: 1fr; }
+      .atelier-image { min-height: 0; height: 420px; object-position: center 44%; }
+      .atelier-copy { padding: 47px 30px 49px; }
+      .atelier-copy .eyebrow { margin-bottom: 20px; font-size: 9px; }
+      .atelier-copy h2 { font-size: 43px; }
+      .atelier-copy > p:not(.eyebrow):not(.signature) { max-width: 340px; }
+      .signature { margin-top: 26px; }
+      .experience-steps { grid-template-columns: 1fr; gap: 24px; margin-top: 33px; }
+      .experience-step { display: grid; grid-template-columns: 45px 1fr; column-gap: 14px; padding-top: 21px; }
+      .step-number { grid-row: 1 / 3; font-size: 31px; padding-top: 2px; }
+      .experience-step h3 { font-size: 25px; margin: 0 0 5px; }
+      .experience-step p { grid-column: 2; max-width: none; font-size: 11px; }
+      .contact-layout { grid-template-columns: 1fr; gap: 37px; }
+      .contact-intro h2 { font-size: 51px; }
+      .contact-intro > p:not(.eyebrow) { max-width: 330px; }
+      .contact-details { margin-top: 24px; }
+      .form-grid { gap: 21px 17px; }
+      .faq-section { grid-template-columns: 1fr; gap: 29px; }
+      .faq-heading h2 { font-size: 36px; }
+      .faq-heading .eyebrow { font-size: 8px; margin-bottom: 15px; }
+      .faq-list summary { font-size: 11px; padding-block: 18px; }
+      .faq-list details p { font-size: 11px; }
+      .site-footer { padding-top: 44px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 30px 20px; }
+      .footer-brand-column { grid-column: 1 / -1; }
+      .footer-brand .wordmark { font-size: 58px; }
+      .footer-description { max-width: 245px; margin-top: 17px; }
+      .footer-column h3 { margin-bottom: 12px; }
+      .footer-column a, .footer-column button { font-size: 10px; }
+      .footer-bottom { margin-top: 31px; flex-direction: column; gap: 7px; font-size: 8px; }
+      .footer-bottom span:last-child { text-align: left; }
+      .modal-shell { padding: 31px 23px; }
+      .modal-close { right: 8px; top: 8px; }
+      .modal-title { font-size: 31px; }
+      dialog { max-height: calc(100dvh - 28px); }
+      .product-dialog { width: calc(100% - 24px); }
+      .product-detail { grid-template-columns: 1fr; }
+      .detail-image { height: 330px; min-height: 0; max-height: none; object-position: center 25%; }
+      .product-detail > .modal-close { background: var(--paper); }
+      .detail-copy { padding: 28px 24px; }
+      .detail-copy h2 { font-size: 45px; }
+      .detail-description { margin: 16px 0; }
+      .cart-dialog { max-height: 100dvh; }
+      .cart-header { padding: 25px 23px 21px; }
+      .cart-items { padding-inline: 23px; }
+      .cart-footer { padding: 21px 23px; }
+      .checkout-dialog { width: calc(100% - 20px); }
+      .checkout-layout { grid-template-columns: 1fr; gap: 26px; }
+      .order-summary { border-left: 0; border-top: 1px solid var(--line); padding: 23px 0 0; }
+      .checkout-shell { padding: 32px 23px; }
+      .choice { font-size: 10px; padding-inline: 9px; }
+      .choice small { font-size: 8px; }
+      .modal-actions { flex-direction: column; }
+      .modal-actions > * { width: 100%; }
+      .review-total { font-size: 47px; }
+      .search-input-wrap input { font-size: 12px; }
+      .back-top { width: 34px; height: 36px; right: 15px; bottom: 15px; }
+      .toast { font-size: 11px; bottom: 16px; width: max-content; }
+    }
+    @media (max-width: 370px) {
+      .main-nav { padding-inline: 13px; }
+      .hero-content { padding-inline: 23px; }
+      .hero-actions { gap: 16px; }
+      .hero-title { font-size: 43px; }
+      .hero-brand { font-size: 81px; }
+      .product-info { flex-wrap: wrap; gap: 2px; }
+      .product-price { width: 100%; }
+    }
+    @media (hover: none) { .quick-view { transform: translateY(0); background: #f8f7f3df; } }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0ms !important; transition-duration: .01ms !important; }
+      .reveal.is-pending { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    try {
+      const savedTheme = localStorage.getItem('aurea-theme');
+      if (savedTheme === 'dark' || (!savedTheme && matchMedia('(prefers-color-scheme: dark)').matches)) document.body.classList.add('dark-mode');
+    } catch (_) { /* The boutique also works when browser storage is unavailable. */ }
+  </script>
+  <svg class="sr-only" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.8"/><path d="m16 16 4.7 4.7"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="7.5" r="3.4"/><path d="M5 21v-2.6a7 7 0 0 1 14 0V21"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.6 14.4A8.8 8.8 0 0 1 9.5 3.3a9 9 0 1 0 11.1 11.1Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l1 13H4L5 8Z"/><path d="M8.5 9V6a3.5 3.5 0 0 1 7 0v3"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M3 12h17m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.8a5.5 5.5 0 0 0-7.8 0L12 5.9l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.9-8.4a5.5 5.5 0 0 0-.1-7.8Z"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 21V4m-6 6 6-6 6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 6 9 7 9-7"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M7 3H4a1 1 0 0 0-1 1 17 17 0 0 0 17 17 1 1 0 0 0 1-1v-3l-5-2-2 2a13 13 0 0 1-7-7l2-2-2-5Z"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
+  </svg>
+  <a class="skip-link" href="#coleccion" data-i18n="skip">Saltar al contenido</a>
+
+  <header class="site-header" id="site-header">
+    <div class="utility-bar">
+      <a href="tel:+34960000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>+34 960 000 000</span></a>
+      <span class="utility-message" data-i18n="topMessage">Diseño nupcial, esencia mediterránea</span>
+      <a href="mailto:hola@aurea.example"><svg aria-hidden="true"><use href="#i-mail"/></svg><span>hola@aurea.example</span></a>
+    </div>
+    <nav class="main-nav" aria-label="Navegación principal" data-i18n-aria="mainNav">
+      <a class="brand" href="#inicio" aria-label="Auréa, inicio" data-i18n-aria="brandHome"><span class="wordmark">auréa.</span><span class="brand-subtitle">BRIDAL ATELIER</span></a>
+      <ul class="desktop-nav">
+        <li><a class="active" href="#inicio" data-i18n="navHome">Inicio</a></li>
+        <li><a href="#coleccion" data-i18n="navCollection">La colección</a></li>
+        <li><a href="#atelier" data-i18n="navAtelier">Nuestro atelier</a></li>
+        <li><a href="#experiencia" data-i18n="navExperience">La experiencia</a></li>
+        <li><a href="#contacto" data-i18n="navContact">Contacto</a></li>
+      </ul>
+      <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú" data-i18n-aria="openMenu"><span></span><span></span><span></span></button>
+      <div class="nav-actions">
+        <button class="icon-button" data-open="search-dialog" aria-label="Buscar en la página" data-i18n-aria="search"><svg aria-hidden="true"><use href="#i-search"/></svg></button>
+        <button class="icon-button account-button" data-open="account-dialog" aria-label="Mi cuenta" data-i18n-aria="myAccount"><svg aria-hidden="true"><use href="#i-user"/></svg></button>
+        <button class="icon-button theme-button" id="theme-toggle" aria-label="Activar modo oscuro" aria-pressed="false"><svg class="moon-icon" aria-hidden="true"><use href="#i-moon"/></svg><svg class="sun-icon" aria-hidden="true"><use href="#i-sun"/></svg></button>
+        <div class="language-picker">
+          <button class="language-trigger" id="language-toggle" aria-expanded="false" aria-haspopup="menu" aria-controls="language-menu" aria-label="Seleccionar idioma" data-i18n-aria="selectLanguage"><span id="language-code">ES</span><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+          <div class="language-menu" id="language-menu" role="menu" aria-label="Idioma" data-i18n-aria="language" hidden>
+            <button data-language="es" role="menuitemradio" aria-checked="true" lang="es">Español</button>
+            <button data-language="en" role="menuitemradio" aria-checked="false" lang="en">English</button>
+            <button data-language="va" role="menuitemradio" aria-checked="false" lang="ca-valencia">Valencià</button>
+          </div>
+        </div>
+        <button class="icon-button bag-button" id="cart-button" data-open="cart-dialog" aria-label="Abrir bolsa, 0 piezas"><svg aria-hidden="true"><use href="#i-bag"/></svg><span class="bag-count" id="cart-count" aria-hidden="true">0</span></button>
+      </div>
+    </nav>
+  </header>
+  <div class="mobile-scrim" id="mobile-scrim" hidden></div>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Navegación móvil" data-i18n-aria="mobileNav" inert>
+    <a href="#inicio" data-i18n="navHome">Inicio</a>
+    <a href="#coleccion" data-i18n="navCollection">La colección</a>
+    <a href="#atelier" data-i18n="navAtelier">Nuestro atelier</a>
+    <a href="#experiencia" data-i18n="navExperience">La experiencia</a>
+    <a href="#contacto" data-i18n="navContact">Contacto</a>
+    <div class="mobile-menu-tools">
+      <button data-open="search-dialog"><svg aria-hidden="true"><use href="#i-search"/></svg><span data-i18n="searchShort">Buscar</span></button>
+      <button data-open="account-dialog"><svg aria-hidden="true"><use href="#i-user"/></svg><span data-i18n="myAccount">Mi cuenta</span></button>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section class="hero" id="inicio" data-search-section="navHome">
+      <img class="hero-visual" src="https://images.pexels.com/photos/19982836/pexels-photo-19982836.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1100&w=2200" alt="Novia con un vestido blanco junto a una villa bañada por la luz del sol" data-i18n-alt="heroAlt" fetchpriority="high" width="2200" height="1100">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow" data-i18n="heroEyebrow">EL ARTE DE SER TÚ</p>
+        <h1><span class="hero-brand">Auréa.</span><span class="hero-title" data-i18n-html="heroTitle">Tu esencia.<br><em>Para siempre.</em></span></h1>
+        <p class="hero-description" data-i18n="heroDescription">Vestidos que cuentan tu historia. Detalles que se quedan contigo. Descubre una nueva forma de decir sí.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#coleccion"><span data-i18n="discoverCollection">Descubrir colección</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="text-link" href="#contacto" data-i18n="bookAppointment">Pide tu cita</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell collection-section" id="coleccion" data-search-section="navCollection">
+      <div class="section-heading reveal">
+        <p class="eyebrow" data-i18n="collectionEyebrow">LA COLECCIÓN 2026</p>
+        <h2 data-i18n-html="collectionTitle">Piezas para un sí <em>inolvidable.</em></h2>
+        <p data-i18n="collectionDescription">Vestidos, velos y pequeños detalles que hablan de ti.</p>
+      </div>
+      <div class="collection-toolbar">
+        <div class="category-filters" role="group" aria-label="Filtrar por tipo de producto" data-i18n-aria="filterCategory">
+          <button class="filter-button" data-category="all" aria-pressed="true" data-i18n="all">Todas las piezas</button>
+          <button class="filter-button" data-category="dresses" aria-pressed="false" data-i18n="dresses">Vestidos</button>
+          <button class="filter-button" data-category="veils" aria-pressed="false" data-i18n="veils">Velos</button>
+          <button class="filter-button" data-category="accessories" aria-pressed="false" data-i18n="accessories">Accesorios</button>
+          <button class="filter-button" data-category="shoes" aria-pressed="false" data-i18n="shoes">Zapatos</button>
+        </div>
+        <div class="collection-tools">
+          <button class="icon-button favorites-filter" id="favorites-filter" aria-pressed="false" aria-label="Ver solo favoritos" data-i18n-aria="onlyFavorites"><svg aria-hidden="true"><use href="#i-heart"/></svg></button>
+          <label class="sr-only" for="product-sort" data-i18n="sort">Ordenar colección</label>
+          <select id="product-sort"><option value="curated" data-i18n="sortCurated">Selección Auréa</option><option value="price-asc" data-i18n="sortLow">Precio: menor a mayor</option><option value="price-desc" data-i18n="sortHigh">Precio: mayor a menor</option><option value="name" data-i18n="sortName">Nombre: A a Z</option></select>
+        </div>
+      </div>
+      <div class="collection-meta"><span id="product-count" role="status" aria-live="polite">20 piezas seleccionadas</span><span data-i18n="collectionNote">UNA SELECCIÓN CON ALMA</span></div>
+      <div class="product-grid" id="product-grid"></div>
+      <div class="collection-bottom reveal"><p data-i18n="collectionHelp">Tu pieza especial está esperándote.</p><a class="text-link" href="#contacto"><span data-i18n="helpChoose">Te ayudamos a encontrarla</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+    </section>
+
+    <section class="atelier-section" id="atelier" data-search-section="navAtelier">
+      <img class="atelier-image" src="https://images.pexels.com/photos/7147465/pexels-photo-7147465.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800" alt="Un vestido en proceso de creación en un atelier de luz natural" data-i18n-alt="atelierAlt" loading="lazy" width="800" height="1200">
+      <div class="atelier-copy reveal">
+        <p class="eyebrow" data-i18n="atelierEyebrow">EL ALMA DE AURÉA</p>
+        <h2 data-i18n-html="atelierTitle">No buscamos<br>la novia perfecta.<br><em>Te buscamos a ti.</em></h2>
+        <p data-i18n="atelierDescription">Creemos en la belleza de lo auténtico. En los tejidos que se sienten, las manos que crean y los vestidos que te dejan ser tú. Nuestro atelier es un lugar para escucharte y dar forma a lo que imaginas.</p>
+        <a class="text-link" href="#experiencia"><span data-i18n="discoverExperience">Descubre la experiencia Auréa</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <p class="signature" data-i18n="signature">Con amor, Auréa.</p>
+      </div>
+    </section>
+
+    <section class="section-shell experience-section" id="experiencia" data-search-section="navExperience">
+      <div class="section-heading reveal"><p class="eyebrow" data-i18n="experienceEyebrow">MUCHO MÁS QUE UN VESTIDO</p><h2 data-i18n-html="experienceTitle">Un camino bonito.<br>De principio a <em>siempre.</em></h2><p data-i18n="experienceDescription">A tu ritmo. A tu manera. Contigo en cada detalle.</p></div>
+      <div class="experience-steps">
+        <div class="experience-step reveal"><span class="step-number">01</span><h3 data-i18n="stepOneTitle">Primero, tú.</h3><p data-i18n="stepOneText">Un encuentro tranquilo para conocernos. Cuéntanos cómo eres y cómo imaginas tu gran día.</p></div>
+        <div class="experience-step reveal"><span class="step-number">02</span><h3 data-i18n="stepTwoTitle">Ese pequeño flechazo.</h3><p data-i18n="stepTwoText">Probamos, combinamos y descubrimos las piezas que te hacen sentir más tú que nunca.</p></div>
+        <div class="experience-step reveal"><span class="step-number">03</span><h3 data-i18n="stepThreeTitle">El último detalle.</h3><p data-i18n="stepThreeText">Te acompañamos en los ajustes y los complementos. Todo cuidado, hasta el momento de decir sí.</p></div>
+      </div>
+      <div class="center reveal"><a class="button button-primary" href="#contacto"><span data-i18n="reserveMoment">Reserva tu momento</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+    </section>
+
+    <section class="contact-section" id="contacto" data-search-section="navContact">
+      <div class="section-shell contact-layout">
+        <div class="contact-intro reveal">
+          <p class="eyebrow" data-i18n="contactEyebrow">TU HISTORIA EMPIEZA AQUÍ</p>
+          <h2 data-i18n-html="contactTitle">Hablemos de<br>tu <em>gran día.</em></h2>
+          <p data-i18n="contactDescription">Una primera cita, una pregunta o una ilusión. Sea lo que sea, nos encantará escucharte.</p>
+          <address class="contact-details"><span class="location" data-i18n="location">València, España</span><a href="mailto:hola@aurea.example">hola@aurea.example</a><a href="tel:+34960000000">+34 960 000 000</a><span class="hours" data-i18n="hours">Lunes a sábado, 10:00 a 19:00. Con cita previa.</span></address>
+        </div>
+        <form id="contact-form" class="form-grid reveal">
+          <div class="field"><label for="contact-name" data-i18n="yourName">Tu nombre *</label><input id="contact-name" name="name" autocomplete="name" required maxlength="90" placeholder="¿Cómo te llamas?" data-i18n-placeholder="namePlaceholder"></div>
+          <div class="field"><label for="contact-email" data-i18n="yourEmail">Tu email *</label><input id="contact-email" name="email" type="email" autocomplete="email" required maxlength="150" placeholder="hola@tucorreo.com" data-i18n-placeholder="emailPlaceholder"></div>
+          <div class="field"><label for="contact-date" data-i18n="weddingDate">Fecha de la boda</label><input id="contact-date" name="date" type="date"></div>
+          <div class="field"><label for="contact-subject" data-i18n="contactSubject">¿En qué podemos ayudarte?</label><select id="contact-subject" name="subject"><option value="appointment" data-i18n="appointment">Quiero una cita</option><option value="product" data-i18n="productQuestion">Tengo una pregunta sobre una pieza</option><option value="other" data-i18n="otherQuestion">Otra consulta</option></select></div>
+          <div class="field field-wide"><label for="contact-message" data-i18n="yourMessage">Cuéntanos un poquito *</label><textarea id="contact-message" name="message" rows="3" required minlength="10" maxlength="2000" placeholder="Tu idea, tu estilo, eso que tienes en mente..." data-i18n-placeholder="messagePlaceholder"></textarea></div>
+          <label class="checkbox-line field-wide"><input name="privacy" type="checkbox" required><span><span data-i18n="privacyAccept">He leído y acepto la </span><button type="button" data-legal="privacy" data-i18n="privacyPolicy">política de privacidad</button>.</span></label>
+          <div class="field-wide"><button class="button button-primary full-width" type="submit"><span data-i18n="prepareMessage">Preparar mi consulta</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></button><p class="form-footnote" data-i18n="contactDemoNote">Demo: podrás descargar tu consulta. No se envía automáticamente.</p></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section-shell faq-section" id="preguntas" data-search-section="faqEyebrow">
+      <div class="faq-heading reveal"><p class="eyebrow" data-i18n="faqEyebrow">LAS PEQUEÑAS DUDAS</p><h2 data-i18n-html="faqTitle">Antes del<br>primer <em>sí.</em></h2></div>
+      <div class="faq-list reveal">
+        <details><summary><span data-i18n="faqOneQ">¿Con cuánta antelación debería venir?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p data-i18n="faqOneA">Lo ideal es entre 6 y 9 meses antes de la boda. Si tu fecha está más cerca, cuéntanoslo: podemos orientarte sobre las piezas de la colección y los plazos de cada diseño.</p></details>
+        <details><summary><span data-i18n="faqTwoQ">¿Puedo reservar online y recoger en el atelier?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p data-i18n="faqTwoA">Sí. Añade tus piezas a la bolsa, elige recogida y selecciona una fecha. También puedes elegir envío a España peninsular. Esta web genera únicamente reservas de demostración; la disponibilidad debe confirmarla el atelier.</p></details>
+        <details><summary><span data-i18n="faqThreeQ">¿Qué opciones de pago tengo?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p data-i18n="faqThreeA">Puedes elegir pagar al recoger, pagar al recibir el envío o consultar el resumen de pago online. La pasarela está pendiente de integración: en esta demostración no se solicita información bancaria ni se realiza ningún cargo.</p></details>
+        <details><summary><span data-i18n="faqFourQ">¿Y si no sé qué talla elegir?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p data-i18n="faqFourA">Cada vestido incluye una guía de medidas orientativa. Si estás entre dos tallas, te recomendamos una cita antes de reservar. Los ajustes a medida y sus plazos se acuerdan personalmente con el atelier.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer" data-search-section="hereToHelp">
+    <div class="footer-top">
+      <div class="footer-brand-column"><a class="brand footer-brand" href="#inicio" aria-label="Auréa, inicio" data-i18n-aria="brandHome"><span class="wordmark">auréa.</span><span class="brand-subtitle">BRIDAL ATELIER</span></a><p class="footer-description" data-i18n="footerDescription">Una forma de entender la belleza.<br>Una forma muy tuya de decir sí.</p></div>
+      <div class="footer-column"><h3 data-i18n="explore">Descubre</h3><a href="#coleccion" data-i18n="navCollection">La colección</a><a href="#atelier" data-i18n="navAtelier">Nuestro atelier</a><a href="#experiencia" data-i18n="navExperience">La experiencia</a><a href="#contacto" data-i18n="bookAppointment">Pide tu cita</a></div>
+      <div class="footer-column"><h3 data-i18n="hereToHelp">Te acompañamos</h3><a href="#preguntas" data-i18n="frequentQuestions">Preguntas frecuentes</a><button data-legal="conditions" data-i18n="purchaseConditions">Condiciones de compra</button><button data-legal="privacy" data-i18n="privacyPolicy">Política de privacidad</button><button data-legal="cookies" data-i18n="cookiePolicy">Política de cookies</button><button data-legal="requirements" data-i18n="requirements">Requisitos</button><button data-legal="credits" data-i18n="credits">Créditos y referencias</button></div>
+      <div class="footer-column footer-contact"><h3 data-i18n="nearYou">Estamos cerca</h3><p data-i18n="location">València, España</p><a href="mailto:hola@aurea.example">hola@aurea.example</a><a href="tel:+34960000000">+34 960 000 000</a><p data-i18n="appointmentOnly">Visítanos con cita previa.</p></div>
+    </div>
+    <div class="footer-bottom"><span>© <span id="copyright-year">2026</span> Auréa Bridal Atelier. <span data-i18n="allRights">Todos los derechos reservados.</span></span><span data-i18n="demoFooter">Boutique de demostración. Fotografías y datos ilustrativos.</span></div>
+  </footer>
+
+  <button class="icon-button back-top" id="back-top" aria-label="Volver al inicio" data-i18n-aria="backTop"><svg aria-hidden="true"><use href="#i-up"/></svg></button>
+
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="modal-shell">
+      <button class="icon-button modal-close" data-close aria-label="Cerrar" data-i18n-aria="close"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+      <p class="eyebrow modal-eyebrow">AURÉA</p><h2 class="modal-title" id="search-title" data-i18n="searchTitle">¿Qué tienes en mente?</h2>
+      <div class="search-input-wrap"><svg aria-hidden="true"><use href="#i-search"/></svg><label class="sr-only" for="search-input" data-i18n="search">Buscar en la página</label><input id="search-input" type="search" autocomplete="off" maxlength="80" placeholder="Un vestido, un velo, una pregunta..." data-i18n-placeholder="searchPlaceholder" autofocus><button class="search-clear" id="search-clear" data-i18n="clear">Limpiar</button></div>
+      <p class="search-status" id="search-status" role="status" aria-live="polite"></p><div class="search-results" id="search-results"></div>
+    </div>
+  </dialog>
+
+  <dialog class="product-dialog" id="product-dialog" aria-labelledby="detail-title"><div id="product-detail"></div></dialog>
+
+  <dialog class="cart-dialog" id="cart-dialog" aria-labelledby="cart-title">
+    <div class="cart-shell">
+      <div class="cart-header"><p class="eyebrow modal-eyebrow" data-i18n="littleCloser">UN POCO MÁS CERCA DE TU SÍ</p><h2 class="modal-title" id="cart-title" data-i18n="yourSelection">Tu selección</h2><button class="icon-button modal-close" data-close aria-label="Cerrar" data-i18n-aria="close"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-footer" id="cart-footer" hidden><div class="cart-subtotal"><span data-i18n="subtotal">Subtotal</span><strong id="cart-subtotal"></strong></div><p data-i18n="cartShippingNote">IVA incluido. Envío y recogida disponibles al continuar.</p><button class="button button-primary full-width" id="checkout-button"><span data-i18n="continueReservation">Continuar con mi reserva</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></button><button class="continue-shopping" data-close data-i18n="continueExploring">Seguir descubriendo</button></div>
+    </div>
+  </dialog>
+
+  <dialog class="checkout-dialog" id="checkout-dialog" aria-labelledby="checkout-title">
+    <div class="modal-shell checkout-shell">
+      <button class="icon-button modal-close" data-close aria-label="Cerrar" data-i18n-aria="close"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+      <p class="eyebrow modal-eyebrow" data-i18n="yourNextChapter">EL SIGUIENTE CAPÍTULO</p><h2 class="modal-title" id="checkout-title" data-i18n="checkoutTitle">A un paso de hacerlo tuyo.</h2><p class="modal-description" data-i18n="checkoutIntro">Elige cómo recibir tu selección y cuándo prefieres pagar.</p>
+      <div class="checkout-layout">
+        <form id="checkout-form" class="checkout-form">
+          <div class="form-grid">
+            <div class="field field-wide"><label for="order-name" data-i18n="fullName">Nombre y apellidos *</label><input id="order-name" name="name" autocomplete="name" required maxlength="100"></div>
+            <div class="field"><label for="order-email" data-i18n="email">Email *</label><input id="order-email" name="email" type="email" autocomplete="email" required maxlength="150"></div>
+            <div class="field"><label for="order-phone" data-i18n="phone">Teléfono *</label><input id="order-phone" name="phone" type="tel" autocomplete="tel" required minlength="7" maxlength="20"></div>
+          </div>
+          <fieldset><legend data-i18n="deliveryTitle">Cómo lo recibes</legend><div class="choice-grid"><label class="choice"><input type="radio" name="fulfillment" value="pickup" checked><span><span data-i18n="pickup">Recogida en el atelier</span><small data-i18n="pickupFree">València · Sin coste</small></span></label><label class="choice"><input type="radio" name="fulfillment" value="shipping"><span><span data-i18n="shipping">Envío a domicilio</span><small data-i18n="shippingRegion">España peninsular</small></span></label></div></fieldset>
+          <div id="pickup-fields" class="form-grid fulfillment-fields"><div class="field"><label for="pickup-date" data-i18n="pickupDate">Fecha de recogida *</label><input id="pickup-date" name="pickupDate" type="date" required></div><div class="field"><label for="pickup-slot" data-i18n="pickupSlot">Franja horaria *</label><select id="pickup-slot" name="pickupSlot" required><option value="10:00-12:00">10:00 - 12:00</option><option value="12:00-14:00">12:00 - 14:00</option><option value="16:00-18:00">16:00 - 18:00</option><option value="18:00-19:00">18:00 - 19:00</option></select></div><p class="small muted field-wide" data-i18n="pickupDateNote">De lunes a sábado, con al menos 48 h de preparación. Sujeto a confirmación.</p></div>
+          <div id="shipping-fields" class="form-grid fulfillment-fields" hidden><div class="field field-wide"><label for="order-address" data-i18n="address">Dirección completa *</label><input id="order-address" name="address" autocomplete="street-address" maxlength="180" disabled></div><div class="field"><label for="order-postal" data-i18n="postalCode">Código postal *</label><input id="order-postal" name="postal" autocomplete="postal-code" inputmode="numeric" maxlength="5" disabled></div><div class="field"><label for="order-city" data-i18n="city">Localidad *</label><input id="order-city" name="city" autocomplete="address-level2" maxlength="80" disabled></div><p class="small muted field-wide" data-i18n="shippingRateNote">Envío: 9,90 €. Gratis desde 250 €. Plazos a confirmar según la pieza.</p></div>
+          <fieldset><legend data-i18n="paymentTitle">Cómo prefieres pagar</legend><div class="payment-choices"><label class="choice"><input type="radio" name="payment" id="payment-later" value="pickup" checked><span><span id="payment-later-label" data-i18n="payPickup">Pagar al recoger</span><small data-i18n="noAdvance">Sin pago anticipado</small></span></label><label class="choice"><input type="radio" name="payment" value="online"><span><span data-i18n="payOnline">Pasarela de pago online</span><small data-i18n="gatewayPending">Ver resumen. Pasarela pendiente de integración.</small></span></label></div></fieldset>
+          <label class="checkbox-line checkout-consent"><input type="checkbox" name="terms" required><span data-i18n="checkoutAccept">Acepto las condiciones y entiendo que se trata de una reserva de demostración.</span></label>
+          <details class="checkout-conditions"><summary data-i18n="viewConditions">Leer las condiciones</summary><p data-i18n="demoConditions">Los productos, precios y disponibilidad son ilustrativos. Esta web no tramita pedidos reales ni realiza cobros. La reserva y los plazos deberán confirmarse con el atelier. Tus datos no se envían a ningún servidor.</p></details>
+          <button class="button button-primary full-width" type="submit"><span data-i18n="reviewReservation">Revisar mi reserva</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </form>
+        <aside class="order-summary" id="checkout-summary" aria-label="Resumen de la selección" data-i18n-aria="selectionSummary"></aside>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="review-dialog" aria-labelledby="review-title"><div class="modal-shell" id="review-content"></div></dialog>
+  <dialog id="result-dialog" aria-labelledby="result-title"><div class="modal-shell" id="result-content"></div></dialog>
+
+  <dialog id="account-dialog" aria-labelledby="account-title">
+    <div class="modal-shell">
+      <button class="icon-button modal-close" data-close aria-label="Cerrar" data-i18n-aria="close"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+      <p class="eyebrow modal-eyebrow" data-i18n="accountEyebrow">MI AURÉA</p><h2 class="modal-title" id="account-title" data-i18n="accountTitle">Un espacio para tu historia.</h2><p class="modal-description" data-i18n="accountDescription">Acceso preparado para conectar tu sistema de clientes. Por ahora puedes guardar favoritos y preparar tu reserva sin registrarte.</p>
+      <form class="account-form" id="account-form"><div class="field"><label for="account-email" data-i18n="email">Email *</label><input id="account-email" type="email" autocomplete="username" required maxlength="150"></div><div class="field"><label for="account-password" data-i18n="password">Contraseña *</label><input id="account-password" type="password" autocomplete="current-password" required minlength="6" maxlength="128"></div><button class="button button-primary" type="submit" data-i18n="signIn">Acceder</button></form>
+      <p class="account-status" id="account-status" role="status" hidden></p><button class="text-link" id="account-favorites" style="margin-top:20px" data-i18n="viewFavorites">Ver mis favoritos</button>
+    </div>
+  </dialog>
+
+  <dialog id="info-dialog" aria-labelledby="info-title"><div class="modal-shell"><button class="icon-button modal-close" data-close aria-label="Cerrar" data-i18n-aria="close"><svg aria-hidden="true"><use href="#i-close"/></svg></button><p class="eyebrow modal-eyebrow">AURÉA BRIDAL ATELIER</p><h2 class="modal-title" id="info-title"></h2><div class="info-content" id="info-content"></div></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite" popover="manual"><svg aria-hidden="true"><use href="#i-check"/></svg><span id="toast-message"></span></div>
+  <noscript><p style="padding:25px;text-align:center">Activa JavaScript para explorar las 20 piezas, buscar y utilizar la bolsa de compra.</p></noscript>
+
+  <script>
+    'use strict';
+
+    // All translations are editorial, not machine-translated at runtime.
+    const COPY = {
+      skip: ['Saltar al contenido', 'Skip to content', 'Anar al contingut'],
+      topMessage: ['Diseño nupcial, esencia mediterránea', 'Bridal design, Mediterranean soul', 'Disseny nupcial, essència mediterrània'],
+      mainNav: ['Navegación principal', 'Main navigation', 'Navegació principal'],
+      mobileNav: ['Navegación móvil', 'Mobile navigation', 'Navegació mòbil'],
+      brandHome: ['Auréa, inicio', 'Auréa, home', 'Auréa, inici'],
+      navHome: ['Inicio', 'Home', 'Inici'],
+      navCollection: ['La colección', 'The collection', 'La col·lecció'],
+      navAtelier: ['Nuestro atelier', 'Our atelier', 'El nostre atelier'],
+      navExperience: ['La experiencia', 'The experience', "L'experiència"],
+      navContact: ['Contacto', 'Contact', 'Contacte'],
+      openMenu: ['Abrir menú', 'Open menu', 'Obrir menú'],
+      closeMenu: ['Cerrar menú', 'Close menu', 'Tancar menú'],
+      search: ['Buscar en la página', 'Search this page', 'Buscar en la pàgina'],
+      searchShort: ['Buscar', 'Search', 'Buscar'],
+      myAccount: ['Mi cuenta', 'My account', 'El meu compte'],
+      darkMode: ['Activar modo oscuro', 'Switch to dark mode', 'Activar el mode fosc'],
+      lightMode: ['Activar modo claro', 'Switch to light mode', 'Activar el mode clar'],
+      selectLanguage: ['Seleccionar idioma', 'Choose a language', 'Seleccionar idioma'],
+      language: ['Idioma', 'Language', 'Idioma'],
+      openBag: ['Abrir bolsa, {count} piezas', 'Open bag, {count} pieces', 'Obrir bossa, {count} peces'],
+      heroAlt: ['Novia con un vestido blanco junto a una villa bañada por la luz del sol', 'A bride in a white dress beside a sunlit villa', 'Nóvia amb un vestit blanc al costat d’una vil·la banyada pel sol'],
+      heroEyebrow: ['EL ARTE DE SER TÚ', 'THE ART OF BEING YOU', "L’ART DE SER TU"],
+      heroTitle: ['Tu esencia.<br><em>Para siempre.</em>', 'Your essence.<br><em>Forever.</em>', 'La teua essència.<br><em>Per sempre.</em>'],
+      heroDescription: ['Vestidos que cuentan tu historia. Detalles que se quedan contigo. Descubre una nueva forma de decir sí.', 'Dresses that tell your story. Details that stay with you. Discover a new way to say I do.', 'Vestits que conten la teua història. Detalls que es queden amb tu. Descobrix una nova manera de dir sí.'],
+      discoverCollection: ['Descubrir colección', 'Discover the collection', 'Descobrir la col·lecció'],
+      bookAppointment: ['Pide tu cita', 'Book a visit', 'Demana la teua cita'],
+      collectionEyebrow: ['LA COLECCIÓN 2026', 'THE 2026 COLLECTION', 'LA COL·LECCIÓ 2026'],
+      collectionTitle: ['Piezas para un sí <em>inolvidable.</em>', 'Pieces for an <em>unforgettable</em> yes.', 'Peces per a un sí <em>inoblidable.</em>'],
+      collectionDescription: ['Vestidos, velos y pequeños detalles que hablan de ti.', 'Dresses, veils and little details that feel like you.', 'Vestits, vels i xicotets detalls que parlen de tu.'],
+      filterCategory: ['Filtrar por tipo de producto', 'Filter by product category', 'Filtrar per tipus de producte'],
+      all: ['Todas las piezas', 'All pieces', 'Totes les peces'],
+      dresses: ['Vestidos', 'Dresses', 'Vestits'],
+      veils: ['Velos', 'Veils', 'Vels'],
+      accessories: ['Accesorios', 'Accessories', 'Accessoris'],
+      shoes: ['Zapatos', 'Shoes', 'Sabates'],
+      dressSingular: ['Vestido de novia', 'Wedding dress', 'Vestit de nóvia'],
+      veilSingular: ['Velo de novia', 'Bridal veil', 'Vel de nóvia'],
+      accessorySingular: ['Accesorio de novia', 'Bridal accessory', 'Accessori de nóvia'],
+      shoeSingular: ['Zapatos de novia', 'Bridal shoes', 'Sabates de nóvia'],
+      onlyFavorites: ['Ver solo favoritos', 'Show favorites only', 'Veure només favorits'],
+      sort: ['Ordenar colección', 'Sort the collection', 'Ordenar la col·lecció'],
+      sortCurated: ['Selección Auréa', 'The Auréa edit', 'Selecció Auréa'],
+      sortLow: ['Precio: menor a mayor', 'Price: low to high', 'Preu: de menor a major'],
+      sortHigh: ['Precio: mayor a menor', 'Price: high to low', 'Preu: de major a menor'],
+      sortName: ['Nombre: A a Z', 'Name: A to Z', 'Nom: A a Z'],
+      pieceCount: ['{count} piezas seleccionadas', '{count} curated pieces', '{count} peces seleccionades'],
+      collectionNote: ['UNA SELECCIÓN CON ALMA', 'CURATED WITH FEELING', 'UNA SELECCIÓ AMB ÀNIMA'],
+      collectionHelp: ['Tu pieza especial está esperándote.', 'Your special piece is waiting for you.', 'La teua peça especial t’està esperant.'],
+      helpChoose: ['Te ayudamos a encontrarla', 'Let us help you find it', 'T’ajudem a trobar-la'],
+      newPiece: ['Nuevo', 'New', 'Nou'],
+      viewPiece: ['Descubrir pieza', 'Discover this piece', 'Descobrir la peça'],
+      viewProduct: ['Ver {name} y elegir talla', 'View {name} and choose a size', 'Veure {name} i triar talla'],
+      saveFavorite: ['Guardar {name} en favoritos', 'Save {name} to favorites', 'Guardar {name} en favorits'],
+      removeFavorite: ['Quitar {name} de favoritos', 'Remove {name} from favorites', 'Llevar {name} de favorits'],
+      favoriteAdded: ['Una pieza más en tu lista de ilusiones.', 'Another piece for your wish list.', 'Una peça més en la teua llista d’il·lusions.'],
+      favoriteRemoved: ['Pieza eliminada de favoritos.', 'Piece removed from favorites.', 'Peça llevada de favorits.'],
+      emptyFavoritesTitle: ['Tu lista está por escribir.', 'Your wish list starts here.', 'La teua llista està per escriure.'],
+      emptyFavoritesText: ['Pulsa el corazón de las piezas que te enamoren. Las guardaremos en este dispositivo.', 'Tap the heart on the pieces you love. We will save them on this device.', 'Prem el cor de les peces que t’enamoren. Les guardarem en este dispositiu.'],
+      emptyCategory: ['No hay piezas con estos filtros.', 'No pieces match these filters.', 'No hi ha peces amb estos filtres.'],
+      showAll: ['Ver toda la colección', 'Explore the full collection', 'Veure tota la col·lecció'],
+      atelierAlt: ['Un vestido en proceso de creación en un atelier de luz natural', 'A dress being created in a sunlit atelier', 'Un vestit en procés de creació en un atelier amb llum natural'],
+      atelierEyebrow: ['EL ALMA DE AURÉA', 'THE SOUL OF AURÉA', "L’ÀNIMA D’AURÉA"],
+      atelierTitle: ['No buscamos<br>la novia perfecta.<br><em>Te buscamos a ti.</em>', 'Not the<br>perfect bride.<br><em>Simply, you.</em>', 'No busquem<br>la nóvia perfecta.<br><em>Et busquem a tu.</em>'],
+      atelierDescription: ['Creemos en la belleza de lo auténtico. En los tejidos que se sienten, las manos que crean y los vestidos que te dejan ser tú. Nuestro atelier es un lugar para escucharte y dar forma a lo que imaginas.', 'We believe in the beauty of authenticity. In fabrics you can feel, hands that create and dresses that let you be yourself. Our atelier is a space to listen and bring your vision to life.', 'Creiem en la bellesa de les coses autèntiques. En els teixits que se senten, les mans que creen i els vestits que et deixen ser tu. El nostre atelier és un lloc per a escoltar-te i donar forma al que imagines.'],
+      discoverExperience: ['Descubre la experiencia Auréa', 'Discover the Auréa experience', 'Descobrix l’experiència Auréa'],
+      signature: ['Con amor, Auréa.', 'With love, Auréa.', 'Amb amor, Auréa.'],
+      experienceEyebrow: ['MUCHO MÁS QUE UN VESTIDO', 'SO MUCH MORE THAN A DRESS', 'MOLT MÉS QUE UN VESTIT'],
+      experienceTitle: ['Un camino bonito.<br>De principio a <em>siempre.</em>', 'A beautiful journey.<br>From the start to <em>forever.</em>', 'Un camí bonic.<br>Del principi a <em>sempre.</em>'],
+      experienceDescription: ['A tu ritmo. A tu manera. Contigo en cada detalle.', 'At your pace. In your own way. With you in every detail.', 'Al teu ritme. A la teua manera. Amb tu en cada detall.'],
+      stepOneTitle: ['Primero, tú.', 'First, you.', 'Primer, tu.'],
+      stepOneText: ['Un encuentro tranquilo para conocernos. Cuéntanos cómo eres y cómo imaginas tu gran día.', 'A relaxed first meeting. Tell us about yourself and how you imagine your big day.', 'Una trobada tranquil·la per a conéixer-nos. Conta’ns com eres i com imagines el teu gran dia.'],
+      stepTwoTitle: ['Ese pequeño flechazo.', 'That little spark.', 'Eixe xicotet enamorament.'],
+      stepTwoText: ['Probamos, combinamos y descubrimos las piezas que te hacen sentir más tú que nunca.', 'We try, combine and discover the pieces that make you feel more yourself than ever.', 'Provem, combinem i descobrim les peces que et fan sentir més tu que mai.'],
+      stepThreeTitle: ['El último detalle.', 'The finishing touch.', 'L’últim detall.'],
+      stepThreeText: ['Te acompañamos en los ajustes y los complementos. Todo cuidado, hasta el momento de decir sí.', 'We help with fittings and accessories. Every detail considered, right up to your I do.', 'T’acompanyem en els ajustos i els complements. Tot cuidat, fins al moment de dir sí.'],
+      reserveMoment: ['Reserva tu momento', 'Make time for your moment', 'Reserva el teu moment'],
+      contactEyebrow: ['TU HISTORIA EMPIEZA AQUÍ', 'YOUR STORY STARTS HERE', 'LA TEUA HISTÒRIA COMENÇA ACÍ'],
+      contactTitle: ['Hablemos de<br>tu <em>gran día.</em>', 'Let’s talk about<br>your <em>big day.</em>', 'Parlem del<br>teu <em>gran dia.</em>'],
+      contactDescription: ['Una primera cita, una pregunta o una ilusión. Sea lo que sea, nos encantará escucharte.', 'A first appointment, a question or a dream. Whatever it is, we would love to hear from you.', 'Una primera cita, una pregunta o una il·lusió. Siga el que siga, ens encantarà escoltar-te.'],
+      hours: ['Lunes a sábado, 10:00 a 19:00. Con cita previa.', 'Monday to Saturday, 10 am to 7 pm. By appointment.', 'De dilluns a dissabte, de 10:00 a 19:00. Amb cita prèvia.'],
+      yourName: ['Tu nombre *', 'Your name *', 'El teu nom *'],
+      yourEmail: ['Tu email *', 'Your email *', 'El teu correu *'],
+      namePlaceholder: ['¿Cómo te llamas?', 'What is your name?', 'Com et dius?'],
+      emailPlaceholder: ['hola@tucorreo.com', 'hello@youremail.com', 'hola@elteucorreu.com'],
+      weddingDate: ['Fecha de la boda', 'Wedding date', 'Data de la boda'],
+      contactSubject: ['¿En qué podemos ayudarte?', 'How can we help?', 'En què podem ajudar-te?'],
+      appointment: ['Quiero una cita', 'I would like an appointment', 'Vull una cita'],
+      productQuestion: ['Tengo una pregunta sobre una pieza', 'I have a question about a piece', 'Tinc una pregunta sobre una peça'],
+      otherQuestion: ['Otra consulta', 'Something else', 'Una altra consulta'],
+      yourMessage: ['Cuéntanos un poquito *', 'Tell us a little more *', 'Conta’ns un poquet *'],
+      messageTooShort: ['Escribe un mensaje de al menos 10 caracteres.', 'Please write a message with at least 10 characters.', 'Escriu un missatge d’almenys 10 caràcters.'],
+      messagePlaceholder: ['Tu idea, tu estilo, eso que tienes en mente...', 'Your idea, your style, what you have in mind...', 'La teua idea, el teu estil, això que tens en ment...'],
+      privacyAccept: ['He leído y acepto la ', 'I have read and accept the ', 'He llegit i accepte la '],
+      privacyPolicy: ['Política de privacidad', 'Privacy policy', 'Política de privacitat'],
+      prepareMessage: ['Preparar mi consulta', 'Prepare my enquiry', 'Preparar la meua consulta'],
+      contactDemoNote: ['Demo: podrás descargar tu consulta. No se envía automáticamente.', 'Demo: you can download your enquiry. It is not sent automatically.', 'Demo: podràs descarregar la teua consulta. No s’envia automàticament.'],
+      faqEyebrow: ['LAS PEQUEÑAS DUDAS', 'THE LITTLE QUESTIONS', 'ELS XICOTETS DUBTES'],
+      faqTitle: ['Antes del<br>primer <em>sí.</em>', 'Before your<br>first <em>yes.</em>', 'Abans del<br>primer <em>sí.</em>'],
+      faqOneQ: ['¿Con cuánta antelación debería venir?', 'How far ahead should I visit?', 'Amb quanta antelació hauria de vindre?'],
+      faqOneA: ['Lo ideal es entre 6 y 9 meses antes de la boda. Si tu fecha está más cerca, cuéntanoslo: podemos orientarte sobre las piezas de la colección y los plazos de cada diseño.', 'Ideally, 6 to 9 months before your wedding. If your date is closer, let us know: we can guide you through the collection and the lead time for each design.', 'L’ideal és entre 6 i 9 mesos abans de la boda. Si la teua data està més prop, conta’ns-ho: podem orientar-te sobre les peces de la col·lecció i els terminis de cada disseny.'],
+      faqTwoQ: ['¿Puedo reservar online y recoger en el atelier?', 'Can I reserve online and collect at the atelier?', 'Puc reservar en línia i arreplegar a l’atelier?'],
+      faqTwoA: ['Sí. Añade tus piezas a la bolsa, elige recogida y selecciona una fecha. También puedes elegir envío a España peninsular. Esta web genera únicamente reservas de demostración; la disponibilidad debe confirmarla el atelier.', 'Yes. Add your pieces to the bag, choose collection and select a date. Delivery within mainland Spain is also available. This website only creates demo reservations; availability must be confirmed by the atelier.', 'Sí. Afig les peces a la bossa, tria arreplegada i selecciona una data. També pots triar enviament a Espanya peninsular. Esta web genera únicament reserves de demostració; la disponibilitat ha de confirmar-la l’atelier.'],
+      faqThreeQ: ['¿Qué opciones de pago tengo?', 'What are my payment options?', 'Quines opcions de pagament tinc?'],
+      faqThreeA: ['Puedes elegir pagar al recoger, pagar al recibir el envío o consultar el resumen de pago online. La pasarela está pendiente de integración: en esta demostración no se solicita información bancaria ni se realiza ningún cargo.', 'Choose payment on collection, cash on delivery or review the online payment summary. The gateway is awaiting integration: no bank details are requested and no charges are made in this demo.', 'Pots triar pagar en arreplegar, pagar en rebre l’enviament o consultar el resum del pagament en línia. La passarel·la està pendent d’integració: no es demanen dades bancàries ni es fa cap càrrec.'],
+      faqFourQ: ['¿Y si no sé qué talla elegir?', 'What if I am unsure about my size?', 'I si no sé quina talla triar?'],
+      faqFourA: ['Cada vestido incluye una guía de medidas orientativa. Si estás entre dos tallas, te recomendamos una cita antes de reservar. Los ajustes a medida y sus plazos se acuerdan personalmente con el atelier.', 'Each dress includes an indicative size guide. If you are between sizes, we recommend a visit before reserving. Bespoke alterations and lead times are agreed directly with the atelier.', 'Cada vestit inclou una guia de mesures orientativa. Si estàs entre dos talles, et recomanem una cita abans de reservar. Els ajustos a mida i els terminis s’acorden personalment amb l’atelier.'],
+      footerDescription: ['Una forma de entender la belleza. Una forma muy tuya de decir sí.', 'A way of seeing beauty. A very personal way to say I do.', 'Una manera d’entendre la bellesa. Una manera molt teua de dir sí.'],
+      explore: ['Descubre', 'Explore', 'Descobrix'],
+      hereToHelp: ['Te acompañamos', 'Here for you', 'T’acompanyem'],
+      frequentQuestions: ['Preguntas frecuentes', 'Frequently asked questions', 'Preguntes freqüents'],
+      purchaseConditions: ['Condiciones de compra', 'Purchase conditions', 'Condicions de compra'],
+      cookiePolicy: ['Política de cookies', 'Cookie policy', 'Política de galetes'],
+      requirements: ['Requisitos', 'Requirements', 'Requisits'],
+      credits: ['Créditos y referencias', 'Credits and references', 'Crèdits i referències'],
+      nearYou: ['Estamos cerca', 'Close to you', 'Estem prop'],
+      location: ['València, España', 'València, Spain', 'València, Espanya'],
+      appointmentOnly: ['Visítanos con cita previa.', 'Visit us by appointment.', 'Visita’ns amb cita prèvia.'],
+      allRights: ['Todos los derechos reservados.', 'All rights reserved.', 'Tots els drets reservats.'],
+      demoFooter: ['Boutique de demostración. Fotografías y datos ilustrativos.', 'Demo boutique. Illustrative imagery and details.', 'Boutique de demostració. Fotografies i dades il·lustratives.'],
+      backTop: ['Volver al inicio', 'Back to top', 'Tornar a l’inici'],
+      close: ['Cerrar', 'Close', 'Tancar'],
+      searchTitle: ['¿Qué tienes en mente?', 'What do you have in mind?', 'Què tens en ment?'],
+      searchPlaceholder: ['Un vestido, un velo, una pregunta...', 'A dress, a veil, a question...', 'Un vestit, un vel, una pregunta...'],
+      clear: ['Limpiar', 'Clear', 'Netejar'],
+      searchHint: ['Escribe al menos 2 caracteres. Busca piezas o información de la página.', 'Type at least 2 characters. Search pieces or information on this page.', 'Escriu almenys 2 caràcters. Busca peces o informació de la pàgina.'],
+      searchResults: ['{count} resultados. Las coincidencias se resaltan en la página.', '{count} results. Matches are highlighted on the page.', '{count} resultats. Les coincidències es ressalten en la pàgina.'],
+      searchNone: ['No encontramos coincidencias. Prueba con vestido, velo, envío o cita.', 'No matches found. Try dress, veil, delivery or appointment.', 'No trobem coincidències. Prova amb vestit, vel, enviament o cita.'],
+      sectionResult: ['Información de la página', 'Page information', 'Informació de la pàgina'],
+      size: ['Talla', 'Size', 'Talla'],
+      oneSize: ['Única', 'One size', 'Única'],
+      chooseSize: ['Elige tu talla', 'Choose your size', 'Tria la teua talla'],
+      chooseSizeError: ['Selecciona una talla para añadir esta pieza.', 'Please choose a size before adding this piece.', 'Selecciona una talla per a afegir esta peça.'],
+      quantity: ['Cantidad', 'Quantity', 'Quantitat'],
+      decrease: ['Reducir cantidad', 'Decrease quantity', 'Reduir quantitat'],
+      increase: ['Aumentar cantidad', 'Increase quantity', 'Augmentar quantitat'],
+      addToBag: ['Añadir a mi bolsa', 'Add to my bag', 'Afegir a la meua bossa'],
+      addedToBag: ['{name} ya está en tu bolsa.', '{name} is now in your bag.', '{name} ja està en la teua bossa.'],
+      stockLimit: ['Máximo 5 unidades por pieza y talla en esta demostración.', 'A maximum of 5 of each piece and size is available in this demo.', 'Màxim de 5 unitats per peça i talla en esta demostració.'],
+      addFavorite: ['Guardar entre mis favoritos', 'Save to my favorites', 'Guardar entre els meus favorits'],
+      savedFavorite: ['Guardado en mis favoritos', 'Saved to my favorites', 'Guardat en els meus favorits'],
+      pieceIllustrative: ['Fotografía y composición ilustrativas. Confirma los detalles con el atelier.', 'Illustrative photograph and composition. Confirm details with the atelier.', 'Fotografia i composició il·lustratives. Confirma els detalls amb l’atelier.'],
+      sizeGuide: ['Guía de tallas', 'Size guide', 'Guia de talles'],
+      chest: ['Pecho (cm)', 'Bust (cm)', 'Pit (cm)'],
+      waist: ['Cintura (cm)', 'Waist (cm)', 'Cintura (cm)'],
+      hip: ['Cadera (cm)', 'Hips (cm)', 'Maluc (cm)'],
+      sizeGuideNote: ['Medidas orientativas. Recomendamos confirmar tu talla en una cita.', 'Indicative measurements. We recommend confirming your size at a fitting.', 'Mesures orientatives. Recomanem confirmar la talla en una cita.'],
+      shoeGuideNote: ['Tallas europeas 36 a 41. Si estás entre dos tallas, consulta con el atelier antes de reservar.', 'European sizes 36 to 41. If you are between sizes, ask the atelier before reserving.', 'Talles europees de la 36 a la 41. Si estàs entre dos talles, consulta l’atelier abans de reservar.'],
+      accessoryGuideNote: ['Pieza de talla única. Consulta las medidas concretas y posibles ajustes con el atelier.', 'One-size piece. Ask the atelier about exact measurements and possible adjustments.', 'Peça de talla única. Consulta les mesures concretes i els possibles ajustos amb l’atelier.'],
+      deliveryCare: ['Entrega y cuidados', 'Delivery and care', 'Entrega i cures'],
+      deliveryCareText: ['Recogida gratuita en el atelier. Envío peninsular de 9,90 €, gratuito desde 250 €. Los plazos se confirman según cada pieza. Conserva el diseño protegido de la luz y consulta su limpieza profesional.', 'Free atelier collection. Mainland Spain delivery is €9.90, free over €250. Lead times are confirmed for each piece. Store away from direct light and seek professional cleaning advice.', 'Arreplegada gratuïta a l’atelier. Enviament peninsular de 9,90 €, gratuït des de 250 €. Els terminis es confirmen segons cada peça. Conserva el disseny protegit de la llum i consulta la neteja professional.'],
+      dressDescription: ['Una silueta pensada para acompañarte, no para disfrazarte. Líneas delicadas, movimiento natural y una elegancia que se siente tan tuya como tu historia.', 'A silhouette made to feel like you. Delicate lines, natural movement and an elegance as personal as your story.', 'Una silueta pensada per a acompanyar-te. Línies delicades, moviment natural i una elegància tan teua com la teua història.'],
+      veilDescription: ['Ligero, delicado y lleno de intención. El detalle que envuelve tu look y transforma un instante en un recuerdo para siempre.', 'Light, delicate and full of meaning. The finishing touch that frames your look and turns a moment into a lasting memory.', 'Lleuger, delicat i ple d’intenció. El detall que envolta el teu estil i transforma un instant en un record per sempre.'],
+      accessoryDescription: ['Un pequeño gesto de belleza para completar tu historia. Una pieza versátil y especial, pensada para acompañarte mucho después del gran día.', 'A small gesture of beauty to complete your story. A versatile, special piece to treasure long after the big day.', 'Un xicotet gest de bellesa per a completar la teua història. Una peça versàtil i especial per a acompanyar-te més enllà del gran dia.'],
+      shoeDescription: ['Para cada paso hacia tu sí. Una propuesta de líneas elegantes y tonos suaves que completa tu look sin dejar de lado la comodidad.', 'For every step towards I do. Elegant lines and soft tones to complete your look with comfort in mind.', 'Per a cada pas cap al teu sí. Línies elegants i tons suaus que completen el teu estil sense deixar de costat la comoditat.'],
+      littleCloser: ['UN POCO MÁS CERCA DE TU SÍ', 'A LITTLE CLOSER TO I DO', 'UN POC MÉS PROP DEL TEU SÍ'],
+      yourSelection: ['Tu selección', 'Your selection', 'La teua selecció'],
+      emptyBagTitle: ['Lo bonito está por llegar.', 'Something beautiful awaits.', 'Les coses boniques estan per vindre.'],
+      emptyBagText: ['Tu bolsa aún está vacía. Encuentra esas piezas que cuentan tu historia.', 'Your bag is still empty. Find the pieces that tell your story.', 'La teua bossa encara està buida. Troba eixes peces que conten la teua història.'],
+      remove: ['Eliminar', 'Remove', 'Eliminar'],
+      removeNamed: ['Eliminar {name} de la bolsa', 'Remove {name} from the bag', 'Eliminar {name} de la bossa'],
+      pieceRemoved: ['Pieza eliminada de la bolsa.', 'Piece removed from your bag.', 'Peça eliminada de la bossa.'],
+      emptyBag: ['Vaciar bolsa', 'Empty bag', 'Buidar la bossa'],
+      confirmEmpty: ['¿Quieres eliminar todas las piezas de tu bolsa?', 'Remove all pieces from your bag?', 'Vols eliminar totes les peces de la bossa?'],
+      subtotal: ['Subtotal', 'Subtotal', 'Subtotal'],
+      cartShippingNote: ['IVA incluido. Envío y recogida disponibles al continuar.', 'VAT included. Choose delivery or collection at the next step.', 'IVA inclòs. Enviament i arreplegada disponibles en continuar.'],
+      continueReservation: ['Continuar con mi reserva', 'Continue my reservation', 'Continuar amb la meua reserva'],
+      continueExploring: ['Seguir descubriendo', 'Keep exploring', 'Continuar descobrint'],
+      yourNextChapter: ['EL SIGUIENTE CAPÍTULO', 'THE NEXT CHAPTER', 'EL CAPÍTOL SEGÜENT'],
+      checkoutTitle: ['A un paso de hacerlo tuyo.', 'One step closer to yours.', 'A un pas de fer-ho teu.'],
+      checkoutIntro: ['Elige cómo recibir tu selección y cuándo prefieres pagar.', 'Choose how to receive your selection and when to pay.', 'Tria com rebre la teua selecció i quan preferixes pagar.'],
+      fullName: ['Nombre y apellidos *', 'Full name *', 'Nom i cognoms *'],
+      email: ['Email *', 'Email *', 'Correu electrònic *'],
+      phone: ['Teléfono *', 'Phone *', 'Telèfon *'],
+      deliveryTitle: ['Cómo lo recibes', 'How you receive it', 'Com ho reps'],
+      pickup: ['Recogida en el atelier', 'Atelier collection', 'Arreplegada a l’atelier'],
+      pickupFree: ['València · Sin coste', 'València · Free', 'València · Sense cost'],
+      shipping: ['Envío a domicilio', 'Home delivery', 'Enviament a domicili'],
+      shippingRegion: ['España peninsular', 'Mainland Spain', 'Espanya peninsular'],
+      pickupDate: ['Fecha de recogida *', 'Collection date *', 'Data d’arreplegada *'],
+      pickupSlot: ['Franja horaria *', 'Time slot *', 'Franja horària *'],
+      pickupDateNote: ['De lunes a sábado, con al menos 48 h de preparación. Sujeto a confirmación.', 'Monday to Saturday, with at least 48 hours preparation. Subject to confirmation.', 'De dilluns a dissabte, amb almenys 48 h de preparació. Subjecte a confirmació.'],
+      address: ['Dirección completa *', 'Full address *', 'Adreça completa *'],
+      postalCode: ['Código postal *', 'Postcode *', 'Codi postal *'],
+      city: ['Localidad *', 'Town / city *', 'Localitat *'],
+      shippingRateNote: ['Envío: 9,90 €. Gratis desde 250 €. Plazos a confirmar según la pieza.', 'Delivery: €9.90. Free from €250. Lead times depend on the piece.', 'Enviament: 9,90 €. Gratuït des de 250 €. Terminis a confirmar segons la peça.'],
+      paymentTitle: ['Cómo prefieres pagar', 'How you prefer to pay', 'Com preferixes pagar'],
+      payPickup: ['Pagar al recoger', 'Pay on collection', 'Pagar en arreplegar'],
+      payDelivery: ['Pagar al recibir', 'Pay on delivery', 'Pagar en rebre'],
+      noAdvance: ['Sin pago anticipado', 'No advance payment', 'Sense pagament anticipat'],
+      payOnline: ['Pasarela de pago online', 'Online payment gateway', 'Passarel·la de pagament en línia'],
+      gatewayPending: ['Ver resumen. Pasarela pendiente de integración.', 'View summary. Payment gateway awaiting integration.', 'Veure resum. Passarel·la pendent d’integració.'],
+      checkoutAccept: ['Acepto las condiciones y entiendo que se trata de una reserva de demostración.', 'I accept the conditions and understand this is a demo reservation.', 'Accepte les condicions i entenc que es tracta d’una reserva de demostració.'],
+      viewConditions: ['Leer las condiciones', 'Read the conditions', 'Llegir les condicions'],
+      demoConditions: ['Los productos, precios y disponibilidad son ilustrativos. Esta web no tramita pedidos reales ni realiza cobros. La reserva y los plazos deberán confirmarse con el atelier. Tus datos no se envían a ningún servidor.', 'Products, prices and availability are illustrative. This website does not process real orders or payments. Reservations and lead times must be confirmed with the atelier. Your details are not sent to a server.', 'Els productes, preus i disponibilitat són il·lustratius. Esta web no tramita comandes reals ni fa cobraments. La reserva i els terminis s’han de confirmar amb l’atelier. Les teues dades no s’envien a cap servidor.'],
+      reviewReservation: ['Revisar mi reserva', 'Review my reservation', 'Revisar la meua reserva'],
+      selectionSummary: ['Resumen de la selección', 'Selection summary', 'Resum de la selecció'],
+      deliveryCost: ['Envío', 'Delivery', 'Enviament'],
+      free: ['Gratis', 'Free', 'Gratuït'],
+      total: ['Total', 'Total', 'Total'],
+      vatIncluded: ['IVA incluido. No hay recargos por la forma de pago.', 'VAT included. No payment-method surcharges.', 'IVA inclòs. Sense recàrrecs per la forma de pagament.'],
+      demoSummaryNote: ['Esta es una reserva de prueba. No se envía al atelier ni se realiza ningún cobro.', 'This is a demo reservation. It is not sent to the atelier and no payment is taken.', 'Esta és una reserva de prova. No s’envia a l’atelier ni es fa cap cobrament.'],
+      invalidPhone: ['Introduce un teléfono válido de 7 a 15 dígitos.', 'Enter a valid phone number with 7 to 15 digits.', 'Introduïx un telèfon vàlid de 7 a 15 dígits.'],
+      invalidName: ['Introduce tu nombre completo.', 'Please enter your full name.', 'Introduïx el teu nom complet.'],
+      invalidPickup: ['Elige un día de lunes a sábado, con al menos 48 horas de antelación.', 'Choose Monday to Saturday, at least 48 hours in advance.', 'Tria un dia de dilluns a dissabte, amb almenys 48 hores d’antelació.'],
+      invalidPostal: ['Introduce un código postal de España peninsular válido.', 'Enter a valid mainland Spain postcode.', 'Introduïx un codi postal vàlid d’Espanya peninsular.'],
+      invalidAddress: ['Completa esta dirección con al menos 5 caracteres.', 'Enter an address with at least 5 characters.', 'Completa esta adreça amb almenys 5 caràcters.'],
+      invalidCity: ['Introduce una localidad válida.', 'Enter a valid town or city.', 'Introduïx una localitat vàlida.'],
+      reviewTitle: ['Tu reserva, al detalle.', 'Your reservation, in detail.', 'La teua reserva, al detall.'],
+      paymentReviewTitle: ['Antes de realizar el pago.', 'Before making a payment.', 'Abans de fer el pagament.'],
+      amountDue: ['IMPORTE TOTAL DE TU SELECCIÓN', 'YOUR SELECTION TOTAL', 'IMPORT TOTAL DE LA TEUA SELECCIÓ'],
+      deliverTo: ['Entrega', 'Delivery', 'Entrega'],
+      chosenPayment: ['Forma de pago', 'Payment method', 'Forma de pagament'],
+      customer: ['Cliente', 'Customer', 'Client'],
+      gatewayNotice: ['La pasarela todavía no está conectada. No introduzcas datos bancarios. Puedes generar un resumen de prueba sin pagar; la integración futura recibirá el importe y el detalle de esta selección.', 'The payment gateway is not connected yet. Do not enter bank details. You can create a demo summary without paying; a future integration will receive the amount and selection details.', 'La passarel·la encara no està connectada. No introduïsques dades bancàries. Pots generar un resum de prova sense pagar; la integració futura rebrà l’import i el detall de la selecció.'],
+      backToDetails: ['Volver a mis datos', 'Back to my details', 'Tornar a les meues dades'],
+      confirmDemo: ['Confirmar reserva de prueba', 'Confirm demo reservation', 'Confirmar reserva de prova'],
+      generateNoPay: ['Generar resumen sin pagar', 'Create summary without paying', 'Generar resum sense pagar'],
+      resultTitle: ['Tu historia empieza aquí.', 'Your story starts here.', 'La teua història comença ací.'],
+      resultText: ['Hemos preparado tu resumen de prueba en este navegador. No es una reserva confirmada: no se ha enviado al atelier ni se ha realizado ningún cobro.', 'Your demo summary has been prepared in this browser. This is not a confirmed booking: it has not been sent to the atelier and no payment has been taken.', 'Hem preparat el resum de prova en este navegador. No és una reserva confirmada: no s’ha enviat a l’atelier ni s’ha fet cap cobrament.'],
+      reference: ['REFERENCIA DE DEMOSTRACIÓN', 'DEMO REFERENCE', 'REFERÈNCIA DE DEMOSTRACIÓ'],
+      downloadSummary: ['Descargar mi resumen', 'Download my summary', 'Descarregar el meu resum'],
+      backCollection: ['Volver a la colección', 'Back to the collection', 'Tornar a la col·lecció'],
+      unpaid: ['SIN PAGAR · DEMOSTRACIÓN', 'UNPAID · DEMONSTRATION', 'SENSE PAGAR · DEMOSTRACIÓ'],
+      messageReady: ['Tu consulta está preparada.', 'Your enquiry is ready.', 'La teua consulta està preparada.'],
+      messageReadyText: ['Descarga una copia de tu consulta. No se ha enviado: el correo y el teléfono de esta boutique son datos de ejemplo que deben sustituirse antes de publicar la web.', 'Download a copy of your enquiry. It has not been sent: this boutique’s email and phone are example details that must be replaced before publishing.', 'Descarrega una còpia de la consulta. No s’ha enviat: el correu i el telèfon de la boutique són dades d’exemple que cal substituir abans de publicar la web.'],
+      downloadEnquiry: ['Descargar mi consulta', 'Download my enquiry', 'Descarregar la meua consulta'],
+      accountEyebrow: ['MI AURÉA', 'MY AURÉA', 'LA MEUA AURÉA'],
+      accountTitle: ['Un espacio para tu historia.', 'A space for your story.', 'Un espai per a la teua història.'],
+      accountDescription: ['Acceso preparado para conectar tu sistema de clientes. Por ahora puedes guardar favoritos y preparar tu reserva sin registrarte.', 'Ready to connect your customer login system. For now, save favorites and prepare a reservation without an account.', 'Accés preparat per a connectar el sistema de clients. Ara pots guardar favorits i preparar una reserva sense registrar-te.'],
+      password: ['Contraseña *', 'Password *', 'Contrasenya *'],
+      signIn: ['Acceder', 'Sign in', 'Accedir'],
+      loginPending: ['El sistema de acceso aún no está conectado. No hemos guardado ni enviado tu contraseña. Puedes continuar sin una cuenta.', 'The login system is not connected yet. Your password has not been saved or sent. You can continue without an account.', 'El sistema d’accés encara no està connectat. No hem guardat ni enviat la contrasenya. Pots continuar sense compte.'],
+      viewFavorites: ['Ver mis favoritos', 'View my favorites', 'Veure els meus favorits'],
+      localDataCleared: ['Los datos locales de Auréa se han borrado.', 'Auréa local data has been cleared.', 'S’han esborrat les dades locals d’Auréa.'],
+      clearLocalData: ['Borrar mis datos locales', 'Clear my local data', 'Esborrar les meues dades locals'],
+      clearLocalConfirm: ['Se borrarán la bolsa, los favoritos y tus preferencias en este dispositivo. ¿Continuar?', 'Your bag, favorites and preferences will be removed from this device. Continue?', 'S’esborraran la bossa, els favorits i les preferències d’este dispositiu. Vols continuar?'],
+      privacyText: ['Esta es una demostración sin servidor. Los datos introducidos en los formularios permanecen en memoria durante la sesión y solo se incluyen en un archivo si decides descargarlo. No se almacenan contraseñas ni datos personales en localStorage. Al recargar la página se descartan los formularios de esta aplicación.', 'This is a serverless demonstration. Form details remain in memory for the current session and are only included in a file if you choose to download it. Passwords and personal details are not stored in localStorage. Reloading the page discards application form data.', 'Esta és una demostració sense servidor. Les dades dels formularis romanen en memòria durant la sessió i només s’inclouen en un fitxer si decidixes descarregar-lo. No es guarden contrasenyes ni dades personals en localStorage. En recarregar la pàgina es descarten les dades dels formularis de l’aplicació.'],
+      privacyExtra: ['Los datos de contacto de Auréa son ficticios. Antes de un uso comercial deben añadirse el responsable del tratamiento, una política legal revisada, los servicios de envío de formularios y un sistema seguro de autenticación.', 'Auréa contact details are fictional. Commercial use requires a data controller, a reviewed legal policy, a form submission service and a secure authentication system.', 'Les dades de contacte d’Auréa són fictícies. Abans d’un ús comercial cal afegir el responsable del tractament, una política legal revisada, els servicis d’enviament de formularis i un sistema segur d’autenticació.'],
+      cookiesText: ['Este código no instala cookies publicitarias ni analíticas. Guarda en localStorage el idioma, el tema visual, los identificadores de tus favoritos y las piezas, tallas y cantidades de la bolsa. Puedes borrar estos datos con el botón inferior. Si el navegador bloquea el almacenamiento, la web sigue funcionando durante la sesión.', 'This code does not set advertising or analytics cookies. It uses localStorage for language, theme, favorite product IDs and bag items, sizes and quantities. Clear these using the button below. If storage is blocked, the website still works for the current session.', 'Este codi no instal·la galetes publicitàries ni analítiques. Guarda en localStorage l’idioma, el tema visual, els identificadors dels favorits i les peces, talles i quantitats de la bossa. Pots esborrar estes dades amb el botó inferior. Si el navegador bloqueja l’emmagatzematge, la web continua funcionant durant la sessió.'],
+      externalResources: ['Las fotografías se cargan desde Pexels y el documento incluye el CDN de Tailwind de jsDelivr. Estas solicitudes comunican datos técnicos, como la dirección IP, a los proveedores. Consulta sus políticas antes de un despliegue comercial.', 'Photographs load from Pexels and the document includes the Tailwind CDN from jsDelivr. These requests disclose technical information, such as your IP address, to those providers. Review their policies before commercial deployment.', 'Les fotografies es carreguen des de Pexels i el document inclou el CDN de Tailwind de jsDelivr. Estes sol·licituds comuniquen dades tècniques, com l’adreça IP, als proveïdors. Consulta les seues polítiques abans d’un desplegament comercial.'],
+      conditionsText: ['Catálogo ilustrativo de 20 productos. Precios en euros, IVA incluido. Máximo de 5 unidades por producto y talla. Recogida gratuita en València o envío a España peninsular por 9,90 €, gratuito a partir de 250 €. Las fechas de recogida son solicitudes, no citas confirmadas.', 'Illustrative catalogue of 20 products. Prices in euros, including VAT. Maximum 5 units per product and size. Free collection in València or mainland Spain delivery for €9.90, free from €250. Collection dates are requests, not confirmed appointments.', 'Catàleg il·lustratiu de 20 productes. Preus en euros, IVA inclòs. Màxim de 5 unitats per producte i talla. Arreplegada gratuïta a València o enviament a Espanya peninsular per 9,90 €, gratuït des de 250 €. Les dates d’arreplegada són sol·licituds, no cites confirmades.'],
+      returnsText: ['Antes de vender, la boutique deberá publicar sus datos fiscales, plazos, garantías y condiciones de devolución conformes a la normativa aplicable, incluido el derecho de desistimiento y las excepciones para productos personalizados. Este texto no sustituye unas condiciones legales de venta.', 'Before selling, the boutique must publish its business details, lead times, warranties and legally compliant return conditions, including withdrawal rights and exceptions for personalized items. This text is not a substitute for legal terms of sale.', 'Abans de vendre, la boutique ha de publicar les dades fiscals, terminis, garanties i condicions de devolució d’acord amb la normativa, inclòs el dret de desistiment i les excepcions per a productes personalitzats. Este text no substituïx unes condicions legals de venda.'],
+      requirementsText: ['Navegador moderno con JavaScript, soporte de dialog, Grid y localStorage opcional. Se necesita conexión para cargar las fotografías y el CDN incluido. El sitio se adapta a móviles, tablets y escritorio y respeta la preferencia de movimiento reducido.', 'A modern browser with JavaScript, dialog and Grid support; localStorage is optional. A connection is needed for images and the included CDN. The site adapts to phones, tablets and desktops and respects reduced-motion preferences.', 'Navegador modern amb JavaScript, suport de dialog, Grid i localStorage opcional. Cal connexió per a carregar les fotografies i el CDN inclòs. El lloc s’adapta a mòbils, tauletes i escriptori i respecta el moviment reduït.'],
+      productionRequirements: ['Para producción: sustituir las fotografías y datos de ejemplo; conectar inventario, formularios, autenticación y pagos a un servidor seguro; recalcular precios y existencias en el servidor; verificar accesibilidad, protección de datos y todos los flujos en navegadores reales.', 'For production: replace example images and details; connect inventory, forms, authentication and payments to a secure server; recalculate prices and stock server-side; verify accessibility, privacy and all flows in real browsers.', 'Per a producció: substituir les imatges i dades d’exemple; connectar inventari, formularis, autenticació i pagaments a un servidor segur; recalcular preus i existències al servidor; verificar accessibilitat, privacitat i tots els fluxos en navegadors reals.'],
+      creditsText: ['Diseño original Auréa. Referencias de investigación: la combinación de vestidos y complementos de Halfpenny London y el catálogo por estilos y las citas de Rosa Clará. No se han utilizado plantillas ni fotografías de estas marcas.', 'Original Auréa design. Research references: Halfpenny London’s combination of dresses and accessories, and Rosa Clará’s style-led catalogue and appointment flow. No templates or photographs from these brands are used.', 'Disseny original Auréa. Referències d’investigació: la combinació de vestits i complements de Halfpenny London i el catàleg per estils i les cites de Rosa Clará. No s’han utilitzat plantilles ni fotografies d’estes marques.'],
+      photoCredits: ['Fotografías de demostración de Pexels, entre otros de Deepak Joshy, Leeloo The First, Kathrine Birch, Michael Burrows y Alexander Mass. Las imágenes ilustran la estética y no representan los productos reales. Su uso se rige por la licencia de Pexels, no por una declaración de dominio público.', 'Demo photography from Pexels, including Deepak Joshy, Leeloo The First, Kathrine Birch, Michael Burrows and Alexander Mass. Images illustrate the aesthetic and do not depict real products. Use is governed by the Pexels license, not a public-domain declaration.', 'Fotografies de demostració de Pexels, entre altres de Deepak Joshy, Leeloo The First, Kathrine Birch, Michael Burrows i Alexander Mass. Les imatges il·lustren l’estètica i no representen els productes reals. L’ús es regix per la llicència de Pexels, no per una declaració de domini públic.'],
+      pexelsLicense: ['Licencia de Pexels', 'Pexels license', 'Llicència de Pexels'],
+      downloadStarted: ['Tu archivo está listo para descargar.', 'Your file is ready to download.', 'El teu fitxer està preparat per a descarregar.'],
+      checkCart: ['Comprobar la lógica del carrito', 'Check cart logic', 'Comprovar la lògica de la bossa'],
+      checkResults: ['{passed} de {total} comprobaciones superadas. Estas pruebas no sustituyen una prueba completa del sitio ni de una pasarela real.', '{passed} of {total} checks passed. These checks do not replace full website or real payment-gateway testing.', '{passed} de {total} comprovacions superades. Estes proves no substituïxen una prova completa del lloc ni d’una passarel·la real.'],
+      storageUnavailable: ['El navegador no permite guardar los cambios. Se conservarán solo durante esta sesión.', 'Browser storage is unavailable. Changes will last only for this session.', 'El navegador no permet guardar els canvis. Es conservaran només durant esta sessió.']
+    };
+
+    const DRESS_SIZES = ['34', '36', '38', '40', '42', '44'];
+    const SHOE_SIZES = ['36', '37', '38', '39', '40', '41'];
+    const PRODUCTS = [
+      { id: 'alba', name: 'Alba', category: 'dresses', price: 189000, image: 4623771, material: ['Crepé de seda · Líneas puras', 'Silk crepe · Pure lines', 'Crepè de seda · Línies pures'], fresh: true },
+      { id: 'siena', name: 'Siena', category: 'dresses', price: 215000, image: 14793041, material: ['Satén suave · Silueta contemporánea', 'Soft satin · Modern silhouette', 'Setí suau · Silueta contemporània'], fresh: true },
+      { id: 'olivia', name: 'Olivia', category: 'dresses', price: 249000, image: 39613153, material: ['Tul bordado · Alma romántica', 'Embroidered tulle · Romantic soul', 'Tul brodat · Ànima romàntica'] },
+      { id: 'brisa', name: 'Brisa', category: 'veils', price: 18500, image: 35536264, material: ['Velo de tul · 200 cm', 'Tulle veil · 200 cm', 'Vel de tul · 200 cm'] },
+      { id: 'vera', name: 'Vera', category: 'dresses', price: 269000, image: 34085780, material: ['Detalles de perlas · Elegancia sutil', 'Pearl details · Understated elegance', 'Detalls de perles · Elegància subtil'] },
+      { id: 'rocio', name: 'Rocío', category: 'accessories', price: 7500, image: 23947640, material: ['Pendientes · Perlas cultivadas', 'Earrings · Cultured pearls', 'Arracades · Perles cultivades'], fresh: true },
+      { id: 'lia', name: 'Lía', category: 'shoes', price: 13900, image: 33140484, material: ['Tacón de 7 cm · Detalle de perlas', '7 cm heel · Pearl detail', 'Taló de 7 cm · Detall de perles'] },
+      { id: 'aria', name: 'Aria', category: 'dresses', price: 179000, image: 31243091, material: ['Tul ligero · Caída natural', 'Light tulle · Natural drape', 'Tul lleuger · Caiguda natural'] },
+      { id: 'eter', name: 'Éter', category: 'veils', price: 22500, image: 39903992, material: ['Velo de tul suave · 250 cm', 'Soft tulle veil · 250 cm', 'Vel de tul suau · 250 cm'] },
+      { id: 'celia', name: 'Celia', category: 'dresses', price: 229000, image: 34607172, material: ['Encaje delicado · Inspiración vintage', 'Delicate lace · Vintage inspiration', 'Encaix delicat · Inspiració vintage'] },
+      { id: 'olivo', name: 'Olivo', category: 'accessories', price: 12500, image: 27910029, material: ['Tocado · Cristales y hojas', 'Headpiece · Crystals and leaves', 'Tocat · Cristalls i fulles'] },
+      { id: 'elena', name: 'Elena', category: 'shoes', price: 15900, image: 28954916, material: ['Salón marfil · Tacón de 8 cm', 'Ivory pumps · 8 cm heel', 'Sabata de saló ivori · Taló de 8 cm'] },
+      { id: 'noa', name: 'Noa', category: 'dresses', price: 239000, image: 33425290, material: ['Encaje floral · Detalles artesanales', 'Floral lace · Artisanal details', 'Encaix floral · Detalls artesanals'] },
+      { id: 'nuvol', name: 'Núvol', category: 'veils', price: 16000, image: 10840316, material: ['Velo ligero · 150 cm', 'Lightweight veil · 150 cm', 'Vel lleuger · 150 cm'] },
+      { id: 'iris', name: 'Iris', category: 'accessories', price: 6500, image: 9428775, material: ['Pulsera · Perlas y luz', 'Bracelet · Pearls and light', 'Polsera · Perles i llum'] },
+      { id: 'clara', name: 'Clara', category: 'shoes', price: 14900, image: 38703037, material: ['Satén blanco · Tacón de 6 cm', 'White satin · 6 cm heel', 'Setí blanc · Taló de 6 cm'] },
+      { id: 'gala', name: 'Gala', category: 'dresses', price: 199000, image: 38273583, material: ['Volumen suave · Un clásico renovado', 'Soft volume · A new classic', 'Volum suau · Un clàssic renovat'] },
+      { id: 'llum', name: 'Llum', category: 'veils', price: 29000, image: 16682059, material: ['Velo bordado · 300 cm', 'Embroidered veil · 300 cm', 'Vel brodat · 300 cm'] },
+      { id: 'mar', name: 'Mar', category: 'accessories', price: 9500, image: 24245656, material: ['Collar · Perlas naturales', 'Necklace · Natural pearls', 'Collar · Perles naturals'] },
+      { id: 'cala', name: 'Cala', category: 'shoes', price: 12900, image: 27986409, material: ['Destalonado · Brillo delicado', 'Slingbacks · Delicate sparkle', 'Sabata destalonada · Brillantor delicada'] }
+    ].map(product => ({ ...product, stock: 5, sizes: product.category === 'dresses' ? DRESS_SIZES : product.category === 'shoes' ? SHOE_SIZES : ['U'] }));
+
+    const LANGUAGE_INDEX = { es: 0, en: 1, va: 2 };
+    const LOCALES = { es: 'es-ES', en: 'en-IE', va: 'ca-ES' };
+    const CATEGORY_KEYS = { dresses: 'dressSingular', veils: 'veilSingular', accessories: 'accessorySingular', shoes: 'shoeSingular' };
+    const DESCRIPTION_KEYS = { dresses: 'dressDescription', veils: 'veilDescription', accessories: 'accessoryDescription', shoes: 'shoeDescription' };
+    const $ = (selector, root = document) => root.querySelector(selector);
+    const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+    const getProduct = id => PRODUCTS.find(product => product.id === id);
+    const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&#60;', '>': '&#62;', '"': '&quot;', "'": '&#39;' }[char]));
+    const normalizeText = value => String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[’‘]/g, "'").toLowerCase();
+    const icon = name => `<svg aria-hidden="true"><use href="#i-${name}"/></svg>`;
+    const photo = (product, width = 800) => `https://images.pexels.com/photos/${product.image}/pexels-photo-${product.image}.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=${Math.round(width * 1.5)}&w=${width}`;
+
+    function readStored(key, fallback) {
+      try { const value = localStorage.getItem(`aurea-${key}`); return value === null ? fallback : JSON.parse(value); }
+      catch (_) { return fallback; }
+    }
+
+    function writeStored(key, value) {
+      try { localStorage.setItem(`aurea-${key}`, JSON.stringify(value)); return true; }
+      catch (_) { return false; }
+    }
+
+    // Prices are always integer euro cents. Storage never supplies prices or personal data.
+    function sanitizeCart(raw) {
+      if (!Array.isArray(raw)) return [];
+      const clean = [];
+      raw.slice(0, 200).forEach(item => {
+        if (!item || typeof item !== 'object') return;
+        const product = getProduct(item.id);
+        if (!product || !product.sizes.includes(item.size) || !Number.isFinite(item.qty)) return;
+        const quantity = Math.max(0, Math.min(product.stock, Math.floor(item.qty)));
+        if (!quantity) return;
+        const existing = clean.find(line => line.id === item.id && line.size === item.size);
+        if (existing) existing.qty = Math.min(product.stock, existing.qty + quantity);
+        else clean.push({ id: product.id, size: item.size, qty: quantity });
+      });
+      return clean;
+    }
+
+    function changeCart(cart, id, size, quantity) {
+      const next = cart.filter(line => !(line.id === id && line.size === size));
+      const oldIndex = cart.findIndex(line => line.id === id && line.size === size);
+      if (quantity > 0) next.splice(oldIndex < 0 ? next.length : oldIndex, 0, { id, size, qty: quantity });
+      return sanitizeCart(next);
+    }
+
+    function calculateTotals(cart, fulfillment = 'pickup') {
+      const subtotal = sanitizeCart(cart).reduce((sum, line) => sum + getProduct(line.id).price * line.qty, 0);
+      const shipping = fulfillment === 'shipping' && subtotal > 0 && subtotal < 25000 ? 990 : 0;
+      return { subtotal, shipping, total: subtotal + shipping };
+    }
+
+    function resolvePayment(fulfillment, payment) {
+      return payment === 'online' ? 'online' : fulfillment === 'shipping' ? 'delivery' : 'pickup';
+    }
+
+    const storedLanguage = readStored('language', 'es');
+    const storedFavorites = readStored('favorites', []);
+    const state = {
+      language: typeof storedLanguage === 'string' && Object.hasOwn(LANGUAGE_INDEX, storedLanguage) ? storedLanguage : 'es',
+      cart: sanitizeCart(readStored('cart', [])),
+      favorites: new Set(Array.isArray(storedFavorites) ? storedFavorites.filter(id => getProduct(id)) : []),
+      category: 'all', sort: 'curated', favoritesOnly: false,
+      selectedProduct: null, selectedSize: '', selectedQuantity: 1,
+      query: '', activeDialog: null, returnFocus: null,
+      draft: null, completedOrder: null, enquiry: null, resultType: '', legalType: ''
+    };
+    const t = (key, variables = {}) => (COPY[key]?.[LANGUAGE_INDEX[state.language]] ?? key).replace(/\{(\w+)\}/g, (_, name) => String(variables[name] ?? ''));
+    const material = product => product.material[LANGUAGE_INDEX[state.language]];
+    const money = cents => new Intl.NumberFormat(LOCALES[state.language], { style: 'currency', currency: 'EUR', minimumFractionDigits: cents % 100 === 0 ? 0 : 2, maximumFractionDigits: 2 }).format(cents / 100);
+    const sizeText = size => size === 'U' ? t('oneSize') : size;
+    const closeButton = () => `<button class="icon-button modal-close" data-close aria-label="${t('close')}">${icon('close')}</button>`;
+    let toastTimer;
+    let toastHideTimer;
+    let dialogTimer;
+    let searchTimer;
+    let resizeTimer;
+    let storageWarningShown = false;
+    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+
+    function toast(message) {
+      clearTimeout(toastTimer);
+      clearTimeout(toastHideTimer);
+      const element = $('#toast');
+      if (typeof element.showPopover === 'function' && !element.matches(':popover-open')) element.showPopover();
+      $('#toast-message').textContent = message;
+      requestAnimationFrame(() => element.classList.add('is-visible'));
+      toastTimer = setTimeout(() => {
+        element.classList.remove('is-visible');
+        toastHideTimer = setTimeout(() => {
+          if (typeof element.hidePopover === 'function' && element.matches(':popover-open')) element.hidePopover();
+        }, reducedMotion.matches ? 0 : 300);
+      }, 3500);
+    }
+
+    function persistCart() {
+      if (!writeStored('cart', state.cart) && !storageWarningShown) {
+        storageWarningShown = true;
+        toast(t('storageUnavailable'));
+      }
+    }
+
+    function updateThemeButton() {
+      const isDark = document.body.classList.contains('dark-mode');
+      $('#theme-toggle').setAttribute('aria-pressed', String(isDark));
+      $('#theme-toggle').setAttribute('aria-label', t(isDark ? 'lightMode' : 'darkMode'));
+      $('meta[name="theme-color"]').content = isDark ? '#22271f' : '#f8f7f3';
+    }
+
+    function translatePage() {
+      document.documentElement.lang = state.language === 'va' ? 'ca-valencia' : state.language;
+      document.title = `Auréa | ${['Tu esencia. Para siempre.', 'Your essence. Forever.', 'La teua essència. Per sempre.'][LANGUAGE_INDEX[state.language]]}`;
+      $$('[data-i18n]').forEach(element => element.textContent = t(element.dataset.i18n));
+      $$('[data-i18n-html]').forEach(element => element.innerHTML = t(element.dataset.i18nHtml));
+      [['data-i18n-placeholder', 'placeholder'], ['data-i18n-aria', 'aria-label'], ['data-i18n-alt', 'alt']].forEach(([attribute, target]) => {
+        $$(`[${attribute}]`).forEach(element => element.setAttribute(target, t(element.getAttribute(attribute))));
+      });
+      $('#language-code').textContent = state.language.toUpperCase();
+      $$('[data-language]').forEach(button => button.setAttribute('aria-checked', String(button.dataset.language === state.language)));
+      $('#menu-toggle').setAttribute('aria-label', t(document.body.classList.contains('menu-open') ? 'closeMenu' : 'openMenu'));
+      updateThemeButton();
+      updateFulfillment();
+      renderProducts();
+      renderCart();
+      if (state.selectedProduct) renderProductDetail();
+      if (state.activeDialog?.id === 'checkout-dialog') renderCheckoutSummary();
+      if (state.draft) renderReview();
+      if (state.resultType) renderResult();
+      if (state.legalType) renderLegal();
+      if (!$('#account-status').hidden) $('#account-status').textContent = t('loginPending');
+      updateSearch();
+    }
+
+    function setLanguage(language) {
+      if (!Object.hasOwn(LANGUAGE_INDEX, language)) return;
+      state.language = language;
+      writeStored('language', language);
+      clearHighlights();
+      translatePage();
+      closeLanguageMenu();
+    }
+
+    function closeLanguageMenu() {
+      $('#language-menu').hidden = true;
+      $('#language-toggle').setAttribute('aria-expanded', 'false');
+    }
+
+    function setMobileMenu(open, restoreFocus = false) {
+      $('#mobile-menu').classList.toggle('is-open', open);
+      $('#mobile-menu').inert = !open;
+      $('#mobile-scrim').hidden = !open;
+      $('#menu-toggle').setAttribute('aria-expanded', String(open));
+      $('#menu-toggle').setAttribute('aria-label', t(open ? 'closeMenu' : 'openMenu'));
+      document.body.classList.toggle('menu-open', open);
+      $('#main-content').inert = open;
+      $('#site-footer').inert = open;
+      $('#back-top').inert = open;
+      if (open) closeLanguageMenu();
+      if (restoreFocus) $('#menu-toggle').focus();
+    }
+
+    // Native dialogs provide keyboard focus containment; transitions preserve focus on return.
+    function openDialog(id) {
+      const dialog = document.getElementById(id);
+      if (!dialog) return;
+      clearTimeout(dialogTimer);
+      if (!state.activeDialog) state.returnFocus = document.activeElement;
+      if (state.activeDialog && state.activeDialog !== dialog) {
+        state.activeDialog.classList.remove('is-closing');
+        state.activeDialog.close();
+      }
+      setMobileMenu(false);
+      closeLanguageMenu();
+      dialog.classList.remove('is-closing');
+      state.activeDialog = dialog;
+      document.body.classList.add('modal-open');
+      if (!dialog.open) dialog.showModal();
+      if (id === 'search-dialog') { updateSearch(); setTimeout(() => $('#search-input').focus(), 30); }
+      if (id === 'cart-dialog') renderCart();
+    }
+
+    function closeDialog(afterClose) {
+      const dialog = state.activeDialog;
+      if (!dialog) { if (typeof afterClose === 'function') afterClose(); return; }
+      clearTimeout(dialogTimer);
+      dialog.classList.add('is-closing');
+      dialogTimer = setTimeout(() => {
+        dialog.close();
+        dialog.classList.remove('is-closing');
+        if (dialog.id === 'account-dialog') $('#account-password').value = '';
+        state.activeDialog = null;
+        document.body.classList.remove('modal-open');
+        if (state.returnFocus?.isConnected) state.returnFocus.focus({ preventScroll: true });
+        else {
+          const productButton = state.selectedProduct ? $(`#piece-${state.selectedProduct.id} [data-product]`) : null;
+          (productButton || $('#cart-button')).focus({ preventScroll: true });
+        }
+        state.returnFocus = null;
+        if (typeof afterClose === 'function') afterClose();
+      }, reducedMotion.matches ? 0 : 190);
+    }
+
+    function scrollToSection(id) {
+      const section = document.getElementById(id);
+      if (!section) return;
+      setMobileMenu(false);
+      section.scrollIntoView({ behavior: reducedMotion.matches ? 'auto' : 'smooth', block: 'start' });
+      if (!section.hasAttribute('tabindex')) section.setAttribute('tabindex', '-1');
+      section.focus({ preventScroll: true });
+      if (section.classList.contains('reveal')) section.classList.remove('is-pending');
+    }
+
+    function filteredProducts() {
+      let products = PRODUCTS.filter(product => (state.category === 'all' || state.category === product.category) && (!state.favoritesOnly || state.favorites.has(product.id)));
+      if (state.sort === 'price-asc') products.sort((a, b) => a.price - b.price);
+      if (state.sort === 'price-desc') products.sort((a, b) => b.price - a.price);
+      if (state.sort === 'name') products.sort((a, b) => a.name.localeCompare(b.name, LOCALES[state.language]));
+      return products;
+    }
+
+    function renderProducts() {
+      const products = filteredProducts();
+      $('#product-count').textContent = t('pieceCount', { count: products.length });
+      $$('[data-category]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.category === state.category)));
+      $('#favorites-filter').setAttribute('aria-pressed', String(state.favoritesOnly));
+      $('#product-sort').value = state.sort;
+      $('#product-grid').innerHTML = products.length ? products.map(product => {
+        const isFavorite = state.favorites.has(product.id);
+        return `<article class="product-card" id="piece-${product.id}">
+          <div class="product-media">
+            <button class="product-open" data-product="${product.id}" aria-label="${escapeHTML(t('viewProduct', { name: product.name }))}"><img src="${photo(product)}" srcset="${photo(product, 400)} 400w, ${photo(product)} 800w" sizes="(max-width: 650px) 45vw, (max-width: 950px) 30vw, 22vw" alt="${escapeHTML(`${product.name}, ${material(product)}`)}" loading="lazy" decoding="async" width="800" height="1200"><span class="quick-view"><span>${t('viewPiece')}</span>${icon('arrow')}</span></button>
+            ${product.fresh ? `<span class="product-tag">${t('newPiece')}</span>` : ''}
+            <button class="favorite-button" data-favorite="${product.id}" aria-pressed="${isFavorite}" aria-label="${escapeHTML(t(isFavorite ? 'removeFavorite' : 'saveFavorite', { name: product.name }))}">${icon('heart')}</button>
+          </div>
+          <p class="product-category">${t(CATEGORY_KEYS[product.category])}</p><div class="product-info"><h3><button class="product-name" data-product="${product.id}">${product.name}</button></h3><span class="product-price">${money(product.price)}</span></div><p class="product-material">${material(product)}</p>
+        </article>`;
+      }).join('') : `<div class="empty-state">${icon('heart')}<h3>${t(state.favoritesOnly ? 'emptyFavoritesTitle' : 'emptyCategory')}</h3><p>${t('emptyFavoritesText')}</p><button class="button button-secondary" data-action="reset-filters">${t('showAll')}</button></div>`;
+      if (state.query.length >= 2) highlightMatches(state.query);
+    }
+
+    function resetFilters() {
+      state.category = 'all';
+      state.favoritesOnly = false;
+      state.sort = 'curated';
+      renderProducts();
+    }
+
+    function toggleFavorite(id) {
+      const product = getProduct(id);
+      if (!product) return;
+      const wasFavorite = state.favorites.has(id);
+      if (wasFavorite) state.favorites.delete(id); else state.favorites.add(id);
+      writeStored('favorites', [...state.favorites]);
+      const focusedCardId = document.activeElement?.dataset.favorite;
+      renderProducts();
+      if (focusedCardId && !state.activeDialog) {
+        const nextFocus = $(`[data-favorite="${focusedCardId}"]`) || $('.favorite-button', $('#product-grid')) || $('#favorites-filter');
+        nextFocus.focus({ preventScroll: true });
+      }
+      if (state.selectedProduct?.id === id) {
+        const detailButton = $('#detail-favorite');
+        if (detailButton) {
+          detailButton.setAttribute('aria-pressed', String(!wasFavorite));
+          detailButton.innerHTML = icon('heart') + t(wasFavorite ? 'addFavorite' : 'savedFavorite');
+        }
+      }
+      toast(t(wasFavorite ? 'favoriteRemoved' : 'favoriteAdded'));
+    }
+
+    function openProduct(id) {
+      const product = getProduct(id);
+      if (!product) return;
+      state.selectedProduct = product;
+      state.selectedSize = product.sizes.length === 1 ? product.sizes[0] : '';
+      state.selectedQuantity = 1;
+      renderProductDetail();
+      openDialog('product-dialog');
+      $('#product-dialog').scrollTop = 0;
+    }
+
+    function renderProductDetail() {
+      const product = state.selectedProduct;
+      if (!product) return;
+      const guide = product.category === 'dresses' ? `<table class="size-table"><thead><tr><th>${t('size')}</th><th>${t('chest')}</th><th>${t('waist')}</th><th>${t('hip')}</th></tr></thead><tbody>${DRESS_SIZES.map((size, index) => `<tr><td>${size}</td><td>${80 + index * 4}</td><td>${62 + index * 4}</td><td>${88 + index * 4}</td></tr>`).join('')}</tbody></table><p>${t('sizeGuideNote')}</p>` : `<p>${t(product.category === 'shoes' ? 'shoeGuideNote' : 'accessoryGuideNote')}</p>`;
+      const isFavorite = state.favorites.has(product.id);
+      $('#product-detail').innerHTML = `<div class="product-detail">${closeButton()}<img class="detail-image" src="${photo(product)}" alt="${escapeHTML(`${product.name}, ${material(product)}`)}" width="800" height="1200"><div class="detail-copy">
+        <p class="eyebrow muted">${t(CATEGORY_KEYS[product.category])}</p><h2 id="detail-title">${product.name}</h2><p class="detail-material">${material(product)}</p><p class="detail-price">${money(product.price)}</p><p class="detail-description">${t(DESCRIPTION_KEYS[product.category])}</p>
+        <fieldset><legend class="size-legend">${t('chooseSize')}</legend><div class="size-options">${product.sizes.map(size => `<button class="size-option" data-size="${size}" aria-pressed="${state.selectedSize === size}">${sizeText(size)}</button>`).join('')}</div></fieldset><p class="size-error" id="size-error" role="alert"></p>
+        <div class="detail-add-row"><div class="quantity-control" aria-label="${t('quantity')}"><button data-detail-quantity="-1" aria-label="${t('decrease')}" ${state.selectedQuantity <= 1 ? 'disabled' : ''}>${icon('minus')}</button><span id="detail-quantity">${state.selectedQuantity}</span><button data-detail-quantity="1" aria-label="${t('increase')}" ${state.selectedQuantity >= product.stock ? 'disabled' : ''}>${icon('plus')}</button></div><button class="button button-primary" id="add-to-cart">${icon('bag')}<span>${t('addToBag')}</span></button></div>
+        <button class="detail-favorite" id="detail-favorite" data-favorite="${product.id}" aria-pressed="${isFavorite}">${icon('heart')}${t(isFavorite ? 'savedFavorite' : 'addFavorite')}</button><p class="detail-note">${t('pieceIllustrative')}</p>
+        <details class="detail-accordion"><summary>${t('sizeGuide')}${icon('plus')}</summary>${guide}</details><details class="detail-accordion"><summary>${t('deliveryCare')}${icon('plus')}</summary><p>${t('deliveryCareText')}</p></details>
+      </div></div>`;
+    }
+
+    function addSelectedToCart() {
+      const product = state.selectedProduct;
+      if (!product) return;
+      if (!product.sizes.includes(state.selectedSize)) {
+        $('#size-error').textContent = t('chooseSizeError');
+        $('.size-option', $('#product-detail'))?.focus();
+        return;
+      }
+      const existing = state.cart.find(line => line.id === product.id && line.size === state.selectedSize);
+      const quantity = (existing?.qty || 0) + state.selectedQuantity;
+      if (quantity > product.stock) { $('#size-error').textContent = t('stockLimit'); return; }
+      state.cart = changeCart(state.cart, product.id, state.selectedSize, quantity);
+      persistCart();
+      renderCart();
+      openDialog('cart-dialog');
+      toast(t('addedToBag', { name: product.name }));
+    }
+
+    function renderCart(focusTarget) {
+      const count = state.cart.reduce((sum, line) => sum + line.qty, 0);
+      $('#cart-count').textContent = count;
+      $('#cart-button').setAttribute('aria-label', t('openBag', { count }));
+      $('#cart-footer').hidden = state.cart.length === 0;
+      $('#cart-subtotal').textContent = money(calculateTotals(state.cart).subtotal);
+      if (!state.cart.length) {
+        $('#cart-items').innerHTML = `<div class="empty-state">${icon('bag')}<h3>${t('emptyBagTitle')}</h3><p>${t('emptyBagText')}</p><button class="button button-primary" data-action="back-collection">${t('discoverCollection')}${icon('arrow')}</button></div>`;
+        return;
+      }
+      $('#cart-items').innerHTML = state.cart.map(line => {
+        const product = getProduct(line.id);
+        return `<div class="cart-line"><img src="${photo(product, 200)}" alt="${product.name}" width="200" height="300"><div class="cart-line-copy"><div class="cart-line-top"><h3>${product.name}</h3><span>${money(product.price * line.qty)}</span></div><p>${t(CATEGORY_KEYS[product.category])} · ${t('size')} ${sizeText(line.size)}</p><div class="cart-line-bottom"><div class="quantity-control"><button data-cart-change="-1" data-id="${line.id}" data-line-size="${line.size}" aria-label="${escapeHTML(`${t('decrease')}: ${product.name}, ${sizeText(line.size)}`)}">${icon('minus')}</button><span aria-live="polite">${line.qty}</span><button data-cart-change="1" data-id="${line.id}" data-line-size="${line.size}" aria-label="${escapeHTML(`${t('increase')}: ${product.name}, ${sizeText(line.size)}`)}" ${line.qty >= product.stock ? 'disabled' : ''}>${icon('plus')}</button></div><button class="remove-item" data-cart-remove="${line.id}" data-line-size="${line.size}" aria-label="${escapeHTML(t('removeNamed', { name: product.name }))}">${t('remove')}</button></div></div></div>`;
+      }).join('') + `<button class="cart-clear" data-action="clear-cart">${t('emptyBag')}</button>`;
+      if (focusTarget) {
+        const selector = `[data-cart-change="${focusTarget.change}"][data-id="${focusTarget.id}"][data-line-size="${focusTarget.size}"]`;
+        const target = $(selector, $('#cart-items'));
+        if (target && !target.disabled) target.focus({ preventScroll: true });
+        else $('[data-cart-change]', $('#cart-items'))?.focus({ preventScroll: true });
+      }
+    }
+
+    function updateCartLine(id, size, change) {
+      const line = state.cart.find(item => item.id === id && item.size === size);
+      if (!line) return;
+      const quantity = line.qty + change;
+      if (quantity > getProduct(id).stock) { toast(t('stockLimit')); return; }
+      state.cart = changeCart(state.cart, id, size, quantity);
+      persistCart();
+      renderCart({ id, size, change });
+      if (quantity <= 0) toast(t('pieceRemoved'));
+      if (!state.cart.length) $('[data-action="back-collection"]', $('#cart-items'))?.focus();
+    }
+
+    function localDateString(date) {
+      return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+    }
+
+    function earliestPickupDate() {
+      const date = new Date();
+      // Every time slot on this calendar day must leave at least 48 hours for preparation.
+      date.setDate(date.getDate() + 3);
+      if (date.getDay() === 0) date.setDate(date.getDate() + 1);
+      return localDateString(date);
+    }
+
+    function formatDate(value) {
+      if (!value) return '';
+      const date = new Date(`${value}T12:00:00`);
+      return Number.isNaN(date.getTime()) ? value : new Intl.DateTimeFormat(LOCALES[state.language], { dateStyle: 'long' }).format(date);
+    }
+
+    function getFulfillment() { return $('input[name="fulfillment"]:checked', $('#checkout-form')).value; }
+
+    function updateFulfillment() {
+      const fulfillment = getFulfillment();
+      const pickup = fulfillment === 'pickup';
+      $('#pickup-fields').hidden = !pickup;
+      $('#shipping-fields').hidden = pickup;
+      $$('input, select', $('#pickup-fields')).forEach(input => { input.disabled = !pickup; input.required = pickup; input.setCustomValidity(''); });
+      $$('input', $('#shipping-fields')).forEach(input => { input.disabled = pickup; input.required = !pickup; input.setCustomValidity(''); });
+      $('#payment-later').value = resolvePayment(fulfillment, 'later');
+      $('#payment-later-label').textContent = t(pickup ? 'payPickup' : 'payDelivery');
+      $('#payment-later-label').dataset.i18n = pickup ? 'payPickup' : 'payDelivery';
+      if (state.activeDialog?.id === 'checkout-dialog') renderCheckoutSummary();
+    }
+
+    function beginCheckout() {
+      if (!state.cart.length) { openDialog('cart-dialog'); return; }
+      $('#pickup-date').min = earliestPickupDate();
+      if (!$('#pickup-date').value || $('#pickup-date').value < $('#pickup-date').min) $('#pickup-date').value = $('#pickup-date').min;
+      updateFulfillment();
+      renderCheckoutSummary();
+      openDialog('checkout-dialog');
+      $('#checkout-dialog').scrollTop = 0;
+    }
+
+    function totalsHTML(totals) {
+      return `<div class="summary-totals"><div><span>${t('subtotal')}</span><span>${money(totals.subtotal)}</span></div><div><span>${t('deliveryCost')}</span><span>${totals.shipping ? money(totals.shipping) : t('free')}</span></div><div class="grand-total"><strong>${t('total')}</strong><strong>${money(totals.total)}</strong></div><p>${t('vatIncluded')}</p></div>`;
+    }
+
+    function linesHTML(lines) {
+      return lines.map(line => {
+        const product = getProduct(line.id);
+        return `<div class="summary-line"><img src="${photo(product, 120)}" alt="${product.name}" width="120" height="180"><div><strong>${product.name}</strong><small>${t('size')} ${sizeText(line.size)} · ${t('quantity')}: ${line.qty}</small></div><span>${money(product.price * line.qty)}</span></div>`;
+      }).join('');
+    }
+
+    function renderCheckoutSummary() {
+      $('#checkout-summary').innerHTML = `<h3>${t('yourSelection')}</h3>${linesHTML(state.cart)}${totalsHTML(calculateTotals(state.cart, getFulfillment()))}<p class="summary-demo">${t('demoSummaryNote')}</p>`;
+    }
+
+    function isValidPostal(value) {
+      if (!/^\d{5}$/.test(value)) return false;
+      const province = Number(value.slice(0, 2));
+      return province >= 1 && province <= 50 && ![7, 35, 38].includes(province);
+    }
+
+    function validateCheckout() {
+      const form = $('#checkout-form');
+      $$('input', form).forEach(input => input.setCustomValidity(''));
+      const name = $('#order-name');
+      if (name.value.trim().length < 3) name.setCustomValidity(t('invalidName'));
+      const phone = $('#order-phone');
+      const digits = phone.value.replace(/\D/g, '');
+      if (!/^\+?[\d\s().-]+$/.test(phone.value.trim()) || digits.length < 7 || digits.length > 15) phone.setCustomValidity(t('invalidPhone'));
+      if (getFulfillment() === 'shipping') {
+        if (!isValidPostal($('#order-postal').value.trim())) $('#order-postal').setCustomValidity(t('invalidPostal'));
+        if ($('#order-address').value.trim().length < 5) $('#order-address').setCustomValidity(t('invalidAddress'));
+        if ($('#order-city').value.trim().length < 2) $('#order-city').setCustomValidity(t('invalidCity'));
+      } else {
+        const input = $('#pickup-date');
+        const date = new Date(`${input.value}T12:00:00`);
+        if (!input.value || input.value < earliestPickupDate() || Number.isNaN(date.getTime()) || date.getDay() === 0) input.setCustomValidity(t('invalidPickup'));
+      }
+      return form.reportValidity();
+    }
+
+    function prepareOrder(event) {
+      event.preventDefault();
+      if (!state.cart.length) { openDialog('cart-dialog'); return; }
+      if (!validateCheckout()) return;
+      const fields = Object.fromEntries(new FormData($('#checkout-form')).entries());
+      const fulfillment = fields.fulfillment === 'shipping' ? 'shipping' : 'pickup';
+      const payment = resolvePayment(fulfillment, fields.payment);
+      state.draft = {
+        lines: state.cart.map(line => ({ ...line })),
+        totals: calculateTotals(state.cart, fulfillment), currency: 'EUR', fulfillment, payment,
+        customer: { name: fields.name.trim(), email: fields.email.trim(), phone: fields.phone.trim() },
+        delivery: fulfillment === 'pickup' ? { date: fields.pickupDate, slot: fields.pickupSlot } : { address: fields.address.trim(), postal: fields.postal.trim(), city: fields.city.trim(), country: 'ES' },
+        status: 'demo-unpaid'
+      };
+      renderReview();
+      openDialog('review-dialog');
+    }
+
+    function paymentLabel(payment) { return t(payment === 'online' ? 'payOnline' : payment === 'delivery' ? 'payDelivery' : 'payPickup'); }
+
+    function deliveryLabel(order) {
+      return order.fulfillment === 'pickup' ? `${t('pickup')}, València · ${formatDate(order.delivery.date)} · ${order.delivery.slot}` : `${order.delivery.address}, ${order.delivery.postal} ${order.delivery.city}, ${t('shippingRegion')}`;
+    }
+
+    function renderReview() {
+      const order = state.draft;
+      if (!order) return;
+      const online = order.payment === 'online';
+      $('#review-content').innerHTML = `${closeButton()}<p class="eyebrow modal-eyebrow">${t('yourNextChapter')}</p><h2 class="modal-title" id="review-title">${t(online ? 'paymentReviewTitle' : 'reviewTitle')}</h2><p class="eyebrow muted" style="margin-top:25px">${t('amountDue')}</p><p class="review-total">${money(order.totals.total)}</p>${linesHTML(order.lines)}${totalsHTML(order.totals)}<div class="review-details"><p><strong>${t('customer')}:</strong> ${escapeHTML(order.customer.name)}</p><p>${escapeHTML(order.customer.email)} · ${escapeHTML(order.customer.phone)}</p><p><strong>${t('deliverTo')}:</strong> ${escapeHTML(deliveryLabel(order))}</p><p><strong>${t('chosenPayment')}:</strong> ${paymentLabel(order.payment)}</p></div><p class="payment-notice">${t(online ? 'gatewayNotice' : 'demoSummaryNote')}</p><div class="modal-actions"><button class="button button-secondary" data-action="edit-order">${t('backToDetails')}</button><button class="button button-primary" data-action="confirm-order">${t(online ? 'generateNoPay' : 'confirmDemo')}</button></div>`;
+    }
+
+    function completeDemoOrder() {
+      if (!state.draft || !state.cart.length) return;
+      const order = state.draft;
+      const current = calculateTotals(state.cart, order.fulfillment);
+      if (JSON.stringify(order.lines) !== JSON.stringify(state.cart) || current.total !== order.totals.total) { beginCheckout(); return; }
+      const random = Math.random().toString(36).slice(2, 6).toUpperCase();
+      state.completedOrder = { ...order, reference: `AUR-${localDateString(new Date()).replaceAll('-', '')}-${random}`, createdAt: new Date().toISOString() };
+      // Integration hook only. A real payment backend MUST recheck prices, stock and amounts.
+      document.dispatchEvent(new CustomEvent('aurea:checkout-ready', { detail: JSON.parse(JSON.stringify(state.completedOrder)) }));
+      state.cart = [];
+      state.draft = null;
+      persistCart();
+      renderCart();
+      state.resultType = 'order';
+      renderResult();
+      $('#checkout-form').reset();
+      updateFulfillment();
+      openDialog('result-dialog');
+    }
+
+    function renderResult() {
+      if (state.resultType === 'order' && state.completedOrder) {
+        const order = state.completedOrder;
+        $('#result-content').innerHTML = `${closeButton()}<svg class="success-mark" aria-hidden="true"><use href="#i-check"/></svg><h2 class="modal-title" id="result-title">${t('resultTitle')}</h2><p class="modal-description">${t('resultText')}</p><p class="order-reference">${t('reference')}<br>${order.reference}</p>${totalsHTML(order.totals)}<p class="payment-notice">${paymentLabel(order.payment)}<br>${t('unpaid')}</p><div class="modal-actions"><button class="button button-primary" data-action="download-order">${t('downloadSummary')}${icon('download')}</button><button class="button button-secondary" data-action="back-collection">${t('backCollection')}</button></div>`;
+      } else if (state.resultType === 'enquiry' && state.enquiry) {
+        $('#result-content').innerHTML = `${closeButton()}<svg class="success-mark" aria-hidden="true"><use href="#i-check"/></svg><h2 class="modal-title" id="result-title">${t('messageReady')}</h2><p class="modal-description">${t('messageReadyText')}</p><div class="review-details"><p><strong>${escapeHTML(state.enquiry.name)}</strong></p><p>${escapeHTML(state.enquiry.email)}</p><p style="white-space:pre-wrap">${escapeHTML(state.enquiry.message)}</p></div><div class="modal-actions"><button class="button button-primary" data-action="download-enquiry">${t('downloadEnquiry')}${icon('download')}</button><button class="button button-secondary" data-close>${t('close')}</button></div>`;
+      }
+    }
+
+    function downloadText(filename, text) {
+      const blob = new Blob(['\uFEFF', text], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      document.body.append(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 30000);
+      toast(t('downloadStarted'));
+    }
+
+    function downloadOrder() {
+      const order = state.completedOrder;
+      if (!order) return;
+      const lines = order.lines.map(line => `${getProduct(line.id).name} | ${t('size')}: ${sizeText(line.size)} | ${t('quantity')}: ${line.qty} | ${money(getProduct(line.id).price * line.qty)}`);
+      const text = ['AURÉA BRIDAL ATELIER', t('unpaid'), order.reference, '', ...lines, '', `${t('subtotal')}: ${money(order.totals.subtotal)}`, `${t('deliveryCost')}: ${money(order.totals.shipping)}`, `${t('total')}: ${money(order.totals.total)}`, t('vatIncluded'), '', `${t('customer')}: ${order.customer.name}`, order.customer.email, order.customer.phone, deliveryLabel(order), paymentLabel(order.payment), '', t('resultText')].join('\n');
+      downloadText(`${order.reference}.txt`, text);
+    }
+
+    function prepareEnquiry(event) {
+      event.preventDefault();
+      const form = $('#contact-form');
+      const nameInput = $('#contact-name');
+      nameInput.setCustomValidity(nameInput.value.trim().length < 2 ? t('invalidName') : '');
+      const messageInput = $('#contact-message');
+      messageInput.setCustomValidity(messageInput.value.trim().length < 10 ? t('messageTooShort') : '');
+      if (!form.reportValidity()) return;
+      const data = Object.fromEntries(new FormData(form).entries());
+      state.enquiry = { name: data.name.trim(), email: data.email.trim(), date: data.date, subject: data.subject, message: data.message.trim() };
+      state.resultType = 'enquiry';
+      renderResult();
+      openDialog('result-dialog');
+    }
+
+    function downloadEnquiry() {
+      const enquiry = state.enquiry;
+      if (!enquiry) return;
+      const subjectKey = enquiry.subject === 'appointment' ? 'appointment' : enquiry.subject === 'product' ? 'productQuestion' : 'otherQuestion';
+      const text = ['AURÉA BRIDAL ATELIER', t('messageReadyText'), '', enquiry.name, enquiry.email, `${t('weddingDate')}: ${formatDate(enquiry.date)}`, t(subjectKey), '', enquiry.message].join('\n');
+      downloadText('aurea-consulta.txt', text);
+    }
+
+    function clearHighlights() {
+      [$('#main-content'), $('#site-footer')].forEach(root => {
+        $$('.search-match', root).forEach(mark => mark.replaceWith(document.createTextNode(mark.textContent)));
+        root.normalize();
+      });
+    }
+
+    // Build marks with text nodes, never interpolating a search query into HTML or a regex.
+    function highlightMatches(query) {
+      clearHighlights();
+      const normalizedQuery = normalizeText(query.trim());
+      if (normalizedQuery.length < 2) return;
+      const nodes = [];
+      [$('#main-content'), $('#site-footer')].forEach(root => {
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+          acceptNode(node) {
+            if (!node.textContent.trim() || node.parentElement.closest('script, style, input, textarea, select, svg, [data-no-search]')) return NodeFilter.FILTER_REJECT;
+            return normalizeText(node.textContent).includes(normalizedQuery) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+          }
+        });
+        while (walker.nextNode() && nodes.length < 150) nodes.push(walker.currentNode);
+      });
+      nodes.forEach(node => {
+        const text = node.textContent;
+        const normalized = normalizeText(text);
+        const fragment = document.createDocumentFragment();
+        let from = 0;
+        let match;
+        while ((match = normalized.indexOf(normalizedQuery, from)) !== -1) {
+          fragment.append(document.createTextNode(text.slice(from, match)));
+          const mark = document.createElement('mark');
+          mark.className = 'search-match';
+          mark.textContent = text.slice(match, match + normalizedQuery.length);
+          fragment.append(mark);
+          from = match + normalizedQuery.length;
+        }
+        fragment.append(document.createTextNode(text.slice(from)));
+        node.replaceWith(fragment);
+      });
+    }
+
+    function updateSearch() {
+      const query = $('#search-input').value.trim();
+      state.query = query;
+      if (query.length < 2) {
+        clearHighlights();
+        $('#search-status').textContent = t('searchHint');
+        $('#search-results').innerHTML = '';
+        return;
+      }
+      const normalized = normalizeText(query);
+      const products = PRODUCTS.filter(product => normalizeText(`${product.name} ${material(product)} ${t(CATEGORY_KEYS[product.category])} ${t(DESCRIPTION_KEYS[product.category])}`).includes(normalized));
+      const sections = $$('section[data-search-section]', $('#main-content')).concat($('#site-footer')).filter(section => {
+        const text = section.id === 'coleccion' ? $('.section-heading', section).textContent : section.textContent;
+        return normalizeText(text).includes(normalized);
+      });
+      const count = products.length + sections.length;
+      $('#search-status').textContent = count ? t('searchResults', { count }) : t('searchNone');
+      $('#search-results').innerHTML = products.map(product => `<button class="search-result" data-product="${product.id}"><img src="${photo(product, 120)}" alt="" width="120" height="180"><span class="search-result-copy"><strong>${product.name}</strong><small>${t(CATEGORY_KEYS[product.category])} · ${money(product.price)}</small></span>${icon('arrow')}</button>`).join('') + sections.map(section => `<button class="search-result" data-search-section-link="${section.id}"><span class="search-result-copy"><strong>${t(section.dataset.searchSection)}</strong><small>${t('sectionResult')}</small></span>${icon('arrow')}</button>`).join('');
+      highlightMatches(query);
+    }
+
+    function openLegal(type) {
+      if (!['privacy', 'cookies', 'conditions', 'requirements', 'credits'].includes(type)) return;
+      state.legalType = type;
+      renderLegal();
+      openDialog('info-dialog');
+    }
+
+    function renderLegal() {
+      const type = state.legalType;
+      const titleKeys = { privacy: 'privacyPolicy', cookies: 'cookiePolicy', conditions: 'purchaseConditions', requirements: 'requirements', credits: 'credits' };
+      if (!titleKeys[type]) return;
+      $('#info-title').textContent = t(titleKeys[type]);
+      const paragraph = key => `<p>${t(key)}</p>`;
+      const content = {
+        privacy: paragraph('privacyText') + paragraph('privacyExtra') + paragraph('externalResources'),
+        cookies: paragraph('cookiesText') + paragraph('externalResources') + `<button class="button button-secondary" style="margin-top:23px" data-action="clear-local">${t('clearLocalData')}</button>`,
+        conditions: paragraph('conditionsText') + paragraph('demoConditions') + paragraph('returnsText'),
+        requirements: paragraph('requirementsText') + paragraph('productionRequirements') + `<button class="button button-secondary" style="margin-top:23px" data-action="run-checks">${t('checkCart')}</button><p id="diagnostic-results" role="status" aria-live="polite"></p>`,
+        credits: paragraph('creditsText') + `<ul><li><a href="https://www.halfpennylondon.com/halfpennylondon-collections" target="_blank" rel="noopener noreferrer">Halfpenny London</a></li><li><a href="https://www.rosaclara.es/es" target="_blank" rel="noopener noreferrer">Rosa Clará</a></li></ul>` + paragraph('photoCredits') + `<p><a href="https://www.pexels.com/license/" target="_blank" rel="noopener noreferrer">${t('pexelsLicense')}</a></p>`
+      };
+      $('#info-content').innerHTML = content[type];
+    }
+
+    function clearLocalData() {
+      if (!confirm(t('clearLocalConfirm'))) return;
+      state.cart = [];
+      state.favorites.clear();
+      state.draft = null;
+      state.completedOrder = null;
+      state.enquiry = null;
+      state.resultType = '';
+      state.selectedProduct = null;
+      state.favoritesOnly = false;
+      state.category = 'all';
+      state.sort = 'curated';
+      state.language = 'es';
+      $('#search-input').value = '';
+      $('#result-content').replaceChildren();
+      $('#review-content').replaceChildren();
+      $('#product-detail').replaceChildren();
+      $('#contact-form').reset();
+      $('#checkout-form').reset();
+      $('#account-form').reset();
+      document.body.classList.toggle('dark-mode', matchMedia('(prefers-color-scheme: dark)').matches);
+      ['cart', 'favorites', 'language', 'theme'].forEach(key => { try { localStorage.removeItem(`aurea-${key}`); } catch (_) {} });
+      translatePage();
+      toast(t('localDataCleared'));
+    }
+
+    document.addEventListener('click', event => {
+      const button = event.target.closest('button');
+      const internalLink = event.target.closest('a[href^="#"]');
+      if (internalLink) {
+        const id = internalLink.getAttribute('href').slice(1);
+        if (document.getElementById(id)) { event.preventDefault(); scrollToSection(id); }
+      }
+      if (!event.target.closest('.language-picker')) closeLanguageMenu();
+      if (!button) return;
+      if (button.hasAttribute('data-open')) { openDialog(button.dataset.open); return; }
+      if (button.hasAttribute('data-close')) { closeDialog(); return; }
+      if (button.dataset.language) { setLanguage(button.dataset.language); $('#language-toggle').focus(); return; }
+      if (button.dataset.product) { openProduct(button.dataset.product); return; }
+      if (button.dataset.favorite) { toggleFavorite(button.dataset.favorite); return; }
+      if (button.dataset.category) { state.category = button.dataset.category; renderProducts(); return; }
+      if (button.dataset.legal) { openLegal(button.dataset.legal); return; }
+      if (button.dataset.searchSectionLink) {
+        const id = button.dataset.searchSectionLink;
+        closeDialog(() => { $$('details', document.getElementById(id)).forEach(details => { if (normalizeText(details.textContent).includes(normalizeText(state.query))) details.open = true; }); scrollToSection(id); });
+        return;
+      }
+      if (button.dataset.size) {
+        state.selectedSize = button.dataset.size;
+        $$('[data-size]', $('#product-detail')).forEach(option => option.setAttribute('aria-pressed', String(option.dataset.size === state.selectedSize)));
+        $('#size-error').textContent = '';
+        return;
+      }
+      if (button.dataset.detailQuantity) {
+        state.selectedQuantity = Math.max(1, Math.min(state.selectedProduct.stock, state.selectedQuantity + Number(button.dataset.detailQuantity)));
+        $('#detail-quantity').textContent = state.selectedQuantity;
+        $('[data-detail-quantity="-1"]').disabled = state.selectedQuantity <= 1;
+        $('[data-detail-quantity="1"]').disabled = state.selectedQuantity >= state.selectedProduct.stock;
+        return;
+      }
+      if (button.dataset.cartChange) { updateCartLine(button.dataset.id, button.dataset.lineSize, Number(button.dataset.cartChange)); return; }
+      if (button.dataset.cartRemove) {
+        const line = state.cart.find(item => item.id === button.dataset.cartRemove && item.size === button.dataset.lineSize);
+        if (line) updateCartLine(line.id, line.size, -line.qty);
+        return;
+      }
+      if (button.id === 'add-to-cart') { addSelectedToCart(); return; }
+      const actions = {
+        'reset-filters': resetFilters,
+        'back-collection': () => closeDialog(() => { resetFilters(); scrollToSection('coleccion'); }),
+        'clear-cart': () => { if (confirm(t('confirmEmpty'))) { state.cart = []; persistCart(); renderCart(); $('[data-action="back-collection"]', $('#cart-items'))?.focus(); } },
+        'edit-order': beginCheckout,
+        'confirm-order': completeDemoOrder,
+        'download-order': downloadOrder,
+        'download-enquiry': downloadEnquiry,
+        'clear-local': clearLocalData,
+        'run-checks': () => {
+          const results = runCartChecks();
+          $('#diagnostic-results').textContent = t('checkResults', { passed: results.filter(result => result.passed).length, total: results.length });
+        }
+      };
+      if (actions[button.dataset.action]) actions[button.dataset.action]();
+    });
+
+    $('#theme-toggle').addEventListener('click', () => {
+      const dark = document.body.classList.toggle('dark-mode');
+      try { localStorage.setItem('aurea-theme', dark ? 'dark' : 'light'); } catch (_) {}
+      updateThemeButton();
+    });
+    $('#language-toggle').addEventListener('click', () => {
+      const open = $('#language-menu').hidden;
+      $('#language-menu').hidden = !open;
+      $('#language-toggle').setAttribute('aria-expanded', String(open));
+      if (open) $('[aria-checked="true"]', $('#language-menu')).focus();
+    });
+    $('#language-menu').addEventListener('keydown', event => {
+      const buttons = $$('[data-language]', $('#language-menu'));
+      const index = buttons.indexOf(document.activeElement);
+      if (['ArrowDown', 'ArrowRight', 'ArrowUp', 'ArrowLeft'].includes(event.key)) {
+        event.preventDefault();
+        const direction = ['ArrowDown', 'ArrowRight'].includes(event.key) ? 1 : -1;
+        buttons[(index + direction + buttons.length) % buttons.length].focus();
+      }
+    });
+    $('.language-picker').addEventListener('focusout', event => {
+      if (event.relatedTarget && !event.currentTarget.contains(event.relatedTarget)) closeLanguageMenu();
+    });
+    $('#menu-toggle').addEventListener('click', () => setMobileMenu(!document.body.classList.contains('menu-open')));
+    $('#mobile-scrim').addEventListener('click', () => setMobileMenu(false, true));
+    $('#product-sort').addEventListener('change', event => { state.sort = event.target.value; renderProducts(); });
+    $('#favorites-filter').addEventListener('click', () => { state.favoritesOnly = !state.favoritesOnly; renderProducts(); });
+    $('#account-favorites').addEventListener('click', () => closeDialog(() => { state.category = 'all'; state.favoritesOnly = true; renderProducts(); scrollToSection('coleccion'); }));
+    $('#checkout-button').addEventListener('click', beginCheckout);
+    $('#checkout-form').addEventListener('submit', prepareOrder);
+    $('#checkout-form').addEventListener('change', event => { if (event.target.name === 'fulfillment') updateFulfillment(); });
+    $('#checkout-form').addEventListener('input', event => { if (event.target.setCustomValidity) event.target.setCustomValidity(''); });
+    $('#contact-form').addEventListener('submit', prepareEnquiry);
+    $('#contact-form').addEventListener('input', event => { if (event.target.setCustomValidity) event.target.setCustomValidity(''); });
+    $('#account-form').addEventListener('submit', event => {
+      event.preventDefault();
+      $('#account-password').value = '';
+      $('#account-status').textContent = t('loginPending');
+      $('#account-status').hidden = false;
+    });
+    $('#search-input').addEventListener('input', () => { clearTimeout(searchTimer); searchTimer = setTimeout(updateSearch, 140); });
+    $('#search-clear').addEventListener('click', () => { clearTimeout(searchTimer); $('#search-input').value = ''; updateSearch(); $('#search-input').focus(); });
+    $('#back-top').addEventListener('click', () => scrollToSection('inicio'));
+
+    $$('dialog').forEach(dialog => {
+      dialog.addEventListener('cancel', event => { event.preventDefault(); closeDialog(); });
+      dialog.addEventListener('click', event => {
+        if (event.target !== dialog) return;
+        const rect = dialog.getBoundingClientRect();
+        if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) closeDialog();
+      });
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Tab' && document.body.classList.contains('menu-open')) {
+        const focusable = $$('a[href], button:not(:disabled)', $('#site-header')).concat($$('a[href], button', $('#mobile-menu'))).filter(element => element.getClientRects().length > 0);
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
+      if (event.key !== 'Escape') return;
+      if (!$('#language-menu').hidden) { closeLanguageMenu(); $('#language-toggle').focus(); }
+      if (document.body.classList.contains('menu-open')) setMobileMenu(false, true);
+    });
+
+    let scrollScheduled = false;
+    function updateScrollUI() {
+      $('#site-header').classList.toggle('is-scrolled', window.scrollY > 15);
+      $('#back-top').classList.toggle('is-visible', window.scrollY > 850);
+      const sections = ['inicio', 'coleccion', 'atelier', 'experiencia', 'contacto'];
+      const threshold = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height'), 10) + 130;
+      let active = 'inicio';
+      sections.forEach(id => { if (document.getElementById(id).getBoundingClientRect().top <= threshold) active = id; });
+      $$('.desktop-nav a').forEach(link => {
+        const selected = link.getAttribute('href') === `#${active}`;
+        link.classList.toggle('active', selected);
+        if (selected) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current');
+      });
+      scrollScheduled = false;
+    }
+    window.addEventListener('scroll', () => { if (!scrollScheduled) { scrollScheduled = true; requestAnimationFrame(updateScrollUI); } }, { passive: true });
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        const menuWasOpen = document.body.classList.contains('menu-open');
+        setMobileMenu(false);
+        closeLanguageMenu();
+        if (menuWasOpen) (window.innerWidth <= 950 ? $('#menu-toggle') : $('.brand', $('#site-header'))).focus();
+        updateScrollUI();
+      }, 140);
+    });
+
+    window.addEventListener('storage', event => {
+      if (event.key === 'aurea-cart' || event.key === null) {
+        state.cart = sanitizeCart(readStored('cart', []));
+        renderCart();
+        if (state.activeDialog?.id === 'checkout-dialog' || state.activeDialog?.id === 'review-dialog') beginCheckout();
+      }
+      if (event.key === 'aurea-favorites' || event.key === null) {
+        const value = readStored('favorites', []);
+        state.favorites = new Set(Array.isArray(value) ? value.filter(id => getProduct(id)) : []);
+        renderProducts();
+        if (state.selectedProduct) renderProductDetail();
+      }
+    });
+
+    document.addEventListener('error', event => {
+      const image = event.target;
+      if (!(image instanceof HTMLImageElement) || image.dataset.fallback) return;
+      image.dataset.fallback = 'true';
+      image.removeAttribute('srcset');
+      image.removeAttribute('sizes');
+      const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200"><rect width="800" height="1200" fill="#e9e8df"/><text x="400" y="590" text-anchor="middle" font-family="Georgia,serif" font-size="75" fill="#737b64">auréa.</text><path d="M330 630h140" stroke="#a4ac95"/></svg>';
+      image.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+    }, true);
+
+    function initializeReveal() {
+      if (!('IntersectionObserver' in window) || reducedMotion.matches) return;
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) { entry.target.classList.remove('is-pending'); observer.unobserve(entry.target); }
+        });
+      }, { threshold: .08, rootMargin: '0px 0px -25px 0px' });
+      $$('.reveal').forEach(element => { element.classList.add('is-pending'); observer.observe(element); });
+    }
+
+    // Deterministic checks are exposed for manual verification without touching the live cart.
+    function runCartChecks() {
+      const results = [];
+      const check = (name, passed) => results.push({ name, passed: Boolean(passed) });
+      let cart = changeCart([], 'alba', '38', 1);
+      check('Add a valid dress', cart.length === 1 && cart[0].qty === 1);
+      cart = changeCart(cart, 'alba', '38', 3);
+      check('Update an existing variant without duplicating it', cart.length === 1 && cart[0].qty === 3);
+      cart = changeCart(cart, 'alba', '40', 1);
+      check('Keep different sizes separate', cart.length === 2);
+      cart = changeCart(cart, 'alba', '38', 0);
+      check('Remove a zero quantity', cart.length === 1 && cart[0].size === '40');
+      check('Reject invalid products and sizes', sanitizeCart([{ id: 'unknown', size: '38', qty: 1 }, { id: 'alba', size: '999', qty: 1 }]).length === 0);
+      check('Recover from malformed stored cart', sanitizeCart(null).length === 0 && sanitizeCart({}).length === 0);
+      check('Cap quantities and merge duplicate storage entries', sanitizeCart([{ id: 'alba', size: '38', qty: 4 }, { id: 'alba', size: '38', qty: 4 }])[0].qty === 5);
+      check('Reject non-finite quantities', sanitizeCart([{ id: 'alba', size: '38', qty: Infinity }]).length === 0);
+      const accessory = [{ id: 'iris', size: 'U', qty: 1 }];
+      check('Pickup is free', calculateTotals(accessory, 'pickup').total === 6500);
+      check('Shipping below threshold costs 990 cents', calculateTotals(accessory, 'shipping').total === 7490);
+      check('Shipping at threshold is free', calculateTotals([{ id: 'olivo', size: 'U', qty: 2 }], 'shipping').shipping === 0);
+      check('Empty bag has no delivery fee', calculateTotals([], 'shipping').total === 0);
+      check('Pay later follows the delivery method', resolvePayment('pickup', 'delivery') === 'pickup' && resolvePayment('shipping', 'pickup') === 'delivery');
+      check('Online payment works with both delivery methods', resolvePayment('pickup', 'online') === 'online' && resolvePayment('shipping', 'online') === 'online');
+      check('All amounts remain integer euro cents', PRODUCTS.every(product => Number.isInteger(product.price)) && Object.values(calculateTotals(accessory, 'shipping')).every(Number.isInteger));
+      check('Only mainland postcodes are accepted', isValidPostal('46004') && !isValidPostal('07001') && !isValidPostal('35001') && !isValidPostal('51001') && !isValidPostal('00000'));
+      check('Exactly 20 unique products', PRODUCTS.length === 20 && new Set(PRODUCTS.map(product => product.id)).size === 20);
+      check('Every translation has three languages', Object.values(COPY).every(value => value.length === 3 && value.every(text => typeof text === 'string' && text.length > 0)));
+      const translationAttributes = ['data-i18n', 'data-i18n-html', 'data-i18n-aria', 'data-i18n-placeholder', 'data-i18n-alt'];
+      check('All declared interface translations exist', translationAttributes.every(attribute => $$(`[${attribute}]`).every(element => Object.hasOwn(COPY, element.getAttribute(attribute)))));
+      const ids = $$('[id]').map(element => element.id);
+      check('All document IDs are unique', new Set(ids).size === ids.length);
+      return results;
+    }
+    window.AureaDiagnostics = Object.freeze({ runCartChecks });
+
+    $('#copyright-year').textContent = new Date().getFullYear();
+    $('#contact-date').min = localDateString(new Date());
+    $('#pickup-date').min = earliestPickupDate();
+    translatePage();
+    initializeReveal();
+    updateScrollUI();
+    const failedChecks = runCartChecks().filter(result => !result.passed);
+    if (failedChecks.length) console.error('Auréa integrity checks failed:', failedChecks);
+  </script>
+</body>
+</html>

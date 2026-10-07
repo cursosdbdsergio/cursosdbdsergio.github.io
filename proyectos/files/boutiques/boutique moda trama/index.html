@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f3f1e9">
+  <title>trama | Moda hecha para durar</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #f3f1e9;
+      --surface: #fbfaf6;
+      --surface-soft: #e8e9df;
+      --ink: #203a31;
+      --ink-soft: #52635a;
+      --line: #d5d8ce;
+      --forest: #203a31;
+      --forest-dark: #152a23;
+      --cream: #f3f1e9;
+      --lime: #d7ef91;
+      --accent: #c8df84;
+      --shadow: 0 22px 80px rgba(22, 40, 32, .18);
+      --page-width: 1320px;
+      --display: Georgia, "Times New Roman", serif;
+      --body: Arial, Helvetica, sans-serif;
+    }
+
+    body.dark-mode {
+      color-scheme: dark;
+      --page: #171d19;
+      --surface: #202822;
+      --surface-soft: #2a352d;
+      --ink: #f0eee5;
+      --ink-soft: #b5bdb4;
+      --line: #3a473e;
+      --forest: #dce9cf;
+      --forest-dark: #10251e;
+      --cream: #19211b;
+      --lime: #d7ef91;
+      --accent: #d7ef91;
+      --shadow: 0 22px 80px rgba(0, 0, 0, .42);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 108px; }
+    body {
+      margin: 0;
+      padding-top: 101px;
+      background: var(--page);
+      color: var(--ink);
+      font-family: var(--body);
+      font-size: 15px;
+      line-height: 1.55;
+      transition: background-color .35s ease, color .35s ease;
+    }
+    body.overlay-open { overflow: hidden; }
+    button, input, textarea, select { font: inherit; }
+    button, a, select { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 2px solid #82936d; outline-offset: 3px; }
+    button { color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; }
+    [hidden] { display: none !important; }
+    ::selection { background: var(--lime); color: #203a31; }
+
+    .container { width: min(var(--page-width), calc(100% - 64px)); margin-inline: auto; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+    }
+    .eyebrow {
+      margin: 0 0 17px;
+      color: var(--ink-soft);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+    .section-title {
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(2.8rem, 5.7vw, 5.4rem);
+      font-weight: 400;
+      letter-spacing: -.065em;
+      line-height: .98;
+    }
+    .section-copy { max-width: 520px; color: var(--ink-soft); font-size: 16px; line-height: 1.8; }
+    .text-link {
+      display: inline-flex; align-items: center; gap: 13px;
+      padding: 0 0 7px; border: 0; border-bottom: 1px solid currentColor;
+      background: transparent; color: var(--ink); cursor: pointer;
+      font-size: 11px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase;
+      transition: gap .25s ease, color .25s ease;
+    }
+    .text-link:hover { gap: 20px; color: #607c43; }
+    .text-link svg { width: 14px; height: 14px; }
+    .button-primary {
+      display: inline-flex; min-height: 51px; align-items: center; justify-content: center; gap: 14px;
+      padding: 0 25px; border: 1px solid var(--lime); border-radius: 0;
+      background: var(--lime); color: #203a31; cursor: pointer;
+      font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      transition: background .25s ease, border-color .25s ease, transform .25s ease;
+    }
+    .button-primary:hover { transform: translateY(-2px); background: #e3f5b6; border-color: #e3f5b6; }
+    .button-primary svg { width: 15px; height: 15px; }
+
+    .site-header {
+      position: fixed; z-index: 30; inset: 0 0 auto; background: var(--page);
+      border-bottom: 1px solid transparent;
+      transition: background-color .3s ease, border-color .3s ease, box-shadow .3s ease;
+    }
+    .site-header.is-scrolled { border-color: var(--line); box-shadow: 0 8px 26px rgba(21, 42, 35, .05); }
+    .announcement-bar { height: 29px; background: var(--forest-dark); color: #f2f0e7; }
+    .announcement-inner {
+      display: flex; width: min(var(--page-width), calc(100% - 64px)); height: 100%;
+      align-items: center; justify-content: space-between; margin: auto;
+      font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    }
+    .announcement-inner span:last-child { opacity: .8; }
+    .main-nav {
+      display: grid; width: min(var(--page-width), calc(100% - 64px)); height: 72px;
+      grid-template-columns: 1fr auto 1fr; align-items: center; margin: auto;
+    }
+    .brand {
+      display: inline-flex; width: max-content; align-items: flex-start;
+      color: var(--ink); font-family: var(--display); font-size: 35px;
+      font-weight: 700; letter-spacing: -.09em; line-height: .9;
+    }
+    .brand-dot { width: 6px; height: 6px; margin: 3px 0 0 4px; border-radius: 50%; background: #91a963; }
+    .desktop-nav { display: flex; align-items: center; gap: clamp(19px, 2.7vw, 40px); }
+    .desktop-nav a {
+      position: relative; padding: 8px 0; color: var(--ink-soft);
+      font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      transition: color .2s ease;
+    }
+    .desktop-nav a::after {
+      position: absolute; right: 0; bottom: 1px; left: 0; height: 1px;
+      background: currentColor; content: ""; transform: scaleX(0); transform-origin: left;
+      transition: transform .25s ease;
+    }
+    .desktop-nav a:hover { color: var(--ink); }
+    .desktop-nav a:hover::after { transform: scaleX(1); }
+    .header-actions { display: flex; align-items: center; justify-self: end; gap: 7px; }
+    .icon-button {
+      position: relative; display: grid; width: 39px; height: 39px; place-items: center;
+      padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--ink);
+      cursor: pointer; transition: background .2s ease, transform .2s ease;
+    }
+    .icon-button:hover { background: var(--surface-soft); transform: translateY(-1px); }
+    .icon-button svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .theme-icon { animation: theme-icon-arrive .32s ease both; }
+    .cart-count {
+      position: absolute; top: 0; right: -1px; display: grid; min-width: 16px; height: 16px;
+      place-items: center; padding: 0 4px; border-radius: 10px; background: var(--lime);
+      color: #203a31; font-size: 9px; font-weight: 700;
+    }
+    .language-select {
+      appearance: none; padding: 6px 16px 6px 7px; border: 0; outline: 0;
+      background: transparent; color: var(--ink); cursor: pointer;
+      font-size: 10px; font-weight: 700; letter-spacing: .08em;
+    }
+    .language-wrap { position: relative; }
+    .language-wrap::after {
+      position: absolute; top: 8px; right: 2px; width: 6px; height: 6px;
+      border-right: 1px solid currentColor; border-bottom: 1px solid currentColor;
+      content: ""; pointer-events: none; transform: rotate(45deg);
+    }
+    .menu-toggle { display: none; }
+    .mobile-menu {
+      position: absolute; top: 100%; right: 0; left: 0; z-index: 29;
+      max-height: 0; overflow: hidden; border-bottom: 1px solid transparent;
+      background: var(--page); opacity: 0; transform: translateY(-14px);
+      visibility: hidden; transition: max-height .38s ease, opacity .26s ease, transform .38s ease, border-color .25s ease, visibility 0s linear .38s;
+      pointer-events: none;
+    }
+    .mobile-menu.is-open {
+      max-height: 620px; border-color: var(--line); opacity: 1; transform: translateY(0);
+      visibility: visible; transition-delay: 0s; pointer-events: auto;
+    }
+    .mobile-menu-inner { display: flex; width: min(100% - 42px, 460px); flex-direction: column; align-items: center; margin: auto; padding: 21px 0 27px; }
+    .mobile-nav-links { display: flex; width: 100%; flex-direction: column; align-items: center; }
+    .mobile-nav-links a { width: 100%; padding: 12px; border-bottom: 1px solid var(--line); text-align: center; font-family: var(--display); font-size: 23px; }
+    .mobile-menu-tools { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 15px; padding-top: 20px; }
+    .mobile-search-button { display: inline-flex; align-items: center; gap: 9px; padding: 9px 0; border: 0; background: transparent; cursor: pointer; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .mobile-search-button svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+    .mobile-language { display: flex; align-items: center; gap: 9px; color: var(--ink-soft); font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .mobile-language .language-select { border-bottom: 1px solid var(--line); font-size: 11px; }
+
+    .hero {
+      position: relative; min-height: 620px; height: min(790px, calc(100svh - 101px)); max-height: 900px;
+      overflow: hidden; background: #404b3e; color: #fff;
+    }
+    .hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; animation: hero-arrive 1.25s cubic-bezier(.2,.65,.25,1) both; }
+    .hero::after {
+      position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(16, 30, 24, .68) 0%, rgba(16, 30, 24, .27) 53%, rgba(16, 30, 24, .02) 100%), linear-gradient(0deg, rgba(16, 30, 24, .26), transparent 44%);
+      content: "";
+    }
+    .hero-inner { position: relative; z-index: 2; display: flex; width: min(var(--page-width), calc(100% - 64px)); height: 100%; flex-direction: column; align-items: flex-start; justify-content: center; margin: auto; padding: 20px 0 36px; }
+    .hero .eyebrow { margin-bottom: 26px; color: rgba(255, 255, 255, .78); }
+    .hero h1 { display: flex; flex-direction: column; align-items: flex-start; margin: 0; font-weight: 400; }
+    .hero-brand { display: block; margin-left: -.075em; font-family: var(--display); font-size: clamp(7rem, 17vw, 15rem); font-weight: 700; letter-spacing: -.115em; line-height: .68; }
+    .hero-statement { display: block; max-width: 670px; margin-top: 31px; font-family: var(--display); font-size: clamp(2.15rem, 5.1vw, 4.6rem); font-weight: 400; letter-spacing: -.065em; line-height: 1.02; }
+    .hero-copy { max-width: 435px; margin: 22px 0 27px; color: rgba(255, 255, 255, .82); font-size: 14px; line-height: 1.7; }
+    .hero .button-primary { margin-top: 2px; }
+    .hero .button-primary:hover { color: #203a31; }
+
+    .intro-section { padding: 135px 0 126px; }
+    .intro-top { display: grid; grid-template-columns: .9fr 1.1fr; gap: 8%; align-items: start; }
+    .intro-top .section-copy { max-width: 540px; margin: 25px 0 0; }
+    .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; margin-top: 83px; border-top: 1px solid var(--line); }
+    .principle { padding-top: 20px; }
+    .principle-number { color: #82936d; font-family: var(--display); font-size: 15px; }
+    .principle h3 { margin: 24px 0 9px; font-family: var(--display); font-size: 25px; font-weight: 400; letter-spacing: -.035em; }
+    .principle p { max-width: 285px; margin: 0; color: var(--ink-soft); font-size: 13px; line-height: 1.7; }
+
+    .collection-section { padding: 103px 0 130px; background: var(--surface); transition: background-color .35s ease; }
+    .collection-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; }
+    .collection-heading .section-copy { max-width: 360px; margin: 0 0 7px; font-size: 14px; }
+    .collection-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 22px; margin: 53px 0 25px; padding-bottom: 15px; border-bottom: 1px solid var(--line); }
+    .filter-list { display: flex; flex-wrap: wrap; gap: 27px; }
+    .filter-button { position: relative; padding: 5px 0; border: 0; background: transparent; color: var(--ink-soft); cursor: pointer; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; transition: color .2s ease; }
+    .filter-button::after { position: absolute; right: 0; bottom: 0; left: 0; height: 1px; background: currentColor; content: ""; transform: scaleX(0); transition: transform .2s ease; }
+    .filter-button:hover, .filter-button.is-active { color: var(--ink); }
+    .filter-button.is-active::after { transform: scaleX(1); }
+    .product-count { color: var(--ink-soft); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+    .product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 23px; row-gap: 53px; }
+    .product-item { min-width: 0; animation: product-arrive .5s ease both; }
+    .product-photo { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--surface-soft); }
+    .product-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2,.65,.25,1); }
+    .product-item:hover .product-photo img { transform: scale(1.035); }
+    .product-meta { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-top: 16px; }
+    .product-name { overflow: hidden; margin: 0; font-family: var(--display); font-size: 21px; font-weight: 400; letter-spacing: -.035em; text-overflow: ellipsis; white-space: nowrap; }
+    .product-price { flex: 0 0 auto; margin: 0; font-size: 12px; font-weight: 700; }
+    .product-category { margin: 3px 0 13px; color: var(--ink-soft); font-size: 9px; letter-spacing: .11em; text-transform: uppercase; }
+    .product-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 39px; border-top: 1px solid var(--line); }
+    .size-picker { max-width: 95px; padding: 7px 22px 7px 0; border: 0; outline: 0; background: transparent; color: var(--ink-soft); cursor: pointer; font-size: 10px; }
+    .size-static { color: var(--ink-soft); font-size: 10px; }
+    .add-button { display: inline-flex; align-items: center; gap: 8px; padding: 8px 0 8px 10px; border: 0; background: transparent; color: var(--ink); cursor: pointer; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; transition: color .2s ease; }
+    .add-button:hover { color: #829744; }
+    .add-button svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
+
+    .second-life { display: grid; min-height: 590px; grid-template-columns: 1fr 1fr; background: var(--surface-soft); }
+    .second-life-image { min-height: 590px; overflow: hidden; }
+    .second-life-image img { width: 100%; height: 100%; min-height: 590px; object-fit: cover; object-position: center; transition: transform 1.1s cubic-bezier(.2,.65,.25,1); }
+    .second-life:hover .second-life-image img { transform: scale(1.025); }
+    .second-life-content { display: flex; max-width: 650px; flex-direction: column; align-items: flex-start; justify-content: center; padding: 80px clamp(42px, 8vw, 125px); }
+    .second-life-content .section-title { max-width: 520px; font-size: clamp(3rem, 5.1vw, 5rem); }
+    .second-life-content .section-copy { margin: 24px 0 29px; }
+
+    .contact-section { padding: 135px 0 140px; }
+    .contact-grid { display: grid; grid-template-columns: 1fr .8fr; gap: 12%; }
+    .contact-intro .section-copy { max-width: 445px; margin: 24px 0 32px; }
+    .contact-details { display: flex; flex-direction: column; gap: 10px; color: var(--ink-soft); font-size: 13px; }
+    .contact-details a { width: max-content; border-bottom: 1px solid transparent; transition: border-color .2s ease; }
+    .contact-details a:hover { border-color: currentColor; }
+    .contact-form { display: flex; flex-direction: column; gap: 19px; padding-top: 9px; }
+    .form-field { display: flex; flex-direction: column; gap: 8px; }
+    .form-field > span { color: var(--ink-soft); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .form-field input, .form-field textarea, .form-field select {
+      width: 100%; padding: 10px 0 12px; border: 0; border-bottom: 1px solid var(--line); border-radius: 0;
+      outline: 0; background: transparent; color: var(--ink); font-size: 14px; transition: border-color .2s ease;
+    }
+    .form-field input:focus, .form-field textarea:focus, .form-field select:focus { border-color: #788f5d; }
+    .form-field textarea { min-height: 88px; resize: vertical; }
+    .contact-form .button-primary { align-self: flex-start; margin-top: 4px; }
+    .form-status { min-height: 21px; margin: 0; color: var(--ink-soft); font-size: 12px; }
+
+    .site-footer { padding: 49px 0 24px; border-top: 1px solid var(--line); }
+    .footer-main { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 45px; padding-bottom: 47px; }
+    .footer-brand .brand { font-size: 39px; }
+    .footer-brand p { max-width: 275px; margin: 19px 0 0; color: var(--ink-soft); font-size: 12px; line-height: 1.7; }
+    .footer-column h2 { margin: 2px 0 16px; color: var(--ink-soft); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; }
+    .footer-links { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+    .footer-links a, .footer-links button { padding: 0; border: 0; background: transparent; color: var(--ink); cursor: pointer; font-size: 12px; text-align: left; }
+    .footer-links a:hover, .footer-links button:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 17px; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
+    .footer-bottom p { margin: 0; }
+
+    .modal-layer, .drawer-backdrop {
+      position: fixed; inset: 0; z-index: 60; display: flex; align-items: center; justify-content: center;
+      padding: 22px; background: rgba(14, 24, 19, .56); opacity: 0; visibility: hidden;
+      transition: opacity .28s ease, visibility .28s ease; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    }
+    .modal-layer.is-open, .drawer-backdrop.is-open { opacity: 1; visibility: visible; }
+    .modal-box {
+      position: relative; width: min(640px, 100%); max-height: min(84vh, 760px); overflow-y: auto;
+      padding: clamp(28px, 5vw, 56px); background: var(--page); box-shadow: var(--shadow);
+      opacity: 0; transform: translateY(14px) scale(.99); transition: opacity .3s ease, transform .3s ease;
+    }
+    .modal-layer.is-open .modal-box { opacity: 1; transform: translateY(0) scale(1); }
+    .modal-close, .drawer-close {
+      display: grid; width: 38px; height: 38px; place-items: center; padding: 0;
+      border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--ink); cursor: pointer;
+      transition: background .2s ease, transform .2s ease;
+    }
+    .modal-close:hover, .drawer-close:hover { background: var(--surface-soft); transform: rotate(5deg); }
+    .modal-close svg, .drawer-close svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
+    .modal-close { position: absolute; top: 19px; right: 19px; }
+    .modal-title { margin: 0 45px 13px 0; font-family: var(--display); font-size: clamp(2.3rem, 6vw, 4rem); font-weight: 400; letter-spacing: -.06em; line-height: 1; }
+    .modal-copy { margin: 0 0 26px; color: var(--ink-soft); font-size: 13px; line-height: 1.75; }
+    .search-form { display: flex; align-items: center; gap: 11px; border-bottom: 1px solid var(--ink); }
+    .search-form input { flex: 1; min-width: 0; padding: 14px 0; border: 0; outline: 0; background: transparent; color: var(--ink); font-family: var(--display); font-size: 23px; }
+    .search-form button { display: grid; width: 42px; height: 42px; flex: 0 0 auto; place-items: center; border: 0; background: transparent; cursor: pointer; }
+    .search-form button svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+    .search-status { min-height: 22px; margin: 13px 0 0; color: var(--ink-soft); font-size: 12px; }
+    .account-form { display: flex; flex-direction: column; gap: 17px; }
+    .account-form .button-primary { align-self: flex-start; }
+    .legal-copy { color: var(--ink-soft); font-size: 14px; line-height: 1.8; white-space: pre-line; }
+
+    .drawer-backdrop { z-index: 70; padding: 0; }
+    .cart-drawer {
+      position: fixed; z-index: 71; top: 0; right: 0; display: flex; width: min(530px, 100%); height: 100dvh;
+      flex-direction: column; background: var(--page); box-shadow: var(--shadow);
+      visibility: hidden; transform: translateX(102%); transition: transform .4s cubic-bezier(.2,.7,.2,1), visibility 0s linear .4s;
+    }
+    .cart-drawer.is-open { visibility: visible; transform: translateX(0); transition-delay: 0s; }
+    .drawer-header { display: flex; min-height: 82px; align-items: center; justify-content: space-between; gap: 18px; padding: 17px 27px; border-bottom: 1px solid var(--line); }
+    .drawer-header h2 { margin: 0; font-family: var(--display); font-size: 29px; font-weight: 400; letter-spacing: -.04em; }
+    .drawer-step-view { flex: 1; overflow: auto; padding: 24px 27px 34px; }
+    .cart-empty { display: flex; min-height: 62vh; flex-direction: column; align-items: flex-start; justify-content: center; }
+    .cart-empty-mark { display: grid; width: 53px; height: 53px; place-items: center; margin-bottom: 22px; border: 1px solid var(--line); border-radius: 50%; }
+    .cart-empty-mark svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.4; }
+    .cart-empty h3 { max-width: 310px; margin: 0 0 10px; font-family: var(--display); font-size: 38px; font-weight: 400; letter-spacing: -.055em; line-height: 1.05; }
+    .cart-empty p { margin: 0 0 26px; color: var(--ink-soft); font-size: 13px; }
+    .cart-line-list { display: flex; flex-direction: column; }
+    .cart-line { display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .cart-line-image { aspect-ratio: 4 / 5; overflow: hidden; background: var(--surface-soft); }
+    .cart-line-image img { width: 100%; height: 100%; object-fit: cover; }
+    .cart-line-content { min-width: 0; }
+    .cart-line-top { display: flex; align-items: start; justify-content: space-between; gap: 10px; }
+    .cart-line-top h3 { margin: 0; font-family: var(--display); font-size: 19px; font-weight: 400; }
+    .cart-line-top p { margin: 3px 0 0; color: var(--ink-soft); font-size: 11px; }
+    .cart-line-price { flex: 0 0 auto; margin: 2px 0 0 !important; color: var(--ink) !important; font-size: 12px !important; font-weight: 700; }
+    .cart-line-controls { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 13px; }
+    .cart-line-size { max-width: 90px; padding: 5px 14px 5px 0; border: 0; border-bottom: 1px solid var(--line); outline: 0; background: transparent; color: var(--ink-soft); font-size: 10px; }
+    .quantity-control { display: inline-flex; height: 29px; align-items: center; border: 1px solid var(--line); }
+    .quantity-control button { display: grid; width: 28px; height: 27px; place-items: center; border: 0; background: transparent; cursor: pointer; font-size: 15px; }
+    .quantity-control span { min-width: 21px; text-align: center; font-size: 10px; }
+    .remove-line { padding: 5px 0; border: 0; background: transparent; color: var(--ink-soft); cursor: pointer; font-size: 10px; text-decoration: underline; text-underline-offset: 3px; }
+    .cart-summary { margin-top: 22px; padding-top: 3px; }
+    .summary-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin: 9px 0; color: var(--ink-soft); font-size: 12px; }
+    .summary-row strong { color: var(--ink); font-weight: 600; }
+    .summary-total { margin-top: 15px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--ink); font-size: 13px; }
+    .summary-total strong { font-size: 15px; }
+    .cart-hint { margin: 12px 0 0; color: var(--ink-soft); font-size: 11px; line-height: 1.55; }
+    .drawer-primary { width: 100%; margin-top: 20px; }
+    .drawer-back-button { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 20px; padding: 0; border: 0; background: transparent; color: var(--ink-soft); cursor: pointer; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .drawer-back-button:hover { color: var(--ink); }
+    .checkout-title { margin: 0 0 4px; font-family: var(--display); font-size: 31px; font-weight: 400; letter-spacing: -.045em; }
+    .checkout-intro { margin: 0 0 21px; color: var(--ink-soft); font-size: 12px; }
+    .checkout-form { display: flex; flex-direction: column; gap: 18px; }
+    .checkout-form .form-field { gap: 6px; }
+    .checkout-form .form-field input, .checkout-form .form-field select { padding: 8px 0 9px; font-size: 13px; }
+    .checkout-form .form-field > span { font-size: 9px; }
+    .checkout-set { margin: 0; padding: 17px 0 0; border: 0; border-top: 1px solid var(--line); }
+    .checkout-set legend { width: 100%; margin: 0 0 12px; padding: 0; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .choice-list { display: flex; flex-direction: column; gap: 9px; }
+    .choice-line { display: flex; align-items: flex-start; gap: 11px; padding: 11px 12px; border: 1px solid var(--line); cursor: pointer; transition: border-color .2s ease, background .2s ease; }
+    .choice-line:has(input:checked) { border-color: #8ba36b; background: color-mix(in srgb, var(--accent) 12%, var(--page)); }
+    .choice-line input { width: 14px; height: 14px; flex: 0 0 auto; margin: 2px 0 0; accent-color: #698343; }
+    .choice-line span { display: flex; flex-direction: column; gap: 2px; }
+    .choice-line strong { font-size: 11px; font-weight: 700; }
+    .choice-line small { color: var(--ink-soft); font-size: 10px; line-height: 1.45; }
+    .checkout-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .checkout-fields .full-width { grid-column: 1 / -1; }
+    .checkout-summary { margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--line); }
+    .payment-head { margin: 0 0 7px; font-family: var(--display); font-size: 32px; font-weight: 400; letter-spacing: -.05em; line-height: 1.05; }
+    .payment-note { margin: 0 0 23px; color: var(--ink-soft); font-size: 12px; line-height: 1.65; }
+    .gateway-window { padding: 19px; border: 1px solid var(--line); background: var(--surface); }
+    .gateway-brand { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-bottom: 14px; border-bottom: 1px solid var(--line); color: var(--ink-soft); font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .gateway-brand span:last-child { color: #778d5b; }
+    .gateway-total { display: flex; align-items: end; justify-content: space-between; gap: 12px; padding: 18px 0 4px; }
+    .gateway-total span { color: var(--ink-soft); font-size: 11px; }
+    .gateway-total strong { font-family: var(--display); font-size: 31px; font-weight: 400; }
+    .gateway-message { margin: 15px 0 0; padding: 12px; background: var(--surface-soft); color: var(--ink-soft); font-size: 11px; line-height: 1.6; }
+    .order-success { display: flex; min-height: 65vh; flex-direction: column; align-items: flex-start; justify-content: center; }
+    .success-mark { display: grid; width: 48px; height: 48px; place-items: center; margin-bottom: 20px; border: 1px solid #9bb674; border-radius: 50%; color: #668246; }
+    .success-mark svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .order-reference { margin: 17px 0 0; color: var(--ink-soft); font-size: 10px; letter-spacing: .13em; text-transform: uppercase; }
+
+    .cookie-notice {
+      position: fixed; z-index: 55; right: 20px; bottom: 20px; display: flex; width: min(680px, calc(100% - 40px));
+      align-items: center; justify-content: space-between; gap: 25px; padding: 19px 20px;
+      border: 1px solid var(--line); background: var(--page); box-shadow: var(--shadow);
+      animation: cookie-enter .5s ease both;
+    }
+    .cookie-notice p { max-width: 340px; margin: 0; color: var(--ink-soft); font-size: 11px; line-height: 1.6; }
+    .cookie-actions { display: flex; flex: 0 0 auto; align-items: center; gap: 14px; }
+    .cookie-actions button { padding: 7px 0; border: 0; background: transparent; color: var(--ink); cursor: pointer; font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .cookie-actions button:last-child { padding: 11px 14px; background: var(--ink); color: var(--page); }
+    .toast {
+      position: fixed; z-index: 95; right: 22px; bottom: 25px; max-width: calc(100% - 44px);
+      padding: 13px 18px; background: var(--ink); color: var(--page); font-size: 12px;
+      opacity: 0; transform: translateY(12px); transition: opacity .25s ease, transform .25s ease; pointer-events: none;
+    }
+    .toast.is-visible { opacity: 1; transform: translateY(0); }
+    mark.search-highlight { padding: 0 .08em; background: #d7ef91; color: #203a31; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+
+    .js-enabled .reveal { opacity: 0; transform: translateY(22px); transition: opacity .75s ease, transform .75s cubic-bezier(.2,.65,.25,1); }
+    .js-enabled .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    @keyframes hero-arrive { from { transform: scale(1.055); opacity: .65; } to { transform: scale(1); opacity: 1; } }
+    @keyframes theme-icon-arrive { from { transform: rotate(-35deg) scale(.72); opacity: .45; } to { transform: rotate(0) scale(1); opacity: 1; } }
+    @keyframes product-arrive { from { transform: translateY(10px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @keyframes cookie-enter { from { transform: translateY(15px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+    @media (max-width: 1080px) {
+      .main-nav, .announcement-inner, .hero-inner { width: calc(100% - 48px); }
+      .desktop-nav { gap: 17px; }
+      .desktop-nav a { font-size: 9px; }
+      .header-actions { gap: 2px; }
+      .language-select { padding-right: 13px; }
+      .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .second-life-content { padding-inline: 55px; }
+    }
+    @media (max-width: 850px) {
+      body { padding-top: 94px; }
+      html { scroll-padding-top: 100px; }
+      .announcement-bar { height: 27px; }
+      .announcement-inner { width: calc(100% - 42px); font-size: 8px; }
+      .announcement-inner span:last-child { display: none; }
+      .main-nav { width: calc(100% - 42px); height: 67px; grid-template-columns: 1fr auto; }
+      .brand { font-size: 33px; }
+      .desktop-nav, .language-wrap { display: none; }
+      .header-actions { gap: 2px; }
+      .menu-toggle { display: grid; margin-left: 3px; }
+      .menu-toggle-lines { position: relative; display: block; width: 18px; height: 14px; }
+      .menu-toggle-lines span { position: absolute; left: 0; width: 18px; height: 1.5px; background: currentColor; transition: top .25s ease, transform .25s ease; }
+      .menu-toggle-lines span:first-child { top: 3px; }
+      .menu-toggle-lines span:last-child { top: 10px; }
+      .menu-toggle[aria-expanded="true"] .menu-toggle-lines span:first-child { top: 7px; transform: rotate(45deg); }
+      .menu-toggle[aria-expanded="true"] .menu-toggle-lines span:last-child { top: 7px; transform: rotate(-45deg); }
+      .hero { height: min(760px, calc(100svh - 94px)); min-height: 585px; }
+      .hero-inner { width: calc(100% - 48px); }
+      .intro-section { padding: 105px 0 100px; }
+      .intro-top { grid-template-columns: 1fr 1fr; gap: 7%; }
+      .principles { gap: 22px; margin-top: 64px; }
+      .principle h3 { font-size: 22px; }
+      .collection-section { padding: 90px 0 100px; }
+      .collection-heading .section-copy { max-width: 285px; }
+      .collection-toolbar { margin-top: 43px; }
+      .product-grid { column-gap: 17px; row-gap: 42px; }
+      .second-life { min-height: 510px; }
+      .second-life-image, .second-life-image img { min-height: 510px; }
+      .second-life-content { padding: 55px 38px; }
+      .contact-section { padding: 105px 0 110px; }
+      .contact-grid { gap: 8%; }
+    }
+    @media (max-width: 620px) {
+      .container { width: calc(100% - 42px); }
+      .announcement-inner { justify-content: center; text-align: center; }
+      .header-actions .icon-button { width: 36px; height: 36px; }
+      .hero { min-height: 610px; height: calc(86svh - 94px); max-height: 760px; }
+      .hero-image { object-position: 57% center; }
+      .hero::after { background: linear-gradient(90deg, rgba(16, 30, 24, .68), rgba(16, 30, 24, .23) 78%), linear-gradient(0deg, rgba(16, 30, 24, .3), transparent 55%); }
+      .hero-inner { width: calc(100% - 42px); justify-content: flex-end; padding: 0 0 73px; }
+      .hero .eyebrow { margin-bottom: 22px; font-size: 9px; }
+      .hero-brand { font-size: clamp(7.5rem, 33vw, 11rem); }
+      .hero-statement { max-width: 420px; margin-top: 25px; font-size: clamp(2.5rem, 10vw, 3.8rem); }
+      .hero-copy { max-width: 340px; margin: 17px 0 22px; font-size: 13px; }
+      .intro-section { padding: 83px 0 77px; }
+      .intro-top { grid-template-columns: 1fr; gap: 16px; }
+      .intro-top .section-copy { margin-top: 0; }
+      .section-title { font-size: clamp(3rem, 12vw, 4.3rem); }
+      .principles { grid-template-columns: 1fr; gap: 0; margin-top: 43px; }
+      .principle { display: grid; grid-template-columns: 37px 1fr; column-gap: 7px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+      .principle-number { grid-row: span 2; padding-top: 5px; }
+      .principle h3 { margin: 0 0 5px; font-size: 23px; }
+      .principle p { max-width: 100%; }
+      .collection-section { padding: 76px 0 82px; }
+      .collection-heading { display: block; }
+      .collection-heading .section-copy { max-width: 350px; margin: 16px 0 0; }
+      .collection-toolbar { display: block; margin: 33px 0 20px; }
+      .filter-list { gap: 18px; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 10px; scrollbar-width: none; }
+      .filter-list::-webkit-scrollbar { display: none; }
+      .filter-button { flex: 0 0 auto; font-size: 9px; }
+      .product-count { display: block; margin-top: 7px; font-size: 9px; }
+      .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 12px; row-gap: 34px; }
+      .product-name { font-size: 17px; }
+      .product-price { font-size: 10px; }
+      .product-category { margin-bottom: 10px; font-size: 8px; }
+      .product-meta { align-items: flex-start; margin-top: 12px; }
+      .product-actions { gap: 4px; }
+      .size-picker { max-width: 70px; font-size: 9px; }
+      .add-button { gap: 4px; padding-left: 2px; font-size: 9px; letter-spacing: .04em; }
+      .add-button svg { width: 13px; height: 13px; }
+      .second-life { grid-template-columns: 1fr; }
+      .second-life-image, .second-life-image img { min-height: 0; height: 88vw; max-height: 475px; }
+      .second-life-content { min-height: 385px; padding: 53px 25px 60px; }
+      .second-life-content .section-title { font-size: clamp(3rem, 11vw, 4.2rem); }
+      .contact-section { padding: 82px 0 87px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 45px; }
+      .contact-intro .section-copy { margin: 19px 0 23px; }
+      .contact-details { gap: 7px; }
+      .footer-main { grid-template-columns: 1fr 1fr; gap: 34px 22px; padding-bottom: 35px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { align-items: flex-start; flex-direction: column; gap: 7px; }
+      .cookie-notice { right: 10px; bottom: 10px; width: calc(100% - 20px); align-items: flex-start; flex-direction: column; gap: 12px; padding: 15px; }
+      .cookie-notice p { max-width: 100%; }
+      .cookie-actions { width: 100%; justify-content: flex-end; }
+      .modal-layer { padding: 12px; }
+      .modal-box { padding: 31px 24px; }
+      .modal-close { top: 13px; right: 13px; }
+      .cart-drawer { width: 100%; }
+      .drawer-header { min-height: 72px; padding: 14px 20px; }
+      .drawer-step-view { padding: 19px 20px 28px; }
+      .cart-line { grid-template-columns: 78px minmax(0, 1fr); gap: 12px; }
+      .checkout-fields { grid-template-columns: 1fr; }
+      .checkout-fields .full-width { grid-column: auto; }
+    }
+    @media (max-width: 370px) {
+      .header-actions .icon-button { width: 32px; }
+      .product-grid { column-gap: 9px; }
+      .product-name { font-size: 15px; }
+      .filter-list { gap: 13px; }
+      .hero-statement { font-size: 2.35rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .js-enabled .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body class="light-mode">
+  <header class="site-header" id="site-header">
+    <div class="announcement-bar">
+      <div class="announcement-inner">
+        <span data-i18n="top.note">Diseñado con calma, en Valencia</span>
+        <span data-i18n="top.delivery">Envío gratuito desde 120 € · Recogida en mercado</span>
+      </div>
+    </div>
+    <div class="main-nav">
+      <a class="brand" href="#inicio" aria-label="trama, ir al inicio">trama<span class="brand-dot"></span></a>
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        <a href="#inicio" data-i18n="nav.home">Inicio</a>
+        <a href="#filosofia" data-i18n="nav.story">Nuestro hacer</a>
+        <a href="#tienda" data-i18n="nav.shop">Colección</a>
+        <a href="#segunda-vida" data-i18n="nav.circular">Circularidad</a>
+        <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+      </nav>
+      <div class="header-actions">
+        <div class="language-wrap">
+          <label class="sr-only" for="language-select-desktop" data-i18n="mobile.language">Idioma</label>
+          <select class="language-select" id="language-select-desktop" aria-label="Seleccionar idioma">
+            <option value="es">ES</option><option value="en">EN</option><option value="va">VA</option>
+          </select>
+        </div>
+        <button class="icon-button" id="search-trigger" type="button" aria-label="Buscar en la página" data-i18n-aria="a11y.search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"></circle><path d="m16 16 4.3 4.3"></path></svg>
+        </button>
+        <button class="icon-button" id="account-trigger" type="button" aria-label="Acceso de cliente" data-i18n-aria="a11y.account">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.4"></circle><path d="M5.4 20c.6-3.4 3.2-5.4 6.6-5.4s6 2 6.6 5.4"></path></svg>
+        </button>
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="Activar modo oscuro" data-i18n-aria="a11y.darkMode"></button>
+        <button class="icon-button" id="cart-trigger" type="button" aria-label="Abrir la bolsa" data-i18n-aria="a11y.cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 8h13l1 12h-15l1-12Z"></path><path d="M9 9V6a3 3 0 0 1 6 0v3"></path></svg>
+          <span class="cart-count" id="cart-count" aria-live="polite">0</span>
+        </button>
+        <button class="icon-button menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu" data-i18n-aria="a11y.menuOpen">
+          <span class="menu-toggle-lines" aria-hidden="true"><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <div class="mobile-menu-inner">
+        <nav class="mobile-nav-links" aria-label="Navegación móvil">
+          <a href="#inicio" data-i18n="nav.home">Inicio</a>
+          <a href="#filosofia" data-i18n="nav.story">Nuestro hacer</a>
+          <a href="#tienda" data-i18n="nav.shop">Colección</a>
+          <a href="#segunda-vida" data-i18n="nav.circular">Circularidad</a>
+          <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+        </nav>
+        <div class="mobile-menu-tools">
+          <button class="mobile-search-button" id="mobile-search-trigger" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"></circle><path d="m16 16 4.3 4.3"></path></svg>
+            <span data-i18n="mobile.search">Buscar en la página</span>
+          </button>
+          <label class="mobile-language">
+            <span data-i18n="mobile.language">Idioma</span>
+            <select class="language-select" id="language-select-mobile" aria-label="Seleccionar idioma">
+              <option value="es">Español</option><option value="en">English</option><option value="va">Valencià</option>
+            </select>
+          </label>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <img class="hero-image" src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=2200&q=88" alt="Moda contemporánea en un paisaje urbano" fetchpriority="high">
+      <div class="hero-inner">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Moda consciente · piezas para repetir</p>
+        <h1 id="hero-title"><span class="hero-brand">trama</span><span class="hero-statement" data-i18n="hero.title">Vestir mejor,<br> vivir más ligero.</span></h1>
+        <p class="hero-copy" data-i18n="hero.copy">Diseño atemporal, fibras responsables y una forma más cercana de hacer las cosas.</p>
+        <a class="button-primary" href="#tienda"><span data-i18n="hero.cta">Descubrir la colección</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M10 4l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg></a>
+      </div>
+    </section>
+
+    <section class="intro-section" id="filosofia">
+      <div class="container">
+        <div class="intro-top reveal">
+          <div>
+            <p class="eyebrow" data-i18n="intro.eyebrow">Una manera distinta de elegir</p>
+            <h2 class="section-title" data-i18n="intro.title">Menos prisa.<br>Más historia.</h2>
+          </div>
+          <p class="section-copy" data-i18n="intro.copy">Creamos un armario que se siente bien hoy y sigue teniendo sentido mañana. Seleccionamos materiales de menor impacto y trabajamos en series pequeñas con talleres cercanos.</p>
+        </div>
+        <div class="principles reveal">
+          <article class="principle">
+            <span class="principle-number">01</span>
+            <h3 data-i18n="intro.point1Title">Origen honesto</h3>
+            <p data-i18n="intro.point1Copy">Fibras naturales y recicladas, elegidas por su calidad y trazabilidad.</p>
+          </article>
+          <article class="principle">
+            <span class="principle-number">02</span>
+            <h3 data-i18n="intro.point2Title">Hecho de cerca</h3>
+            <p data-i18n="intro.point2Copy">Producciones cortas y relaciones justas con quienes hacen cada prenda.</p>
+          </article>
+          <article class="principle">
+            <span class="principle-number">03</span>
+            <h3 data-i18n="intro.point3Title">Diseñado para durar</h3>
+            <p data-i18n="intro.point3Copy">Siluetas que no caducan y detalles pensados para acompañarte años.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="collection-section" id="tienda">
+      <div class="container">
+        <div class="collection-heading reveal">
+          <div>
+            <p class="eyebrow" data-i18n="shop.eyebrow">La colección actual</p>
+            <h2 class="section-title" data-i18n="shop.title">Pocas piezas.<br>Muchas vidas.</h2>
+          </div>
+          <p class="section-copy" data-i18n="shop.copy">Básicos con intención, capas para todos los días y accesorios hechos para quedarse.</p>
+        </div>
+        <div class="collection-toolbar">
+          <div class="filter-list" role="group" aria-label="Filtrar productos">
+            <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true" data-i18n="filter.all">Todo</button>
+            <button class="filter-button" type="button" data-filter="apparel" aria-pressed="false" data-i18n="filter.apparel">Ropa</button>
+            <button class="filter-button" type="button" data-filter="accessories" aria-pressed="false" data-i18n="filter.accessories">Accesorios</button>
+            <button class="filter-button" type="button" data-filter="shoes" aria-pressed="false" data-i18n="filter.shoes">Calzado</button>
+          </div>
+          <span class="product-count" id="product-count" aria-live="polite"></span>
+        </div>
+        <div class="product-grid" id="product-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="second-life" id="segunda-vida">
+      <div class="second-life-image reveal">
+        <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=1300&q=82" alt="Prenda de tonos naturales en un estudio de moda" loading="lazy">
+      </div>
+      <div class="second-life-content reveal">
+        <p class="eyebrow" data-i18n="circular.eyebrow">Cuidar también es diseñar</p>
+        <h2 class="section-title" data-i18n="circular.title">La segunda vida empieza contigo.</h2>
+        <p class="section-copy" data-i18n="circular.copy">Te ayudamos a cuidar, reparar y volver a elegir tus prendas. Porque la pieza más sostenible es la que ya forma parte de tu historia.</p>
+        <a class="text-link" href="#contacto"><span data-i18n="circular.cta">Conoce nuestro compromiso</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M10 4l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg></a>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contacto">
+      <div class="container contact-grid">
+        <div class="contact-intro reveal">
+          <p class="eyebrow" data-i18n="contact.eyebrow">Estamos cerca</p>
+          <h2 class="section-title" data-i18n="contact.title">Hablemos de lo que dura.</h2>
+          <p class="section-copy" data-i18n="contact.copy">¿Una duda sobre tallas, materiales o tu pedido? Escríbenos. Nos gusta responder como en la tienda: sin prisa y de persona a persona.</p>
+          <div class="contact-details">
+            <a href="mailto:hola@tramaestudio.es">hola@tramaestudio.es</a>
+            <a href="tel:+34961234567">+34 961 234 567</a>
+            <span data-i18n="contact.address">Mercado de Ruzafa · Valencia</span>
+          </div>
+        </div>
+        <form class="contact-form reveal" id="contact-form">
+          <label class="form-field"><span data-i18n="contact.name">Nombre</span><input name="name" type="text" autocomplete="name" required></label>
+          <label class="form-field"><span data-i18n="contact.email">Correo electrónico</span><input name="email" type="email" autocomplete="email" required></label>
+          <label class="form-field"><span data-i18n="contact.message">¿En qué podemos ayudarte?</span><textarea name="message" required></textarea></label>
+          <button class="button-primary" type="submit"><span data-i18n="contact.submit">Enviar mensaje</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M10 4l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg></button>
+          <p class="form-status" id="contact-status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a class="brand" href="#inicio" aria-label="trama, ir al inicio">trama<span class="brand-dot"></span></a>
+          <p data-i18n="footer.note">Una boutique independiente de moda responsable. Menos, pero mejor.</p>
+        </div>
+        <div class="footer-column">
+          <h2 data-i18n="footer.visit">Ven a vernos</h2>
+          <div class="footer-links">
+            <a href="#contacto" data-i18n="contact.address">Mercado de Ruzafa · Valencia</a>
+            <a href="mailto:hola@tramaestudio.es">hola@tramaestudio.es</a>
+            <a href="tel:+34961234567">+34 961 234 567</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h2 data-i18n="footer.info">Información</h2>
+          <div class="footer-links">
+            <button type="button" data-legal="shipping" data-i18n="footer.shipping">Envíos y devoluciones</button>
+            <button type="button" data-legal="terms" data-i18n="footer.terms">Condiciones de compra</button>
+            <button type="button" data-legal="cookies" data-i18n="footer.cookies">Política de cookies</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="copyright-year"></span> trama estudio</p>
+        <p data-i18n="footer.rights">Hecho con cuidado en Valencia</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal-layer" id="search-modal" aria-hidden="true">
+    <section class="modal-box" role="dialog" aria-modal="true" aria-labelledby="search-title">
+      <button class="modal-close" type="button" data-close-modal="search-modal" aria-label="Cerrar búsqueda" data-i18n-aria="a11y.close">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m4 4 12 12M16 4 4 16"></path></svg>
+      </button>
+      <p class="eyebrow" data-i18n="search.eyebrow">Explora trama</p>
+      <h2 class="modal-title" id="search-title" data-i18n="search.title">¿Qué estás buscando?</h2>
+      <p class="modal-copy" data-i18n="search.copy">Busca prendas, materiales o información en esta página.</p>
+      <form class="search-form" id="page-search-form">
+        <label class="sr-only" for="page-search-input" data-i18n="search.label">Buscar en la página</label>
+        <input id="page-search-input" type="search" autocomplete="off" data-i18n-placeholder="search.placeholder" placeholder="Prueba con lino, envío...">
+        <button type="submit" aria-label="Buscar" data-i18n-aria="a11y.search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"></circle><path d="m16 16 4.3 4.3"></path></svg></button>
+      </form>
+      <p class="search-status" id="search-status" aria-live="polite"></p>
+    </section>
+  </div>
+
+  <div class="modal-layer" id="account-modal" aria-hidden="true">
+    <section class="modal-box" role="dialog" aria-modal="true" aria-labelledby="account-title">
+      <button class="modal-close" type="button" data-close-modal="account-modal" aria-label="Cerrar" data-i18n-aria="a11y.close">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m4 4 12 12M16 4 4 16"></path></svg>
+      </button>
+      <p class="eyebrow" data-i18n="account.eyebrow">Tu espacio personal</p>
+      <h2 class="modal-title" id="account-title" data-i18n="account.title">Hola de nuevo.</h2>
+      <p class="modal-copy" data-i18n="account.copy">El acceso de cliente se conectar&aacute; aqu&iacute;. Mientras tanto, si necesitas ayuda con una compra, estamos al otro lado.</p>
+      <form class="account-form" id="account-form">
+        <label class="form-field"><span data-i18n="account.email">Correo electrónico</span><input type="email" name="email" autocomplete="email" required></label>
+        <label class="form-field"><span data-i18n="account.password">Contraseña</span><input type="password" name="password" autocomplete="current-password" required></label>
+        <button class="button-primary" type="submit"><span data-i18n="account.submit">Acceder</span></button>
+        <p class="form-status" id="account-status" aria-live="polite"></p>
+      </form>
+    </section>
+  </div>
+
+  <div class="modal-layer" id="legal-modal" aria-hidden="true">
+    <section class="modal-box" role="dialog" aria-modal="true" aria-labelledby="legal-title">
+      <button class="modal-close" type="button" data-close-modal="legal-modal" aria-label="Cerrar" data-i18n-aria="a11y.close">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m4 4 12 12M16 4 4 16"></path></svg>
+      </button>
+      <p class="eyebrow" data-i18n="legal.eyebrow">La letra pequeña, sin letra pequeña</p>
+      <h2 class="modal-title" id="legal-title"></h2>
+      <p class="legal-copy" id="legal-copy"></p>
+    </section>
+  </div>
+
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 id="cart-title" data-i18n="cart.title">Tu bolsa</h2>
+      <button class="drawer-close" id="cart-close" type="button" aria-label="Cerrar bolsa" data-i18n-aria="a11y.close">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m4 4 12 12M16 4 4 16"></path></svg>
+      </button>
+    </div>
+    <div class="drawer-step-view" id="drawer-step-view"></div>
+  </aside>
+
+  <div class="cookie-notice" id="cookie-notice" hidden>
+    <p data-i18n="cookies.notice">Usamos almacenamiento local para recordar tu tema y tu bolsa. No utilizamos cookies publicitarias.</p>
+    <div class="cookie-actions">
+      <button type="button" data-cookie-choice="declined" data-i18n="cookies.reject">Rechazar</button>
+      <button type="button" data-legal="cookies" data-i18n="cookies.details">Detalles</button>
+      <button type="button" data-cookie-choice="accepted" data-i18n="cookies.accept">Entendido</button>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="sr-only" id="announcer" aria-live="polite"></div>
+
+  <script>
+    document.documentElement.classList.add('js-enabled');
+
+    const copy = {
+      es: {
+        'top.note': 'Diseñado con calma, en Valencia', 'top.delivery': 'Envío gratuito desde 120 € · Recogida en mercado',
+        'nav.home': 'Inicio', 'nav.story': 'Nuestro hacer', 'nav.shop': 'Colección', 'nav.circular': 'Circularidad', 'nav.contact': 'Contacto',
+        'a11y.search': 'Buscar en la página', 'a11y.account': 'Acceso de cliente', 'a11y.darkMode': 'Activar modo oscuro', 'a11y.lightMode': 'Activar modo claro', 'a11y.cart': 'Abrir la bolsa', 'a11y.menuOpen': 'Abrir menú', 'a11y.menuClose': 'Cerrar menú', 'a11y.close': 'Cerrar',
+        'mobile.search': 'Buscar en la página', 'mobile.language': 'Idioma',
+        'hero.eyebrow': 'Moda consciente · piezas para repetir', 'hero.title': 'Vestir mejor,<br> vivir más ligero.', 'hero.copy': 'Diseño atemporal, fibras responsables y una forma más cercana de hacer las cosas.', 'hero.cta': 'Descubrir la colección',
+        'intro.eyebrow': 'Una manera distinta de elegir', 'intro.title': 'Menos prisa.<br>Más historia.', 'intro.copy': 'Creamos un armario que se siente bien hoy y sigue teniendo sentido mañana. Seleccionamos materiales de menor impacto y trabajamos en series pequeñas con talleres cercanos.',
+        'intro.point1Title': 'Origen honesto', 'intro.point1Copy': 'Fibras naturales y recicladas, elegidas por su calidad y trazabilidad.', 'intro.point2Title': 'Hecho de cerca', 'intro.point2Copy': 'Producciones cortas y relaciones justas con quienes hacen cada prenda.', 'intro.point3Title': 'Diseñado para durar', 'intro.point3Copy': 'Siluetas que no caducan y detalles pensados para acompañarte años.',
+        'shop.eyebrow': 'La colección actual', 'shop.title': 'Pocas piezas.<br>Muchas vidas.', 'shop.copy': 'Básicos con intención, capas para todos los días y accesorios hechos para quedarse.', 'filter.all': 'Todo', 'filter.apparel': 'Ropa', 'filter.accessories': 'Accesorios', 'filter.shoes': 'Calzado', 'shop.count': '{count} piezas', 'product.category.apparel': 'Ropa', 'product.category.accessories': 'Accesorios', 'product.category.shoes': 'Calzado', 'product.chooseSize': 'Talla', 'product.oneSize': 'Única', 'product.add': 'Añadir', 'product.added': '{name} añadido a tu bolsa', 'product.addAria': 'Añadir {name} a la bolsa',
+        'circular.eyebrow': 'Cuidar también es diseñar', 'circular.title': 'La segunda vida empieza contigo.', 'circular.copy': 'Te ayudamos a cuidar, reparar y volver a elegir tus prendas. Porque la pieza más sostenible es la que ya forma parte de tu historia.', 'circular.cta': 'Conoce nuestro compromiso',
+        'contact.eyebrow': 'Estamos cerca', 'contact.title': 'Hablemos de lo que dura.', 'contact.copy': '¿Una duda sobre tallas, materiales o tu pedido? Escríbenos. Nos gusta responder como en la tienda: sin prisa y de persona a persona.', 'contact.address': 'Mercado de Ruzafa · Valencia', 'contact.name': 'Nombre', 'contact.email': 'Correo electrónico', 'contact.message': '¿En qué podemos ayudarte?', 'contact.submit': 'Enviar mensaje', 'contact.sent': 'Gracias por escribirnos. Te responderemos pronto.',
+        'footer.note': 'Una boutique independiente de moda responsable. Menos, pero mejor.', 'footer.visit': 'Ven a vernos', 'footer.info': 'Información', 'footer.shipping': 'Envíos y devoluciones', 'footer.terms': 'Condiciones de compra', 'footer.cookies': 'Política de cookies', 'footer.rights': 'Hecho con cuidado en Valencia',
+        'search.eyebrow': 'Explora trama', 'search.title': '¿Qué estás buscando?', 'search.copy': 'Busca prendas, materiales o información en esta página.', 'search.label': 'Buscar en la página', 'search.placeholder': 'Prueba con lino, envío...', 'search.empty': 'Escribe una palabra para buscar en la página.', 'search.none': 'No encontramos coincidencias. Prueba con otra palabra.', 'search.found': 'Encontramos {count} coincidencias. Las hemos resaltado en la página.',
+        'account.eyebrow': 'Tu espacio personal', 'account.title': 'Hola de nuevo.', 'account.copy': 'El acceso de cliente se conectará aquí. Mientras tanto, si necesitas ayuda con una compra, estamos al otro lado.', 'account.email': 'Correo electrónico', 'account.password': 'Contraseña', 'account.submit': 'Acceder', 'account.pending': 'El acceso de cliente se conectará al sistema de la tienda.',
+        'legal.eyebrow': 'La letra pequeña, sin letra pequeña', 'legal.cookiesTitle': 'Política de cookies', 'legal.cookiesCopy': 'Esta demostración utiliza almacenamiento local para recordar el tema visual, el idioma y los productos de la bolsa. No instala cookies de publicidad ni comparte datos con terceros. En la versión final, esta información debe adaptarse a las herramientas realmente instaladas y a la normativa aplicable.', 'legal.termsTitle': 'Condiciones de compra', 'legal.termsCopy': 'Los precios se muestran en euros. La disponibilidad, las tallas, los plazos de entrega y las condiciones definitivas deberán confirmarse antes de publicar la tienda. El pedido de esta demostración se guarda solo en el navegador y no se envía a un sistema de gestión.', 'legal.shippingTitle': 'Envíos y devoluciones', 'legal.shippingCopy': 'Elige envío a domicilio o recogida en el Mercado de Ruzafa, Valencia. El envío se muestra a 4,90 € y es gratuito desde 120 €. Los plazos, las zonas disponibles y la política de cambios se deben ajustar a la operativa real de la boutique.',
+        'cookies.notice': 'Usamos almacenamiento local para recordar tu tema y tu bolsa. No utilizamos cookies publicitarias.', 'cookies.reject': 'Rechazar', 'cookies.details': 'Detalles', 'cookies.accept': 'Entendido',
+        'cart.title': 'Tu bolsa', 'cart.emptyTitle': 'Todavía no hay nada aquí.', 'cart.emptyCopy': 'Las prendas que elijas aparecerán en este espacio.', 'cart.keepShopping': 'Volver a la colección', 'cart.remove': 'Quitar', 'cart.quantity': 'Cantidad', 'cart.size': 'Talla', 'cart.subtotal': 'Subtotal', 'cart.shipping': 'Envío', 'cart.total': 'Total', 'cart.shippingLater': 'Se calcula en el siguiente paso', 'cart.freeShipping': 'Gratis', 'cart.shippingFee': '4,90 €', 'cart.pickupFree': 'Recogida gratuita', 'cart.shippingHint': 'Elige recogida o envío a domicilio en el siguiente paso.', 'cart.checkout': 'Continuar con la compra', 'cart.back': 'Volver a la bolsa', 'cart.customerTitle': 'Tus datos', 'cart.customerCopy': 'Elige cómo quieres recibir tu pedido.', 'cart.fullName': 'Nombre y apellidos', 'cart.phone': 'Teléfono', 'cart.deliveryOption': 'Cómo recibirlo', 'cart.pickup': 'Recoger en el mercado', 'cart.pickupDesc': 'Mercado de Ruzafa · Valencia · Gratis', 'cart.delivery': 'Envío a domicilio', 'cart.deliveryDesc': 'Envío estándar · Gratis desde 120 €', 'cart.pickupPlace': 'Punto de recogida', 'cart.pickupMarket': 'Mercado de Ruzafa · Valencia', 'cart.address': 'Dirección', 'cart.city': 'Ciudad', 'cart.postcode': 'Código postal', 'cart.paymentOption': 'Cómo pagar', 'cart.payInPerson': 'Pagar al recibirlo', 'cart.payAtPickup': 'Pagar al recogerlo', 'cart.payAtDelivery': 'Pagar al recibirlo', 'cart.payInPersonDesc': 'Abona el pedido al recogerlo o cuando llegue a tu puerta.', 'cart.payOnline': 'Pagar en línea', 'cart.payOnlineDesc': 'Verás el importe antes de conectar la pasarela de pago.', 'cart.placeOrder': 'Revisar y reservar', 'cart.paymentTitle': 'Revisa tu pago.', 'cart.paymentCopy': 'Este resumen muestra el importe final. La conexión con la pasarela de pago se implementará aquí.', 'cart.gatewayLabel': 'Pasarela de pago', 'cart.gatewayStatus': 'Integración pendiente', 'cart.amountToPay': 'Importe a pagar', 'cart.continueGateway': 'Continuar a la pasarela', 'cart.gatewayPending': 'La pasarela todavía no está conectada. No se ha realizado ningún cargo ni se han solicitado datos bancarios.', 'cart.orderTitle': 'Tu pedido está reservado.', 'cart.orderCopy': 'Gracias por elegir con calma. Guarda esta referencia para consultar tu pedido.', 'cart.orderRef': 'Referencia del pedido', 'cart.orderDemo': 'Esta reserva se ha creado en esta demostración y todavía no se envía a la tienda.', 'cart.continueShopping': 'Seguir mirando', 'cart.inPersonPickup': 'Pago al recoger en el mercado', 'cart.inPersonDelivery': 'Pago al recibir en domicilio', 'cart.lineItem': 'Artículo', 'cart.items': 'artículos',
+        'ui.searchSubmit': 'Buscar'
+      },
+      en: {
+        'top.note': 'Thoughtfully made in Valencia', 'top.delivery': 'Free shipping over €120 · Market collection',
+        'nav.home': 'Home', 'nav.story': 'Our approach', 'nav.shop': 'Collection', 'nav.circular': 'Circularity', 'nav.contact': 'Contact',
+        'a11y.search': 'Search this page', 'a11y.account': 'Customer account', 'a11y.darkMode': 'Switch to dark mode', 'a11y.lightMode': 'Switch to light mode', 'a11y.cart': 'Open shopping bag', 'a11y.menuOpen': 'Open menu', 'a11y.menuClose': 'Close menu', 'a11y.close': 'Close',
+        'mobile.search': 'Search this page', 'mobile.language': 'Language',
+        'hero.eyebrow': 'Conscious fashion · made to be reworn', 'hero.title': 'Dress with care,<br> live a little lighter.', 'hero.copy': 'Timeless design, thoughtful fibres and a closer way of making things.', 'hero.cta': 'Explore the collection',
+        'intro.eyebrow': 'A different way to choose', 'intro.title': 'Less rush.<br>More story.', 'intro.copy': 'We create a wardrobe that feels right today and still makes sense tomorrow. We select lower-impact materials and work in small runs with nearby makers.',
+        'intro.point1Title': 'Honest origins', 'intro.point1Copy': 'Natural and recycled fibres chosen for their quality and traceability.', 'intro.point2Title': 'Made nearby', 'intro.point2Copy': 'Small production runs and fair relationships with the people making each piece.', 'intro.point3Title': 'Made to last', 'intro.point3Copy': 'Timeless shapes and thoughtful details, designed to stay with you for years.',
+        'shop.eyebrow': 'The current collection', 'shop.title': 'Fewer pieces.<br>More lives.', 'shop.copy': 'Considered essentials, everyday layers and accessories made to stay.', 'filter.all': 'All', 'filter.apparel': 'Clothing', 'filter.accessories': 'Accessories', 'filter.shoes': 'Shoes', 'shop.count': '{count} pieces', 'product.category.apparel': 'Clothing', 'product.category.accessories': 'Accessories', 'product.category.shoes': 'Shoes', 'product.chooseSize': 'Size', 'product.oneSize': 'One size', 'product.add': 'Add', 'product.added': '{name} added to your bag', 'product.addAria': 'Add {name} to bag',
+        'circular.eyebrow': 'Care is part of the design', 'circular.title': 'A second life starts with you.', 'circular.copy': 'We help you care for, repair and rechoose your clothes. Because the most sustainable piece is the one already woven into your story.', 'circular.cta': 'Discover our commitment',
+        'contact.eyebrow': 'We are close by', 'contact.title': 'Let us talk about what lasts.', 'contact.copy': 'A question about fit, materials or your order? Write to us. We like to answer as we do in store: thoughtfully, person to person.', 'contact.address': 'Ruzafa Market · Valencia', 'contact.name': 'Name', 'contact.email': 'Email address', 'contact.message': 'How can we help?', 'contact.submit': 'Send a message', 'contact.sent': 'Thanks for reaching out. We will be in touch soon.',
+        'footer.note': 'An independent boutique for considered fashion. Less, but better.', 'footer.visit': 'Come say hello', 'footer.info': 'Information', 'footer.shipping': 'Shipping and returns', 'footer.terms': 'Terms of purchase', 'footer.cookies': 'Cookie policy', 'footer.rights': 'Made with care in Valencia',
+        'search.eyebrow': 'Explore trama', 'search.title': 'What are you looking for?', 'search.copy': 'Search for pieces, materials or information on this page.', 'search.label': 'Search this page', 'search.placeholder': 'Try linen, delivery...', 'search.empty': 'Type a word to search this page.', 'search.none': 'No matches found. Try another word.', 'search.found': 'We found {count} matches and highlighted them on the page.',
+        'account.eyebrow': 'Your account', 'account.title': 'Welcome back.', 'account.copy': 'Customer sign-in will connect here. In the meantime, get in touch if you need help with a purchase.', 'account.email': 'Email address', 'account.password': 'Password', 'account.submit': 'Sign in', 'account.pending': 'Customer sign-in will connect to the store system.',
+        'legal.eyebrow': 'The details, made clear', 'legal.cookiesTitle': 'Cookie policy', 'legal.cookiesCopy': 'This demo uses local storage to remember your theme, language and shopping bag. It does not install advertising cookies or share data with third parties. The final policy should reflect the tools actually installed and the applicable regulations.', 'legal.termsTitle': 'Terms of purchase', 'legal.termsCopy': 'Prices are shown in euros. Availability, sizes, delivery times and final terms should be confirmed before the shop goes live. Orders in this demo are saved only in your browser and are not sent to an order management system.', 'legal.shippingTitle': 'Shipping and returns', 'legal.shippingCopy': 'Choose home delivery or collection at Ruzafa Market, Valencia. Shipping is shown as €4.90 and is free on orders over €120. Delivery areas, timings and exchange conditions should be adjusted to the boutique’s real operations.',
+        'cookies.notice': 'We use local storage to remember your theme and shopping bag. We do not use advertising cookies.', 'cookies.reject': 'Decline', 'cookies.details': 'Details', 'cookies.accept': 'Understood',
+        'cart.title': 'Your bag', 'cart.emptyTitle': 'Nothing here just yet.', 'cart.emptyCopy': 'The pieces you choose will appear here.', 'cart.keepShopping': 'Back to the collection', 'cart.remove': 'Remove', 'cart.quantity': 'Quantity', 'cart.size': 'Size', 'cart.subtotal': 'Subtotal', 'cart.shipping': 'Shipping', 'cart.total': 'Total', 'cart.shippingLater': 'Calculated in the next step', 'cart.freeShipping': 'Free', 'cart.shippingFee': '€4.90', 'cart.pickupFree': 'Free collection', 'cart.shippingHint': 'Choose market collection or home delivery in the next step.', 'cart.checkout': 'Continue to checkout', 'cart.back': 'Back to bag', 'cart.customerTitle': 'Your details', 'cart.customerCopy': 'Choose how you would like to receive your order.', 'cart.fullName': 'Full name', 'cart.phone': 'Phone', 'cart.deliveryOption': 'How would you like to receive it?', 'cart.pickup': 'Collect at the market', 'cart.pickupDesc': 'Ruzafa Market · Valencia · Free', 'cart.delivery': 'Home delivery', 'cart.deliveryDesc': 'Standard delivery · Free over €120', 'cart.pickupPlace': 'Collection point', 'cart.pickupMarket': 'Ruzafa Market · Valencia', 'cart.address': 'Address', 'cart.city': 'City', 'cart.postcode': 'Postcode', 'cart.paymentOption': 'How would you like to pay?', 'cart.payInPerson': 'Pay on receipt', 'cart.payAtPickup': 'Pay when collecting', 'cart.payAtDelivery': 'Pay on delivery', 'cart.payInPersonDesc': 'Pay when collecting your order or when it arrives at your door.', 'cart.payOnline': 'Pay online', 'cart.payOnlineDesc': 'Review the amount before the payment gateway is connected.', 'cart.placeOrder': 'Review and reserve', 'cart.paymentTitle': 'Review your payment.', 'cart.paymentCopy': 'This summary shows the final amount. The payment gateway will be connected here.', 'cart.gatewayLabel': 'Payment gateway', 'cart.gatewayStatus': 'Integration pending', 'cart.amountToPay': 'Amount due', 'cart.continueGateway': 'Continue to payment', 'cart.gatewayPending': 'The payment gateway is not connected yet. No charge has been made and no bank details were requested.', 'cart.orderTitle': 'Your order is reserved.', 'cart.orderCopy': 'Thank you for choosing thoughtfully. Keep this reference to check your order.', 'cart.orderRef': 'Order reference', 'cart.orderDemo': 'This reservation was created in this demo and has not yet been sent to the store.', 'cart.continueShopping': 'Keep browsing', 'cart.inPersonPickup': 'Pay when collecting at the market', 'cart.inPersonDelivery': 'Pay on home delivery', 'cart.lineItem': 'Item', 'cart.items': 'items',
+        'ui.searchSubmit': 'Search'
+      },
+      va: {
+        'top.note': 'Dissenyat amb calma, a València', 'top.delivery': 'Enviament gratuït des de 120 € · Recollida al mercat',
+        'nav.home': 'Inici', 'nav.story': 'Com ho fem', 'nav.shop': 'Col·lecció', 'nav.circular': 'Circularitat', 'nav.contact': 'Contacte',
+        'a11y.search': 'Buscar en la pàgina', 'a11y.account': 'Accés de client', 'a11y.darkMode': 'Activar el mode fosc', 'a11y.lightMode': 'Activar el mode clar', 'a11y.cart': 'Obrir la bossa', 'a11y.menuOpen': 'Obrir el menú', 'a11y.menuClose': 'Tancar el menú', 'a11y.close': 'Tancar',
+        'mobile.search': 'Buscar en la pàgina', 'mobile.language': 'Idioma',
+        'hero.eyebrow': 'Moda conscient · peces per a repetir', 'hero.title': 'Vestir millor,<br> viure més lleuger.', 'hero.copy': 'Disseny atemporal, fibres responsables i una manera més pròxima de fer les coses.', 'hero.cta': 'Descobrir la col·lecció',
+        'intro.eyebrow': 'Una manera diferent de triar', 'intro.title': 'Menys pressa.<br>Més història.', 'intro.copy': 'Creem un armari que se sent bé hui i continua tenint sentit demà. Seleccionem materials de menor impacte i treballem en sèries menudes amb tallers pròxims.',
+        'intro.point1Title': 'Origen honest', 'intro.point1Copy': 'Fibres naturals i reciclades, triades per la qualitat i la traçabilitat.', 'intro.point2Title': 'Fet a prop', 'intro.point2Copy': 'Produccions curtes i relacions justes amb qui fa cada peça.', 'intro.point3Title': 'Dissenyat per a durar', 'intro.point3Copy': 'Siluetes que no caduquen i detalls pensats per a acompanyar-te anys.',
+        'shop.eyebrow': 'La col·lecció actual', 'shop.title': 'Poques peces.<br>Moltes vides.', 'shop.copy': 'Bàsics amb intenció, capes per a cada dia i complements fets per a quedar-se.', 'filter.all': 'Tot', 'filter.apparel': 'Roba', 'filter.accessories': 'Complements', 'filter.shoes': 'Calçat', 'shop.count': '{count} peces', 'product.category.apparel': 'Roba', 'product.category.accessories': 'Complements', 'product.category.shoes': 'Calçat', 'product.chooseSize': 'Talla', 'product.oneSize': 'Única', 'product.add': 'Afegir', 'product.added': '{name} s’ha afegit a la bossa', 'product.addAria': 'Afegir {name} a la bossa',
+        'circular.eyebrow': 'Cuidar també és dissenyar', 'circular.title': 'La segona vida comença amb tu.', 'circular.copy': 'T’ajudem a cuidar, reparar i tornar a triar les teues peces. Perquè la peça més sostenible és la que ja forma part de la teua història.', 'circular.cta': 'Coneix el nostre compromís',
+        'contact.eyebrow': 'Estem a prop', 'contact.title': 'Parlem del que dura.', 'contact.copy': 'Tens un dubte sobre talles, materials o la comanda? Escriu-nos. Ens agrada respondre com a la botiga: sense pressa i de persona a persona.', 'contact.address': 'Mercat de Russafa · València', 'contact.name': 'Nom', 'contact.email': 'Correu electrònic', 'contact.message': 'En què et podem ajudar?', 'contact.submit': 'Enviar missatge', 'contact.sent': 'Gràcies per escriure’ns. Et respondrem prompte.',
+        'footer.note': 'Una boutique independent de moda responsable. Menys, però millor.', 'footer.visit': 'Vine a veure’ns', 'footer.info': 'Informació', 'footer.shipping': 'Enviaments i devolucions', 'footer.terms': 'Condicions de compra', 'footer.cookies': 'Política de galetes', 'footer.rights': 'Fet amb cura a València',
+        'search.eyebrow': 'Explora trama', 'search.title': 'Què estàs buscant?', 'search.copy': 'Busca peces, materials o informació en aquesta pàgina.', 'search.label': 'Buscar en la pàgina', 'search.placeholder': 'Prova amb lli, enviament...', 'search.empty': 'Escriu una paraula per a buscar en la pàgina.', 'search.none': 'No hem trobat coincidències. Prova una altra paraula.', 'search.found': 'Hem trobat {count} coincidències i les hem ressaltades en la pàgina.',
+        'account.eyebrow': 'El teu espai personal', 'account.title': 'Hola de nou.', 'account.copy': 'L’accés de client es connectarà ací. Mentrestant, si necessites ajuda amb una compra, estem a l’altra banda.', 'account.email': 'Correu electrònic', 'account.password': 'Contrasenya', 'account.submit': 'Accedir', 'account.pending': 'L’accés de client es connectarà al sistema de la botiga.',
+        'legal.eyebrow': 'La lletra menuda, ben clara', 'legal.cookiesTitle': 'Política de galetes', 'legal.cookiesCopy': 'Aquesta demostració utilitza emmagatzematge local per a recordar el tema visual, l’idioma i els productes de la bossa. No instal·la galetes publicitàries ni comparteix dades amb tercers. La política final s’ha d’adaptar a les eines instal·lades i a la normativa aplicable.', 'legal.termsTitle': 'Condicions de compra', 'legal.termsCopy': 'Els preus es mostren en euros. La disponibilitat, les talles, els terminis de lliurament i les condicions definitives s’han de confirmar abans de publicar la botiga. La comanda d’aquesta demostració només es guarda al navegador i no s’envia a cap sistema de gestió.', 'legal.shippingTitle': 'Enviaments i devolucions', 'legal.shippingCopy': 'Tria enviament a domicili o recollida al Mercat de Russafa, València. L’enviament es mostra a 4,90 € i és gratuït des de 120 €. Els terminis, les zones disponibles i la política de canvis s’han d’ajustar a l’operativa real de la boutique.',
+        'cookies.notice': 'Utilitzem emmagatzematge local per a recordar el tema i la bossa. No fem servir galetes publicitàries.', 'cookies.reject': 'Rebutjar', 'cookies.details': 'Detalls', 'cookies.accept': 'Entés',
+        'cart.title': 'La teua bossa', 'cart.emptyTitle': 'Encara no hi ha res ací.', 'cart.emptyCopy': 'Les peces que tries apareixeran en aquest espai.', 'cart.keepShopping': 'Tornar a la col·lecció', 'cart.remove': 'Llevar', 'cart.quantity': 'Quantitat', 'cart.size': 'Talla', 'cart.subtotal': 'Subtotal', 'cart.shipping': 'Enviament', 'cart.total': 'Total', 'cart.shippingLater': 'Es calcula en el pas següent', 'cart.freeShipping': 'Gratuït', 'cart.shippingFee': '4,90 €', 'cart.pickupFree': 'Recollida gratuïta', 'cart.shippingHint': 'Tria recollida o enviament a domicili en el pas següent.', 'cart.checkout': 'Continuar amb la compra', 'cart.back': 'Tornar a la bossa', 'cart.customerTitle': 'Les teues dades', 'cart.customerCopy': 'Tria com vols rebre la comanda.', 'cart.fullName': 'Nom i cognoms', 'cart.phone': 'Telèfon', 'cart.deliveryOption': 'Com vols rebre-la?', 'cart.pickup': 'Recollir al mercat', 'cart.pickupDesc': 'Mercat de Russafa · València · Gratuït', 'cart.delivery': 'Enviament a domicili', 'cart.deliveryDesc': 'Enviament estàndard · Gratuït des de 120 €', 'cart.pickupPlace': 'Punt de recollida', 'cart.pickupMarket': 'Mercat de Russafa · València', 'cart.address': 'Adreça', 'cart.city': 'Ciutat', 'cart.postcode': 'Codi postal', 'cart.paymentOption': 'Com vols pagar?', 'cart.payInPerson': 'Pagar en rebre-ho', 'cart.payAtPickup': 'Pagar en recollir-ho', 'cart.payAtDelivery': 'Pagar en rebre-ho', 'cart.payInPersonDesc': 'Paga en recollir la comanda o quan arribe a la porta.', 'cart.payOnline': 'Pagar en línia', 'cart.payOnlineDesc': 'Revisa l’import abans de connectar la passarel·la de pagament.', 'cart.placeOrder': 'Revisar i reservar', 'cart.paymentTitle': 'Revisa el pagament.', 'cart.paymentCopy': 'Aquest resum mostra l’import final. La connexió amb la passarel·la es farà ací.', 'cart.gatewayLabel': 'Passarel·la de pagament', 'cart.gatewayStatus': 'Integració pendent', 'cart.amountToPay': 'Import a pagar', 'cart.continueGateway': 'Continuar a la passarel·la', 'cart.gatewayPending': 'La passarel·la encara no està connectada. No s’ha fet cap càrrec ni s’han demanat dades bancàries.', 'cart.orderTitle': 'La comanda està reservada.', 'cart.orderCopy': 'Gràcies per triar amb calma. Guarda aquesta referència per a consultar la comanda.', 'cart.orderRef': 'Referència de la comanda', 'cart.orderDemo': 'Aquesta reserva s’ha creat en la demostració i encara no s’ha enviat a la botiga.', 'cart.continueShopping': 'Continuar mirant', 'cart.inPersonPickup': 'Pagament en recollir al mercat', 'cart.inPersonDelivery': 'Pagament en rebre a domicili', 'cart.lineItem': 'Article', 'cart.items': 'articles',
+        'ui.searchSubmit': 'Buscar'
+      }
+    };
+
+    const products = [
+      { id: 'camisa-nara', name: 'Camisa Nara', price: 82, category: 'apparel', sizes: ['XS', 'S', 'M', 'L'], image: 'photo-1490481651871-ab68de25d43d' },
+      { id: 'pantalon-alga', name: 'Pantalón Alga', price: 96, category: 'apparel', sizes: ['XS', 'S', 'M', 'L'], image: 'photo-1594633312681-425c7b97ccd1' },
+      { id: 'vestido-brisa', name: 'Vestido Brisa', price: 128, category: 'apparel', sizes: ['XS', 'S', 'M', 'L'], image: 'photo-1515372039744-b8f02a3ae446' },
+      { id: 'chaqueta-sur', name: 'Chaqueta Sur', price: 156, category: 'apparel', sizes: ['S', 'M', 'L', 'XL'], image: 'photo-1551028719-00167b16eac5' },
+      { id: 'camiseta-crudo', name: 'Camiseta Crudo', price: 48, category: 'apparel', sizes: ['XS', 'S', 'M', 'L', 'XL'], image: 'photo-1521572163474-6864f9cf17ab' },
+      { id: 'jersey-nube', name: 'Jersey Nube', price: 112, category: 'apparel', sizes: ['S', 'M', 'L', 'XL'], image: 'photo-1434389677669-e08b4cac3105' },
+      { id: 'falda-oliva', name: 'Falda Oliva', price: 78, category: 'apparel', sizes: ['XS', 'S', 'M', 'L'], image: 'photo-1485230895905-ec40ba36b9bc' },
+      { id: 'blusa-azahar', name: 'Blusa Azahar', price: 74, category: 'apparel', sizes: ['XS', 'S', 'M', 'L'], image: 'photo-1483985988355-763728e1935b' },
+      { id: 'vaquero-origen', name: 'Vaquero Origen', price: 110, category: 'apparel', sizes: ['XS', 'S', 'M', 'L', 'XL'], image: 'photo-1541099649105-f69ad21f3246' },
+      { id: 'gabardina-campo', name: 'Gabardina Campo', price: 189, category: 'apparel', sizes: ['S', 'M', 'L', 'XL'], image: 'photo-1539533018447-63fcce2678e3' },
+      { id: 'short-tierra', name: 'Short Tierra', price: 69, category: 'apparel', sizes: ['XS', 'S', 'M', 'L'], image: 'photo-1503342217505-b0a15ec3261c' },
+      { id: 'mono-mistral', name: 'Mono Mistral', price: 136, category: 'apparel', sizes: ['XS', 'S', 'M', 'L'], image: 'photo-1539109136881-3be0616acf4b' },
+      { id: 'cardigan-sierra', name: 'Cárdigan Sierra', price: 118, category: 'apparel', sizes: ['S', 'M', 'L', 'XL'], image: 'photo-1576566588028-4147f3842f27' },
+      { id: 'bufanda-lino', name: 'Bufanda Lino', price: 44, category: 'accessories', sizes: [], image: 'photo-1601924994987-69e26d50dc26' },
+      { id: 'bolso-trama', name: 'Bolso Trama', price: 98, category: 'accessories', sizes: [], image: 'photo-1553062407-98eeb64c6a62' },
+      { id: 'zapatillas-raiz', name: 'Zapatillas Raíz', price: 124, category: 'shoes', sizes: ['36', '37', '38', '39', '40', '41'], image: 'photo-1542291026-7eec264c27ff' },
+      { id: 'cinturon-savia', name: 'Cinturón Savia', price: 52, category: 'accessories', sizes: ['S', 'M', 'L'], image: 'photo-1553062407-98eeb64c6a62' },
+      { id: 'sombrero-sol', name: 'Sombrero Sol', price: 48, category: 'accessories', sizes: [], image: 'photo-1521369909029-2afed882baee' },
+      { id: 'camiseta-circular', name: 'Camiseta Circular', price: 39, category: 'apparel', sizes: ['XS', 'S', 'M', 'L', 'XL'], image: 'photo-1529139574466-a303027c1d8b' },
+      { id: 'tote-reuso', name: 'Tote Reuso', price: 32, category: 'accessories', sizes: [], image: 'photo-1590874103328-eac38a683ce7' }
+    ];
+
+    function readStorage(key) {
+      try { return localStorage.getItem(key); } catch (error) { return null; }
+    }
+
+    function writeStorage(key, value) {
+      try { localStorage.setItem(key, value); return true; } catch (error) { return false; }
+    }
+
+    const localeNames = { es: 'es-ES', en: 'en-GB', va: 'ca-ES' };
+    const productById = new Map(products.map((product) => [product.id, product]));
+    const savedLanguage = readStorage('trama-language');
+    let language = ['es', 'en', 'va'].includes(savedLanguage) ? savedLanguage : 'es';
+    let activeFilter = 'all';
+    let mobileMenuOpen = false;
+    let toastTimer;
+    let gatewayMessageShown = false;
+    let completedOrder = null;
+    let checkoutData = {
+      name: '', email: '', phone: '', fulfillment: 'delivery', payment: 'online',
+      address: '', city: '', postcode: '', pickupLocation: 'ruzafa'
+    };
+    const sizeSelections = {};
+    const fallbackSize = (product) => product.sizes.length ? (product.sizes.includes('M') ? 'M' : product.sizes[Math.min(2, product.sizes.length - 1)]) : 'U';
+
+    function getCopy(key) {
+      return copy[language][key] ?? copy.es[key] ?? key;
+    }
+
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]);
+    }
+
+    function interpolate(value, values = {}) {
+      return value.replace(/\{(\w+)\}/g, (_, key) => values[key] ?? '');
+    }
+
+    function formatMoney(amount) {
+      return new Intl.NumberFormat(localeNames[language], { style: 'currency', currency: 'EUR', maximumFractionDigits: 2, minimumFractionDigits: Number.isInteger(amount) ? 0 : 2 }).format(amount);
+    }
+
+    function setLanguage(nextLanguage) {
+      if (!copy[nextLanguage]) return;
+      language = nextLanguage;
+      writeStorage('trama-language', language);
+      document.documentElement.lang = language === 'va' ? 'ca-valencia' : language;
+      document.querySelectorAll('.language-select').forEach((select) => { select.value = language; });
+      document.querySelectorAll('[data-i18n]').forEach((element) => { element.innerHTML = getCopy(element.dataset.i18n); });
+      document.querySelectorAll('[data-i18n-aria]').forEach((element) => { element.setAttribute('aria-label', getCopy(element.dataset.i18nAria)); });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach((element) => { element.setAttribute('placeholder', getCopy(element.dataset.i18nPlaceholder)); });
+      if (mobileMenuOpen) menuToggle.setAttribute('aria-label', getCopy('a11y.menuClose'));
+      updateThemeButton();
+      renderProducts();
+      renderCart();
+    }
+
+    function makeIcon(name) {
+      if (name === 'sun') return '<svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.6"></circle><path d="M12 2.5v2M12 19.5v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2.5 12h2m15 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>';
+      return '<svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.3 15.2A8 8 0 0 1 8.8 4.7 8.2 8.2 0 1 0 19.3 15.2Z"></path></svg>';
+    }
+
+    const themeToggle = document.getElementById('theme-toggle');
+    function updateThemeButton() {
+      const isDark = document.body.classList.contains('dark-mode');
+      themeToggle.innerHTML = makeIcon(isDark ? 'sun' : 'moon');
+      themeToggle.setAttribute('aria-label', getCopy(isDark ? 'a11y.lightMode' : 'a11y.darkMode'));
+      themeToggle.classList.remove('theme-switching');
+      requestAnimationFrame(() => themeToggle.classList.add('theme-switching'));
+    }
+
+    function setTheme(mode, persist = true) {
+      document.body.classList.toggle('dark-mode', mode === 'dark');
+      document.body.classList.toggle('light-mode', mode !== 'dark');
+      document.querySelector('meta[name="theme-color"]').content = mode === 'dark' ? '#171d19' : '#f3f1e9';
+      if (persist) writeStorage('trama-theme', mode);
+      updateThemeButton();
+    }
+
+    const storedTheme = readStorage('trama-theme');
+    setTheme(storedTheme === 'dark' ? 'dark' : 'light', false);
+
+    function imageUrl(photoId, width = 700) {
+      return `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=${width}&q=82`;
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById('product-grid');
+      const visibleProducts = products.filter((product) => activeFilter === 'all' || product.category === activeFilter);
+      grid.innerHTML = visibleProducts.map((product, index) => {
+        if (!sizeSelections[product.id]) sizeSelections[product.id] = fallbackSize(product);
+        const category = getCopy(`product.category.${product.category}`);
+        const sizeControl = product.sizes.length
+          ? `<label><span class="sr-only">${escapeHTML(getCopy('product.chooseSize'))} · ${escapeHTML(product.name)}</span><select class="size-picker" data-size-product="${product.id}" aria-label="${escapeHTML(getCopy('product.chooseSize'))} ${escapeHTML(product.name)}">${product.sizes.map((size) => `<option value="${size}" ${sizeSelections[product.id] === size ? 'selected' : ''}>${size}</option>`).join('')}</select></label>`
+          : `<span class="size-static">${escapeHTML(getCopy('product.oneSize'))}</span>`;
+        return `<article class="product-item" style="animation-delay:${Math.min(index * 24, 240)}ms">
+          <div class="product-photo"><img src="${imageUrl(product.image)}" alt="${escapeHTML(product.name)}" loading="lazy"></div>
+          <div class="product-meta"><h3 class="product-name">${escapeHTML(product.name)}</h3><p class="product-price">${formatMoney(product.price)}</p></div>
+          <p class="product-category">${escapeHTML(category)}</p>
+          <div class="product-actions">${sizeControl}<button class="add-button" type="button" data-add-to-cart="${product.id}" aria-label="${escapeHTML(interpolate(getCopy('product.addAria'), { name: product.name }))}"><span>${escapeHTML(getCopy('product.add'))}</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v14M3 10h14"></path></svg></button></div>
+        </article>`;
+      }).join('');
+      document.getElementById('product-count').textContent = interpolate(getCopy('shop.count'), { count: visibleProducts.length });
+    }
+
+    const restoredCart = (() => {
+      try {
+        const raw = JSON.parse(localStorage.getItem('trama-cart') || '[]');
+        if (!Array.isArray(raw)) return [];
+        return raw.filter((line) => productById.has(line.id) && Number.isInteger(line.quantity) && line.quantity > 0)
+          .map((line) => {
+            const product = productById.get(line.id);
+            const validSizes = product.sizes.length ? product.sizes : ['U'];
+            return { id: line.id, size: validSizes.includes(line.size) ? line.size : fallbackSize(product), quantity: Math.min(line.quantity, 99) };
+          });
+      } catch (error) { return []; }
+    })();
+    let cart = restoredCart;
+
+    function saveCart() {
+      writeStorage('trama-cart', JSON.stringify(cart));
+    }
+
+    function cartQuantity() { return cart.reduce((sum, line) => sum + line.quantity, 0); }
+    function cartSubtotal() { return cart.reduce((sum, line) => sum + productById.get(line.id).price * line.quantity, 0); }
+    function shippingCost() {
+      if (checkoutData.fulfillment !== 'delivery') return 0;
+      return cartSubtotal() >= 120 ? 0 : 4.9;
+    }
+    function cartTotal() { return cartSubtotal() + shippingCost(); }
+
+    function updateCartCount() {
+      const count = cartQuantity();
+      document.getElementById('cart-count').textContent = count;
+      document.getElementById('cart-trigger').setAttribute('aria-label', `${getCopy('a11y.cart')} (${count})`);
+    }
+
+    function summaryMarkup(includeShipping = true) {
+      const shippingLabel = checkoutData.fulfillment === 'pickup'
+        ? getCopy('cart.pickupFree')
+        : (shippingCost() === 0 ? getCopy('cart.freeShipping') : formatMoney(shippingCost()));
+      return `<div class="cart-summary">
+        <div class="summary-row"><span>${escapeHTML(getCopy('cart.subtotal'))}</span><strong>${formatMoney(cartSubtotal())}</strong></div>
+        ${includeShipping ? `<div class="summary-row"><span>${escapeHTML(getCopy('cart.shipping'))}</span><strong>${escapeHTML(shippingLabel)}</strong></div>` : ''}
+        ${includeShipping ? `<div class="summary-row summary-total"><span>${escapeHTML(getCopy('cart.total'))}</span><strong>${formatMoney(cartTotal())}</strong></div>` : ''}
+      </div>`;
+    }
+
+    let cartStep = 'items';
+    const drawer = document.getElementById('cart-drawer');
+    const drawerBackdrop = document.getElementById('drawer-backdrop');
+    const drawerView = document.getElementById('drawer-step-view');
+
+    function renderCart() {
+      updateCartCount();
+      if (cartStep === 'items') {
+        if (!cart.length) {
+          drawerView.innerHTML = `<div class="cart-empty"><span class="cart-empty-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 8h13l1 12h-15l1-12Z"></path><path d="M9 9V6a3 3 0 0 1 6 0v3"></path></svg></span><h3>${escapeHTML(getCopy('cart.emptyTitle'))}</h3><p>${escapeHTML(getCopy('cart.emptyCopy'))}</p><a class="text-link" href="#tienda" data-close-cart-link><span>${escapeHTML(getCopy('cart.keepShopping'))}</span><span aria-hidden="true">→</span></a></div>`;
+          return;
+        }
+        drawerView.innerHTML = `<div class="cart-line-list">${cart.map((line, index) => {
+          const product = productById.get(line.id);
+          const sizes = product.sizes.length ? product.sizes : ['U'];
+          const sizeSelect = sizes.length > 1
+            ? `<label><span class="sr-only">${escapeHTML(getCopy('cart.size'))} · ${escapeHTML(product.name)}</span><select class="cart-line-size" data-line-size="${index}" aria-label="${escapeHTML(getCopy('cart.size'))} ${escapeHTML(product.name)}">${sizes.map((size) => `<option value="${size}" ${line.size === size ? 'selected' : ''}>${size}</option>`).join('')}</select></label>`
+            : `<span class="size-static">${escapeHTML(getCopy('product.oneSize'))}</span>`;
+          return `<article class="cart-line">
+            <div class="cart-line-image"><img src="${imageUrl(product.image, 220)}" alt="${escapeHTML(product.name)}"></div>
+            <div class="cart-line-content">
+              <div class="cart-line-top"><div><h3>${escapeHTML(product.name)}</h3><p>${escapeHTML(getCopy(`product.category.${product.category}`))}</p></div><p class="cart-line-price">${formatMoney(product.price * line.quantity)}</p></div>
+              <div class="cart-line-controls">${sizeSelect}<div class="quantity-control" aria-label="${escapeHTML(getCopy('cart.quantity'))}"><button type="button" data-cart-action="decrease" data-line-index="${index}" aria-label="−">−</button><span>${line.quantity}</span><button type="button" data-cart-action="increase" data-line-index="${index}" aria-label="+">+</button></div><button class="remove-line" type="button" data-cart-action="remove" data-line-index="${index}">${escapeHTML(getCopy('cart.remove'))}</button></div>
+            </div>
+          </article>`;
+        }).join('')}</div>${summaryMarkup(false)}<p class="cart-hint">${escapeHTML(getCopy('cart.shippingHint'))}</p><button class="button-primary drawer-primary" type="button" data-cart-action="checkout"><span>${escapeHTML(getCopy('cart.checkout'))}</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M10 4l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg></button>`;
+      } else if (cartStep === 'checkout') {
+        renderCheckoutStep();
+      } else if (cartStep === 'payment') {
+        renderPaymentStep();
+      } else if (cartStep === 'complete') {
+        renderCompleteStep();
+      }
+    }
+
+    function checkoutValue(name) { return escapeHTML(checkoutData[name] || ''); }
+
+    function renderCheckoutStep() {
+      const isPickup = checkoutData.fulfillment === 'pickup';
+      const addressFields = isPickup ? `<label class="form-field full-width"><span>${escapeHTML(getCopy('cart.pickupPlace'))}</span><select name="pickupLocation" required><option value="ruzafa" selected>${escapeHTML(getCopy('cart.pickupMarket'))}</option></select></label>` : `<div class="checkout-fields"><label class="form-field full-width"><span>${escapeHTML(getCopy('cart.address'))}</span><input name="address" autocomplete="street-address" value="${checkoutValue('address')}" required></label><label class="form-field"><span>${escapeHTML(getCopy('cart.city'))}</span><input name="city" autocomplete="address-level2" value="${checkoutValue('city')}" required></label><label class="form-field"><span>${escapeHTML(getCopy('cart.postcode'))}</span><input name="postcode" autocomplete="postal-code" inputmode="numeric" value="${checkoutValue('postcode')}" required></label></div>`;
+      const paymentLabel = isPickup ? getCopy('cart.payAtPickup') : getCopy('cart.payAtDelivery');
+      drawerView.innerHTML = `<button class="drawer-back-button" type="button" data-cart-action="back-items"><span aria-hidden="true">←</span>${escapeHTML(getCopy('cart.back'))}</button>
+        <h3 class="checkout-title">${escapeHTML(getCopy('cart.customerTitle'))}</h3><p class="checkout-intro">${escapeHTML(getCopy('cart.customerCopy'))}</p>
+        <form class="checkout-form" id="checkout-form">
+          <label class="form-field"><span>${escapeHTML(getCopy('cart.fullName'))}</span><input name="name" type="text" autocomplete="name" value="${checkoutValue('name')}" required></label>
+          <div class="checkout-fields"><label class="form-field"><span>${escapeHTML(getCopy('cart.email'))}</span><input name="email" type="email" autocomplete="email" value="${checkoutValue('email')}" required></label><label class="form-field"><span>${escapeHTML(getCopy('cart.phone'))}</span><input name="phone" type="tel" autocomplete="tel" value="${checkoutValue('phone')}" required></label></div>
+          <fieldset class="checkout-set"><legend>${escapeHTML(getCopy('cart.deliveryOption'))}</legend><div class="choice-list">
+            <label class="choice-line"><input type="radio" name="fulfillment" value="pickup" ${isPickup ? 'checked' : ''}><span><strong>${escapeHTML(getCopy('cart.pickup'))}</strong><small>${escapeHTML(getCopy('cart.pickupDesc'))}</small></span></label>
+            <label class="choice-line"><input type="radio" name="fulfillment" value="delivery" ${!isPickup ? 'checked' : ''}><span><strong>${escapeHTML(getCopy('cart.delivery'))}</strong><small>${escapeHTML(getCopy('cart.deliveryDesc'))}</small></span></label>
+          </div></fieldset>
+          ${addressFields}
+          <fieldset class="checkout-set"><legend>${escapeHTML(getCopy('cart.paymentOption'))}</legend><div class="choice-list">
+            <label class="choice-line"><input type="radio" name="payment" value="cash" ${checkoutData.payment === 'cash' ? 'checked' : ''}><span><strong>${escapeHTML(paymentLabel)}</strong><small>${escapeHTML(getCopy('cart.payInPersonDesc'))}</small></span></label>
+            <label class="choice-line"><input type="radio" name="payment" value="online" ${checkoutData.payment === 'online' ? 'checked' : ''}><span><strong>${escapeHTML(getCopy('cart.payOnline'))}</strong><small>${escapeHTML(getCopy('cart.payOnlineDesc'))}</small></span></label>
+          </div></fieldset>
+          ${summaryMarkup(true)}
+          <button class="button-primary drawer-primary" type="submit"><span>${escapeHTML(getCopy('cart.placeOrder'))}</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M10 4l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg></button>
+        </form>`;
+      const form = document.getElementById('checkout-form');
+      form.addEventListener('input', () => readCheckoutForm(form));
+      form.addEventListener('change', (event) => {
+        readCheckoutForm(form);
+        if (event.target.name === 'fulfillment') renderCart();
+      });
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        readCheckoutForm(form);
+        if (!form.reportValidity()) return;
+        gatewayMessageShown = false;
+        if (checkoutData.payment === 'online') {
+          cartStep = 'payment';
+        } else {
+          completeOrder();
+        }
+        renderCart();
+      });
+    }
+
+    function readCheckoutForm(form) {
+      const formData = new FormData(form);
+      for (const [key, value] of formData.entries()) checkoutData[key] = value;
+    }
+
+    function renderPaymentStep() {
+      drawerView.innerHTML = `<button class="drawer-back-button" type="button" data-cart-action="back-checkout"><span aria-hidden="true">←</span>${escapeHTML(getCopy('cart.back'))}</button>
+        <h3 class="payment-head">${escapeHTML(getCopy('cart.paymentTitle'))}</h3><p class="payment-note">${escapeHTML(getCopy('cart.paymentCopy'))}</p>
+        <div class="gateway-window"><div class="gateway-brand"><span>${escapeHTML(getCopy('cart.gatewayLabel'))}</span><span>${escapeHTML(getCopy('cart.gatewayStatus'))}</span></div><div class="gateway-total"><span>${escapeHTML(getCopy('cart.amountToPay'))}</span><strong>${formatMoney(cartTotal())}</strong></div>
+        ${summaryMarkup(true)}
+        ${gatewayMessageShown ? `<p class="gateway-message" role="status">${escapeHTML(getCopy('cart.gatewayPending'))}</p>` : ''}</div>
+        <button class="button-primary drawer-primary" type="button" data-cart-action="gateway"><span>${escapeHTML(getCopy('cart.continueGateway'))}</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M10 4l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg></button>
+        <button class="drawer-back-button" style="margin-top:18px;margin-bottom:0" type="button" data-cart-action="back-checkout">${escapeHTML(getCopy('cart.back'))}</button>`;
+    }
+
+    function completeOrder() {
+      const pickup = checkoutData.fulfillment === 'pickup';
+      completedOrder = {
+        reference: `TR-${Math.floor(100000 + Math.random() * 900000)}`,
+        total: cartTotal(),
+        fulfillment: checkoutData.fulfillment,
+        method: pickup ? getCopy('cart.inPersonPickup') : getCopy('cart.inPersonDelivery')
+      };
+      writeStorage('trama-last-order', JSON.stringify(completedOrder));
+      cart = [];
+      saveCart();
+      cartStep = 'complete';
+    }
+
+    function renderCompleteStep() {
+      const order = completedOrder || { reference: 'TR-DEMO', total: 0, method: '' };
+      drawerView.innerHTML = `<div class="order-success"><span class="success-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"></path></svg></span><p class="eyebrow">${escapeHTML(getCopy('cart.orderRef'))}</p><h3 class="checkout-title">${escapeHTML(getCopy('cart.orderTitle'))}</h3><p class="checkout-intro">${escapeHTML(getCopy('cart.orderCopy'))}</p><div class="cart-summary"><div class="summary-row"><span>${escapeHTML(getCopy('cart.orderRef'))}</span><strong>${escapeHTML(order.reference)}</strong></div><div class="summary-row"><span>${escapeHTML(getCopy('cart.total'))}</span><strong>${formatMoney(order.total)}</strong></div><div class="summary-row"><span>${escapeHTML(getCopy('cart.paymentOption'))}</span><strong>${escapeHTML(order.method)}</strong></div></div><p class="cart-hint">${escapeHTML(getCopy('cart.orderDemo'))}</p><button class="button-primary drawer-primary" type="button" data-cart-action="finish"><span>${escapeHTML(getCopy('cart.continueShopping'))}</span></button></div>`;
+    }
+
+    function openCart() {
+      closeMobileMenu();
+      if (cartStep === 'complete') cartStep = 'items';
+      renderCart();
+      drawer.classList.add('is-open');
+      drawerBackdrop.classList.add('is-open');
+      drawer.setAttribute('aria-hidden', 'false');
+      syncScrollLock();
+      document.getElementById('cart-close').focus();
+    }
+
+    function closeCart() {
+      drawer.classList.remove('is-open');
+      drawerBackdrop.classList.remove('is-open');
+      drawer.setAttribute('aria-hidden', 'true');
+      if (cartStep === 'complete') cartStep = 'items';
+      syncScrollLock();
+      document.getElementById('cart-trigger').focus();
+    }
+
+    function addToCart(productId) {
+      const product = productById.get(productId);
+      if (!product) return;
+      const size = sizeSelections[productId] || fallbackSize(product);
+      const existing = cart.find((line) => line.id === productId && line.size === size);
+      if (existing) existing.quantity = Math.min(existing.quantity + 1, 99);
+      else cart.push({ id: productId, size, quantity: 1 });
+      if (cartStep === 'complete') cartStep = 'items';
+      saveCart();
+      renderCart();
+      showToast(interpolate(getCopy('product.added'), { name: product.name }));
+    }
+
+    function updateCartLine(index, action, value) {
+      const line = cart[index];
+      if (!line) return;
+      if (action === 'increase') line.quantity = Math.min(line.quantity + 1, 99);
+      if (action === 'decrease') line.quantity -= 1;
+      if (action === 'remove' || line.quantity < 1) cart.splice(index, 1);
+      if (action === 'size') {
+        const collision = cart.findIndex((item, itemIndex) => itemIndex !== index && item.id === line.id && item.size === value);
+        if (collision >= 0) {
+          cart[collision].quantity = Math.min(cart[collision].quantity + line.quantity, 99);
+          cart.splice(index, 1);
+        } else {
+          line.size = value;
+        }
+      }
+      saveCart();
+      renderCart();
+    }
+
+    document.getElementById('product-grid').addEventListener('change', (event) => {
+      const select = event.target.closest('[data-size-product]');
+      if (select) sizeSelections[select.dataset.sizeProduct] = select.value;
+    });
+    document.getElementById('product-grid').addEventListener('click', (event) => {
+      const button = event.target.closest('[data-add-to-cart]');
+      if (button) addToCart(button.dataset.addToCart);
+    });
+    document.querySelectorAll('[data-filter]').forEach((button) => {
+      button.addEventListener('click', () => {
+        activeFilter = button.dataset.filter;
+        document.querySelectorAll('[data-filter]').forEach((item) => {
+          const selected = item === button;
+          item.classList.toggle('is-active', selected);
+          item.setAttribute('aria-pressed', String(selected));
+        });
+        renderProducts();
+      });
+    });
+
+    drawerView.addEventListener('click', (event) => {
+      const closeLink = event.target.closest('[data-close-cart-link]');
+      if (closeLink) { closeCart(); return; }
+      const button = event.target.closest('[data-cart-action]');
+      if (!button) return;
+      const action = button.dataset.cartAction;
+      if (['increase', 'decrease', 'remove'].includes(action)) updateCartLine(Number(button.dataset.lineIndex), action);
+      if (action === 'checkout') { cartStep = 'checkout'; renderCart(); drawerView.scrollTop = 0; }
+      if (action === 'back-items') { cartStep = 'items'; renderCart(); drawerView.scrollTop = 0; }
+      if (action === 'back-checkout') { cartStep = 'checkout'; renderCart(); drawerView.scrollTop = 0; }
+      if (action === 'gateway') { gatewayMessageShown = true; renderCart(); }
+      if (action === 'finish') closeCart();
+    });
+    drawerView.addEventListener('change', (event) => {
+      const select = event.target.closest('[data-line-size]');
+      if (select) updateCartLine(Number(select.dataset.lineSize), 'size', select.value);
+    });
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('is-visible');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2600);
+    }
+
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function setMobileMenu(open) {
+      mobileMenuOpen = open;
+      mobileMenu.classList.toggle('is-open', open);
+      mobileMenu.setAttribute('aria-hidden', String(!open));
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.setAttribute('aria-label', getCopy(open ? 'a11y.menuClose' : 'a11y.menuOpen'));
+    }
+    function closeMobileMenu() { if (mobileMenuOpen) setMobileMenu(false); }
+    menuToggle.addEventListener('click', () => setMobileMenu(!mobileMenuOpen));
+    mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMobileMenu));
+    document.getElementById('mobile-search-trigger').addEventListener('click', () => { closeMobileMenu(); openModal('search-modal'); });
+    document.addEventListener('click', (event) => {
+      if (mobileMenuOpen && !event.target.closest('#mobile-menu') && !event.target.closest('#menu-toggle')) closeMobileMenu();
+    });
+
+    document.querySelectorAll('.language-select').forEach((select) => select.addEventListener('change', () => setLanguage(select.value)));
+    themeToggle.addEventListener('click', () => setTheme(document.body.classList.contains('dark-mode') ? 'light' : 'dark'));
+
+    const searchModal = document.getElementById('search-modal');
+    let lastFocusedElement = null;
+    function syncScrollLock() {
+      const hasOpenOverlay = document.querySelector('.modal-layer.is-open') || drawer.classList.contains('is-open');
+      document.body.classList.toggle('overlay-open', Boolean(hasOpenOverlay));
+    }
+    function openModal(id) {
+      closeMobileMenu();
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      lastFocusedElement = document.activeElement;
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      syncScrollLock();
+      const focusTarget = modal.querySelector('input:not([type="hidden"]), button:not(.modal-close)');
+      if (focusTarget) setTimeout(() => focusTarget.focus(), 50);
+    }
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      syncScrollLock();
+      if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') lastFocusedElement.focus();
+    }
+    document.getElementById('search-trigger').addEventListener('click', () => openModal('search-modal'));
+    document.getElementById('account-trigger').addEventListener('click', () => openModal('account-modal'));
+    document.getElementById('cart-trigger').addEventListener('click', openCart);
+    document.getElementById('cart-close').addEventListener('click', closeCart);
+    drawerBackdrop.addEventListener('click', closeCart);
+    document.querySelectorAll('[data-close-modal]').forEach((button) => button.addEventListener('click', () => closeModal(button.dataset.closeModal)));
+    document.querySelectorAll('.modal-layer').forEach((layer) => layer.addEventListener('click', (event) => { if (event.target === layer) closeModal(layer.id); }));
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      if (drawer.classList.contains('is-open')) closeCart();
+      else {
+        const openModalLayer = document.querySelector('.modal-layer.is-open');
+        if (openModalLayer) closeModal(openModalLayer.id);
+        closeMobileMenu();
+      }
+    });
+
+    function clearSearchHighlights() {
+      document.querySelectorAll('mark.search-highlight').forEach((mark) => mark.replaceWith(document.createTextNode(mark.textContent)));
+      document.querySelector('main').normalize();
+      document.querySelector('footer').normalize();
+    }
+
+    function highlightMatches(query) {
+      clearSearchHighlights();
+      const roots = [document.querySelector('main'), document.querySelector('footer')];
+      let matchCount = 0;
+      let firstMatch = null;
+      roots.forEach((root) => {
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+          acceptNode(node) {
+            const parent = node.parentElement;
+            if (!parent || parent.closest('script, style, textarea, input, select, button, mark, .modal-layer, .cart-drawer')) return NodeFilter.FILTER_REJECT;
+            return node.nodeValue.toLocaleLowerCase().includes(query.toLocaleLowerCase()) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+          }
+        });
+        const textNodes = [];
+        while (walker.nextNode()) textNodes.push(walker.currentNode);
+        textNodes.forEach((node) => {
+          const text = node.nodeValue;
+          const normalized = text.toLocaleLowerCase();
+          const needle = query.toLocaleLowerCase();
+          let cursor = 0;
+          let position = normalized.indexOf(needle, cursor);
+          if (position < 0) return;
+          const fragment = document.createDocumentFragment();
+          while (position >= 0) {
+            fragment.append(document.createTextNode(text.slice(cursor, position)));
+            const mark = document.createElement('mark');
+            mark.className = 'search-highlight';
+            mark.textContent = text.slice(position, position + query.length);
+            fragment.append(mark);
+            if (!firstMatch) firstMatch = mark;
+            matchCount += 1;
+            cursor = position + query.length;
+            position = normalized.indexOf(needle, cursor);
+          }
+          fragment.append(document.createTextNode(text.slice(cursor)));
+          node.replaceWith(fragment);
+        });
+      });
+      return { matchCount, firstMatch };
+    }
+
+    document.getElementById('page-search-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const input = document.getElementById('page-search-input');
+      const query = input.value.trim();
+      const status = document.getElementById('search-status');
+      if (!query) { status.textContent = getCopy('search.empty'); return; }
+      const { matchCount, firstMatch } = highlightMatches(query);
+      if (!matchCount) { status.textContent = getCopy('search.none'); return; }
+      status.textContent = interpolate(getCopy('search.found'), { count: matchCount });
+      setTimeout(() => {
+        closeModal('search-modal');
+        if (firstMatch) firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 350);
+    });
+    document.getElementById('search-modal').addEventListener('transitionend', (event) => {
+      if (event.target === searchModal && !searchModal.classList.contains('is-open')) document.getElementById('search-status').textContent = '';
+    });
+
+    document.getElementById('account-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      document.getElementById('account-status').textContent = getCopy('account.pending');
+    });
+    document.getElementById('contact-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      document.getElementById('contact-status').textContent = getCopy('contact.sent');
+      event.currentTarget.reset();
+    });
+
+    const legalText = {
+      cookies: ['legal.cookiesTitle', 'legal.cookiesCopy'],
+      terms: ['legal.termsTitle', 'legal.termsCopy'],
+      shipping: ['legal.shippingTitle', 'legal.shippingCopy']
+    };
+    document.querySelectorAll('[data-legal]').forEach((button) => button.addEventListener('click', (event) => {
+      event.preventDefault();
+      const [titleKey, copyKey] = legalText[button.dataset.legal] || legalText.terms;
+      document.getElementById('legal-title').textContent = getCopy(titleKey);
+      document.getElementById('legal-copy').textContent = getCopy(copyKey);
+      openModal('legal-modal');
+    }));
+
+    document.querySelectorAll('[data-cookie-choice]').forEach((button) => button.addEventListener('click', () => {
+      writeStorage('trama-cookie-choice', button.dataset.cookieChoice);
+      document.getElementById('cookie-notice').hidden = true;
+    }));
+    if (!readStorage('trama-cookie-choice')) {
+      setTimeout(() => { document.getElementById('cookie-notice').hidden = false; }, 1500);
+    }
+
+    document.addEventListener('click', (event) => {
+      const anchor = event.target.closest('a[href^="#"]');
+      if (!anchor || anchor.hasAttribute('data-legal')) return;
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (!target) return;
+      event.preventDefault();
+      closeMobileMenu();
+      target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+      history.replaceState(null, '', anchor.getAttribute('href'));
+    });
+
+    const header = document.getElementById('site-header');
+    let scrollQueued = false;
+    function updateScrollState() {
+      header.classList.toggle('is-scrolled', window.scrollY > 12);
+      scrollQueued = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!scrollQueued) { scrollQueued = true; requestAnimationFrame(updateScrollState); }
+    }, { passive: true });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 850) closeMobileMenu();
+      updateScrollState();
+    });
+
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: .12, rootMargin: '0px 0px -35px 0px' });
+      document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+    } else {
+      document.querySelectorAll('.reveal').forEach((element) => element.classList.add('is-visible'));
+    }
+
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+    setLanguage(language);
+    renderCart();
+    updateScrollState();
+  </script>
+</body>
+</html>

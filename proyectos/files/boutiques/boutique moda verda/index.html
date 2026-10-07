@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="VERDA · Boutique de moda sostenible en València. Prendas de lino, algodón orgánico y lana reciclada. Compra online, recoge en el mercado o recíbelo en casa.">
+<meta name="theme-color" content="#3f4a33">
+<title>VERDA · Boutique de Moda Sostenible</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#inicio">Saltar al contenido principal</a>
+
+<!-- ============================================================
+     BARRA SUPERIOR DE INFORMACIÓN GENERAL
+     ============================================================ -->
+<div class="topbar" id="topbar">
+  <div class="container topbar__inner">
+    <ul class="topbar__info">
+      <li>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+        <a href="tel:+34961234567">+34 961 234 567</a>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="m22 6-10 7L2 6"/></svg>
+        <a href="mailto:hola@verda.eco">hola@verda.eco</a>
+      </li>
+      <li class="topbar__hide-sm">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span data-i18n="top.location">Mercat de Colón · Parada 12 · València</span>
+      </li>
+    </ul>
+    <p class="topbar__promo" data-i18n="top.promo">Envío gratis desde 60 € · Recogida en el mercado sin coste</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     HEADER FIJO
+     ============================================================ -->
+<header class="header" id="header">
+  <div class="container header__inner">
+
+    <!-- Logo -->
+    <a class="logo" href="#inicio" aria-label="VERDA, inicio">
+      <span class="logo__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M11 21c-4 0-7-3-7-7 0-6 5-11 16-11 0 9-4 14-9 14Z"/><path d="M4 21c1-5 4-8 9-10"/></svg>
+      </span>
+      <span class="logo__text">VERDA<small data-i18n="logo.tag">slow fashion</small></span>
+    </a>
+
+    <!-- Menú principal centrado -->
+    <nav class="nav" id="primaryNav" aria-label="Navegación principal">
+      <ul class="nav__list">
+        <li><a class="nav__link is-active" href="#inicio" data-i18n="nav.home">Inicio</a></li>
+        <li><a class="nav__link" href="#coleccion" data-i18n="nav.shop">Colección</a></li>
+        <li><a class="nav__link" href="#sostenibilidad" data-i18n="nav.sustainability">Sostenibilidad</a></li>
+        <li><a class="nav__link" href="#taller" data-i18n="nav.atelier">Taller</a></li>
+        <li><a class="nav__link" href="#opiniones" data-i18n="nav.reviews">Opiniones</a></li>
+        <li><a class="nav__link" href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- Acciones -->
+    <div class="header__actions">
+
+      <!-- Selector de idioma (escritorio) -->
+      <div class="lang" id="langSwitcher">
+        <button class="icon-btn lang__toggle" id="langToggle" aria-haspopup="true" aria-expanded="false" aria-label="Cambiar idioma">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z"/></svg>
+          <span class="lang__current" id="langCurrent">ES</span>
+        </button>
+        <ul class="lang__menu" id="langMenu" role="menu">
+          <li><button role="menuitem" data-lang="es">Español</button></li>
+          <li><button role="menuitem" data-lang="en">English</button></li>
+          <li><button role="menuitem" data-lang="va">Valencià</button></li>
+        </ul>
+      </div>
+
+      <!-- Búsqueda -->
+      <button class="icon-btn" id="searchBtn" aria-label="Abrir buscador" data-tip="Buscar">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+
+      <!-- Usuario / login -->
+      <button class="icon-btn" id="userBtn" aria-label="Acceder a mi cuenta" data-tip="Mi cuenta">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+      </button>
+
+      <!-- Modo claro / oscuro -->
+      <button class="icon-btn" id="themeBtn" aria-label="Cambiar modo claro u oscuro" data-tip="Tema">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10Z"/></svg>
+      </button>
+
+      <!-- Carrito -->
+      <button class="icon-btn icon-btn--cart" id="cartBtn" aria-label="Abrir carrito de compra" data-tip="Carrito">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2.2l2.1 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="10" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/></svg>
+        <span class="cart-badge" id="cartBadge" hidden>0</span>
+      </button>
+
+      <!-- Menú hamburguesa (móvil) -->
+      <button class="icon-btn burger" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     MENÚ MÓVIL (desciende desde arriba, centrado)
+     ============================================================ -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <nav aria-label="Navegación móvil">
+    <ul class="mobile-menu__list">
+      <li><a href="#inicio" data-i18n="nav.home">Inicio</a></li>
+      <li><a href="#coleccion" data-i18n="nav.shop">Colección</a></li>
+      <li><a href="#sostenibilidad" data-i18n="nav.sustainability">Sostenibilidad</a></li>
+      <li><a href="#taller" data-i18n="nav.atelier">Taller</a></li>
+      <li><a href="#opiniones" data-i18n="nav.reviews">Opiniones</a></li>
+      <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <button class="btn btn--ghost mobile-menu__search" id="mobileSearchBtn">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <span data-i18n="btn.search">Buscar en la web</span>
+  </button>
+
+  <div class="mobile-menu__langs" role="group" aria-label="Idioma">
+    <button data-lang="es">Español</button>
+    <button data-lang="en">English</button>
+    <button data-lang="va">Valencià</button>
+  </div>
+
+  <p class="mobile-menu__info">
+    <a href="tel:+34961234567">+34 961 234 567</a> · <a href="mailto:hola@verda.eco">hola@verda.eco</a>
+  </p>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+
+<main>
+
+  <!-- ============================ HERO ============================ -->
+  <section class="hero" id="inicio">
+    <div class="hero__media">
+      <video id="heroVideo" autoplay muted loop playsinline preload="metadata"
+             poster="https://images.pexels.com/videos/8517567/asia-atelier-bi-couple-bisexual-8517567.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=1600">
+        <source src="https://videos.pexels.com/video-files/8517567/8517567-uhd_4096_2160_24fps.mp4" type="video/mp4">
+      </video>
+      <div class="hero__veil"></div>
+    </div>
+
+    <div class="container hero__content">
+      <p class="eyebrow eyebrow--light" data-i18n="hero.badge">Colección atemporal 2026</p>
+      <h1 class="hero__title" data-i18n="hero.title">Moda que cuida<br>la piel y el planeta</h1>
+      <p class="hero__text" data-i18n="hero.text">Prendas de edición limitada confeccionadas en València con fibras orgánicas, tintes naturales y trazabilidad completa. Menos prendas, mejor hechas.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#coleccion" data-i18n="hero.cta1">Ver colección</a>
+        <a class="btn btn--outline-light" href="#sostenibilidad" data-i18n="hero.cta2">Nuestro impacto</a>
+      </div>
+      <ul class="hero__stats">
+        <li><strong>100%</strong><span data-i18n="hero.stat1">Fibras certificadas</span></li>
+        <li><strong>0 km</strong><span data-i18n="hero.stat2">Taller en València</span></li>
+        <li><strong>+4.800</strong><span data-i18n="hero.stat3">Prendas con alma</span></li>
+      </ul>
+    </div>
+
+    <a class="hero__scroll" href="#sostenibilidad" aria-label="Bajar">
+      <span data-i18n="hero.scroll">Descubre</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16M6 14l6 6 6-6"/></svg>
+    </a>
+  </section>
+
+  <!-- ===================== BANDA DE CERTIFICADOS ===================== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>GOTS · Global Organic Textile</span><span>GRS · Recycled Standard</span><span>OEKO-TEX 100</span><span>Fair Wear Foundation</span><span>PETA Approved Vegan</span><span>B Corp pending</span>
+      <span>GOTS · Global Organic Textile</span><span>GRS · Recycled Standard</span><span>OEKO-TEX 100</span><span>Fair Wear Foundation</span><span>PETA Approved Vegan</span><span>B Corp pending</span>
+    </div>
+  </div>
+
+  <!-- ===================== SECCIÓN INFORMATIVA ===================== -->
+  <section class="section" id="sostenibilidad">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="eyebrow" data-i18n="sus.tag">Sostenibilidad real</p>
+        <h2 class="section__title" data-i18n="sus.title">Transparencia en cada costura</h2>
+        <p class="section__text" data-i18n="sus.text">No hablamos de tendencias, hablamos de materiales, personas y tiempo. Cada prenda incluye su ficha de trazabilidad: quién la hizo, dónde y con qué.</p>
+      </div>
+
+      <div class="pillars">
+        <article class="card reveal">
+          <span class="card__icon"><svg viewBox="0 0 24 24"><path d="M11 21c-4 0-7-3-7-7 0-6 5-11 16-11 0 9-4 14-9 14Z"/><path d="M4 21c1-5 4-8 9-10"/></svg></span>
+          <h3 data-i18n="sus.p1t">Fibras orgánicas</h3>
+          <p data-i18n="sus.p1d">Lino europeo, algodón GOTS, cáñamo y lana reciclada. Sin plásticos vírgenes ni tintes tóxicos.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card__icon"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 8c3 0 5 2 7 4M19 8c-3 0-5 2-7 4"/><circle cx="12" cy="12" r="9"/></svg></span>
+          <h3 data-i18n="sus.p2t">Producción local</h3>
+          <p data-i18n="sus.p2d">Taller propio a 4 km de la tienda. Salarios dignos, jornadas reales y contratos estables.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card__icon"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
+          <h3 data-i18n="sus.p3t">Circularidad</h3>
+          <p data-i18n="sus.p3d">Reparamos gratis durante 3 años y recompramos tu prenda usada con un 20 % de descuento.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card__icon"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></span>
+          <h3 data-i18n="sus.p4t">Cero residuo</h3>
+          <p data-i18n="sus.p4d">Patronaje zero-waste y embalaje compostable. Los retales se convierten en accesorios.</p>
+        </article>
+      </div>
+
+      <div class="impact reveal">
+        <figure class="impact__media">
+          <img src="https://images.pexels.com/photos/8484131/pexels-photo-8484131.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1100&w=850" alt="Diseñadora revisando prendas en el taller" loading="lazy">
+        </figure>
+        <div class="impact__data">
+          <h3 data-i18n="sus.impactTitle">Nuestro impacto en 2025</h3>
+          <ul class="counters">
+            <li><strong data-count="1860">0</strong><span data-i18n="sus.m1">Litros de agua ahorrados por prenda</span></li>
+            <li><strong data-count="72" data-suffix="%">0</strong><span data-i18n="sus.m2">Menos emisiones que la media del sector</span></li>
+            <li><strong data-count="34">0</strong><span data-i18n="sus.m3">Personas en nuestra cadena de valor</span></li>
+            <li><strong data-count="100" data-suffix="%">0</strong><span data-i18n="sus.m4">Energía renovable en el taller</span></li>
+          </ul>
+          <a class="btn btn--primary" href="#taller" data-i18n="sus.cta">Conoce el taller</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COLECCIÓN / TIENDA ===================== -->
+  <section class="section section--alt" id="coleccion">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="eyebrow" data-i18n="col.tag">Tienda online</p>
+        <h2 class="section__title" data-i18n="col.title">Colección cápsula</h2>
+        <p class="section__text" data-i18n="col.text">20 piezas pensadas para durar. Elige tu talla, añade al carrito y decide si lo recoges en el mercado o te lo enviamos a casa.</p>
+      </div>
+
+      <div class="shop-toolbar reveal">
+        <div class="filters" id="filters" role="tablist" aria-label="Filtrar colección">
+          <button class="chip is-active" data-filter="all" data-i18n="col.f.all">Todo</button>
+          <button class="chip" data-filter="mujer" data-i18n="col.f.mujer">Mujer</button>
+          <button class="chip" data-filter="hombre" data-i18n="col.f.hombre">Hombre</button>
+          <button class="chip" data-filter="punto" data-i18n="col.f.punto">Punto</button>
+          <button class="chip" data-filter="accesorios" data-i18n="col.f.accesorios">Accesorios</button>
+          <button class="chip" data-filter="basicos" data-i18n="col.f.basicos">Básicos</button>
+        </div>
+        <label class="sort">
+          <span class="sr-only" data-i18n="col.sort">Ordenar por</span>
+          <select id="sortSelect">
+            <option value="featured" data-i18n="col.sort.featured">Destacados</option>
+            <option value="price-asc" data-i18n="col.sort.asc">Precio: menor a mayor</option>
+            <option value="price-desc" data-i18n="col.sort.desc">Precio: mayor a menor</option>
+            <option value="name" data-i18n="col.sort.name">Nombre A-Z</option>
+          </select>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </label>
+      </div>
+
+      <div class="products" id="productGrid"><!-- generado por script.js --></div>
+      <p class="products__empty" id="productsEmpty" hidden data-i18n="col.empty">No hay piezas en esta categoría.</p>
+    </div>
+  </section>
+
+  <!-- ===================== SECCIÓN SECUNDARIA: TALLER ===================== -->
+  <section class="section" id="taller">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="eyebrow" data-i18n="atl.tag">Del campo a tu armario</p>
+        <h2 class="section__title" data-i18n="atl.title">Así nace cada prenda</h2>
+        <p class="section__text" data-i18n="atl.text">Un proceso lento, medido y verificable. Puedes visitar el taller cada viernes a las 17:00 con cita previa.</p>
+      </div>
+
+      <ol class="steps">
+        <li class="step reveal">
+          <img src="https://images.pexels.com/photos/6842161/pexels-photo-6842161.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=700&w=560" alt="Tejidos naturales en estanterías de madera" loading="lazy">
+          <span class="step__num">01</span>
+          <h3 data-i18n="atl.s1t">Materia prima</h3>
+          <p data-i18n="atl.s1d">Lino de Normandía y algodón orgánico andaluz, comprados a cooperativas con contrato directo.</p>
+        </li>
+        <li class="step reveal">
+          <img src="https://images.pexels.com/photos/8526968/pexels-photo-8526968.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=700&w=560" alt="Patronista midiendo una prenda" loading="lazy">
+          <span class="step__num">02</span>
+          <h3 data-i18n="atl.s2t">Patronaje zero-waste</h3>
+          <p data-i18n="atl.s2d">Diseñamos los patrones para aprovechar el 96 % del tejido. El resto se transforma en accesorios.</p>
+        </li>
+        <li class="step reveal">
+          <img src="https://images.pexels.com/photos/7774262/pexels-photo-7774262.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=700&w=560" alt="Costurera trabajando en el taller" loading="lazy">
+          <span class="step__num">03</span>
+          <h3 data-i18n="atl.s3t">Confección artesana</h3>
+          <p data-i18n="atl.s3d">Series cortas de 40 unidades cosidas a mano por nuestro equipo, con control de calidad pieza a pieza.</p>
+        </li>
+        <li class="step reveal">
+          <img src="https://images.pexels.com/photos/3984868/pexels-photo-3984868.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=700&w=560" alt="Prendas terminadas listas para la tienda" loading="lazy">
+          <span class="step__num">04</span>
+          <h3 data-i18n="atl.s4t">Entrega consciente</h3>
+          <p data-i18n="atl.s4d">Embalaje compostable y reparto en bici por València. O recógelo tú en nuestra parada del mercado.</p>
+        </li>
+      </ol>
+
+      <aside class="note reveal">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <p data-i18n="atl.note">Cada etiqueta lleva un código QR con el nombre de la persona que cosió tu prenda, el origen del tejido y su huella hídrica.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===================== OPINIONES + NEWSLETTER ===================== -->
+  <section class="section section--alt" id="opiniones">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="eyebrow" data-i18n="rev.tag">Comunidad VERDA</p>
+        <h2 class="section__title" data-i18n="rev.title">Lo que dicen quienes ya la visten</h2>
+      </div>
+
+      <div class="reviews">
+        <figure class="review reveal">
+          <div class="stars" aria-label="5 de 5">★★★★★</div>
+          <blockquote data-i18n="rev.q1">«El vestido Mistral es la prenda que más me pongo. Tres veranos y sigue impecable. Además recogí el pedido en el mercado en 24 h.»</blockquote>
+          <figcaption>Marta G. · <span data-i18n="rev.c1">València</span></figcaption>
+        </figure>
+        <figure class="review reveal">
+          <div class="stars" aria-label="5 de 5">★★★★★</div>
+          <blockquote data-i18n="rev.q2">«Me encantó ver el QR con el nombre de la costurera. Es la primera vez que sé quién hizo mi camisa.»</blockquote>
+          <figcaption>Jordi P. · <span data-i18n="rev.c2">Castelló</span></figcaption>
+        </figure>
+        <figure class="review reveal">
+          <div class="stars" aria-label="4 de 5">★★★★☆</div>
+          <blockquote data-i18n="rev.q3">«Pagué al recoger, sin complicaciones. El jersey de lana reciclada no pica nada y abriga muchísimo.»</blockquote>
+          <figcaption>Lucía R. · <span data-i18n="rev.c3">Alacant</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="newsletter reveal">
+        <div>
+          <h3 data-i18n="news.title">Club Verda</h3>
+          <p data-i18n="news.text">Avisos de nuevas cápsulas, talleres de reparación y un 10 % en tu primera compra.</p>
+        </div>
+        <form class="newsletter__form" id="newsletterForm" novalidate>
+          <label class="sr-only" for="newsEmail">Email</label>
+          <input type="email" id="newsEmail" required placeholder="tu@email.com" data-i18n-placeholder="news.ph">
+          <button class="btn btn--primary" type="submit" data-i18n="news.btn">Suscribirme</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACTO ===================== -->
+  <section class="section" id="contacto">
+    <div class="container contact">
+      <div class="contact__info reveal">
+        <p class="eyebrow" data-i18n="ct.tag">Hablemos</p>
+        <h2 class="section__title" data-i18n="ct.title">Visítanos o escríbenos</h2>
+        <p class="section__text" data-i18n="ct.text">Estamos en el Mercat de Colón. Te asesoramos sobre tallas, arreglos y cuidados de cada tejido.</p>
+
+        <ul class="contact__list">
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div><strong data-i18n="ct.addrT">Tienda</strong><span data-i18n="ct.addrD">Mercat de Colón, Parada 12 · 46004 València</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <div><strong data-i18n="ct.hourT">Horario</strong><span data-i18n="ct.hourD">Lun-Vie 10:00-20:30 · Sáb 10:00-14:30</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+            <div><strong data-i18n="ct.phoneT">Teléfono y WhatsApp</strong><a href="tel:+34961234567">+34 961 234 567</a></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="m22 6-10 7L2 6"/></svg>
+            <div><strong data-i18n="ct.mailT">Email</strong><a href="mailto:hola@verda.eco">hola@verda.eco</a></div>
+          </li>
+        </ul>
+      </div>
+
+      <form class="contact__form reveal" id="contactForm" novalidate>
+        <div class="field">
+          <label for="cfName" data-i18n="ct.fName">Nombre completo</label>
+          <input type="text" id="cfName" name="name" required minlength="2" autocomplete="name">
+          <small class="field__error"></small>
+        </div>
+        <div class="field">
+          <label for="cfEmail" data-i18n="ct.fEmail">Correo electrónico</label>
+          <input type="email" id="cfEmail" name="email" required autocomplete="email">
+          <small class="field__error"></small>
+        </div>
+        <div class="field">
+          <label for="cfSubject" data-i18n="ct.fSubject">Asunto</label>
+          <select id="cfSubject" name="subject">
+            <option data-i18n="ct.s1">Consulta sobre un producto</option>
+            <option data-i18n="ct.s2">Arreglos y reparaciones</option>
+            <option data-i18n="ct.s3">Pedidos y entregas</option>
+            <option data-i18n="ct.s4">Prensa y colaboraciones</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cfMessage" data-i18n="ct.fMessage">Mensaje</label>
+          <textarea id="cfMessage" name="message" rows="5" required minlength="10"></textarea>
+          <small class="field__error"></small>
+        </div>
+        <label class="check">
+          <input type="checkbox" id="cfConsent" required>
+          <span data-i18n="ct.consent">He leído y acepto la política de privacidad y el tratamiento de mis datos.</span>
+        </label>
+        <button class="btn btn--primary btn--block" type="submit" data-i18n="ct.send">Enviar mensaje</button>
+        <p class="form-msg" id="contactMsg" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <a class="logo logo--footer" href="#inicio">
+        <span class="logo__mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M11 21c-4 0-7-3-7-7 0-6 5-11 16-11 0 9-4 14-9 14Z"/><path d="M4 21c1-5 4-8 9-10"/></svg></span>
+        <span class="logo__text">VERDA<small data-i18n="logo.tag">slow fashion</small></span>
+      </a>
+      <p data-i18n="ft.about">Boutique de moda sostenible en València. Prendas de edición limitada, reparables y trazables.</p>
+      <div class="social">
+        <a href="#inicio" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
+        <a href="#inicio" aria-label="Pinterest"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 20c1-3 2-6 2-6M12 5a5 5 0 0 1 2 9.5c-1.4.6-2.6-.3-3-1"/></svg></a>
+        <a href="#inicio" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7h.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      </div>
+    </div>
+
+    <nav class="footer__col" aria-label="Enlaces de la web">
+      <h4 data-i18n="ft.nav">Navegación</h4>
+      <ul>
+        <li><a href="#inicio" data-i18n="nav.home">Inicio</a></li>
+        <li><a href="#coleccion" data-i18n="nav.shop">Colección</a></li>
+        <li><a href="#sostenibilidad" data-i18n="nav.sustainability">Sostenibilidad</a></li>
+        <li><a href="#taller" data-i18n="nav.atelier">Taller</a></li>
+        <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer__col">
+      <h4 data-i18n="ft.help">Ayuda</h4>
+      <ul>
+        <li><button class="linkish" data-legal="shipping" data-i18n="ft.shipping">Envíos y recogidas</button></li>
+        <li><button class="linkish" data-legal="returns" data-i18n="ft.returns">Cambios y devoluciones</button></li>
+        <li><button class="linkish" data-legal="care" data-i18n="ft.care">Cuidado de tejidos</button></li>
+        <li><button class="linkish" data-legal="sizes" data-i18n="ft.sizes">Guía de tallas</button></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4 data-i18n="ft.legal">Legal</h4>
+      <ul>
+        <li><button class="linkish" data-legal="cookies" data-i18n="ft.cookies">Política de cookies</button></li>
+        <li><button class="linkish" data-legal="requirements" data-i18n="ft.requirements">Requisitos</button></li>
+        <li><button class="linkish" data-legal="privacy" data-i18n="ft.privacy">Privacidad</button></li>
+        <li><button class="linkish" data-legal="terms" data-i18n="ft.terms">Términos de compra</button></li>
+      </ul>
+    </div>
+
+    <div class="footer__col footer__col--info">
+      <h4 data-i18n="ft.infoT">Información</h4>
+      <p data-i18n="ft.infoD">VERDA Slow Fashion S.L. · CIF B-00000000<br>Mercat de Colón, Parada 12 · 46004 València</p>
+      <p class="footer__badges"><span>GOTS</span><span>GRS</span><span>OEKO-TEX</span></p>
+    </div>
+  </div>
+
+  <div class="container footer__bottom">
+    <p>&copy; <span id="year">2026</span> VERDA Slow Fashion S.L. <span data-i18n="ft.rights">Todos los derechos reservados.</span></p>
+    <p data-i18n="ft.made">Diseñado y cosido en València con energía 100 % renovable.</p>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Volver arriba">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V4M6 10l6-6 6 6"/></svg>
+</button>
+
+<!-- ============================================================
+     MODAL DE BÚSQUEDA
+     ============================================================ -->
+<div class="modal" id="searchModal" role="dialog" aria-modal="true" aria-labelledby="searchTitle" hidden>
+  <div class="modal__box modal__box--search">
+    <button class="modal__close" data-close aria-label="Cerrar">&times;</button>
+    <h2 class="modal__title" id="searchTitle" data-i18n="srch.title">¿Qué estás buscando?</h2>
+    <div class="search-field">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" id="searchInput" placeholder="Lino, jersey, envíos, taller…" data-i18n-placeholder="srch.ph" autocomplete="off">
+    </div>
+    <p class="search-hint" data-i18n="srch.hint">Buscamos en productos y en todo el contenido de la página; las coincidencias se resaltan automáticamente.</p>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     MODAL DE LOGIN (estructura lista para conectar backend)
+     ============================================================ -->
+<div class="modal" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle" hidden>
+  <div class="modal__box modal__box--small">
+    <button class="modal__close" data-close aria-label="Cerrar">&times;</button>
+    <h2 class="modal__title" id="loginTitle" data-i18n="lg.title">Mi cuenta</h2>
+    <div class="tabs">
+      <button class="tab is-active" data-tab="login" data-i18n="lg.tab1">Entrar</button>
+      <button class="tab" data-tab="register" data-i18n="lg.tab2">Crear cuenta</button>
+    </div>
+
+    <form class="auth-form" id="loginForm" data-panel="login" novalidate>
+      <div class="field"><label for="lgEmail" data-i18n="lg.email">Email</label><input type="email" id="lgEmail" required></div>
+      <div class="field"><label for="lgPass" data-i18n="lg.pass">Contraseña</label><input type="password" id="lgPass" required></div>
+      <button class="btn btn--primary btn--block" type="submit" data-i18n="lg.enter">Entrar</button>
+      <p class="auth-note" data-i18n="lg.note">Demo visual: el sistema de login se conectará con tu backend.</p>
+    </form>
+
+    <form class="auth-form" id="registerForm" data-panel="register" hidden novalidate>
+      <div class="field"><label for="rgName" data-i18n="lg.name">Nombre</label><input type="text" id="rgName" required></div>
+      <div class="field"><label for="rgEmail" data-i18n="lg.email">Email</label><input type="email" id="rgEmail" required></div>
+      <div class="field"><label for="rgPass" data-i18n="lg.pass">Contraseña</label><input type="password" id="rgPass" required minlength="6"></div>
+      <button class="btn btn--primary btn--block" type="submit" data-i18n="lg.create">Crear cuenta</button>
+      <p class="auth-note" data-i18n="lg.note">Demo visual: el sistema de login se conectará con tu backend.</p>
+    </form>
+  </div>
+</div>
+
+<!-- ============================================================
+     MODAL VISTA RÁPIDA DE PRODUCTO
+     ============================================================ -->
+<div class="modal" id="quickModal" role="dialog" aria-modal="true" aria-labelledby="quickTitle" hidden>
+  <div class="modal__box modal__box--wide">
+    <button class="modal__close" data-close aria-label="Cerrar">&times;</button>
+    <div class="quick" id="quickContent"><!-- generado por script.js --></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     CARRITO LATERAL
+     ============================================================ -->
+<aside class="cart" id="cartPanel" aria-label="Carrito de compra" aria-hidden="true">
+  <header class="cart__head">
+    <h2 data-i18n="cart.title">Tu cesta</h2>
+    <button class="modal__close" id="cartClose" aria-label="Cerrar carrito">&times;</button>
+  </header>
+
+  <div class="cart__ship-bar" id="freeShipWrap">
+    <p id="freeShipMsg"></p>
+    <div class="progress"><span id="freeShipFill"></span></div>
+  </div>
+
+  <div class="cart__items" id="cartItems"></div>
+
+  <div class="cart__empty" id="cartEmpty">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2.2l2.1 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="10" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/></svg>
+    <p data-i18n="cart.empty">Tu cesta está vacía.</p>
+    <button class="btn btn--outline" id="cartEmptyCta" data-i18n="cart.emptyCta">Ver la colección</button>
+  </div>
+
+  <footer class="cart__foot" id="cartFoot" hidden>
+    <div class="coupon">
+      <input type="text" id="couponInput" placeholder="Código promocional" data-i18n-placeholder="cart.couponPh">
+      <button class="btn btn--ghost" id="couponBtn" data-i18n="cart.apply">Aplicar</button>
+    </div>
+    <dl class="totals">
+      <div><dt data-i18n="cart.subtotal">Subtotal</dt><dd id="sumSubtotal">0,00 €</dd></div>
+      <div id="rowDiscount" hidden><dt data-i18n="cart.discount">Descuento</dt><dd id="sumDiscount">0,00 €</dd></div>
+      <div class="totals__total"><dt data-i18n="cart.total">Total estimado</dt><dd id="sumTotal">0,00 €</dd></div>
+    </dl>
+    <p class="cart__hint" data-i18n="cart.hint">Los gastos de envío se calculan en el siguiente paso según elijas recogida o envío.</p>
+    <button class="btn btn--primary btn--block" id="checkoutBtn" data-i18n="cart.checkout">Tramitar pedido</button>
+    <button class="btn btn--ghost btn--block" id="clearCartBtn" data-i18n="cart.clear">Vaciar cesta</button>
+  </footer>
+</aside>
+
+<!-- ============================================================
+     MODAL DE CHECKOUT (entrega · pago · resumen · pasarela)
+     ============================================================ -->
+<div class="modal" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="coTitle" hidden>
+  <div class="modal__box modal__box--wide">
+    <button class="modal__close" data-close aria-label="Cerrar">&times;</button>
+    <h2 class="modal__title" id="coTitle" data-i18n="co.title">Finalizar pedido</h2>
+
+    <ol class="stepper" id="stepper">
+      <li class="is-active" data-step="1"><span>1</span><em data-i18n="co.st1">Entrega</em></li>
+      <li data-step="2"><span>2</span><em data-i18n="co.st2">Pago</em></li>
+      <li data-step="3"><span>3</span><em data-i18n="co.st3">Resumen</em></li>
+    </ol>
+
+    <div class="checkout">
+      <div class="checkout__main">
+
+        <!-- PASO 1: ENTREGA -->
+        <section class="co-step is-active" data-panel="1">
+          <div class="option-grid">
+            <label class="option is-selected">
+              <input type="radio" name="delivery" value="pickup" checked>
+              <span class="option__ico"><svg viewBox="0 0 24 24"><path d="M3 9h18l-1.5 11H4.5L3 9Z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg></span>
+              <strong data-i18n="co.pickT">Recogida en el mercado</strong>
+              <small data-i18n="co.pickD">Gratis · Listo en 24 h en nuestra parada del Mercat de Colón.</small>
+              <b class="option__price" data-i18n="co.free">Gratis</b>
+            </label>
+            <label class="option">
+              <input type="radio" name="delivery" value="shipping">
+              <span class="option__ico"><svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg></span>
+              <strong data-i18n="co.shipT">Envío a domicilio</strong>
+              <small data-i18n="co.shipD">24-72 h · Reparto neutro en CO₂. Gratis a partir de 60 €.</small>
+              <b class="option__price">4,90 €</b>
+            </label>
+          </div>
+
+          <!-- Datos de recogida -->
+          <div class="co-fields" id="pickupFields">
+            <div class="field">
+              <label for="coStore" data-i18n="co.store">Punto de recogida</label>
+              <select id="coStore">
+                <option>Mercat de Colón · Parada 12 (València)</option>
+                <option>Mercat Central · Parada 48 (València)</option>
+                <option>Taller VERDA · C/ Flora 7 (València)</option>
+              </select>
+            </div>
+            <div class="field"><label for="coDate" data-i18n="co.date">Día de recogida</label><input type="date" id="coDate"></div>
+            <div class="field">
+              <label for="coTime" data-i18n="co.time">Franja horaria</label>
+              <select id="coTime"><option>10:00 - 12:00</option><option>12:00 - 14:30</option><option>17:00 - 20:30</option></select>
+            </div>
+            <div class="field"><label for="coPickName" data-i18n="co.name">Nombre de quien recoge</label><input type="text" id="coPickName" autocomplete="name"></div>
+            <div class="field"><label for="coPickPhone" data-i18n="co.phone">Teléfono</label><input type="tel" id="coPickPhone" autocomplete="tel"></div>
+          </div>
+
+          <!-- Datos de envío -->
+          <div class="co-fields" id="shippingFields" hidden>
+            <div class="field"><label for="coName" data-i18n="co.name">Nombre y apellidos</label><input type="text" id="coName" autocomplete="name"></div>
+            <div class="field"><label for="coPhone" data-i18n="co.phone">Teléfono</label><input type="tel" id="coPhone" autocomplete="tel"></div>
+            <div class="field field--wide"><label for="coAddress" data-i18n="co.address">Dirección</label><input type="text" id="coAddress" autocomplete="street-address"></div>
+            <div class="field"><label for="coCity" data-i18n="co.city">Ciudad</label><input type="text" id="coCity" autocomplete="address-level2"></div>
+            <div class="field"><label for="coZip" data-i18n="co.zip">Código postal</label><input type="text" id="coZip" inputmode="numeric" autocomplete="postal-code"></div>
+            <div class="field field--wide"><label for="coNotes" data-i18n="co.notes">Notas para el repartidor (opcional)</label><input type="text" id="coNotes"></div>
+          </div>
+          <p class="co-error" id="step1Error" hidden></p>
+        </section>
+
+        <!-- PASO 2: PAGO -->
+        <section class="co-step" data-panel="2">
+          <div class="option-list" id="paymentOptions">
+            <label class="option option--row is-selected" data-pay="store">
+              <input type="radio" name="payment" value="store" checked>
+              <span class="option__ico"><svg viewBox="0 0 24 24"><path d="M4 10h16v10H4z"/><path d="M4 10 6 4h12l2 6"/><path d="M10 20v-5h4v5"/></svg></span>
+              <span><strong data-i18n="co.pay1T">Pagar al recoger en el mercado</strong><small data-i18n="co.pay1D">Reservamos tu pedido 72 h. Pagas con tarjeta o efectivo al recogerlo.</small></span>
+            </label>
+            <label class="option option--row" data-pay="cod">
+              <input type="radio" name="payment" value="cod">
+              <span class="option__ico"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></span>
+              <span><strong data-i18n="co.pay2T">Pagar al recibirlo (contra reembolso)</strong><small data-i18n="co.pay2D">Pagas al repartidor en la entrega. Suplemento de gestión 1,50 €.</small></span>
+            </label>
+            <label class="option option--row" data-pay="online">
+              <input type="radio" name="payment" value="online">
+              <span class="option__ico"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span>
+              <span><strong data-i18n="co.pay3T">Pagar ahora con la pasarela</strong><small data-i18n="co.pay3D">Tarjeta, Bizum o Apple Pay en un entorno seguro.</small></span>
+            </label>
+          </div>
+          <p class="co-note" data-i18n="co.payNote">Puedes cambiar la forma de pago mientras el pedido no esté confirmado.</p>
+        </section>
+
+        <!-- PASO 3: RESUMEN -->
+        <section class="co-step" data-panel="3">
+          <div class="review-block" id="reviewBlock"></div>
+        </section>
+
+        <!-- PANTALLA PASARELA DE PAGO -->
+        <section class="co-step" data-panel="gateway">
+          <div class="gateway">
+            <span class="gateway__lock"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span>
+            <h3 data-i18n="co.gwT">Pasarela de pago segura</h3>
+            <p data-i18n="co.gwD">Vas a ser redirigido al TPV del mercado. Importe total a pagar:</p>
+            <p class="gateway__amount" id="gatewayAmount">0,00 €</p>
+            <dl class="gateway__meta">
+              <div><dt data-i18n="co.gwOrder">Pedido</dt><dd id="gatewayOrder">—</dd></div>
+              <div><dt data-i18n="co.gwMethod">Método</dt><dd data-i18n="co.gwCard">Tarjeta / Bizum</dd></div>
+            </dl>
+            <p class="co-note" data-i18n="co.gwNote">Zona reservada para integrar la pasarela de pago real (Redsys, Stripe, PayPal…). No se procesa ningún cobro en esta demo.</p>
+            <button class="btn btn--primary btn--block" id="gatewayPay" data-i18n="co.gwBtn">Simular pago y confirmar</button>
+          </div>
+        </section>
+
+        <!-- CONFIRMACIÓN -->
+        <section class="co-step" data-panel="done">
+          <div class="done">
+            <span class="done__check"><svg viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></svg></span>
+            <h3 id="doneTitle" data-i18n="co.doneT">¡Pedido confirmado!</h3>
+            <p id="doneText"></p>
+            <div class="done__ref"><span data-i18n="co.gwOrder">Pedido</span> <strong id="doneOrder">—</strong></div>
+            <button class="btn btn--primary" data-close data-i18n="co.doneBtn">Seguir explorando</button>
+          </div>
+        </section>
+      </div>
+
+      <!-- Resumen lateral -->
+      <aside class="checkout__aside" id="checkoutAside">
+        <h3 data-i18n="co.sumT">Tu pedido</h3>
+        <ul class="mini-cart" id="miniCart"></ul>
+        <dl class="totals">
+          <div><dt data-i18n="cart.subtotal">Subtotal</dt><dd id="coSubtotal">0,00 €</dd></div>
+          <div id="coRowDiscount" hidden><dt data-i18n="cart.discount">Descuento</dt><dd id="coDiscount">0,00 €</dd></div>
+          <div><dt data-i18n="co.shippingLine">Entrega</dt><dd id="coShipping">0,00 €</dd></div>
+          <div id="coRowFee" hidden><dt data-i18n="co.feeLine">Gestión contra reembolso</dt><dd id="coFee">0,00 €</dd></div>
+          <div class="totals__total"><dt data-i18n="cart.total">Total</dt><dd id="coTotal">0,00 €</dd></div>
+        </dl>
+        <p class="co-tax" data-i18n="co.tax">IVA incluido</p>
+      </aside>
+    </div>
+
+    <div class="checkout__nav" id="checkoutNav">
+      <button class="btn btn--ghost" id="coBack" data-i18n="co.back">Atrás</button>
+      <button class="btn btn--primary" id="coNext" data-i18n="co.next">Continuar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     MODAL LEGAL / INFORMATIVO
+     ============================================================ -->
+<div class="modal" id="legalModal" role="dialog" aria-modal="true" aria-labelledby="legalTitle" hidden>
+  <div class="modal__box modal__box--small">
+    <button class="modal__close" data-close aria-label="Cerrar">&times;</button>
+    <h2 class="modal__title" id="legalTitle">—</h2>
+    <div class="legal-body" id="legalBody"></div>
+  </div>
+</div>
+
+<!-- Banner de cookies -->
+<div class="cookies" id="cookieBanner" hidden>
+  <p data-i18n="ck.text">Usamos cookies propias para el carrito y el idioma, y cookies analíticas anónimas. Puedes aceptarlas o seguir solo con las necesarias.</p>
+  <div class="cookies__actions">
+    <button class="btn btn--ghost" id="cookieReject" data-i18n="ck.reject">Solo necesarias</button>
+    <button class="btn btn--primary" id="cookieAccept" data-i18n="ck.accept">Aceptar todas</button>
+    <button class="linkish" data-legal="cookies" data-i18n="ck.more">Ver política</button>
+  </div>
+</div>
+
+<!-- Avisos flotantes -->
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
